@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Generator</title>
+</head>
+<body>
+    <h3>Please enter the link of the contributing.md file.</h3>
+    <form action="/generate" method="post">
+        <label for="owner">Owner:</label><br>
+        <input type="text" id="owner" name="owner"><br><br>
+        <label for="repo">Repo:</label><br>
+        <input type="text" id="repo" name="repo"><br><br>
+        <label for="file">File path(relative):</label><br>
+        <input type="text" id="file" name="file"><br><br>
+        <button type="submit">Generate</button>
+    </form>
+</body>
+</html>
