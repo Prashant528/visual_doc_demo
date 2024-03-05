@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
-from utils import download_file
-
+from utils import download_file, download_wiki_file
 app = Flask(__name__)
 
 @app.route('/')
