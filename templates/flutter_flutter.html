@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="static/style.css">
     </head>
     <body>
         <pre class="mermaid">
@@ -61,8 +61,10 @@
             click B2 call createPopup(3)
             click B21 call createPopup(4)
             click B22 call createPopup(5)
-            click B32 call openPopup("")
-            click B33 call openPopup("")
+            click B23 call createPopup(5)
+            click B24 call createPopup(5)
+            click B27a call createPopup(5)
+            click B27b call openPopup("")
             click C1 call openPopup("")
             click C11 call openPopup("")
             click C12 call openPopup("")
@@ -80,10 +82,11 @@
            
             <div class="video-container">
                 <video controls autoplay width="100%" height="100%">
-                    <source id="video_source" src="test_video.mp4" type="video/mp4">
+                    <source id="video_source" src="static/test_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+
         </div>
 
         <div class="popup" onclick="textPopup()">

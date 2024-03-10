@@ -1,0 +1,131 @@
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for the video container */
+.video-container {
+    max-width: 500px; /* Set maximum width for the video container */
+    max-height: 300px; /* Set maximum height for the video container */
+}
+
+/* Style for the close button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.graph_nodes:hover {
+    font-size: 101.5%;
+  }
+
+.mermaidTooltip{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100px; /* Adjust the position of the tooltip (above the node) */
+    left: 50%; /* Center the tooltip horizontally */
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    background-color: rgba(0, 0, 0, 0.193);
+    color: #00000057;
+    padding: 5px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.popup {
+    position: absolute;
+    left: 100px;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 1200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 10%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  /* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+#container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    visibility:hidden;
+    display:none;
+    background-color: rgba(22,22,22,0.5);
+}
+
+#container:target {
+    visibility: visible;
+    display: block;
+}
+.reveal-modal {
+    background:#e1e1e1; 
+    margin: 0 auto;
+    width:160px; 
+    position:relative; 
+    z-index:41;
+    top: 25%;
+    padding:30px; 
+    -webkit-box-shadow:0 0 10px rgba(0,0,0,0.4);
+    -moz-box-shadow:0 0 10px rgba(0,0,0,0.4); 
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
