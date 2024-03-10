@@ -22,7 +22,7 @@ def download_file(owner, repo, file_path):
         return f"An error occurred: {str(e)}"
     
 
-def download_wiki_file(owner, repo, file_path):
+def download_wiki_file(owner, repo):
     # GitHub repository information. Example:
     # owner = 'flutter'
     # repo = 'flutter'

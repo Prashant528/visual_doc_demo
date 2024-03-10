@@ -27,8 +27,8 @@ def save_to_txt(content, filename):
     except Exception as e:
         print(f"An error occurred while saving to {filename}: {str(e)}")
 
-# Example usage:
-url = 'https://github.com/flutter/flutter/wiki/Issue-hygiene'  # Replace with the URL of the webpage you want to extract content from
-webpage_content = extract_webpage_content(url)
-save_to_txt(webpage_content, 'webpage_content.txt')
+# # Example usage:
+# url = 'https://github.com/flutter/flutter/wiki/Issue-hygiene'  # Replace with the URL of the webpage you want to extract content from
+# webpage_content = extract_webpage_content(url)
+# save_to_txt(webpage_content, 'webpage_content.txt')
 

@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <pre class="mermaid">
+          flowchart LR
+          %%{init:{'flowchart':{'nodeSpacing': 80, 'rankSpacing': 30}}}%%
+            A(Contribute to Flutter)-->B(Help in issue database)
+            A-->D(Help in API documentation)
+            A-->E(Help in Quality Assurance)
+            A-->F(Read the style guide)
+            A-->G(Get the flutter <br/>design document template)
+            A-->H(Help in development)
+
+            B-->B1(Join discord, <br/>Read Code of Conduct)
+            B1-->B2(Triage an issue)
+
+            B2-->B21(Determine actionable and non-actionable issues)
+            B2-->B22(Handle duplicates)
+            B2-->B23(Help in documentation issues)
+            B2-->B24(Assigning labels)
+            B2-->B25(Learn team triage process)
+            B2-->B26(Attend critical triage meeting)
+            B2-->B27(Issue hygiene)
+
+            B27-->B27a(About comments)
+            B27-->B27b(Locking an issue)
+            B27-->B27c(Priorities)
+            B27-->B27d(Assigning issues)
+            B27-->B27e(Closing issues)
+
+            H-->H1(Setup engine development environment)
+            H1-->H1a(Get code dependencies)
+            H1a-->H1b(Get the source)
+            H1b-->H1c(Setup Goma)
+
+            H1c-->H41(General compilation tips)-->H4a(Flutter Tools)
+            H1c-->H42(Using a custom dart SDK)-->H4a
+            H1c-->H43(Compiling for Android)-->H4a
+            H1c-->H44(Compiling for iOS from macOS)-->H4a
+            H1c-->H45(Compiling for macOS or Linux)-->H4a
+            H1c-->H46(Compiling for Windows)-->H4a
+            H1c-->H47(Compiling for Fuchsia)-->H4a
+            H1c-->H48(Compiling for testing)-->H4a
+
+            H4a-->H4b(Signing commits)
+
+            H-->H2(Setup framework development environment)
+
+            H2-->H2a(Run examples)
+            H2-->H2b(Flutter tool)
+            H2-->H2c(Style guide)
+            H2-->H2d(Tree Hygiene)
+        
+            click A call createPopup(0)
+            click B call createPopup(1)
+            click B1 call createPopup(2)
+            click B2 call createPopup(3)
+            click B21 call createPopup(4)
+            click B22 call createPopup(5)
+            click B32 call openPopup("")
+            click B33 call openPopup("")
+            click C1 call openPopup("")
+            click C11 call openPopup("")
+            click C12 call openPopup("")
+            click C13 call openPopup("")
+            click C11A call openPopup("")
+            click C11B call openPopup("")
+            click C11C call openPopup("")
+
+            class A,B,C,D,E,F,G,H,B1,B2,B21,B22,B23,B24,B25,B26,B27,B27a,B27b,B27c,B27d,B27e,H1,H1a,H1b,H1c,H1d,H41,H42,H43,H44,H45,H46,H47,H48,H4a,H4b,H2,H2a,H2b,H2c,H2d graph_nodes;
+            
+        </pre>
+    
+        <div class="popup-overlay" id="popupOverlay" onclick="closePopup()">
+            <button class="close-button" onclick="closePopup()">✕</button>
+           
+            <div class="video-container">
+                <video controls autoplay width="100%" height="100%">
+                    <source id="video_source" src="test_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="popup" onclick="textPopup()">
+            <span class="popuptext" id="myPopup">
+                   </span>
+        </div>
+        
+        <div id="container">
+        <div id="exampleModal" class="reveal-modal">
+                <h2>POP UP</h2>
+                    <span class="popuptext" id="myPopup">Hi
+                    </span>
+            <a href="#" class="close-reveal-modal">×</a>
+        </div>
+        </div>
+
+
+        <!-- Button to open the popup -->
+        <!-- <button onclick="openPopup()">Open Video Popup</button> -->
+
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            const callback = function () {
+            alert('A callback was triggered');
+            };
+            const config = {
+                startOnLoad: true,
+                flowchart: { useMaxWidth: true, htmlLabels: true },
+                securityLevel: 'loose',
+            };
+            mermaid.initialize(config);
+
+        </script>
+
+        <script src="static/video_player.js"></script>
+      
+      </body>
+
+</html>

@@ -1,6 +1,6 @@
 dummy_data = {
         'CONTRIBUTING.md' : {
-            'Subheaders':{
+            'Contribute to Flutter':{
                 'Code of Conduct':{
                     'links': {},
                     'summary':'Contains code of conduct'
@@ -59,7 +59,7 @@ dummy_data = {
         'Link to Java' : {},
 
         'Link to Testing the Engine wiki' : {
-            'Subheaders':{
+            'Testing the Engine wiki':{
                 'C++ Core engine':{
                     'links': {},
                     'summary':'Contains code of conduct'
