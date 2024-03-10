@@ -9,6 +9,17 @@ function closePopup() {
     document.getElementById("popupOverlay").style.display = "none";
 }
 
+// Function to open the popup
+function openPopup_contribute(nodeName) {
+
+    document.getElementById("popupOverlay_contribute").style.display = "block";
+}
+
+// Function to close the popup
+function closePopup_contribute() {
+    document.getElementById("popupOverlay_contribute").style.display = "none";
+}
+
 function textPopup(index) {
     var popup = document.getElementById("myPopup");
     // popup.innerText="Welcome to Studytonight"; 
@@ -24,6 +35,27 @@ function createPopup(index){
     popup.document.body.appendChild(aOk);
     }
     
+function createImagesPopup(width=500, height=300){
+    var popup = open("", "Popup", "width=500,height=300");
+
+    var aOk = popup.document.createElement("p");
+    aOk.innerHTML = "1. Fork the flutter/flutter repo into your own GitHub account. If you already have a fork, and are now installing a development environment on a new machine, make sure you've updated your fork so that you don't use stale configuration options."
+    popup.document.body.appendChild(aOk);
+    var img_element = popup.document.createElement("img");
+    img_element.src = "static/images/fork.png"
+    img_element.style.width =  width+'px'; // Set the width
+    img_element.style.height = height + 'px'; // Set the height
+    popup.document.body.appendChild(img_element);
+
+    var text2 = popup.document.createElement("p");
+    text2.innerHTML = "<br>2. Clone the forked repo locally using the method of your choice. GitHub Desktop is simplest."
+    popup.document.body.appendChild(text2);
+    var img_element2 = popup.document.createElement("img");
+    img_element2.src = "static/images/clone.png"
+    img_element2.style.width =  width+'px'; // Set the width
+    img_element2.style.height = height + 'px'; // Set the height
+    popup.document.body.appendChild(img_element2);
+    }
 
 var texts = [
     "We invite you to join the Flutter team, which is made up of volunteers and sponsored folk alike! There are many ways to contribute, including writing code, filing issues on GitHub, helping people on our mailing lists, our chat channels, or on Stack Overflow, helping to triage, reproduce, or fix bugs that people have filed, adding to our documentation, doing outreach about Flutter, or helping out in any other way.We grant commit access (which includes full rights to the issue database, such as being able to edit labels) to people who have gained our trust and demonstrated a commitment to Flutter. For more details see the Contributor access page on our wiki.We communicate primarily over GitHub and Discord.Before you get started, we encourage you to read these documents which describe some of our community norms: Our code of conduct, which stipulates explicitly that everyone must be gracious, respectful, and professional. This also documents our conflict resolution policy and encourages people to ask questions.Values, which talks about what we care most about."

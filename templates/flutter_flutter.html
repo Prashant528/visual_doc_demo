@@ -55,7 +55,7 @@
             H2-->H2c(Style guide)
             H2-->H2d(Tree Hygiene)
         
-            click A call createPopup(0)
+            click A call openPopup_contribute("")
             click B call createPopup(1)
             click B1 call createPopup(2)
             click B2 call createPopup(3)
@@ -71,7 +71,9 @@
             click C13 call openPopup("")
             click C11A call openPopup("")
             click C11B call openPopup("")
-            click C11C call openPopup("")
+            click H call openPopup("")
+            click H2 call createImagesPopup()
+
 
             class A,B,C,D,E,F,G,H,B1,B2,B21,B22,B23,B24,B25,B26,B27,B27a,B27b,B27c,B27d,B27e,H1,H1a,H1b,H1c,H1d,H41,H42,H43,H44,H45,H46,H47,H48,H4a,H4b,H2,H2a,H2b,H2c,H2d graph_nodes;
             
@@ -81,18 +83,29 @@
             <button class="close-button" onclick="closePopup()">✕</button>
            
             <div class="video-container">
-                <video controls autoplay width="100%" height="100%">
-                    <source id="video_source" src="static/test_video.mp4" type="video/mp4">
+                <video controls width="100%" height="100%">
+                    <source id="video_source" src="static/videos/dev_guide.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+        </div>
 
+        <div class="popup-overlay_contribute" id="popupOverlay_contribute" onclick="closePopup_contribute()">
+            <button class="close-button" onclick="closePopup_contribute()">✕</button>
+           
+            <div class="video-container">
+                <video controls width="100%" height="100%">
+                    <source id="video_source_contribute" src="static/videos/contribute.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
 
         <div class="popup" onclick="textPopup()">
             <span class="popuptext" id="myPopup">
                    </span>
         </div>
+        
         
         <div id="container">
         <div id="exampleModal" class="reveal-modal">
