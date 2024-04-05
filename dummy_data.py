@@ -24,7 +24,7 @@ dummy_data = {
                 'Testing':{
                     'links': {
                         'Tree hygiene':'link to Tree hygiene',
-                        'Testing the engine wiki':'link to Testing the engine wiki',
+                        'Testing the engine wiki':'link to Testing the Engine wiki',
                         'Skia Gold':'link to Skia Gold'
                     },
                     'summary':'Contains instruction for setting up the testing environment.'
@@ -54,11 +54,11 @@ dummy_data = {
         },
 
         #C++, Objective C, Java won't have any data since it leads to external link.
-        'Link to C++' : {},
-        'Link to Objective C' : {},
-        'Link to Java' : {},
+        'link to C++' : {},
+        'link to Objective C' : {},
+        'link to Java' : {},
 
-        'Link to Testing the Engine wiki' : {
+        'link to Testing the Engine wiki' : {
             'Subheaders':{
                 'C++ Core engine':{
                     'links': {},
@@ -86,8 +86,7 @@ dummy_data = {
                 'The document provides detailed information about the Engine.'
             },
 
-            'Graph': '''flowchart LR
-                        %%{init:{'flowchart':{'nodeSpacing': 80, 'rankSpacing': 30}}}%%
+            'Graph': '''
                         G2-->G2a(C++ Core Engine)
                         G2-->G2b(Java Android embedding)
                         G2-->G2c(Objective C iOS embedding)

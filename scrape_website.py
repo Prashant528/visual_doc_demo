@@ -22,13 +22,14 @@ def extract_webpage_content(url):
 def save_to_txt(content, filename):
     try:
         with open(filename, 'w', encoding='utf-8') as file:
-            file.write(content)
+            file.write(str(content))
         print(f"Content saved to {filename} successfully.")
     except Exception as e:
         print(f"An error occurred while saving to {filename}: {str(e)}")
 
 # # Example usage:
-# url = 'https://github.com/flutter/flutter/wiki/Issue-hygiene'  # Replace with the URL of the webpage you want to extract content from
-# webpage_content = extract_webpage_content(url)
-# save_to_txt(webpage_content, 'webpage_content.txt')
+if __name__=='__main__':
+    url = 'https://github.com/flutter/flutter/wiki/Issue-hygiene'  # Replace with the URL of the webpage you want to extract content from
+    webpage_content = extract_webpage_content(url)
+    save_to_txt(webpage_content, 'webpage_content.txt')
 

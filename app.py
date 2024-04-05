@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from utils import download_file, download_wiki_file
+from utils import download_file
+from scrape_website import save_to_txt
 from graph_generator import get_final_graph
 app = Flask(__name__)
 
@@ -16,10 +17,11 @@ def generate():
         # Here you can do whatever you want with the submitted link
         # For example, you can process it and generate some output
         print(f"The submitted link is: {owner}/{repo}/{file}.")
-        # content =  download_file(owner, repo, file)
-        content = 'hello'
+        content =  download_file(owner, repo, file)
+        save_to_txt(str(content), 'contrib.md')
+        # content = 'hello'
         #commented for demo, need to uncomment
-        # graph = get_final_graph(file, content)
+        # graph = get_final_graph(file, content, owner, repo)
         # return graph
         return render_template('flutter_flutter.html')
     else:
