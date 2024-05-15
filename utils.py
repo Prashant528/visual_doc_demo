@@ -24,4 +24,4 @@ def download_file(owner, repo, file_path):
 
 
 if __name__ == '__main__':
-    print(download_file('flutter', 'fluttter', 'CONTRIBUTING.md'))
+    print(download_file('flutter', 'flutter', 'CONTRIBUTING.md'))
