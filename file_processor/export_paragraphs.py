@@ -1,6 +1,9 @@
 #imported from Igor's paper
 #https://github.com/fronchetti/FSE-2023/blob/master/scripts/scraper/export.py#L103
 
+'''
+Extracts the paragraphs from the docs given in a md file and dumps them to a text file . 
+'''
 
 import re
 import os
@@ -197,7 +200,7 @@ def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing
 
     # Redefine this variable with your own filepath to cmark-gfm.exe
     # cmark_gfm_exe_path = 'C:\\Users\\fronchettl\\Documents\\cmark-gfm-master\\cmark-gfm-master\\build\\src\\cmark-gfm.exe'
-    cmark_gfm_exe_path = '/Users/tandanp/Documents/doc_scraper/contributing.md'
+    cmark_gfm_exe_path = '/Users/tandanp/Documents/NLP_test_projects/cmark-gfm/build/src/cmark-gfm'
     if os.path.isfile(cmark_gfm_exe_path):
         plaintext = subprocess.run(['cmark-gfm', absolute_path, '--to', 'plaintext'], stdout=subprocess.PIPE)
     else:
