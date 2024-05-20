@@ -220,7 +220,7 @@ def print_paragraphs(paragraphs):
 
 def main():
     # md_file = './contrib.md'
-    txt_file = 'contrib.txt'
+    txt_file = 'file_processor/test_files/tensorflow/outfiles/code_of_conduct.txt'
     # with open(md_file,'r') as md_file:
     #     md_content = md_file.read()
     #     # lines = my_file.readlines()
@@ -233,7 +233,7 @@ def main():
     # txt_content = markdown_to_text('''\n\nContributing to Flutter\n=======================\n\n_tl;dr: join Discord''')
     # print(txt_content)
     # paragraphs = split_into_paragraphs(txt_content)
-    paragraphs = markdn2text_gfm()
+    paragraphs = markdn2text_gfm('file_processor/test_files/tensorflow/CODE_OF_CONDUCT.md')
     print("No of paragraphs = ", len(paragraphs))
     para_list = []
     for idx, paragraph in enumerate(paragraphs):

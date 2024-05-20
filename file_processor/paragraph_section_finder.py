@@ -32,15 +32,18 @@ def get_paragraphs_from_corpus():
             para_corpus.append(paragraph)
             # print("-------------------")
             # print(paragraph)
+            # break
         para_section_indices_ground.append(len(para_corpus))
         
     txt_file = open('./file_processor/outfiles/paragraphs.txt','w')
     txt_file.write(str(para_corpus))
     txt_file.close()
-    print("Length of paragraphs(should be 101) = ", len(para_corpus))
+    print("Length of paragraphs = ", len(para_corpus))
 
     return para_section_indices_ground
 
-print(get_paragraphs_from_corpus())
-print("No of segments = ",len(get_paragraphs_from_corpus()))
+# print(corpus)
+indices = get_paragraphs_from_corpus()
+print(indices)
+print("No of segments = ",len(indices))
 
