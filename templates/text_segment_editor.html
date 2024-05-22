@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Text File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 500px;
+        }
+        button {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h4>Please verify and edit the sections</h4>
+    <textarea id="text-content"></textarea>
+    <button id="confirm-button">Confirm</button>
+
+    <script>
+        // Load the content of the text file into the textarea
+        fetch('static/text_files/contrib.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('text-content').value = data;
+            })
+            .catch(error => {
+                console.error('Error fetching the text file:', error);
+            });
+
+        // Handle the Confirm button click
+        document.getElementById('confirm-button').addEventListener('click', () => {
+            const editedText = document.getElementById('text-content').value;
+            console.log('Confirmed text:', editedText);
+            // You can add code here to handle the edited text, such as sending it to a server
+            window.location.href = "/generate"
+        });
+    </script>
+</body>
+</html>

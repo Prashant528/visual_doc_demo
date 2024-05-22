@@ -8,8 +8,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/generate', methods=['POST'])
-def generate():
+#this loads the editing window for the document segment editing
+@app.route('/edit_segments', methods=['POST'])
+def edit_segments():
     if request.method == 'POST':
         owner = request.form['owner']
         repo = request.form['repo']
@@ -23,9 +24,11 @@ def generate():
         #commented for demo, need to uncomment
         # graph = get_final_graph(file, content, owner, repo)
         # return graph
-        return render_template('flutter_flutter.html')
-    else:
-        return "Method not allowed"
+    return render_template('text_segment_editor.html')
+
+@app.route('/generate')
+def generate():
+    return render_template('flutter_flutter.html')
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)
