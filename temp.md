@@ -1,12 +1,25 @@
 
-Develop and propose new features.
-The following simple process can be used to submit new features or changes to the existing code.
-See if your feature is already being worked on. Check both the Issues and the PRs in the main Harbor repository as well as the Community repository.
-Submit(open PR) the new proposal at community/proposals/new using the already existing template
-The proposal must be labeled as "kind/proposal" - check examples here
-The proposal can be modified and adapted to meet the requirements from the community, other maintainers and contributors. The overall architecture needs to be consistent to avoid duplicate work in the Roadmap.
-Proposal should be discussed at Community meeting Community Meeting agenda to be presented to maintainers and contributors.
-When reviewed and approved it can be implemented either by the original submitter or anyone else from the community which we highly encourage, as the project is community driven. Open PRs in the respective repositories with all the necessary code and test changes as described in the current document.
-Once implemented or during the implementation, the PRs are reviewed by maintainers and contributors, following the best practices and methods.
-After merging the new PRs, the proposal must be moved to community/proposals and marked as done!
-You have made Harbor even better, congratulations. Thank you!
+Developer's Certificate of Origin 1.1
+By making a contribution to this project, I certify that:
+
+ (a) The contribution was created in whole or in part by me and I
+     have the right to submit it under the open source license
+     indicated in the file; or
+
+ (b) The contribution is based upon previous work that, to the best
+     of my knowledge, is covered under an appropriate open source
+     license and I have the right under that license to submit that
+     work with modifications, whether created in whole or in part
+     by me, under the same open source license (unless I am
+     permitted to submit under a different license), as indicated
+     in the file; or
+
+ (c) The contribution was provided directly to me by some other
+     person who certified (a), (b) or (c) and I have not modified
+     it.
+
+ (d) I understand and agree that this project and the contribution
+     are public and that a record of the contribution (including all
+     personal information I submit with it, including my sign-off) is
+     maintained indefinitely and may be redistributed consistent with
+     this project or the open source license(s) involved.
