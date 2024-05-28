@@ -35,7 +35,7 @@ def get_paragraphs_from_corpus():
             # break
         para_section_indices_ground.append(len(para_corpus))
         
-    txt_file = open('./file_processor/test_files/harbor/outfiles/paragraphs.py','w')
+    txt_file = open('./file_processor/test_files/node/outfiles/paragraphs.py','w')
     txt_file.write("para_corpus = ")
     txt_file.write(repr(para_corpus))
     txt_file.write("\n")
