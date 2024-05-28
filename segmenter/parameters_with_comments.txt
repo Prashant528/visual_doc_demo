@@ -1,0 +1,9 @@
+Checkpointing the parameters for segmentation.
+
+May 12 (Demo for Igor, for sentence level):
+TOPIC_CHANGE_THRESHOLD = 0.05
+k=5
+
+May 15 (Demo for Igor, for paragraph level):
+TOPIC_CHANGE_THRESHOLD = 0.05
+k=5

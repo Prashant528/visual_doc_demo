@@ -19,7 +19,8 @@ def edit_segments():
         # For example, you can process it and generate some output
         print(f"The submitted link is: {owner}/{repo}/{file}.")
         content =  download_file(owner, repo, file)
-        save_to_txt(str(content), 'contrib.md')
+        file_name = repo + '_contrib.md'
+        save_to_txt(str(content), file_name)
         # content = 'hello'
         #commented for demo, need to uncomment
         # graph = get_final_graph(file, content, owner, repo)

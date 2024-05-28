@@ -20,8 +20,10 @@ def extract_webpage_content(url):
         return f"An error occurred: {str(e)}"
 
 def save_to_txt(content, filename):
+    file_dir = 'downloaded_files/'
+    file_path = file_dir + filename
     try:
-        with open(filename, 'w', encoding='utf-8') as file:
+        with open(file_path, 'w', encoding='utf-8') as file:
             file.write(str(content))
         print(f"Content saved to {filename} successfully.")
     except Exception as e:
