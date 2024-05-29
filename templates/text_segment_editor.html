@@ -17,11 +17,18 @@
             display: block;
             margin-top: 10px;
         }
+
+        .marker {
+            background-color: yellow;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h4>Please verify and edit the sections</h4>
     <textarea id="text-content"></textarea>
+    <!-- <div id="text-content"></div> -->
+
     <button id="confirm-button">Confirm</button>
 
     <script>
@@ -45,6 +52,28 @@
             // You can add code here to handle the edited text, such as sending it to a server
             window.location.href = "/generate"
         });
+        
+        //change the markers for segments
+        document.getElementById('text-content').addEventListener('dblclick', function(event) {
+            // Check if the double-clicked element is a marker
+            if (event.target.classList.contains('marker')) {
+                // Remove the marker
+                event.target.classList.remove('marker');
+            } else {
+                // Get the selected text range
+                const selection = window.getSelection();
+                if (selection.rangeCount > 0) {
+                    const range = selection.getRangeAt(0);
+                    if (!range.collapsed) {
+                        // Wrap the selected text in a marker span
+                        const span = document.createElement('span');
+                        span.className = 'marker';
+                        range.surroundContents(span);
+                    }
+                }
+            }
+        });
+
     </script>
 </body>
 </html>
