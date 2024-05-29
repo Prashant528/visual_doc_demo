@@ -14,6 +14,7 @@ def download_file(owner, repo, file_path):
         response = requests.get(raw_url)
         if response.status_code == 200:
             print("Response code 200")
+            response.encoding = 'UTF-8'
             # If the request is successful, return the file as a response
             return(response.content)
         else:

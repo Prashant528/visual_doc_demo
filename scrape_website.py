@@ -19,15 +19,17 @@ def extract_webpage_content(url):
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
-def save_to_txt(content, filename):
+def save_to_md(content, filename):
     file_dir = 'downloaded_files/'
     file_path = file_dir + filename
     try:
-        with open(file_path, 'w', encoding='utf-8') as file:
-            file.write(str(content))
-        print(f"Content saved to {filename} successfully.")
+        with open(file_path, 'wb') as file:
+            file.write(content)
+        print(f"Content saved to {file_path} successfully.")
     except Exception as e:
         print(f"An error occurred while saving to {filename}: {str(e)}")
+    
+    return file_path
 
 # # Example usage:
 if __name__=='__main__':

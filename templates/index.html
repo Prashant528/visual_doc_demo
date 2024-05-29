@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link Generator</title>
+    <link rel="stylesheet" href="static/style.css">
+
 </head>
 <body>
     <h3>Please enter the link of the contributing.md file.</h3>
@@ -14,7 +16,15 @@
         <input type="text" id="repo" name="repo"><br><br>
         <label for="file">File path(relative):</label><br>
         <input type="text" id="file" name="file"><br><br>
-        <button type="submit">Generate</button>
+        <button type="submit" onclick="showLoader">Generate</button>
+        <div class="loader" id="loader"></div>
     </form>
+
+    <script>
+        var loader = document.getElementById("loader");
+        function showLoader() {  
+                loader.style.display = "block";
+        }
+    </script>
 </body>
 </html>

@@ -2,11 +2,11 @@ import numpy as np
 import pandas as pd
 import torch
 
-from core import *
-from transformers_call import mean_pooling, get_features_from_sentence, generate_sentences
-from clean_markdown import markdn2text_gfm
+from segmenter.core import *
+from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences
+from segmenter.clean_markdown import markdn2text_gfm
 
-def segment(md_file_path):
+def segment(md_file_path, out_filename):
     #'S' for sentence level, 'P' for paragraph level
     # corpus_type = 'S'
     corpus_type = 'S'
@@ -128,7 +128,7 @@ def segment(md_file_path):
     print(len(predicted_segmentation))
 
 
-    file_name = 'segmenter/outputs/segmented_file.txt'
+    file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
     file1  = open(file_name, "w")
     #works for both sentences and paragraphs
     for idx, sentence in enumerate(sentences):
@@ -140,5 +140,5 @@ def segment(md_file_path):
 
     return file_name
 
-segmented_file_name = segment('downloaded_files/CONTRIB.md')
-print(segmented_file_name)
+# segmented_file_name = segment('downloaded_files/flutter_contrib.md')
+# print(segmented_file_name)

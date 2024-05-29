@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import baselines as topic_segmentation_baselines
+import segmenter.baselines as topic_segmentation_baselines
 import numpy as np
 import pandas as pd
 import torch
@@ -9,7 +9,7 @@ from transformers import RobertaConfig, RobertaModel
 configuration = RobertaConfig()
 roberta_model = RobertaModel(configuration)
 
-from data_types import (
+from segmenter.data_types import (
     TopicSegmentationAlgorithm,
     TopicSegmentationConfig,
     TextTilingHyperparameters,

@@ -26,7 +26,10 @@
 
     <script>
         // Load the content of the text file into the textarea
-        fetch('static/text_files/contrib.txt')
+        const file_path = "{{ file_path }}";
+        // const file_path = '/static/segmenter_outputs/segmented_file.txt'
+        console.log("File path = ", file_path)
+        fetch(file_path)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('text-content').value = data;
