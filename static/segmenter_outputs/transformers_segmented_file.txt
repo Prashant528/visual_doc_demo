@@ -26,7 +26,6 @@ If you don't know where to start, there is a special Good First
 Issue listing.
 
 
------------------------------<PREDICTEDSEGMENT>--------------------------
 
 It will give you a list of
 open issues that are beginner-friendly and help you start contributing to open-source.
@@ -61,9 +60,6 @@ TensorFlow versions when applicable.
 - A short, self-contained, code snippet that allows us to reproduce the bug in
 less than 30s.
 
-
------------------------------<PREDICTEDSEGMENT>--------------------------
-
 - The full traceback if an exception is raised.
 - Attach any other additional information, like screenshots, you think may help.
 To get the OS and software versions automatically, run the following command:
@@ -81,9 +77,6 @@ What is the motivation behind this feature?
 Is it related to a problem or frustration with the library?
 Is it a feature related to something you need for a project?
 Is it something you worked on and think it could benefit the community?
-
-
------------------------------<PREDICTEDSEGMENT>--------------------------
 
 Whatever it is, we'd love to hear about it!
 2.
@@ -152,8 +145,6 @@ Create a new branch to hold your development changes:
 git checkout -b a-descriptive-name-for-my-changes
 🚨 Do not work on the main branch!
 
-
------------------------------<PREDICTEDSEGMENT>--------------------------
 
 4.
 Set up a development environment by running the following command in a virtual environment:
@@ -257,9 +248,6 @@ are working on it).
 These are
 useful to avoid duplicated work, and to differentiate it from PRs ready to be merged.
 
-
------------------------------<PREDICTEDSEGMENT>--------------------------
-
 ☐ Make sure existing tests pass.
 ☐ If adding a new feature, also add tests for it.
 - If you are adding a new model, make sure you use
@@ -270,7 +258,6 @@ RUN_SLOW=1 python -m pytest tests/models/my_new_model/test_my_new_model.py.
 RUN_SLOW=1 python -m pytest tests/models/{your_model_name}/test_tokenization_{your_model_name}.py passes.
 
 
------------------------------<PREDICTEDSEGMENT>--------------------------
 
 - CircleCI does not run the slow tests, but GitHub Actions does every night!
 ☐ All public methods must have informative docstrings (see
@@ -314,7 +301,6 @@ Remember to specify a path to a subfolder or a test file to run the test.
 Otherwise, you'll run all the tests in the tests or examples folder, which will take a very long time!
 
 
------------------------------<PREDICTEDSEGMENT>--------------------------
 
 RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_new_model
 RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification

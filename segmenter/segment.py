@@ -126,7 +126,7 @@ def segment(md_file_path, out_filename):
 
     # print(predicted_segmentation)
     print(len(predicted_segmentation))
-
+    print("Preditcion section indices = ", predicted_section_indices)
 
     file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
     file1  = open(file_name, "w")

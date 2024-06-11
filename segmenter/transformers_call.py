@@ -3,6 +3,7 @@ import torch
 import torch.nn.functional as F
 from nltk.tokenize import sent_tokenize
 import nltk
+from tqdm import tqdm
 nltk.download('punkt')
 
 #Mean Pooling - Take attention mask into account for correct averaging
@@ -15,10 +16,12 @@ def mean_pooling(model_output, attention_mask):
 def get_features_from_sentence(sentences):
   batch_features = []
   # Load model from HuggingFace Hub
+  print("Loading the ROBERTA model...")
   tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-roberta-large-v1')
   model = AutoModel.from_pretrained('sentence-transformers/all-roberta-large-v1')
 
-  for sentence in sentences:
+  print("Generating sentence embeddings...")
+  for sentence in tqdm(sentences):
     # Tokenize sentence
     encoded_input = tokenizer(sentence, padding=True, truncation=True, return_tensors='pt')
 
