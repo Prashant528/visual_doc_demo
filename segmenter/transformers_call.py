@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from nltk.tokenize import sent_tokenize
 import nltk
 from tqdm import tqdm
+from segmenter.bullet_points_finder import find_bullet_points
 nltk.download('punkt')
 
 #Mean Pooling - Take attention mask into account for correct averaging
@@ -41,10 +42,43 @@ def get_features_from_sentence(sentences):
   return batch_features
 
 
-def generate_sentences(para):
+def generate_sentences(corpus_file):
   '''
   returns a list of sentences given a a paragraph.
-  I'm aware that this should not have been a function.
+  We treat lines in between the bullet points as a single sentence(unit).
+  Reason: The segmenter was creating segments in between the bullet points which is not desirable in our segments.
   '''
-  sentences = sent_tokenize(para)
-  return sentences
+  print("Finding bullet points...")
+  bullet_points_indices = find_bullet_points(corpus_file)
+
+  print("Tokenizing into sentences...")
+  #get the sentences of the sections
+  #sections between bullet points are treated as a single sentence.
+  all_sentences = []
+  with open(corpus_file, 'r') as f:
+      #if there were no bullet points
+      if len(bullet_points_indices)==0:
+        whole_content = f.read()
+        return sent_tokenize(whole_content)
+      
+      #if there were bullet points, then we have to filter those lines.
+      all_lines = f.readlines()
+      start_idx = 1   
+      #don't split the bullet points into paragraphs.
+      for bullet_start, bullet_end in bullet_points_indices:
+          #add sentences in non_bullet sections
+          #For start_idx-1: I noticed that one line before bullet points is almost always together so including that line too.
+          lines_till_bullets = all_lines[start_idx-1:bullet_start]
+          non_bullet_section = ' '.join(lines_till_bullets)
+          sentences = sent_tokenize(non_bullet_section)
+          all_sentences = all_sentences + sentences
+
+          #add the bullet point section as a single sentence
+          lines_in_between_bullets = all_lines[bullet_start:bullet_end]
+          bullet_section = ' '.join(lines_in_between_bullets)
+          all_sentences.append(bullet_section)
+
+          #update the start of next bullet point to find another non-bullet points section.
+          start_idx = bullet_end
+
+  return all_sentences

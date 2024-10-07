@@ -1,5 +1,5 @@
 import re
-from segmenter.clean_markdown import markdn2text_gfm
+from clean_markdown import markdn2text_gfm
 
 def find_bullet_points(file_path):
 
@@ -27,15 +27,12 @@ def find_bullet_points(file_path):
 
     return bullet_points
 
-def main():
-    repo = 'transformers'
-    md_file_path = '/Users/tandanp/Documents/doc_scraper/downloaded_files/'+repo+'_contrib.md'
-    txt_file_path = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+repo+'.txt'
-    markdn2text_gfm(md_file_path, repo)
-    bullet_points = find_bullet_points(txt_file_path)
-    print("No of sections found = ", len(bullet_points))
-    for start, end in bullet_points:
-        print(f"Bullet point section starts at line {start + 1} and ends at line {end + 1}")
-
-if __name__ == '__main__':
-    main()
+# Usage
+repo = 'transformers'
+md_file_path = '/Users/tandanp/Documents/doc_scraper/downloaded_files/'+repo+'_contrib.md'
+txt_file_path = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+repo+'.txt'
+markdn2text_gfm(md_file_path, repo)
+bullet_points = find_bullet_points(txt_file_path)
+print("No of sections found = ", len(bullet_points))
+for start, end in bullet_points:
+    print(f"Bullet point section starts at line {start + 1} and ends at line {end + 1}")

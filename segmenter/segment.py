@@ -15,18 +15,19 @@ def segment(md_file_path, out_filename):
 
     WINDOW_SIZE = 5
 
-    paragraphs = markdn2text_gfm(md_file_path)
-    corpus = ''
-    for paragraph in paragraphs:
-        corpus  =  corpus + '\n' + paragraph
-    sentences = generate_sentences(corpus)
+    #gfm parser gets the md file and parses it to a text file.
+    parsed_file_path = markdn2text_gfm(md_file_path)
+    # corpus_file = open(parsed_file_path, 'r')
+    # corpus = corpus_file.readlines()
+    # for paragraph in paragraphs:
+    #     corpus  =  corpus + '\n' + paragraph
+
+    sentences = generate_sentences(parsed_file_path)
     print("Sentences:", len(sentences))
 
     features = get_features_from_sentence(sentences)
 
     print(len(features[0]))
-
-
     res = []
     k= WINDOW_SIZE
     for i in range(k, len(features) - k):

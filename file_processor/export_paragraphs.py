@@ -40,7 +40,7 @@ def create_analysis_file(worksheet_name, raw_filepath, spreadsheet_filepath):
     absolute_path = os.path.abspath(raw_filepath)
 
     # Redefine this variable with your own filepath to cmark-gfm.exe
-    cmark_gfm_exe_path = 'C:\\Users\\fronchettl\\Documents\\cmark-gfm-master\\cmark-gfm-master\\build\\src\\cmark-gfm.exe'
+    cmark_gfm_exe_path = '/Users/tandanp/Documents/cmark-gfm/build/src/cmark-gfm.exe'
 
     if os.path.isfile(cmark_gfm_exe_path):
         plaintext = subprocess.run([cmark_gfm_exe_path, absolute_path, '--to', 'plaintext'], stdout=subprocess.PIPE)
@@ -200,7 +200,7 @@ def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing
 
     # Redefine this variable with your own filepath to cmark-gfm.exe
     # cmark_gfm_exe_path = 'C:\\Users\\fronchettl\\Documents\\cmark-gfm-master\\cmark-gfm-master\\build\\src\\cmark-gfm.exe'
-    cmark_gfm_exe_path = '/Users/tandanp/Documents/NLP_test_projects/cmark-gfm/build/src/cmark-gfm'
+    cmark_gfm_exe_path = '/Users/tandanp/Documents/cmark-gfm/build/src/cmark-gfm'
     if os.path.isfile(cmark_gfm_exe_path):
         plaintext = subprocess.run(['cmark-gfm', absolute_path, '--to', 'plaintext'], stdout=subprocess.PIPE)
     else:
