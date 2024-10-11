@@ -13,4 +13,3 @@ $ youtube-dl -v <your command line>
 [debug] Python version 2.6.6 - Windows-2003Server-5.2.3790-SP2
 [debug] exe versions: ffmpeg N-75573-g1d0487f, ffprobe N-75573-g1d0487f, rtmpdump 2.4
 [debug] Proxy map: {}
-`
