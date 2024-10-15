@@ -338,6 +338,11 @@ RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_ne
 RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification
 ```
 
+      | abc | def |
+      | --- | --- |
+      | bar |
+      | bar | baz | boo |
+
 Like the slow tests, there are other environment variables available which not enabled by default during testing:
 - `RUN_CUSTOM_TOKENIZERS`: Enables tests for custom tokenizers.
 - `RUN_PT_FLAX_CROSS_TESTS`: Enables tests for PyTorch + Flax integration.
@@ -392,3 +397,8 @@ When updating the main branch of a forked repository, please follow these steps 
    git commit -m '<your message without GitHub references>'
    git push --set-upstream origin your-branch-for-syncing
    ```
+
+| abc | def |
+| --- | --- |
+| bar |
+| bar | baz | boo |

@@ -5,11 +5,12 @@ import torch
 from segmenter.core import *
 from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences
 from segmenter.clean_markdown import markdn2text_gfm
+from segmenter.bullet_points_finder import get_block_lines, add_block_identifier
 
 def segment(md_file_path, out_filename):
     #'S' for sentence level, 'P' for paragraph level
     # corpus_type = 'S'
-    corpus_type = 'S'
+    corpus_type = 'P'
 
     TOPIC_CHANGE_THRESHOLD = 0.05
 
@@ -21,6 +22,12 @@ def segment(md_file_path, out_filename):
     # corpus = corpus_file.readlines()
     # for paragraph in paragraphs:
     #     corpus  =  corpus + '\n' + paragraph
+
+    #adding blocks information in md file
+    block_of_lines = get_block_lines(parsed_file_path)
+    print("Block of lines = ", block_of_lines)
+    add_block_identifier(parsed_file_path, block_of_lines)
+
 
     sentences = generate_sentences(parsed_file_path)
     print("Sentences:", len(sentences))
@@ -80,7 +87,6 @@ def segment(md_file_path, out_filename):
         )
     depth_score_timeseries = depth_scores
 
-    TOPIC_CHANGE_THRESHOLD = 0.05
     n = len(depth_score_timeseries)
     print("Length of depth score timeseries (should be actual length-2*window size+1?) = ", n)
     threshold = TOPIC_CHANGE_THRESHOLD * max(depth_score_timeseries)
@@ -122,7 +128,14 @@ def segment(md_file_path, out_filename):
             predicted_section_indices.append(idx + offset)
 
     predicted_segmentation = [0] * len(sentences)
+
+
+
     for idx in predicted_section_indices:
+        for line_block in block_of_lines:
+                #shift the segmentation marker to the end of the block
+                if idx > line_block[0] and idx < line_block[1]:
+                    idx = line_block[1]
         predicted_segmentation[idx] = 1
 
     # print(predicted_segmentation)

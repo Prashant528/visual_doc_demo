@@ -283,6 +283,11 @@ Remember to specify a path to a subfolder or a test file to run the test. Otherw
 RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_new_model
 RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification
 
+  | abc | def |
+  | --- | --- |
+  | bar |
+  | bar | baz | boo |
+
 Like the slow tests, there are other environment variables available which not enabled by default during testing:
 
   - RUN_CUSTOM_TOKENIZERS: Enables tests for custom tokenizers.
@@ -333,3 +338,8 @@ When updating the main branch of a forked repository, please follow these steps 
     git pull --squash --no-commit upstream main
     git commit -m '<your message without GitHub references>'
     git push --set-upstream origin your-branch-for-syncing
+
+| abc | def |
+| --- | --- |
+| bar |
+| bar | baz | boo |

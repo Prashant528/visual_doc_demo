@@ -14,13 +14,15 @@ We grant commit access (which includes full rights to the issue
 database, such as being able to edit labels) to people who have gained
 our trust and demonstrated a commitment to Flutter. For more details
 see the Contributor access
-page on our wiki.
+page in our docs.
 
 We communicate primarily over GitHub and Discord.
 
 Before you get started, we encourage you to read these documents which describe some of our community norms:
+THIS IS START BLOCK MARKER.
 
 1.  Our code of conduct, which stipulates explicitly
+    THIS IS END BLOCK MARKER.
     that everyone must be gracious, respectful, and professional. This
     also documents our conflict resolution policy and encourages people
     to ask questions.
@@ -28,22 +30,26 @@ Before you get started, we encourage you to read these documents which describe 
 2.  Values,
     which talks about what we care most about.
 
-Helping out in the issue database
+Helping out in the issue database THIS IS START BLOCK MARKER.
 
 Triage is the process of going through bug reports and determining if they are valid, finding out
 how to reproduce them, catching duplicate reports, and generally making our issues list
 useful for our engineers.
 
 If you want to help us triage, you are very welcome to do so!
+THIS IS START BLOCK MARKER.
+THIS IS END BLOCK MARKER.
 
 1.  Join the #hackers-triage Discord channel.
+    THIS IS END BLOCK MARKER.
+    THIS IS START BLOCK MARKER.
 
 2.  Read our code of conduct, which stipulates explicitly
     that everyone must be gracious, respectful, and professional. If you're helping out
     with triage, you are representing the Flutter team, and so you want to make sure to
     make a good impression!
 
-3.  Help out as described in our wiki: https://github.com/flutter/flutter/wiki/Triage
+3.  Help out as described in our triage guide
     You won't be able to add labels at first, so instead start by trying to
     do the other steps, e.g. trying to reproduce the problem and asking for people to
     provide enough details that you can reproduce the problem, pointing out duplicates,
@@ -59,7 +65,9 @@ If you want to help us triage, you are very welcome to do so!
     contributor access wiki
     page for details.
 
-Quality Assurance
+THIS IS START BLOCK MARKER. THIS IS END BLOCK MARKER. Quality Assurance
+
+THIS IS END BLOCK MARKER.
 
 One of the most useful tasks, closely related to triage, is finding and filing bug reports. Testing
 beta releases, looking for regressions, creating test cases, adding to our test suites, and
@@ -70,7 +78,7 @@ are really valuable contributions to open source projects.
 If this interests you, you can jump in and submit bug reports without needing anyone's permission!
 The #quality-assurance channel on our Discord server
 is a good place to talk about what you're doing. We're especially eager for QA testing when
-we announce a beta release. See https://github.com/flutter/flutter/wiki/Quality-Assurance for
+we announce a beta release. See quality assurance for
 more details.
 
 If you want to contribute test cases, you can also submit PRs. See the next section
@@ -82,10 +90,15 @@ browsers, long before I wrote a line of code for any open source project. —Hix
 
 Developing for Flutter
 
-If you would prefer to write code, you may wish to start with our list of good first issues for Flutter or for Flutter DevTools. See the respective sections below for further instructions.
+If you prefer to write code, consider starting with the list of good
+first issues for Flutter or for Flutter DevTools.
+Reference the respective sections below for further instructions.
+
+THIS IS START BLOCK MARKER.
 
 Framework and Engine
 
+THIS IS END BLOCK MARKER.
 To develop for Flutter, you will eventually need to become familiar
 with our processes and conventions. This section lists the documents
 that describe these methodologies. The following list is ordered: you
@@ -99,6 +112,7 @@ presented.
     uses C++, Java, and Objective-C.
 
 2.  Setting up your framework development environment,
+    THIS IS START BLOCK MARKER.
     which describes the steps you need to configure your computer to
     work on Flutter's framework. Flutter's framework mainly uses Dart.
 
@@ -120,9 +134,10 @@ How to contribute to Flutter
 
 In addition to the documents, there is a video linked above on How to contribute to Flutter
 from the Flutter YouTube channel,
-there are many pages on our Wiki,
+there are many pages in our docs,
 and an article Contributing to Flutter: Getting Started
 on Medium that may be of interest. For a curated list of pages see the sidebar
+THIS IS END BLOCK MARKER.
 on the wiki's home page. They are more or less listed in order of importance.
 
 DevTools
@@ -134,7 +149,9 @@ are generally excited about improving the Dart & Flutter developer experience.
 Please see the DevTools CONTRIBUTING.md
 guide to get started.
 
-Outreach
+THIS IS START BLOCK MARKER. Outreach
+
+THIS IS END BLOCK MARKER.
 
 If your interests lie in the direction of developer relations and developer outreach,
 whether advocating for Flutter, answering questions in fora like
@@ -150,8 +167,10 @@ collaborating, or want to coordinate their efforts with yours.
 API documentation
 
 Another great area to contribute in is sample code and API documentation. If this is an area that interests you, join our
-Discord server and introduce yourself on the #hackers-deverl, #hackers-framework,
+THIS IS START BLOCK MARKER.
+Discord server and introduce yourself on the #hackers-devrel, #hackers-framework,
 or #hackers-engine channels, describing your area of interest. As our API docs are integrated into our source code, see the
+THIS IS END BLOCK MARKER.
 "developing for Flutter" section above for a guide on how to set up your developer environment.
 
 To contribute API documentation, an excellent command of the English language is particularly helpful, as is a careful attention to detail.
@@ -170,11 +189,16 @@ to create new diagrams for the API docs.
 
 Releases
 
+THIS IS START BLOCK MARKER.
+
 If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual
+THIS IS END BLOCK MARKER.
 generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases
 channel of our Discord server.
 
-Social events in the contributor community
+THIS IS START BLOCK MARKER. Social events in the contributor community
+
+THIS IS END BLOCK MARKER.
 
 Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself.
 This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example.

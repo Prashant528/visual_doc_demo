@@ -27,6 +27,7 @@ def find_bullet_points(file_path):
 
     return bullet_points
 
+
 # Usage
 repo = 'transformers'
 md_file_path = '/Users/tandanp/Documents/doc_scraper/downloaded_files/'+repo+'_contrib.md'
