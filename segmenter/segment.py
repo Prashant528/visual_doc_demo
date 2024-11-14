@@ -5,7 +5,7 @@ import torch
 from segmenter.core import *
 from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences
 from segmenter.clean_markdown import markdn2text_gfm
-from segmenter.bullet_points_finder import get_block_lines, add_block_identifier
+from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
 def segment(md_file_path, out_filename):
     #'S' for sentence level, 'P' for paragraph level
@@ -23,14 +23,16 @@ def segment(md_file_path, out_filename):
     # for paragraph in paragraphs:
     #     corpus  =  corpus + '\n' + paragraph
 
-    #adding blocks information in md file
+    #adding blocks information in parsed file since it preserves the formatting of md.
     block_of_lines = get_block_lines(parsed_file_path)
     print("Block of lines = ", block_of_lines)
     add_block_identifier(parsed_file_path, block_of_lines)
 
-
     sentences = generate_sentences(parsed_file_path)
-    print("Sentences:", len(sentences))
+
+    block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
+
+    print("Block markers in sentences:", block_marker_indices)
 
     features = get_features_from_sentence(sentences)
 
@@ -129,12 +131,11 @@ def segment(md_file_path, out_filename):
 
     predicted_segmentation = [0] * len(sentences)
 
-
-
     for idx in predicted_section_indices:
-        for line_block in block_of_lines:
+        for line_block in block_marker_indices:
                 #shift the segmentation marker to the end of the block
                 if idx > line_block[0] and idx < line_block[1]:
+                    print(f"Segment found inside a block at: {idx} between {line_block[0]} and {line_block[1]}.")
                     idx = line_block[1]
         predicted_segmentation[idx] = 1
 

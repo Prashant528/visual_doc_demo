@@ -15,32 +15,27 @@ For more details
  see the Contributor access
  page in our docs.
 We communicate primarily over GitHub and Discord.
-Before you get started, we encourage you to read these documents which describe some of our community norms:
- 
- 1.
+1.
 Our code of conduct, which stipulates explicitly
      that everyone must be gracious, respectful, and professional.
 This
      also documents our conflict resolution policy and encourages people
- THIS IS START BLOCK MARKER.
-to ask questions.
+     to ask questions.
 2.
 Values,
      which talks about what we care most about.
 Helping out in the issue database
  
  Triage is the process of going through bug reports and determining if they are valid, finding out
- THIS IS END BLOCK MARKER.
-how to reproduce them, catching duplicate reports, and generally making our issues list
+ how to reproduce them, catching duplicate reports, and generally making our issues list
  useful for our engineers.
 If you want to help us triage, you are very welcome to do so!
 1.
-Join the #hackers-triage Discord channel.
 
 
 -----------------------------<PREDICTEDSEGMENT>--------------------------
 
-THIS IS START BLOCK MARKER.
+Join the #hackers-triage Discord channel.
 2.
 Read our code of conduct, which stipulates explicitly
      that everyone must be gracious, respectful, and professional.
@@ -67,5 +62,168 @@ See the
      contributor access wiki
      page for details.
 Quality Assurance
- THIS IS END BLOCK MARKER.
 
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+
+
+ One of the most useful tasks, closely related to triage, is finding and filing bug reports.
+Testing
+ beta releases, looking for regressions, creating test cases, adding to our test suites, and
+ other work along these lines can really drive the quality of the product up.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+Creating tests
+ that increase our test coverage, writing tests for issues others have filed, all these tasks
+ are really valuable contributions to open source projects.
+If this interests you, you can jump in and submit bug reports without needing anyone's permission!
+The #quality-assurance channel on our Discord server
+ is a good place to talk about what you're doing.
+We're especially eager for QA testing when
+ we announce a beta release.
+See quality assurance for
+ more details.
+If you want to contribute test cases, you can also submit PRs.
+See the next section
+ for how to set up your development environment, or ask in #hackers-test on Discord.
+As a personal side note, this is exactly the kind of work that first got me into open
+ source.
+I was a Quality Assurance volunteer on the Mozilla project, writing test cases for
+ browsers, long before I wrote a line of code for any open source project.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+—Hixie
+ 
+ Developing for Flutter
+ 
+ If you prefer to write code, consider starting with the list of good
+ first issues for Flutter or for Flutter DevTools.
+Reference the respective sections below for further instructions.
+Framework and Engine
+ 
+ To develop for Flutter, you will eventually need to become familiar
+ with our processes and conventions.
+This section lists the documents
+ that describe these methodologies.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+The following list is ordered: you
+ are strongly recommended to go through these documents in the order
+ presented.
+1.
+Setting up your engine development environment,
+     which describes the steps you need to configure your computer to
+     work on Flutter's engine.
+If you only want to write code for the
+     Flutter framework, you can skip this step.
+Flutter's engine mainly
+     uses C++, Java, and Objective-C.
+ 
+ 2.
+Setting up your framework development environment,
+     which describes the steps you need to configure your computer to
+     work on Flutter's framework.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+Flutter's framework mainly uses Dart.
+3.
+Tree hygiene,
+     which covers how to land a PR, how to do code review, how to
+     handle breaking changes, how to handle regressions, and how to
+     handle post-commit test failures.
+4.
+Our style guide,
+     which includes advice for designing APIs for Flutter, and how to
+     format code in the framework.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+5.
+Flutter design doc template,
+     which should be used when proposing a new technical design.
+This is a good
+     practice to do before coding more intricate changes.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+See also our guidance for writing design docs.
+How to contribute to Flutter
+ 
+ In addition to the documents, there is a video linked above on How to contribute to Flutter
+ from the Flutter YouTube channel,
+ there are many pages in our docs,
+ and an article Contributing to Flutter: Getting Started
+ on Medium that may be of interest.
+For a curated list of pages see the sidebar
+ on the wiki's home page.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+They are more or less listed in order of importance.
+DevTools
+ 
+ Contributing code to Dart & Flutter DevTools may be a good place to start if you are
+ looking to dip your toes into contributing with a relatively low-cost setup or if you
+ are generally excited about improving the Dart & Flutter developer experience.
+Please see the DevTools CONTRIBUTING.md
+ guide to get started.
+Outreach
+ 
+ If your interests lie in the direction of developer relations and developer outreach,
+ whether advocating for Flutter, answering questions in fora like
+ Stack Overflow
+ or Reddit,
+ or creating content for our documentation
+ or sites like YouTube,
+ the best starting point is to join the #hackers-devrel Discord channel.
+From there, you can describe what you're interested in doing, and go ahead and do it!
+As others become familiar with your work, they may have feedback, be interested in
+ collaborating, or want to coordinate their efforts with yours.
+API documentation
+ 
+ Another great area to contribute in is sample code and API documentation.
+If this is an area that interests you, join our
+ Discord server and introduce yourself on the #hackers-devrel, #hackers-framework,
+ or #hackers-engine channels, describing your area of interest.
+
+
+-----------------------------<PREDICTEDSEGMENT>--------------------------
+
+As our API docs are integrated into our source code, see the
+ "developing for Flutter" section above for a guide on how to set up your developer environment.
+To contribute API documentation, an excellent command of the English language is particularly helpful, as is a careful attention to detail.
+We have a whole section in our style guide
+ that you should read before you write API documentation.
+It includes notes on the "Flutter Voice", such as our word and grammar conventions.
+In general, a really productive way to improve documentation is to use Flutter and stop any time you have a question: find the answer, then
+ document the answer where you first looked for it.
+We also keep a list of areas that need better API documentation.
+In many cases, we have written down what needs to be said in the relevant issue, we just haven't gotten around to doing it!
+We're especially eager to add sample code and diagrams to our API documentation.
+Diagrams are generated from Flutter code that
+ draws to a canvas, and stored in a special repository.
+It can be a lot of fun
+ to create new diagrams for the API docs.
+Releases
+ 
+ If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual
+ generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases
+ channel of our Discord server.
+Social events in the contributor community
+ 
+ Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself.
+This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example.
+If this is an area that is of interest to you, please join our Discord and ping Hixie on the #hackers
+ channel!

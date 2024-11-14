@@ -19,25 +19,27 @@ page in our docs.
 We communicate primarily over GitHub and Discord.
 
 Before you get started, we encourage you to read these documents which describe some of our community norms:
+
 THIS IS START BLOCK MARKER.
--  Our code of conduct, which stipulates explicitly
+1.  Our code of conduct, which stipulates explicitly
     that everyone must be gracious, respectful, and professional. This
     also documents our conflict resolution policy and encourages people
     to ask questions.
--  Values,
+
+2.  Values,
     which talks about what we care most about.
+THIS IS END BLOCK MARKER.
 
 Helping out in the issue database
-THIS IS END BLOCK MARKER.
-Triage is the process of going through bug reports and determining if they are valid, finding out
 
+Triage is the process of going through bug reports and determining if they are valid, finding out
 how to reproduce them, catching duplicate reports, and generally making our issues list
 useful for our engineers.
 
 If you want to help us triage, you are very welcome to do so!
 
-1.  Join the #hackers-triage Discord channel.
 THIS IS START BLOCK MARKER.
+1.  Join the #hackers-triage Discord channel.
 
 2.  Read our code of conduct, which stipulates explicitly
     that everyone must be gracious, respectful, and professional. If you're helping out
@@ -59,9 +61,9 @@ THIS IS START BLOCK MARKER.
     team on GitHub and you'll be able to add labels too. See the
     contributor access wiki
     page for details.
+THIS IS END BLOCK MARKER.
 
 Quality Assurance
-THIS IS END BLOCK MARKER.
 
 One of the most useful tasks, closely related to triage, is finding and filing bug reports. Testing
 beta releases, looking for regressions, creating test cases, adding to our test suites, and
@@ -95,8 +97,8 @@ with our processes and conventions. This section lists the documents
 that describe these methodologies. The following list is ordered: you
 are strongly recommended to go through these documents in the order
 presented.
-THIS IS START BLOCK MARKER.
 
+THIS IS START BLOCK MARKER.
 1.  Setting up your engine development environment,
     which describes the steps you need to configure your computer to
     work on Flutter's engine. If you only want to write code for the

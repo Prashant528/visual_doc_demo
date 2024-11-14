@@ -126,25 +126,53 @@ def get_block_lines(file_path):
 
     return blocks-smaller_blocks
 
-def add_block_identifier(md_file_path, blocks):
+def add_block_identifier(file_path, blocks):
     start_block_marker = "THIS IS START BLOCK MARKER."
     end_block_marker = "THIS IS END BLOCK MARKER."
 
-
-    with open(md_file_path, 'r') as md_file:
+    with open(file_path, 'r') as md_file:
         lines = md_file.readlines()
     
     block_marker_offset = 0
+    blocks = sorted(blocks)
     for block in blocks:
         start_line, end_line = block
-        lines.insert(start_line - 1 + block_marker_offset, start_block_marker + '\n')
+        lines.insert(start_line + block_marker_offset, start_block_marker + '\n')
         lines.insert(end_line + 1 + block_marker_offset, end_block_marker + '\n')
         block_marker_offset = block_marker_offset + 2
 
 
     # Write the modified content back to the markdown file
-    with open(md_file_path, 'w') as md_file:
+    with open(file_path, 'w') as md_file:
         md_file.writelines(lines)
+
+def find_block_markers_in_sentences(sentences):
+    start_block_marker = "THIS IS START BLOCK MARKER."
+    end_block_marker = "THIS IS END BLOCK MARKER."
+    new_sentences  = []
+    block_markers = []
+    start_block_index = None
+    end_block_index = None
+    for i in range(len(sentences)):
+        # print(sentences[i])
+        #the first condition is to make sure we consider the first START_MARKER if we get multiple starting markers consecutively.
+        if start_block_marker in sentences[i]:
+            start_block_index = i
+            # print("Starting block found at ", i)
+        elif end_block_marker in sentences[i]:
+            end_block_index = i
+            # print("Ending block found at ", i)
+        else:
+            new_sentences.append(sentences[i])
+        
+        if start_block_index and end_block_index:
+            block_markers.append((start_block_index, end_block_index))
+            print(f"Block marker added: {start_block_index}, {end_block_index}")
+            start_block_index = None
+            end_block_index = None
+
+    return block_markers, new_sentences
+
 
 def main():
     repo = 'flutter'
