@@ -4,12 +4,13 @@ import csv
 # import xlsxwriter
 import subprocess
 
-def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing.md'):
+def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing.md', repo=''):
+    print("Parsing markdown as plain text file...")
     absolute_path = md_file
 
     # Redefine this variable with your own filepath to cmark-gfm.exe
     # cmark_gfm_exe_path = 'C:\\Users\\fronchettl\\Documents\\cmark-gfm-master\\cmark-gfm-master\\build\\src\\cmark-gfm.exe'
-    cmark_gfm_exe_path = '/Users/tandanp/Documents/NLP_test_projects/cmark-gfm/build/src/cmark-gfm'
+    cmark_gfm_exe_path = '/Users/tandanp/Documents/cmark-gfm/build/src/cmark-gfm'
     if os.path.isfile(cmark_gfm_exe_path):
         plaintext = subprocess.run(['cmark-gfm', absolute_path, '--to', 'plaintext'], stdout=subprocess.PIPE)
     else:
@@ -17,9 +18,11 @@ def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing
         print('If you do not have cmark-gfm installed, please visit their repository and install it: github.com/github/cmark-gfm')
         raise ValueError('The cmark-gfm.exe variable was not defined in scripts/scraper/export.py (Line 38)')
 
-    paragraphs = split_into_paragraphs(plaintext.stdout.decode('utf-8'))
+    plain_parsed_file = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+repo+'.txt'
+    with open(plain_parsed_file, 'w') as f:
+        f.write(plaintext.stdout.decode('utf-8'))
 
-    return paragraphs
+    return plain_parsed_file
 
 
 def split_into_paragraphs(content):
@@ -88,3 +91,11 @@ def starts_with_list_marker(line):
         return True
     else:
         return False
+
+
+def main():
+    file_path  = '/Users/tandanp/Documents/doc_scraper/downloaded_files/test.md'
+    markdn2text_gfm(file_path)
+
+if __name__=='__main__':
+    main()

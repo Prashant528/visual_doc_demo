@@ -1,18 +1,3 @@
-<!---
-Copyright 2020 The HuggingFace Team. All rights reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 
 # Contribute to 🤗 Transformers
 
@@ -338,11 +323,6 @@ RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_ne
 RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification
 ```
 
-      | abc | def |
-      | --- | --- |
-      | bar |
-      | bar | baz | boo |
-
 Like the slow tests, there are other environment variables available which not enabled by default during testing:
 - `RUN_CUSTOM_TOKENIZERS`: Enables tests for custom tokenizers.
 - `RUN_PT_FLAX_CROSS_TESTS`: Enables tests for PyTorch + Flax integration.
@@ -397,8 +377,3 @@ When updating the main branch of a forked repository, please follow these steps 
    git commit -m '<your message without GitHub references>'
    git push --set-upstream origin your-branch-for-syncing
    ```
-
-| abc | def |
-| --- | --- |
-| bar |
-| bar | baz | boo |

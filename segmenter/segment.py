@@ -3,30 +3,41 @@ import pandas as pd
 import torch
 
 from segmenter.core import *
-from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences
+from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
 from segmenter.clean_markdown import markdn2text_gfm
+from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
 def segment(md_file_path, out_filename):
     #'S' for sentence level, 'P' for paragraph level
     # corpus_type = 'S'
-    corpus_type = 'S'
+    corpus_type = 'P'
 
     TOPIC_CHANGE_THRESHOLD = 0.05
 
-    WINDOW_SIZE = 5
+    WINDOW_SIZE = 4
 
-    paragraphs = markdn2text_gfm(md_file_path)
-    corpus = ''
-    for paragraph in paragraphs:
-        corpus  =  corpus + '\n' + paragraph
-    sentences = generate_sentences(corpus)
-    print("Sentences:", len(sentences))
+    #gfm parser gets the md file and parses it to a text file.
+    parsed_file_path = markdn2text_gfm(md_file_path)
+    # corpus_file = open(parsed_file_path, 'r')
+    # corpus = corpus_file.readlines()
+    # for paragraph in paragraphs:
+    #     corpus  =  corpus + '\n' + paragraph
+
+    #adding blocks information in parsed file since it preserves the formatting of md.
+    block_of_lines = get_block_lines(parsed_file_path)
+    print("Block of lines = ", block_of_lines)
+    add_block_identifier(parsed_file_path, block_of_lines)
+
+    sentences = generate_sentences_not_considering_blocks(parsed_file_path, method='stanza')
+
+    #get the block marker indices, remove the marker sentences and return original sentences.
+    block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
+
+    print("Block markers in sentences:", block_marker_indices)
 
     features = get_features_from_sentence(sentences)
 
     print(len(features[0]))
-
-
     res = []
     k= WINDOW_SIZE
     for i in range(k, len(features) - k):
@@ -79,7 +90,6 @@ def segment(md_file_path, out_filename):
         )
     depth_score_timeseries = depth_scores
 
-    TOPIC_CHANGE_THRESHOLD = 0.05
     n = len(depth_score_timeseries)
     print("Length of depth score timeseries (should be actual length-2*window size+1?) = ", n)
     threshold = TOPIC_CHANGE_THRESHOLD * max(depth_score_timeseries)
@@ -121,18 +131,27 @@ def segment(md_file_path, out_filename):
             predicted_section_indices.append(idx + offset)
 
     predicted_segmentation = [0] * len(sentences)
+
     for idx in predicted_section_indices:
+        for line_block in block_marker_indices:
+                #shift the segmentation marker to the end of the block
+                if idx > line_block[0] and idx < line_block[1]:
+                    print(f"Segment found inside a block at: {idx} between {line_block[0]} and {line_block[1]}.")
+                    idx = line_block[1]
         predicted_segmentation[idx] = 1
 
     # print(predicted_segmentation)
     print(len(predicted_segmentation))
-
+    print("Old preditcion section indices = ", predicted_section_indices)
+    new_indices = [i for i, value in enumerate(predicted_segmentation) if value == 1]
+    print("New preditcion section indices (after shifting to end of block)= ", new_indices)
 
     file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
     file1  = open(file_name, "w")
     #works for both sentences and paragraphs
     for idx, sentence in enumerate(sentences):
-        if idx in predicted_section_indices:
+        # if idx in predicted_section_indices:
+        if predicted_segmentation[idx]==1:
             file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
         file1.write(sentence)
         file1.write('\n')
@@ -140,5 +159,4 @@ def segment(md_file_path, out_filename):
 
     return file_name
 
-# segmented_file_name = segment('downloaded_files/flutter_contrib.md')
-# print(segmented_file_name)
+
