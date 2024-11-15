@@ -3,7 +3,7 @@ import pandas as pd
 import torch
 
 from segmenter.core import *
-from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences
+from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
 from segmenter.clean_markdown import markdn2text_gfm
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
@@ -14,7 +14,7 @@ def segment(md_file_path, out_filename):
 
     TOPIC_CHANGE_THRESHOLD = 0.05
 
-    WINDOW_SIZE = 5
+    WINDOW_SIZE = 4
 
     #gfm parser gets the md file and parses it to a text file.
     parsed_file_path = markdn2text_gfm(md_file_path)
@@ -28,8 +28,9 @@ def segment(md_file_path, out_filename):
     print("Block of lines = ", block_of_lines)
     add_block_identifier(parsed_file_path, block_of_lines)
 
-    sentences = generate_sentences(parsed_file_path)
+    sentences = generate_sentences_not_considering_blocks(parsed_file_path, method='stanza')
 
+    #get the block marker indices, remove the marker sentences and return original sentences.
     block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
 
     print("Block markers in sentences:", block_marker_indices)
@@ -141,13 +142,16 @@ def segment(md_file_path, out_filename):
 
     # print(predicted_segmentation)
     print(len(predicted_segmentation))
-    print("Preditcion section indices = ", predicted_section_indices)
+    print("Old preditcion section indices = ", predicted_section_indices)
+    new_indices = [i for i, value in enumerate(predicted_segmentation) if value == 1]
+    print("New preditcion section indices (after shifting to end of block)= ", new_indices)
 
     file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
     file1  = open(file_name, "w")
     #works for both sentences and paragraphs
     for idx, sentence in enumerate(sentences):
-        if idx in predicted_section_indices:
+        # if idx in predicted_section_indices:
+        if predicted_segmentation[idx]==1:
             file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
         file1.write(sentence)
         file1.write('\n')
@@ -155,5 +159,4 @@ def segment(md_file_path, out_filename):
 
     return file_name
 
-# segmented_file_name = segment('downloaded_files/flutter_contrib.md')
-# print(segmented_file_name)
+

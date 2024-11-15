@@ -153,14 +153,18 @@ def find_block_markers_in_sentences(sentences):
     block_markers = []
     start_block_index = None
     end_block_index = None
+    # add into consideration the offset caused by removing block marker sentences.
+    offset=0
     for i in range(len(sentences)):
         # print(sentences[i])
         #the first condition is to make sure we consider the first START_MARKER if we get multiple starting markers consecutively.
         if start_block_marker in sentences[i]:
-            start_block_index = i
+            start_block_index = i - offset
+            offset = offset + 1
             # print("Starting block found at ", i)
         elif end_block_marker in sentences[i]:
-            end_block_index = i
+            end_block_index = i - offset
+            offset = offset + 1
             # print("Ending block found at ", i)
         else:
             new_sentences.append(sentences[i])
