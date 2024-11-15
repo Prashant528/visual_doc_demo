@@ -25,13 +25,13 @@ from classifier.classify_content import get_contributing_predictions
 # Define the repository links
 repository_links = {
     'flutter': 'https://github.com/flutter/flutter/blob/master/CONTRIBUTING.md',
-    'node': 'https://github.com/nodejs/node/blob/main/CONTRIBUTING.md',
-    'electron': 'https://github.com/electron/electron/blob/main/CONTRIBUTING.md',
-    '30-seconds-of-code': 'https://github.com/Chalarangelo/30-seconds-of-code/blob/master/CONTRIBUTING.md',
-    'transformers': 'https://github.com/huggingface/transformers/blob/main/CONTRIBUTING.md',
-    # 'youtube-dl': 'https://github.com/ytdl-org/youtube-dl/blob/master/CONTRIBUTING.md',
-    'vscode': 'https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md',
-    'tensorflow': 'https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md'
+    # 'node': 'https://github.com/nodejs/node/blob/main/CONTRIBUTING.md',
+    # 'electron': 'https://github.com/electron/electron/blob/main/CONTRIBUTING.md',
+    # '30-seconds-of-code': 'https://github.com/Chalarangelo/30-seconds-of-code/blob/master/CONTRIBUTING.md',
+    # 'transformers': 'https://github.com/huggingface/transformers/blob/main/CONTRIBUTING.md',
+    # # 'youtube-dl': 'https://github.com/ytdl-org/youtube-dl/blob/master/CONTRIBUTING.md',
+    # 'vscode': 'https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md',
+    # 'tensorflow': 'https://github.com/tensorflow/tensorflow/blob/master/CONTRIBUTING.md'
 }
 
 # Create a writer object to save the Excel file

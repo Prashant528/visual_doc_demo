@@ -179,7 +179,7 @@ def escape_markdown_from_file(md_file, project_filepath):
     """
 
     # Redefine this variable with your own filepath to cmark-gfm.exe
-    cmark_gfm_exe_path = '/Users/tandanp/Documents/NLP_test_projects/cmark-gfm/build/src/cmark-gfm'
+    cmark_gfm_exe_path = '/Users/tandanp/Documents/cmark-gfm/build/src/cmark-gfm'
 
     if os.path.isfile(cmark_gfm_exe_path):
         plaintext = subprocess.run(['cmark-gfm', md_file, '--to', 'plaintext'], stdout=subprocess.PIPE)
