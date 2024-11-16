@@ -3,6 +3,8 @@ from utils import download_file
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
+from classifier.run_classifier import run_classifier_with_paragraphs
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -26,7 +28,12 @@ def edit_segments():
         #commented for demo, need to uncomment
         # graph = get_final_graph(file, content, owner, repo)
         # return graph
-        segmented_file_path  = segment(md_file_path, repo)
+        segments, segmented_file_path  = segment(md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
+
+        segments, segment_classes = run_classifier_with_paragraphs(segments)
+
+        
+        print(segment_classes)
 
     return render_template('text_segment_editor.html', file_path=segmented_file_path)
 
