@@ -1,5 +1,5 @@
 import openai
-from prompts_store import Prompts 
+from code_from_visdoc.prompts_store import Prompts 
 class OpenAIService:
     def __init__(self, api_key):
         openai.api_key = api_key

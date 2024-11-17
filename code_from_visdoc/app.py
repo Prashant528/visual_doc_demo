@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-from github_service import GitHubService
-from openai_service import OpenAIService
-from config import Config
-from utils import parse_openai_single_json, parse_github_link
+from code_from_visdoc.github_service import GitHubService
+from code_from_visdoc.openai_service import OpenAIService
+from code_from_visdoc.config import Config
+from code_from_visdoc.utils import parse_openai_single_json, parse_github_link
 from flask_cors import CORS
 
 # Create Flask app
