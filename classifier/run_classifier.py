@@ -45,7 +45,7 @@ def run_classifier_with_paragraphs(paragraphs):
     model = pickle.load(open('classifier/classification_model.sav', 'rb'))
     # Using the estimator, predicts the classes for the paragraphs in the file
     predictions = model.predict(convert_paragraphs_into_features(paragraphs))
-    return paragraphs, predictions
+    return paragraphs, list(predictions)
 
 if __name__=='__main__':
     para = ['''Our code of conduct, which stipulates explicitly

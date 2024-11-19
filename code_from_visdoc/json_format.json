@@ -1,0 +1,19 @@
+{
+    "flow": {
+        "edges": [
+            {
+                "source": "Introduction",
+                "target": "Developing for Flutter"
+            },
+            {
+                "source": "Developing for Flutter",
+                "target": "Good First Issues"
+            }
+        ]
+    },
+    "content": {
+        "Introduction": "—Hixie",
+        "Developing for Flutter": "If you prefer to write code, consider starting with the list of good first issues for Flutter or for Flutter DevTools.",
+        "Good First Issues": "Consider starting with the list of good first issues for Flutter or for Flutter DevTools."
+    }
+}

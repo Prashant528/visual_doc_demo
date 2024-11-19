@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from utils import download_file
+from utils import download_file, segregate_segments_by_classes
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
@@ -45,8 +45,8 @@ def fetch_and_analyze():
         files_and_contents = github_service.download_recursive(owner, repo, file_path)
 
         print(files_and_contents)
-        
-        all_segments = []
+
+        segments_and_classes_in_all_files = []
         for file_and_content in files_and_contents:
             file_name = repo + file_and_content[0]
             content = file_and_content[1]
@@ -58,13 +58,15 @@ def fetch_and_analyze():
             segments, segmented_file_path  = segment(md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
             segments, segment_classes = run_classifier_with_paragraphs(segments)
             print(segment_classes)
-            all_segments.append((segments, segment_classes))
+            segments_and_classes_in_all_files.append((segments, segment_classes))
 
-        print(len(all_segments))
-        #Add some function to segregate the segments by classes
+        print(len(segments_and_classes_in_all_files))
+        # Returns a dictionary with class: list of segments
+        segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
         #Call the LLM to find the sequence
-
-    return render_template('text_segment_editor.html', file_path=segmented_file_path)
+        segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments)
+    # return render_template('text_segment_editor.html', file_path=segmented_file_path)
+    return segments_flow_and_contents
 
 @app.route('/generate')
 def generate():
