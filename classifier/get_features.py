@@ -51,7 +51,7 @@ def create_statistic_features(X):
 
     vectorizer = pickle.load(open('classifier/tf-idf.sav', 'rb'))
     features = vectorizer.transform(X)
-    statistic_features = pandas.DataFrame(features.toarray(), columns=vectorizer.get_feature_names())
+    statistic_features = pandas.DataFrame(features.toarray(), columns=vectorizer.get_feature_names_out())
 
     statistic_features = statistic_features.rename(mapper=partial(add_column_name_prefix, prefix="stat_"), axis="columns")
 

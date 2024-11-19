@@ -7,7 +7,43 @@ from segmenter.transformers_call import mean_pooling, get_features_from_sentence
 from segmenter.clean_markdown import markdn2text_gfm
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
-def segment(md_file_path, out_filename):
+def segment(md_file_path, out_filename, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True):
+    '''
+    Methods:
+    1. unsupervised_window_based (https://arxiv.org/pdf/2106.12978)
+
+    '''
+
+    #Parse the file and get the unseparable blocks
+    #gfm parser gets the md file and parses it to a text file.
+    parsed_file_path = markdn2text_gfm(md_file_path)
+
+    #adding blocks information in parsed file since it preserves the formatting of md.
+    block_of_lines = get_block_lines(parsed_file_path)
+    print("Block of lines = ", block_of_lines)
+    #add block identifiers in the file
+    add_block_identifier(parsed_file_path, block_of_lines)
+    #get the sentences with the block markers as sentences too.
+    sentences = generate_sentences_not_considering_blocks(parsed_file_path, method=sentence_method)
+    #get the block marker indices, remove the marker sentences and return original sentences.
+    block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
+    print("Block markers in sentences:", block_marker_indices)
+
+    if segmentation_method=='unsupervised_window_based':
+        segments = segment_unsupervised(sentences, block_marker_indices)
+    
+    if save_to_file:
+        file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
+        file1  = open(file_name, "w")
+        #works for both sentences and paragraphs
+        for segment in segments:
+            file1.write(segment)
+            file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
+        file1.close()
+
+    return segments, file_name
+
+def segment_unsupervised(sentences, block_marker_indices):
     #'S' for sentence level, 'P' for paragraph level
     # corpus_type = 'S'
     corpus_type = 'P'
@@ -16,24 +52,6 @@ def segment(md_file_path, out_filename):
 
     WINDOW_SIZE = 4
 
-    #gfm parser gets the md file and parses it to a text file.
-    parsed_file_path = markdn2text_gfm(md_file_path)
-    # corpus_file = open(parsed_file_path, 'r')
-    # corpus = corpus_file.readlines()
-    # for paragraph in paragraphs:
-    #     corpus  =  corpus + '\n' + paragraph
-
-    #adding blocks information in parsed file since it preserves the formatting of md.
-    block_of_lines = get_block_lines(parsed_file_path)
-    print("Block of lines = ", block_of_lines)
-    add_block_identifier(parsed_file_path, block_of_lines)
-
-    sentences = generate_sentences_not_considering_blocks(parsed_file_path, method='stanza')
-
-    #get the block marker indices, remove the marker sentences and return original sentences.
-    block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
-
-    print("Block markers in sentences:", block_marker_indices)
 
     features = get_features_from_sentence(sentences)
 
@@ -146,17 +164,16 @@ def segment(md_file_path, out_filename):
     new_indices = [i for i, value in enumerate(predicted_segmentation) if value == 1]
     print("New preditcion section indices (after shifting to end of block)= ", new_indices)
 
-    file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
-    file1  = open(file_name, "w")
-    #works for both sentences and paragraphs
+    print("Preparing segments...")
+    segments = []
+    sentences_in_this_segment = ''
     for idx, sentence in enumerate(sentences):
-        # if idx in predicted_section_indices:
+        sentences_in_this_segment = sentences_in_this_segment + '\n' + sentence
         if predicted_segmentation[idx]==1:
-            file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
-        file1.write(sentence)
-        file1.write('\n')
-    file1.close()
-
-    return file_name
+            segments.append(sentences_in_this_segment)
+            sentences_in_this_segment = ''
+    
+    return segments
+    
 
 
