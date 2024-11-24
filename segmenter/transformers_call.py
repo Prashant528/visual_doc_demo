@@ -108,6 +108,22 @@ def generate_sentences_not_considering_blocks(corpus_file, method='nltk'):
       sentences = [sentence.text for sentence in doc.sentences]
       return sentences
   
+def generate_sentences_for_text(text, method='nltk'):
+  '''
+  returns a list of sentences given a a paragraph.
+  We  don't treat lines in between the bullet points as a single sentence(unit).
+  Methods = nltk, stanza
+  '''
+  whole_content = text
+  if method=='nltk':
+      return sent_tokenize(whole_content)
+  elif method=='stanza':
+      stanza.download('en')
+      nlp = stanza.Pipeline(lang='en', processors='tokenize', verbose=False, use_gpu=True)
+      doc = nlp(whole_content)
+      sentences = [sentence.text for sentence in doc.sentences]
+      return sentences
+  
 if __name__=='__main__':
     filename = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+'.txt'
     sentences = generate_sentences_not_considering_blocks(filename, method='nltk')

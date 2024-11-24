@@ -1,4 +1,5 @@
 import requests
+from collections import defaultdict
 
 def download_file(owner, repo, file_path):
     # GitHub repository information. Example:
@@ -45,6 +46,36 @@ def segregate_segments_by_classes(segments_and_classes_in_all_files):
             class_segments_holder[segment_class].append(segment)
     print("Completed segregating segments ...")
     return class_segments_holder
+
+def modfify_json_for_ui(old_json):
+    new_json = {"content": {}, "flow": []}
+
+    # Dictionary to keep track of occurrences of each step
+    step_counter = defaultdict(int)
+    step_rename_map = {}  # Maps old step names to new step names
+
+    for sequence_name, sequence_data in old_json.items():
+        # Process content
+        updated_content = {}
+        for step, description in sequence_data["content"].items():
+            step_counter[step] += 1
+            new_step_name = f"{step} #{step_counter[step]}" if step_counter[step] > 1 else step
+            step_rename_map[step] = new_step_name  # Update the map
+            updated_content[new_step_name] = description
+
+        # Add updated content to new_json
+        new_json["content"].update(updated_content)
+
+        # Process flow edges
+        updated_edges = []
+        for edge in sequence_data["flow"]["edges"]:
+            source = step_rename_map[edge["source"]]
+            target = step_rename_map[edge["target"]]
+            updated_edges.append({"source": source, "target": target})
+
+        # Add flow with updated edges and sequence name
+        new_json["flow"].append({"edges": updated_edges, "sequence": sequence_name})
+    return new_json
 
 if __name__ == '__main__':
     print(download_file('flutter', 'flutter', 'CONTRIBUTING.md'))

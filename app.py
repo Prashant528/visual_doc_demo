@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from utils import download_file, segregate_segments_by_classes
+from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
@@ -55,7 +55,7 @@ def fetch_and_analyze():
             #commented for demo, need to uncomment
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
-            segments, segmented_file_path  = segment(md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
+            predicted_segmentation, segments, segmented_file_path  = segment(md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
             segments, segment_classes = run_classifier_with_paragraphs(segments)
             print(segment_classes)
             segments_and_classes_in_all_files.append((segments, segment_classes))
@@ -65,8 +65,10 @@ def fetch_and_analyze():
         segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
         #Call the LLM to find the sequence
         segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments)
+
+        modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents)
     # return render_template('text_segment_editor.html', file_path=segmented_file_path)
-    return segments_flow_and_contents
+    return modified_json_for_ui
 
 @app.route('/generate')
 def generate():

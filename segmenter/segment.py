@@ -7,7 +7,7 @@ from segmenter.transformers_call import mean_pooling, get_features_from_sentence
 from segmenter.clean_markdown import markdn2text_gfm
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
-def segment(md_file_path, out_filename, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True):
+def segment(md_file_path, out_filename=None, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False):
     '''
     Methods:
     1. unsupervised_window_based (https://arxiv.org/pdf/2106.12978)
@@ -30,8 +30,9 @@ def segment(md_file_path, out_filename, segmentation_method='unsupervised_window
     print("Block markers in sentences:", block_marker_indices)
 
     if segmentation_method=='unsupervised_window_based':
-        segments = segment_unsupervised(sentences, block_marker_indices)
+        predicted_segmentation, segments = segment_unsupervised(sentences, block_marker_indices)
     
+    file_name= None
     if save_to_file:
         file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
         file1  = open(file_name, "w")
@@ -41,7 +42,7 @@ def segment(md_file_path, out_filename, segmentation_method='unsupervised_window
             file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
         file1.close()
 
-    return segments, file_name
+    return predicted_segmentation, segments, file_name
 
 def segment_unsupervised(sentences, block_marker_indices):
     #'S' for sentence level, 'P' for paragraph level
@@ -146,7 +147,7 @@ def segment_unsupervised(sentences, block_marker_indices):
     predicted_section_indices = []
     for idx, score in enumerate(depth_score_timeseries):
         if score in local_maxima:
-            predicted_section_indices.append(idx + offset)
+            predicted_section_indices.append(idx + offset -1)
 
     predicted_segmentation = [0] * len(sentences)
 
@@ -173,7 +174,7 @@ def segment_unsupervised(sentences, block_marker_indices):
             segments.append(sentences_in_this_segment)
             sentences_in_this_segment = ''
     
-    return segments
+    return predicted_segmentation, segments
     
 
 

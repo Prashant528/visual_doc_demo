@@ -1,0 +1,233 @@
+{
+    "CF - Contribution flow": {
+        "content": {
+            "Framework and Engine Familiarization": "To develop for Flutter, you will eventually need to become familiar with our processes and conventions.",
+            "Identify Good First Issues": "If you prefer to write code, consider starting with the list of good first issues for Flutter or for Flutter DevTools.",
+            "Reference Instructions": "Reference the respective sections below for further instructions.",
+            "Understand Processes and Conventions": "This section lists the documents that describe these methodologies."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Identify Good First Issues",
+                    "target": "Reference Instructions"
+                },
+                {
+                    "source": "Reference Instructions",
+                    "target": "Framework and Engine Familiarization"
+                },
+                {
+                    "source": "Framework and Engine Familiarization",
+                    "target": "Understand Processes and Conventions"
+                }
+            ]
+        }
+    },
+    "No categories identified.": {
+        "content": {
+            "Add to Documentation": "Contribute to the documentation to improve clarity and coverage.",
+            "Be Courteous": "Be courteous and respectful in all interactions.",
+            "Contribute API Documentation": "Contribute to API documentation with sample code and detailed explanations.",
+            "Contribute Code": "Start contributing code to the Flutter project.",
+            "Contribute to DevTools": "Contribute code to Dart & Flutter DevTools.",
+            "Create Test Cases": "Create test cases to increase test coverage.",
+            "Do Outreach": "Engage in outreach activities to promote Flutter.",
+            "Familiarize with Issue Hygiene": "Learn about issue hygiene and GitHub labels.",
+            "File Issues on GitHub": "File issues on GitHub to report bugs or suggest improvements.",
+            "Find and File Bug Reports": "Find and file bug reports to help improve Flutter.",
+            "Gain Commit Access": "Gain commit access by demonstrating commitment and trustworthiness.",
+            "Help on Chat Channels": "Provide help on chat channels to support the community.",
+            "Help on Mailing Lists": "Assist others by answering questions on mailing lists.",
+            "Help on Stack Overflow": "Answer questions related to Flutter on Stack Overflow.",
+            "Help with Existing PRs": "Help complete existing pull requests.",
+            "Help with Triage": "Assist with triage by following the triage guide.",
+            "Join #hackers-devrel Discord Channel": "Join the #hackers-devrel channel for developer relations activities.",
+            "Join #hackers-triage Discord Channel": "Join the #hackers-triage channel to assist with issue triage.",
+            "Join Discord": "Join the Discord server to connect with the Flutter community.",
+            "Join Flutter Team": "Express your interest in joining the Flutter team.",
+            "Join flutter-hackers Team": "Join the flutter-hackers team on GitHub to gain more access.",
+            "Read Code of Conduct": "Read and adhere to the code of conduct.",
+            "Set Up Development Environment": "Follow the steps to set up a development environment for Flutter.",
+            "Test Beta Releases": "Test beta releases to identify regressions.",
+            "Triage Bugs": "Help triage bugs by reproducing issues and identifying duplicates."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Join Discord",
+                    "target": "Be Courteous"
+                },
+                {
+                    "source": "Be Courteous",
+                    "target": "Set Up Development Environment"
+                },
+                {
+                    "source": "Set Up Development Environment",
+                    "target": "Join Flutter Team"
+                },
+                {
+                    "source": "Join Flutter Team",
+                    "target": "Contribute Code"
+                },
+                {
+                    "source": "Contribute Code",
+                    "target": "File Issues on GitHub"
+                },
+                {
+                    "source": "File Issues on GitHub",
+                    "target": "Help on Mailing Lists"
+                },
+                {
+                    "source": "Help on Mailing Lists",
+                    "target": "Help on Chat Channels"
+                },
+                {
+                    "source": "Help on Chat Channels",
+                    "target": "Help on Stack Overflow"
+                },
+                {
+                    "source": "Help on Stack Overflow",
+                    "target": "Triage Bugs"
+                },
+                {
+                    "source": "Triage Bugs",
+                    "target": "Add to Documentation"
+                },
+                {
+                    "source": "Add to Documentation",
+                    "target": "Do Outreach"
+                },
+                {
+                    "source": "Do Outreach",
+                    "target": "Gain Commit Access"
+                },
+                {
+                    "source": "Gain Commit Access",
+                    "target": "Join #hackers-triage Discord Channel"
+                },
+                {
+                    "source": "Join #hackers-triage Discord Channel",
+                    "target": "Read Code of Conduct"
+                },
+                {
+                    "source": "Read Code of Conduct",
+                    "target": "Help with Triage"
+                },
+                {
+                    "source": "Help with Triage",
+                    "target": "Familiarize with Issue Hygiene"
+                },
+                {
+                    "source": "Familiarize with Issue Hygiene",
+                    "target": "Join flutter-hackers Team"
+                },
+                {
+                    "source": "Join flutter-hackers Team",
+                    "target": "Find and File Bug Reports"
+                },
+                {
+                    "source": "Find and File Bug Reports",
+                    "target": "Test Beta Releases"
+                },
+                {
+                    "source": "Test Beta Releases",
+                    "target": "Create Test Cases"
+                },
+                {
+                    "source": "Create Test Cases",
+                    "target": "Contribute to DevTools"
+                },
+                {
+                    "source": "Contribute to DevTools",
+                    "target": "Help with Existing PRs"
+                },
+                {
+                    "source": "Help with Existing PRs",
+                    "target": "Join #hackers-devrel Discord Channel"
+                },
+                {
+                    "source": "Join #hackers-devrel Discord Channel",
+                    "target": "Contribute API Documentation"
+                }
+            ]
+        }
+    },
+    "SC – Submit the changes": {
+        "content": {
+            "Contribute Test Cases": "If you want to contribute test cases, you can also submit PRs. See the next section for how to set up your development environment, or ask in #hackers-test on Discord.",
+            "Engine Development Setup": "Setting up your engine development environment, which describes the steps you need to configure your computer to work on Flutter's engine.",
+            "Follow Style Guide": "Our style guide, which includes advice for designing APIs for Flutter, and how to format code in the framework.",
+            "Framework Development Setup": "Setting up your framework development environment, which describes the steps you need to configure your computer to work on Flutter's framework.",
+            "Interest in QA": "If this interests you, you can jump in and submit bug reports without needing anyone's permission!",
+            "Join Discord": "The #quality-assurance channel on our Discord server is a good place to talk about what you're doing.",
+            "Set Up Development Environment": "The following list is ordered: you are strongly recommended to go through these documents in the order presented.",
+            "Submit Bug Reports": "We're especially eager for QA testing when we announce a beta release. See quality assurance for more details.",
+            "Tree Hygiene": "Tree hygiene, which covers how to land a PR, how to do code review, how to handle breaking changes, how to handle regressions, and how to handle post-commit test failures.",
+            "Use Design Doc Template": "Flutter design doc template, which should be used when proposing a new technical design."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Interest in QA",
+                    "target": "Join Discord"
+                },
+                {
+                    "source": "Join Discord",
+                    "target": "Submit Bug Reports"
+                },
+                {
+                    "source": "Submit Bug Reports",
+                    "target": "Contribute Test Cases"
+                },
+                {
+                    "source": "Contribute Test Cases",
+                    "target": "Set Up Development Environment"
+                },
+                {
+                    "source": "Set Up Development Environment",
+                    "target": "Engine Development Setup"
+                },
+                {
+                    "source": "Engine Development Setup",
+                    "target": "Framework Development Setup"
+                },
+                {
+                    "source": "Framework Development Setup",
+                    "target": "Tree Hygiene"
+                },
+                {
+                    "source": "Tree Hygiene",
+                    "target": "Follow Style Guide"
+                },
+                {
+                    "source": "Follow Style Guide",
+                    "target": "Use Design Doc Template"
+                }
+            ]
+        }
+    },
+    "TC – Talk to the community": {
+        "content": {
+            "Join Communication Channels": "We communicate primarily over GitHub and Discord.",
+            "Read Code of Conduct": "Our code of conduct stipulates explicitly that everyone must be gracious, respectful, and professional.",
+            "Read Community Norms": "Before you get started, we encourage you to read these documents which describe some of our community norms.",
+            "Read Contributor Access Page": "For more details, see the Contributor access page in our docs."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Read Contributor Access Page",
+                    "target": "Join Communication Channels"
+                },
+                {
+                    "source": "Join Communication Channels",
+                    "target": "Read Community Norms"
+                },
+                {
+                    "source": "Read Community Norms",
+                    "target": "Read Code of Conduct"
+                }
+            ]
+        }
+    }
+}
