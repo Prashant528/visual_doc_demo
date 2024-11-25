@@ -47,12 +47,13 @@ def segregate_segments_by_classes(segments_and_classes_in_all_files):
     print("Completed segregating segments ...")
     return class_segments_holder
 
-def modfify_json_for_ui(old_json):
+def modfify_json_for_ui(old_json, repo_name):
     new_json = {"content": {}, "flow": []}
 
     # Dictionary to keep track of occurrences of each step
     step_counter = defaultdict(int)
     step_rename_map = {}  # Maps old step names to new step names
+    step_rename_map['Parent Node'] = f'Contributing to {repo_name}'
 
     for sequence_name, sequence_data in old_json.items():
         # Process content

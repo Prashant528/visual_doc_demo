@@ -3,10 +3,11 @@ from code_from_visdoc.prompts_store import Prompts
 from code_from_visdoc.utils import parse_openai_single_json
 
 class OpenAIService:
-    def __init__(self, api_key):
+    def __init__(self, api_key, repo):
         openai.api_key = api_key
-        self.prompts = Prompts()
         self.model = "gpt-4o"
+        self.repo_name = repo
+        self.prompts = Prompts(self.repo_name)
 
     def process_documents(self, documents):
         # prompt = self.build_prompt(system_prompt, user_prompt, documents)
@@ -21,7 +22,8 @@ class OpenAIService:
         response = openai.chat.completions.create(
             model=self.model,
             messages = prompt,
-            temperature = 0.0
+            temperature = 0.0,
+            response_format={ 'type': "json_object" }
         )
         # print(response.choices[0].message.content)
         print("Completed: Calling LLM API...")
@@ -48,7 +50,7 @@ class OpenAIService:
     def get_prompt_for_segmentclass(self, segment_class_name):
         print(f"Started: Creating prompt for LLM for segment_class <{segment_class_name}>")
         target_string = '<segment_class>'
-        prompt_for_sequencing = self.fetch_prompt('PROMPT_FOR_SEQUENCING')
+        prompt_for_sequencing = self.fetch_prompt('PROMPT_FOR_SEQUENCING_VER_2')
         #replace some dummy strings by the actual class name in the prompt
         updated_prompt = [
             {

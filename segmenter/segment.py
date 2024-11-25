@@ -3,11 +3,12 @@ import pandas as pd
 import torch
 
 from segmenter.core import *
-from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
+from segmenter.transformers_call import generate_sentences_not_considering_blocks
+# mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
 from segmenter.clean_markdown import markdn2text_gfm
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
-def segment(md_file_path, out_filename=None, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False):
+def segment(sentence_feature_extractor, md_file_path, out_filename=None, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False):
     '''
     Methods:
     1. unsupervised_window_based (https://arxiv.org/pdf/2106.12978)
@@ -30,7 +31,7 @@ def segment(md_file_path, out_filename=None, segmentation_method='unsupervised_w
     print("Block markers in sentences:", block_marker_indices)
 
     if segmentation_method=='unsupervised_window_based':
-        predicted_segmentation, segments = segment_unsupervised(sentences, block_marker_indices)
+        predicted_segmentation, segments = segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices)
     
     file_name= None
     if save_to_file:
@@ -44,7 +45,7 @@ def segment(md_file_path, out_filename=None, segmentation_method='unsupervised_w
 
     return predicted_segmentation, segments, file_name
 
-def segment_unsupervised(sentences, block_marker_indices):
+def segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices):
     #'S' for sentence level, 'P' for paragraph level
     # corpus_type = 'S'
     corpus_type = 'P'
@@ -54,7 +55,7 @@ def segment_unsupervised(sentences, block_marker_indices):
     WINDOW_SIZE = 4
 
 
-    features = get_features_from_sentence(sentences)
+    features = sentence_feature_extractor.get_features_from_sentence(sentences)
 
     print(len(features[0]))
     res = []

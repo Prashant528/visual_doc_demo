@@ -1,5 +1,8 @@
 
 class Prompts:
+    def __init__(self, repo):
+        self.repo_name = repo
+
     SYSTEM_PROMPT = '''
         Act as a helpful assistant.
     '''
@@ -93,7 +96,7 @@ class Prompts:
             {
                 "role": "user",
                 "content": '''Thanks for asking. Actually, I want to create a flowchart of instructions for someone 
-                contributing to a that open source project. First of all, analyze the action steps that you generate. 
+                contributing to an open source project. First of all, analyze the action steps that you generate. 
                 The action steps belong to information related to '<segment_class>' category.
                 For each action step given, serially arrange 
                 the topics of the action steps in a sequence according to the process that a person would follow in practical scenario. 
@@ -112,10 +115,7 @@ class Prompts:
             {
                 "role": "user",
                 "content": '''In the same response, provide me another JSON too that maps those topics
-                to their content. The content should sound like instructions for the newcomers. Also, if the 
-                sentences don't make sense, you can
-                remove them. You can modify the content slightly so that each step is an independent task but
-                keep the information as original as possible. Please do not add any extra information.
+                to their content. Repeat the same information that is provided to you as content. 
                 A sample JSON for the content looks like this { "Topic 1": "content"}. 
                 So, your response should contain two JSON objects, 'flow' and 'content'.
                 Respond with valid JSON only without any explanation, suitable for direct parsing by a JSON parser. 
@@ -127,3 +127,27 @@ class Prompts:
             },
         ]
     
+    PROMPT_FOR_SEQUENCING_VER_2 = [
+            {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    I have a pythonic list. Each element of the list is supposed to be an action step that belong to making a contribution(submit the changes) to an open source project. I want you to create the following two JSONs from the list:
+                    1. JSON name = "content". 
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Extract topic from the content and keep the content as it is provided. This json would be named "content" and an example looks like: { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    2. JSON name = "flow".
+                    Description: For all the elements in the list, I want to find the sequence that a person contributing to that project would follow in a practical scenario. If each element in the list was a node in a graph, I want a JSON that gives me a source node and the target node for each edge in the graph. The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. Please make sure that the first "source" node for each flow is always a dummy node named "Parent Node".
+                    Finally, merge the two JSONs into a single one that looks like: {content: "...", flow:"..."}.
+
+                    '''
+            },
+            {
+                "role": "assistant", 
+                "content": '''
+                        Certainly, can you provide me the list of the action steps?
+                        '''
+            }
+        ]
