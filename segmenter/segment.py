@@ -1,17 +1,20 @@
 import numpy as np
 import pandas as pd
 import torch
+from segmenter.langchain_semantic_chunker import SemanticChunker
+from langchain_openai.embeddings import OpenAIEmbeddings
 
 from segmenter.core import *
-from segmenter.transformers_call import mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
+from segmenter.transformers_call import generate_sentences_not_considering_blocks
+# mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
 from segmenter.clean_markdown import markdn2text_gfm
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
-def segment(md_file_path, out_filename, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True):
+def segment(sentence_feature_extractor, md_file_path, out_filename='latest', segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False):
     '''
     Methods:
     1. unsupervised_window_based (https://arxiv.org/pdf/2106.12978)
-
+    2. langchain (https://python.langchain.com/v0.2/docs/how_to/semantic-chunker/)
     '''
 
     #Parse the file and get the unseparable blocks
@@ -30,8 +33,17 @@ def segment(md_file_path, out_filename, segmentation_method='unsupervised_window
     print("Block markers in sentences:", block_marker_indices)
 
     if segmentation_method=='unsupervised_window_based':
-        segments = segment_unsupervised(sentences, block_marker_indices)
+        predicted_segmentation, segments = segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices)
+        #account for the ending topic border
+        predicted_segmentation.append(1)
+    elif segmentation_method=='langchain':
+        predicted_segmentation, segments = segment_langchain(sentences, block_marker_indices)
+        #account for the ending topic border
+        predicted_segmentation.append(1)
+    else:
+        raise Exception("Unknown segmentation method provided. Please check segment() method in /segmenter/segment file")
     
+    file_name= None
     if save_to_file:
         file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
         file1  = open(file_name, "w")
@@ -41,9 +53,17 @@ def segment(md_file_path, out_filename, segmentation_method='unsupervised_window
             file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
         file1.close()
 
-    return segments, file_name
+        file_name = 'segmenter/parsed_sentences/'+ out_filename +'_parsed.txt'
+        file2  = open(file_name, "w")
+        #works for both sentences and paragraphs
+        for sentence in sentences:
+            file2.write(sentence)
+            file2.write(" ")
+        file2.close()
+    print("Number of sentences in our segmentation algo = ", len(sentences))
+    return predicted_segmentation, segments, file_name
 
-def segment_unsupervised(sentences, block_marker_indices):
+def segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices):
     #'S' for sentence level, 'P' for paragraph level
     # corpus_type = 'S'
     corpus_type = 'P'
@@ -53,7 +73,7 @@ def segment_unsupervised(sentences, block_marker_indices):
     WINDOW_SIZE = 4
 
 
-    features = get_features_from_sentence(sentences)
+    features = sentence_feature_extractor.get_features_from_sentence(sentences)
 
     print(len(features[0]))
     res = []
@@ -146,7 +166,7 @@ def segment_unsupervised(sentences, block_marker_indices):
     predicted_section_indices = []
     for idx, score in enumerate(depth_score_timeseries):
         if score in local_maxima:
-            predicted_section_indices.append(idx + offset)
+            predicted_section_indices.append(idx + offset -1)
 
     predicted_segmentation = [0] * len(sentences)
 
@@ -173,7 +193,19 @@ def segment_unsupervised(sentences, block_marker_indices):
             segments.append(sentences_in_this_segment)
             sentences_in_this_segment = ''
     
-    return segments
+    return predicted_segmentation, segments
     
 
+def segment_langchain(sentences, block_marker_indices):
+    TOPIC_CHANGE_THRESHOLD = 90
+    WINDOW_SIZE = 2
 
+    text_splitter = SemanticChunker(
+                        OpenAIEmbeddings(), 
+                        breakpoint_threshold_type="gradient",
+                        breakpoint_threshold_amount=TOPIC_CHANGE_THRESHOLD,
+                        buffer_size=WINDOW_SIZE
+                    )
+    predicted_segmentation, segments = text_splitter.split_text_modified(sentences, block_marker_indices)
+    
+    return predicted_segmentation, segments

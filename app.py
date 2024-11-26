@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from utils import download_file, segregate_segments_by_classes
+from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
@@ -9,13 +9,13 @@ from code_from_visdoc.github_service import GitHubService
 from code_from_visdoc.openai_service import OpenAIService
 from code_from_visdoc.config import Config
 from code_from_visdoc.utils import parse_openai_single_json, parse_github_link
+from segmenter.transformers_call import SentenceFeatureExtractor
 
 app = Flask(__name__)
 CORS(app) 
 
 # Initialize services
 github_service = GitHubService(Config.GITHUB_TOKEN)
-openai_service = OpenAIService(Config.OPENAI_API_KEY)
 
 
 @app.route('/')
@@ -40,6 +40,9 @@ def fetch_and_analyze():
         owner, repo, file_path = parse_github_link(repo_link)
         if not owner or not repo or not file_path:
             return jsonify({"error": "The link doesn't contain one or many of these (owner, repo, file)."}), 400
+        
+        openai_service = OpenAIService(Config.OPENAI_API_KEY, repo)
+        sentence_feature_extractor = SentenceFeatureExtractor()
         # Download contributing.md and related files PTANDAN(remove the below comment)
         #TODO: I need to add some mechanism to store the contents of each file and return them as a list here inside download_recursive function.
         files_and_contents = github_service.download_recursive(owner, repo, file_path)
@@ -55,7 +58,7 @@ def fetch_and_analyze():
             #commented for demo, need to uncomment
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
-            segments, segmented_file_path  = segment(md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
+            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
             segments, segment_classes = run_classifier_with_paragraphs(segments)
             print(segment_classes)
             segments_and_classes_in_all_files.append((segments, segment_classes))
@@ -65,8 +68,13 @@ def fetch_and_analyze():
         segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
         #Call the LLM to find the sequence
         segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments)
+        print(f"\nActual response from API:\n {segments_flow_and_contents}")
+
+        modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
+        print(f"\nActual response from API:\n {modified_json_for_ui}")
+
     # return render_template('text_segment_editor.html', file_path=segmented_file_path)
-    return segments_flow_and_contents
+    return modified_json_for_ui
 
 @app.route('/generate')
 def generate():

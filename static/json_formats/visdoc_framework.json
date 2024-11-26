@@ -1,0 +1,128 @@
+{
+    "content": {
+        "Collaborate and coordinate efforts": "Collaborate with others and coordinate efforts as you work on outreach activities.",
+        "Contribute API documentation": "Contribute API documentation by writing sample code and improving existing docs.",
+        "Contribute test cases": "Contribute test cases by submitting PRs. This helps increase test coverage and improve the quality of the project.",
+        "Describe your interests": "Describe your interests in the #hackers-devrel channel and start working on related activities.",
+        "Familiarize yourself with our issue hygiene": "Familiarize yourself with our issue hygiene, which covers the meanings of some important GitHub labels and milestones.",
+        "Flutter design doc template": "Use the Flutter design doc template when proposing new technical designs. This is a good practice before coding intricate changes.",
+        "Get invited to the flutter-hackers team": "Once you've been doing triage for a while, someone will invite you to the flutter-hackers team on GitHub, allowing you to add labels.",
+        "Help out as described in our triage guide": "Help out as described in our triage guide. You can start by trying to reproduce problems, asking for more details, and pointing out duplicates.",
+        "Join Discord and introduce yourself": "Join Discord and introduce yourself on the relevant channels to start contributing to API documentation.",
+        "Join Discord and ping Hixie": "Join Discord and ping Hixie on the #hackers channel if you're interested in organizing social events.",
+        "Join the #hackers-devrel Discord channel": "Join the #hackers-devrel Discord channel to start with developer relations and outreach activities.",
+        "Join the #hackers-triage Discord channel": "Join the #hackers-triage Discord channel to start helping with issue triage. This is where you can communicate with other contributors and get guidance on how to proceed.",
+        "Join the #quality-assurance channel on Discord": "Join the #quality-assurance channel on Discord to discuss your QA activities and get involved in testing beta releases.",
+        "Organize social interactions": "Organize social interactions among the Flutter contributor community, such as video chats or tech talks.",
+        "Our style guide": "Read our style guide for advice on designing APIs and formatting code in the framework.",
+        "Participate in release process": "Participate in the release process by writing release notes, coordinating binary generation, and updating tooling.",
+        "Reach out on the #hackers-releases channel": "Reach out on the #hackers-releases channel to get involved in the release process.",
+        "Read our code of conduct": "Read our code of conduct, which stipulates explicitly that everyone must be gracious, respectful, and professional. This is important as you will be representing the Flutter team.",
+        "Read the style guide for documentation": "Read the style guide for documentation to understand the conventions and style used in Flutter's API docs.",
+        "Setting up your engine development environment": "Set up your engine development environment by following the steps in the provided document. This is necessary if you want to work on Flutter's engine.",
+        "Setting up your framework development environment": "Set up your framework development environment to work on Flutter's framework, which mainly uses Dart.",
+        "Submit bug reports": "Submit bug reports without needing anyone's permission. This is a valuable contribution to the project.",
+        "Tree hygiene": "Learn about tree hygiene, which covers how to land a PR, do code reviews, and handle regressions."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Join the #hackers-triage Discord channel",
+                    "target": "Read our code of conduct"
+                },
+                {
+                    "source": "Read our code of conduct",
+                    "target": "Help out as described in our triage guide"
+                },
+                {
+                    "source": "Help out as described in our triage guide",
+                    "target": "Familiarize yourself with our issue hygiene"
+                },
+                {
+                    "source": "Familiarize yourself with our issue hygiene",
+                    "target": "Get invited to the flutter-hackers team"
+                }
+            ],
+            "sequence": "Helping out in the issue database"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Submit bug reports",
+                    "target": "Join the #quality-assurance channel on Discord"
+                },
+                {
+                    "source": "Join the #quality-assurance channel on Discord",
+                    "target": "Contribute test cases"
+                }
+            ],
+            "sequence": "Quality Assurance"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Setting up your engine development environment",
+                    "target": "Setting up your framework development environment"
+                },
+                {
+                    "source": "Setting up your framework development environment",
+                    "target": "Tree hygiene"
+                },
+                {
+                    "source": "Tree hygiene",
+                    "target": "Our style guide"
+                },
+                {
+                    "source": "Our style guide",
+                    "target": "Flutter design doc template"
+                }
+            ],
+            "sequence": "Developing for Flutter"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Join the #hackers-devrel Discord channel",
+                    "target": "Describe your interests"
+                },
+                {
+                    "source": "Describe your interests",
+                    "target": "Collaborate and coordinate efforts"
+                }
+            ],
+            "sequence": "Outreach"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Join Discord and introduce yourself",
+                    "target": "Read the style guide for documentation"
+                },
+                {
+                    "source": "Read the style guide for documentation",
+                    "target": "Contribute API documentation"
+                }
+            ],
+            "sequence": "API documentation"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Reach out on the #hackers-releases channel",
+                    "target": "Participate in release process"
+                }
+            ],
+            "sequence": "Releases"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Join Discord and ping Hixie",
+                    "target": "Organize social interactions"
+                }
+            ],
+            "sequence": "Social events in the contributor community"
+        }
+    ]
+}

@@ -8,39 +8,53 @@ from segmenter.bullet_points_finder import find_bullet_points
 nltk.download('punkt')
 import stanza
 
-#Mean Pooling - Take attention mask into account for correct averaging
-def mean_pooling(model_output, attention_mask):
+class SentenceFeatureExtractor:
+  def __init__(self):
+    # Load model and tokenizer once
+    print("Loading the ROBERTA model...")
+    self.tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-roberta-large-v1')
+    self.model = AutoModel.from_pretrained('sentence-transformers/all-roberta-large-v1')
+    self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print("\n\nDEVICE: ", self.device)
+    self.model = self.model.to(self.device)
+
+  #Mean Pooling - Take attention mask into account for correct averaging
+  def mean_pooling(self, model_output, attention_mask):
     token_embeddings = model_output[0] #First element of model_output contains all token embeddings
     input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
     return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
 
 
-def get_features_from_sentence(sentences):
-  batch_features = []
-  # Load model from HuggingFace Hub
-  print("Loading the ROBERTA model...")
-  tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-roberta-large-v1')
-  model = AutoModel.from_pretrained('sentence-transformers/all-roberta-large-v1')
+  def get_features_from_sentence(self, sentences, batch_size=32):
+    batch_features = []
+    # Load model from HuggingFace Hub
+    # print("Loading the ROBERTA model...")
+    # tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-roberta-large-v1')
+    # model = AutoModel.from_pretrained('sentence-transformers/all-roberta-large-v1')
 
-  print("Generating sentence embeddings...")
-  for sentence in tqdm(sentences):
-    # Tokenize sentence
-    encoded_input = tokenizer(sentence, padding=True, truncation=True, return_tensors='pt')
+    print("Generating sentence embeddings...")
+    for i in tqdm(range(0, len(sentences), batch_size)):
+      #get the batch of sentences:
+      batch_sentences = sentences[i:i + batch_size]
+      # Tokenize sentence
+      # encoded_input = self.tokenizer(sentence, padding=True, truncation=True, return_tensors='pt')
+      encoded_input = self.tokenizer(batch_sentences, padding=True, truncation=True, return_tensors='pt').to(self.device)
 
-    # Compute token embeddings
-    with torch.no_grad():
-        model_output = model(**encoded_input)
+      # Compute token embeddings
+      with torch.no_grad():
+          model_output = self.model(**encoded_input)
 
-    # Perform pooling
-    sentence_embeddings = mean_pooling(model_output, encoded_input['attention_mask'])
+      # Perform pooling
+      sentence_embeddings = self.mean_pooling(model_output, encoded_input['attention_mask'])
 
-    # Normalize embeddings
-    sentence_embeddings = F.normalize(sentence_embeddings, p=2, dim=1)
+      # Normalize embeddings
+      sentence_embeddings = F.normalize(sentence_embeddings, p=2, dim=1)
 
-    batch_features.append(sentence_embeddings[0])
-    # print("Sentence embeddings:")
-    # print(sentence_embeddings)
-  return batch_features
+      # batch_features.append(sentence_embeddings[0])
+      batch_features.extend(sentence_embeddings)
+      # print("Sentence embeddings:")
+      # print(sentence_embeddings)
+    return batch_features
 
 
 def generate_sentences_considering_blocks(corpus_file):
@@ -108,8 +122,24 @@ def generate_sentences_not_considering_blocks(corpus_file, method='nltk'):
       sentences = [sentence.text for sentence in doc.sentences]
       return sentences
   
-if __name__=='__main__':
-    filename = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+'.txt'
-    sentences = generate_sentences_not_considering_blocks(filename, method='nltk')
-    print(sentences)
+def generate_sentences_for_text(text, method='nltk'):
+  '''
+  returns a list of sentences given a a paragraph.
+  We  don't treat lines in between the bullet points as a single sentence(unit).
+  Methods = nltk, stanza
+  '''
+  whole_content = text
+  if method=='nltk':
+      return sent_tokenize(whole_content)
+  elif method=='stanza':
+      stanza.download('en')
+      nlp = stanza.Pipeline(lang='en', processors='tokenize', verbose=False, use_gpu=True)
+      doc = nlp(whole_content)
+      sentences = [sentence.text for sentence in doc.sentences]
+      return sentences
+  
+# if __name__=='__main__':
+#     filename = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+'.txt'
+#     sentences = generate_sentences_not_considering_blocks(filename, method='nltk')
+#     print(sentences)
 
