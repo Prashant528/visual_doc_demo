@@ -35,11 +35,14 @@ def segment(sentence_feature_extractor, md_file_path, out_filename='latest', seg
     if segmentation_method=='unsupervised_window_based':
         predicted_segmentation, segments = segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices)
         #account for the ending topic border
-        predicted_segmentation.append(1)
+        # predicted_segmentation.append(1)
+        predicted_segmentation[-1] = 1
     elif segmentation_method=='langchain':
         predicted_segmentation, segments = segment_langchain(sentences, block_marker_indices)
         #account for the ending topic border
-        predicted_segmentation.append(1)
+        # predicted_segmentation.append(1)
+        predicted_segmentation[-1] = 1
+
     else:
         raise Exception("Unknown segmentation method provided. Please check segment() method in /segmenter/segment file")
     
@@ -53,12 +56,12 @@ def segment(sentence_feature_extractor, md_file_path, out_filename='latest', seg
             file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
         file1.close()
 
-        file_name = 'segmenter/parsed_sentences/'+ out_filename +'_parsed.txt'
+        file_name = 'segmenter/parsed_sentences/'+ out_filename +'_parsed_by_algo.txt'
         file2  = open(file_name, "w")
         #works for both sentences and paragraphs
         for sentence in sentences:
             file2.write(sentence)
-            file2.write(" ")
+            file2.write("\n--------\n")
         file2.close()
     print("Number of sentences in our segmentation algo = ", len(sentences))
     return predicted_segmentation, segments, file_name

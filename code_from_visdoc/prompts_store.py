@@ -77,7 +77,7 @@ class Prompts:
         },
     ]
 
-    PROMPT_FOR_SEQUENCING = [
+    PROMPT_FOR_SEQUENCING_WITH_SEG_CLASS = [
             {
                 "role": "system", 
                 "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, 
@@ -127,7 +127,7 @@ class Prompts:
             },
         ]
     
-    PROMPT_FOR_SEQUENCING_VER_2 = [
+    PROMPT_FOR_SEQUENCING_VER_2_WITH_SEG_CLASS = [
             {
                 "role": "system", 
                 "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
@@ -137,7 +137,7 @@ class Prompts:
                 "content": '''
                     I have a pythonic list. Each element of the list is supposed to be an action step that belong to making a contribution(submit the changes) to an open source project. I want you to create the following two JSONs from the list:
                     1. JSON name = "content". 
-                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Extract topic from the content and keep the content as it is provided. This json would be named "content" and an example looks like: { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Extract one topic from the content and keep the content as it is provided . This json would be named "content" and an example looks like: { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
                     2. JSON name = "flow".
                     Description: For all the elements in the list, I want to find the sequence that a person contributing to that project would follow in a practical scenario. If each element in the list was a node in a graph, I want a JSON that gives me a source node and the target node for each edge in the graph. The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. Please make sure that the first "source" node for each flow is always a dummy node named "Parent Node".
                     Finally, merge the two JSONs into a single one that looks like: {content: "...", flow:"..."}.
@@ -151,3 +151,99 @@ class Prompts:
                         '''
             }
         ]
+    
+    PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS = [
+            {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    I have a pythonic list. Each element of the list is supposed to be an action step that belong to making a contribution(submit the changes) to an open source project. 
+                    First of all, analyze the elements of the list to make sure that they actually resemble a task while contributing to an open source project. 
+                    If they don't make sense or are too short, you can combine multiple elements, trim certain sentences from start or end of the elements and create a new list.
+                    '''
+            },
+            {
+                "role": "assistant", 
+                "content": ''' Certainly, I have analyzed the list you provided and I have created a new list where each element is a meaningful task
+                that can be carried out while making a contribution to open source projects. What should I do next?
+                '''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    Second, I want you to create the following two JSONs from the new list:
+                    1. JSON name = "content". 
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. 
+                    Extract one topic from the content. 
+                    This json would be named "content" and an example looks like: 
+                    { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    2. JSON name = "flow".
+                    Description: For all the elements in the list, 
+                    I want to find the sequence that a person contributing to that project would follow in a practical scenario. 
+                    If each element in the list was a node in a graph, 
+                    I want a JSON that gives me a source node and the target node for each edge in the graph. 
+                    The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. 
+                    Please make sure that the first "source" node for each flow is always a dummy node named "Parent Node".
+                    Finally, merge the two JSONs into a single one that looks like: {content: "...", flow:"..."}.
+
+                    '''
+            },
+            {
+                "role": "assistant", 
+                "content": '''
+                        Certainly, can you provide me the list of the action steps?
+                        '''
+            }
+        ]
+    
+    PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS = [
+            {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    I have a pythonic list. Each element of the list is supposed to be an action step that belong to making a contribution(submit the changes) to an open source project. 
+                    First of all, analyze the elements of the list to make sure that they actually resemble a task while contributing to an open source project. 
+                    If they don't make sense or are too short, you can combine multiple elements, trim certain sentences from start or end of the elements and create a new list.
+                    '''
+            },
+            {
+                "role": "assistant", 
+                "content": ''' Certainly, I have analyzed the list you provided and I have created a new list where each element is a meaningful task
+                that can be carried out while making a contribution to open source projects. What should I do next?
+                '''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    Second, I want you to create the following two JSONs from the new list:
+                    1. JSON name = "content". 
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. 
+                    Extract one topic from the content. 
+                    This json would be named "content" and an example looks like: 
+                    { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    2. JSON name = "flow".
+                    Description: For all the elements in the list, 
+                    I want to find the sequence that a person contributing to that project would follow in a practical scenario. 
+                    If each element in the list was a node in a graph, 
+                    I want a JSON that gives me a source node and the target node for each edge in the graph. 
+                    The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. 
+                    Please make sure that the first "source" node for each flow is always a dummy node named "Parent Node".
+                    Finally, merge the two JSONs into a single one that looks like: {content: "...", flow:"..."}.
+
+                    '''
+            },
+            {
+                "role": "assistant", 
+                "content": '''
+                        Certainly, can you provide me the list of the action steps?
+                        '''
+            }
+        ]
+    
+    #(you can modify it slightly so that each topic has a discrete task contained within it)

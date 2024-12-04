@@ -16,7 +16,7 @@ CORS(app)
 
 # Initialize services
 github_service = GitHubService(Config.GITHUB_TOKEN)
-
+TURN_CLASSIFIER_ON = True
 
 @app.route('/')
 def index():
@@ -59,19 +59,24 @@ def fetch_and_analyze():
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
             predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
-            segments, segment_classes = run_classifier_with_paragraphs(segments)
+            if TURN_CLASSIFIER_ON:
+                segments, segment_classes = run_classifier_with_paragraphs(segments)
+                prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS'
+            else:
+                segment_classes = [f'Contributing to {repo}']
+                prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS'
             print(segment_classes)
             segments_and_classes_in_all_files.append((segments, segment_classes))
+            print("No of segments found = ", len(segments))
 
-        print(len(segments_and_classes_in_all_files))
         # Returns a dictionary with class: list of segments
         segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
         #Call the LLM to find the sequence
-        segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments)
-        print(f"\nActual response from API:\n {segments_flow_and_contents}")
+        segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments, prompt_for_llm)
+        # print(f"\nActual response from API:\n {segments_flow_and_contents}")
 
         modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
-        print(f"\nActual response from API:\n {modified_json_for_ui}")
+        # print(f"\nModified response from API:\n {modified_json_for_ui}")
 
     # return render_template('text_segment_editor.html', file_path=segmented_file_path)
     return modified_json_for_ui
