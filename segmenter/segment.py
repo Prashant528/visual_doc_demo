@@ -34,9 +34,9 @@ def segment(sentence_feature_extractor, md_file_path, out_filename='latest', seg
 
     if segmentation_method=='unsupervised_window_based':
         predicted_segmentation, segments = segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices)
-        #account for the ending topic border
+        #account for the ending topic border => already did inside the function
         # predicted_segmentation.append(1)
-        predicted_segmentation[-1] = 1
+        # predicted_segmentation[-1] = 1
     elif segmentation_method=='langchain':
         predicted_segmentation, segments = segment_langchain(sentences, block_marker_indices)
         #account for the ending topic border
@@ -180,6 +180,8 @@ def segment_unsupervised(sentence_feature_extractor, sentences, block_marker_ind
                     print(f"Segment found inside a block at: {idx} between {line_block[0]} and {line_block[1]}.")
                     idx = line_block[1]
         predicted_segmentation[idx] = 1
+    #for the last sentence
+    predicted_segmentation[-1] = 1
 
     # print(predicted_segmentation)
     print(len(predicted_segmentation))
