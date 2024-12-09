@@ -8,7 +8,8 @@ from flask_cors import CORS
 from code_from_visdoc.github_service import GitHubService
 from code_from_visdoc.openai_service import OpenAIService
 from code_from_visdoc.config import Config
-from code_from_visdoc.utils import parse_openai_single_json, parse_github_link
+from code_from_visdoc.utils import parse_openai_single_json
+from code_from_visdoc.github_link_parser import parse_github_url
 from segmenter.transformers_call import SentenceFeatureExtractor
 
 app = Flask(__name__)
@@ -37,7 +38,11 @@ def fetch_and_analyze():
         data = request.json
         print(data)
         repo_link = data.get('repo_link')
-        owner, repo, file_path = parse_github_link(repo_link)
+        github_url_components = parse_github_url(repo_link)
+        owner = github_url_components.owner
+        repo = github_url_components.name
+        file_path = github_url_components.filepath
+        print(owner, repo, file_path)
         if not owner or not repo or not file_path:
             return jsonify({"error": "The link doesn't contain one or many of these (owner, repo, file)."}), 400
         
@@ -51,7 +56,7 @@ def fetch_and_analyze():
 
         segments_and_classes_in_all_files = []
         for file_and_content in files_and_contents:
-            file_name = repo + file_and_content[0]
+            file_name = repo + '_' + file_and_content[0].split('/')[-1]
             content = file_and_content[1]
             md_file_path = save_to_md(content, file_name)
             # content = 'hello'

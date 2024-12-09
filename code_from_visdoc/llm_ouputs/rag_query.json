@@ -1,0 +1,22 @@
+{
+    "collection_name": "testflutter",
+    "query": "I have a pythonic list. Each element of the list is supposed to be an action step that belong to making a contribution(submit the changes) to an open source project. I want you to create the following two JSONs from the list: 1. JSON name = 'content'. Description: For each element in the list, I want to map the topic of the element to the content of the element. Extract one topic from the content and keep the content as it is provided . This json would be named 'content' and an example looks like: { 'Topic 1': 'content 1', 'Topic 2': 'content 2', 'Topic 3': 'content 3'}. 2. JSON name = 'flow'.Description: For all the elements in the list, I want to find the sequence that a person contributing to that project would follow in a practical scenario. If each element in the list was a node in a graph, I want a JSON that gives me a source node and the target node for each edge in the graph. The format of the JSON should look like { 'edges': [ {'source': 'Topic 1', 'target': 'Topic 2'}, {'source': 'Topic 2', 'target': 'Topic 3'} ] }. Please make sure that the first 'source' node for each flow is always a dummy node named 'Parent Node'. Finally, merge the two JSONs into a single one that looks like: {content: '...', flow:'...'}."
+                      ,
+    "model_configuration": {
+      "name": "truefoundry/openai-main/gpt-4o-mini",
+      "parameters": {
+        "temperature": 0.1,
+        "max_tokens": 1024
+      }
+    },
+    "prompt_template": "You are an AI assistant specialising in information retrieval and analysis. Perform the following task based only on the given context:\nContext: {context} \n Task: {question}",
+    "retriever_name": "vectorstore",
+    "retriever_config": {
+      "search_type": "similarity",
+      "search_kwargs": {
+        "k": 5
+      }
+    },
+    "stream": false,
+    "internet_search_enabled": false
+  }

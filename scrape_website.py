@@ -23,7 +23,7 @@ def save_to_md(content, filename):
     file_dir = 'downloaded_files/'
     file_path = file_dir + filename
     try:
-        with open(file_path, 'wb') as file:
+        with open(file_path, 'w') as file:
             file.write(content)
         print(f"Content saved to {file_path} successfully.")
     except Exception as e:
