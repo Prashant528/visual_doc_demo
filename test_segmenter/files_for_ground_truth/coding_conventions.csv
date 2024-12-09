@@ -1,56 +1,56 @@
-sentence, ground_truth, segments_from_unsupervised, segments_from_gensim, segments_from_llm
-"title: ""Coding Conventions"" weight: 8 description: | This document outlines a collection of guidelines, style suggestions, and tips for writing code in the different programming languages used throughout the Kubernetes project." , 1, 0
-"Code conventions" , 0 , 0
-"- Bash" , 0, 0
-"- Shell Style Guide - Ensure that build, release, test, and cluster-management scripts run on macOS" , 1, 0
-"- Go" , 0, 0
-"- Go Code Review Comments - Effective Go" - Know and avoid Go landmines"  - Comment your code." , 0, 0
-"- Go's commenting conventions" , 0 , 0
-"If reviewers ask questions about why the code is the way it is, that's a sign that comments might be helpful." , 0, 0
-"- Command-line flags should use dashes, not underscores" , 0, 0
-"- Naming - Please consider package name when selecting an interface name, and avoid redundancy." , 0, 0
-"For example, storage." , 0, 0
-"Interface is better than storage." , 0, 0
-"StorageInterface." , 0, 0
-"Do not use uppercase characters, underscores, or dashes in package names." , 0, 0
-"- Please consider parent directory name when choosing a package name." , 0, 0
-"For example, pkg/controllers/autoscaler/foo.go should say package autoscaler not package autoscalercontroller." , 0, 0
-"- Unless there's a good reason, the package foo line should match the name of the directory in which the .go file exists." , 0, 0
-"- Importers can use a different name if they need to disambiguate." , 0, 0
-"- Locks should be called lock and should never be embedded (always lock sync.Mutex)." , 0, 0
-"When multiple locks are present, give each lock a distinct name following Go conventions: stateLock, mapLock etc." , 1, 0
-"Testing conventions" , 0, 1
-"All new packages and most new significant functionality must come with unit tests." , 0, 0
-"- Table-driven tests are preferred for testing multiple scenarios/inputs." , 0, 0
-"For an example, see TestNamespaceAuthorization." , 0, 0
-"- Significant features should come with integration (test/integration) and/or end-to-end (test/e2e) tests." , 0, 0
-"- Including new kubectl commands and major features of existing commands." , 0, 0
-"- Unit tests must pass on macOS and Windows platforms - if you use Linux specific features, your test case must either be skipped on windows or compiled out (skipped is better when running Linux specific commands, compiled out is required when your code does not compile on Windows)." , 0, 0
-"- Avoid relying on Docker Hub." , 0, 0
-"Use the Google Cloud Artifact Registry instead." , 0, 0
-"Do not expect an asynchronous thing to happen immediately---do not wait for one second and expect a pod to be running." , 0, 0
-"Wait and retry instead." , 0, 0
-"See the testing guide for additional testing advice." , 1, 0
-"Directory and file conventions" , 0, 1
-"- Avoid package sprawl." , 0, 0
-"Find an appropriate subdirectory for new packages." , 0, 0
-"See issue #4851 for discussion." , 0, 0
-"- Libraries with no appropriate home belong in new package subdirectories of pkg/util." , 0, 0
-"- Avoid general utility packages." , 0, 0
-"Packages called ""util"" are suspect." , 0, 0
-"Instead, derive a name that describes your desired function." , 0, 0
-"For example, the utility functions dealing with waiting for operations are in the wait package and include functionality like Poll." , 0, 0
-"The full name is wait." , 0 , 0
-"Poll." , 0, 0
-"  - All filenames should be lowercase." , 0, 0
-"Go source files and directories use underscores, not dashes." , 0, 0
-"- Package directories should generally avoid using separators as much as possible." , 0, 0
-"When package names are multiple words, they usually should be in nested subdirectories." , 0, 0
-"- Document directories and filenames should use dashes rather than underscores." , 0, 0
-"- Examples should also illustrate best practices for configuration and using the system." , 0, 0
-"- Follow these conventions for third-party code: - Go code for normal third-party dependencies is managed using go modules and is described in the kubernetes vendoring guide." , 0, 0
-"- Other third-party code belongs in third_party." , 0, 0
-"- forked third party Go code goes in third_party/forked." , 0, 0
-"- forked golang stdlib code goes in third_party/forked/golang." , 0, 0
-"- Third-party code must include licenses." , 0, 1
-"This includes modified third-party code and excerpts, as well." , 1, 1
+sentence, ground_truth, segments_from_unsupervised_0.05_4, segments_from_langchain_90_2, segments_from_langchain_default, segments_from_llm
+"title: ""Coding Conventions"" weight: 8 description: | This document outlines a collection of guidelines, style suggestions, and tips for writing code in the different programming languages used throughout the Kubernetes project." , 1, 0, 0, 1
+"Code conventions" , 0 , 0, 1, 0
+"- Bash" , 0, 0, 0, 0
+"- Shell Style Guide - Ensure that build, release, test, and cluster-management scripts run on macOS" , 1, 0, 0, 0
+"- Go" , 0, 0, 1, 0
+"- Go Code Review Comments - Effective Go" - Know and avoid Go landmines"  - Comment your code." , 0, 0, 0, 0
+"- Go's commenting conventions" , 0 , 0, 0, 0
+"If reviewers ask questions about why the code is the way it is, that's a sign that comments might be helpful." , 0, 0, 0, 0
+"- Command-line flags should use dashes, not underscores" , 0, 0, 0, 0
+"- Naming - Please consider package name when selecting an interface name, and avoid redundancy." , 0, 0, 0, 0
+"For example, storage." , 0, 0, 0, 0
+"Interface is better than storage." , 0, 0, 1, 0
+"StorageInterface." , 0, 0, 0, 0
+"Do not use uppercase characters, underscores, or dashes in package names." , 0, 0, 0, 0
+"- Please consider parent directory name when choosing a package name." , 0, 0, 0, 0
+"For example, pkg/controllers/autoscaler/foo.go should say package autoscaler not package autoscalercontroller." , 0, 0, 0, 0
+"- Unless there's a good reason, the package foo line should match the name of the directory in which the .go file exists." , 0, 0, 0, 0
+"- Importers can use a different name if they need to disambiguate." , 0, 0, 0, 0
+"- Locks should be called lock and should never be embedded (always lock sync.Mutex)." , 0, 0, 0, 0
+"When multiple locks are present, give each lock a distinct name following Go conventions: stateLock, mapLock etc." , 1, 0, 0, 1
+"Testing conventions" , 0, 1, 1, 0
+"All new packages and most new significant functionality must come with unit tests." , 0, 0, 0, 0
+"- Table-driven tests are preferred for testing multiple scenarios/inputs." , 0, 0, 0, 0
+"For an example, see TestNamespaceAuthorization." , 0, 0, 0, 0
+"- Significant features should come with integration (test/integration) and/or end-to-end (test/e2e) tests." , 0, 0, 0, 0
+"- Including new kubectl commands and major features of existing commands." , 0, 0, 0, 0
+"- Unit tests must pass on macOS and Windows platforms - if you use Linux specific features, your test case must either be skipped on windows or compiled out (skipped is better when running Linux specific commands, compiled out is required when your code does not compile on Windows)." , 0, 0, 0, 0
+"- Avoid relying on Docker Hub." , 0, 0, 1, 0
+"Use the Google Cloud Artifact Registry instead." , 0, 0, 0, 0
+"Do not expect an asynchronous thing to happen immediately---do not wait for one second and expect a pod to be running." , 0, 0, 0, 0
+"Wait and retry instead." , 0, 0, 0, 0
+"See the testing guide for additional testing advice." , 1, 0, 0, 0
+"Directory and file conventions" , 0, 1, 0, 0
+"- Avoid package sprawl." , 0, 0, 0, 0
+"Find an appropriate subdirectory for new packages." , 0, 0, 0, 0
+"See issue #4851 for discussion." , 0, 0, 0, 0
+"- Libraries with no appropriate home belong in new package subdirectories of pkg/util." , 0, 0, 0, 0
+"- Avoid general utility packages." , 0, 0, 0, 0
+"Packages called ""util"" are suspect." , 0, 0, 0, 0
+"Instead, derive a name that describes your desired function." , 0, 0, 0, 0
+"For example, the utility functions dealing with waiting for operations are in the wait package and include functionality like Poll." , 0, 0, 0, 0
+"The full name is wait." , 0 , 0, 1, 0
+"Poll." , 0, 0, 0, 0
+"  - All filenames should be lowercase." , 0, 0, 0, 0
+"Go source files and directories use underscores, not dashes." , 0, 0, 0, 0
+"- Package directories should generally avoid using separators as much as possible." , 0, 0, 0, 0
+"When package names are multiple words, they usually should be in nested subdirectories." , 0, 0, 0, 0
+"- Document directories and filenames should use dashes rather than underscores." , 0, 0, 0, 0
+"- Examples should also illustrate best practices for configuration and using the system." , 0, 0, 0, 0
+"- Follow these conventions for third-party code: - Go code for normal third-party dependencies is managed using go modules and is described in the kubernetes vendoring guide." , 0, 0, 0, 0
+"- Other third-party code belongs in third_party." , 0, 0, 0, 0
+"- forked third party Go code goes in third_party/forked." , 0, 0, 0, 0
+"- forked golang stdlib code goes in third_party/forked/golang." , 0, 0, 0, 0
+"- Third-party code must include licenses." , 0, 1, 0, 1
+"This includes modified third-party code and excerpts, as well." , 1, 1, 1, 1

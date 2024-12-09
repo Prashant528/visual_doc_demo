@@ -63,7 +63,7 @@ def fetch_and_analyze():
             #commented for demo, need to uncomment
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
-            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, repo, segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=True)
+            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, file_name, segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True)
             if TURN_CLASSIFIER_ON:
                 segments, segment_classes = run_classifier_with_paragraphs(segments)
                 prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS'

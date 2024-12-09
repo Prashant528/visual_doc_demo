@@ -1,61 +1,61 @@
-sentence, ground_truth, segments_from_unsupervised, segments_from_gensim, segments_from_llm
-"title: "Getting Started" weight: 1 aliases: ["/guide"] description: A small list of things that you should read and be familiar with before you get started with contributing.", 0, 0
-"This includes such things as signing the Contributor License Agreement, familiarizing yourself with our Code of Conduct, and more.", 1, 0
-"Getting Started", 0, 0
-"Welcome", 0, 0
-"Have you ever wanted to contribute to the coolest cloud technology?", 0, 0
-"This guide will help you understand the overall organization of the Kubernetes project, and direct you to the best places to get started contributing.", 0, 0
-"You'll be able to pick up issues, write code to fix them, and get your work reviewed and merged.", 0, 0
-"This document is the single source of truth for how to contribute to the codebase.", 0, 0
-"Feel free to browse the open issues and file new ones, all feedback is welcome!", 1, 0
-"Contributor Guide", 0, 0
-"Welcome to Kubernetes!", 0, 1
-"This guide is broken up into the following sections.", 0, 0
-"It is recommended that you follow these steps in order:", 1, 0
-"Prerequisites", 0, 0
-"Before submitting code to Kubernetes, you should first complete the following prerequisites.", 0, 1
-"These steps are checked automatically by a bot during your first submission.", 0, 0
-"Completing these steps will make your first contribution easier:", 1, 0
-"Create a GitHub account", 0, 0
-"Before you get started, you will need to sign up for a GitHub user account.", 1, 1
-"Sign the CLA", 0, 0
-"Before you can contribute to Kubernetes, you will need to sign the Contributor License Agreement.", 0, 0
-"The easiest way to do so is to open a PR against the contributor playground repo, you can find an example PR here.", 0, 0
-"Note: kubernetes-sigs/contributor-playground is a repository for practicing submitting your first PR, not just for CLA registration.", 1, 0
-"When creating and submitting a new PR, please write the PR description according to the provided template.", 0, 0
-"Check the above example PR for reference.", 1, 0
-"Code of Conduct", 0, 1
-"Please make sure to read and observe the Code of Conduct and Community Values", 1, 0
-"Setting up your development environment", 0, 0
-"It is not required to set up a developer environment in order to contribute to Kubernetes.", 0, 0
-"If you plan to contribute code changes, review the developer resources page for how to set up your environment.", 1, 0
-"Community Expectations and Roles", 0, 1
-"Kubernetes is a community project.", 0, 0
-"Consequently, it is wholly dependent on its", 0, 0
-"community to provide a productive, friendly, and collaborative environment.", 0, 0
-"- Read and review the Community Expectations for an understanding of code and review expectations.", 0, 0
-"- See Community Membership for a list of the various responsibilities of contributor roles.", 0, 0
-"You are encouraged to move up this contributor ladder as you gain experience.", 1, 0
-"Kubernetes Contributor Playground", 0, 1
-"If you are looking for a safe place, where you can familiarize yourself with the pull request and issue review process in Kubernetes, then the Kubernetes Contributor Playground is the right place for you.", 1, 0
-"Contributor Workshops", 0, 0
-"A Youtube playlist of the New Contributor workshop has been posted.", 0, 0
-"An outline of the video content can be found here.", 1, 1
-"Community", 0, 0
-"Kubernetes is a large, lively, friendly open-source community.", 0, 0
-"As many open source projects often do, it depends on new people becoming members and regular code contributors.", 0, 0
-"The Community Membership Document covers membership processes and roles.", 0, 0
-"Please consider joining Kubernetes, and making your way up the contributor ladder!", 1, 1
-"Communication", 0 , 0
-"Events", 0, 0
-"Kubernetes participates in KubeCon + CloudNativeCon, held three times per year in China, Europe, and North America.", 0, 0
-"Information about these and other community events is available on the CNCF Events pages.", 1, 0
-"Meetups", 0, 0
-"All Kubernetes meetups follow the general Cloud Native Computing Foundation Guidelines", 0, 0
-"You may also contact CNCF Staff driving the Community Groups (previously known as Meetups) program by email (meetups@cncf.io)", 1, 0
-"Mentorship", 0, 0
-"Learn more about the Kubernetes mentoring initiatives.", 1, 0
-"Advanced Topics", 0, 0
-"This section includes things that need to be documented, but typical contributors do not need to interact with regularly.", 0, 0
-"- OWNERS files -", 0, 0
-"which outline which parts of the code are owned by what groups.", 1, 1
+sentence, ground_truth, segments_from_unsupervised_0.05_4, segments_from_langchain_90_2, segments_from_langchain_default, segments_from_llm
+"title: "Getting Started" weight: 1 aliases: ["/guide"] description: A small list of things that you should read and be familiar with before you get started with contributing.", 0, 0, 0, 1
+"This includes such things as signing the Contributor License Agreement, familiarizing yourself with our Code of Conduct, and more.", 1, 0, 1, 1
+"Getting Started", 0, 0, 0, 0
+"Welcome", 0, 0, 0, 0
+"Have you ever wanted to contribute to the coolest cloud technology?", 0, 0, 0, 0
+"This guide will help you understand the overall organization of the Kubernetes project, and direct you to the best places to get started contributing.", 0, 0, 0, 0
+"You'll be able to pick up issues, write code to fix them, and get your work reviewed and merged.", 0, 0, 0, 0
+"This document is the single source of truth for how to contribute to the codebase.", 0, 0, 0, 0
+"Feel free to browse the open issues and file new ones, all feedback is welcome!", 1, 0, 0, 0
+"Contributor Guide", 0, 0, 0, 0
+"Welcome to Kubernetes!", 0, 1, 0, 0
+"This guide is broken up into the following sections.", 0, 0, 0, 0
+"It is recommended that you follow these steps in order:", 1, 0, 0, 0
+"Prerequisites", 0, 0, 0, 0
+"Before submitting code to Kubernetes, you should first complete the following prerequisites.", 0, 1, 0, 0
+"These steps are checked automatically by a bot during your first submission.", 0, 0, 1, 0
+"Completing these steps will make your first contribution easier:", 1, 0, 1, 0
+"Create a GitHub account", 0, 0, 0, 0
+"Before you get started, you will need to sign up for a GitHub user account.", 1, 1, 0, 0
+"Sign the CLA", 0, 0, 0, 0
+"Before you can contribute to Kubernetes, you will need to sign the Contributor License Agreement.", 0, 0, 0, 0
+"The easiest way to do so is to open a PR against the contributor playground repo, you can find an example PR here.", 0, 0, 0, 0
+"Note: kubernetes-sigs/contributor-playground is a repository for practicing submitting your first PR, not just for CLA registration.", 1, 0, 0, 0
+"When creating and submitting a new PR, please write the PR description according to the provided template.", 0, 0, 1, 0
+"Check the above example PR for reference.", 1, 0, 0, 0
+"Code of Conduct", 0, 1, 0, 0
+"Please make sure to read and observe the Code of Conduct and Community Values", 1, 0, 0, 0
+"Setting up your development environment", 0, 0, 0, 0
+"It is not required to set up a developer environment in order to contribute to Kubernetes.", 0, 0, 0, 0
+"If you plan to contribute code changes, review the developer resources page for how to set up your environment.", 1, 0, 0, 0
+"Community Expectations and Roles", 0, 1, 0, 0
+"Kubernetes is a community project.", 0, 0, 0, 0
+"Consequently, it is wholly dependent on its", 0, 0, 0, 0
+"community to provide a productive, friendly, and collaborative environment.", 0, 0, 0, 0
+"- Read and review the Community Expectations for an understanding of code and review expectations.", 0, 0, 1, 0
+"- See Community Membership for a list of the various responsibilities of contributor roles.", 0, 0, 0, 0
+"You are encouraged to move up this contributor ladder as you gain experience.", 1, 0, 0, 0
+"Kubernetes Contributor Playground", 0, 1, 0, 0
+"If you are looking for a safe place, where you can familiarize yourself with the pull request and issue review process in Kubernetes, then the Kubernetes Contributor Playground is the right place for you.", 1, 0, 0, 0
+"Contributor Workshops", 0, 0, 0, 0
+"A Youtube playlist of the New Contributor workshop has been posted.", 0, 0, 0, 0
+"An outline of the video content can be found here.", 1, 1, 0, 0
+"Community", 0, 0, 0, 0
+"Kubernetes is a large, lively, friendly open-source community.", 0, 0, 0, 0
+"As many open source projects often do, it depends on new people becoming members and regular code contributors.", 0, 0, 0, 0
+"The Community Membership Document covers membership processes and roles.", 0, 0, 0, 0
+"Please consider joining Kubernetes, and making your way up the contributor ladder!", 1, 1, 0, 0
+"Communication", 0 , 0, 0, 0
+"Events", 0, 0, 0, 0
+"Kubernetes participates in KubeCon + CloudNativeCon, held three times per year in China, Europe, and North America.", 0, 0, 0, 0
+"Information about these and other community events is available on the CNCF Events pages.", 1, 0, 0, 0
+"Meetups", 0, 0, 0, 0
+"All Kubernetes meetups follow the general Cloud Native Computing Foundation Guidelines", 0, 0, 0, 0
+"You may also contact CNCF Staff driving the Community Groups (previously known as Meetups) program by email (meetups@cncf.io)", 1, 0, 0, 1
+"Mentorship", 0, 0, 1, 0
+"Learn more about the Kubernetes mentoring initiatives.", 1, 0, 0, 0
+"Advanced Topics", 0, 0, 0, 0
+"This section includes things that need to be documented, but typical contributors do not need to interact with regularly.", 0, 0, 0, 0
+"- OWNERS files -", 0, 0, 0, 0
+"which outline which parts of the code are owned by what groups.", 1, 1, 1, 1

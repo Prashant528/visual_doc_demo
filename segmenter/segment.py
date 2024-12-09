@@ -208,8 +208,8 @@ def segment_langchain(sentences, block_marker_indices):
     text_splitter = SemanticChunker(
                         OpenAIEmbeddings(), 
                         breakpoint_threshold_type="gradient",
-                        breakpoint_threshold_amount=TOPIC_CHANGE_THRESHOLD,
-                        buffer_size=WINDOW_SIZE
+                        # breakpoint_threshold_amount=TOPIC_CHANGE_THRESHOLD,
+                        # buffer_size=WINDOW_SIZE
                     )
     predicted_segmentation, segments = text_splitter.split_text_modified(sentences, block_marker_indices)
     
