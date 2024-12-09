@@ -69,7 +69,9 @@ class GitHubService:
         if depth > 1:  # To avoid infinite recursion
             return
         
-        content = self.get_file_content_from_raw_url(owner, repo, file_path)
+        # content = self.get_file_content_from_raw_url(owner, repo, file_path)
+        content = self.get_file_content_from_api(owner, repo, file_path)
+
         # print(content)
         if not content:
             print("File not downloaded.")

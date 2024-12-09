@@ -1,0 +1,88 @@
+sentence, ground_truth, segments_from_unsupervised_0.05_4, segments_from_langchain_90_2, segments_from_langchain_default, segments_from_llm
+"title: ""Contributing to Kubernetes"" weight: 4 description: | An entrypoint to getting started with contributing to the Kubernetes project." , 1, 0, 1, 1
+"Contributing" , 0, 0, 0, 0
+"Kubernetes is open source, but many of the people working on it do so as their day job." , 0, 0, 0, 0
+"In order to avoid forcing people to be ""at work"" effectively 24/7, we want to establish some semi-formal protocols around development." , 0, 0, 0, 0
+"Hopefully, these rules make things go more smoothly." , 0, 1, 0, 0
+"If you find that this is not the case, please complain loudly." , 1, 0, 0, 0
+"As a potential contributor, your changes and ideas are welcome at any hour of the day or night, weekdays, weekends, and holidays." , 0, 0, 0, 0
+"Please do not ever hesitate to ask a question or send a pull request." , 0, 0, 0, 0
+"Check out our community guiding principles on how to create great code as a big group." , 0, 0, 0, 0
+"Beginner focused information can be found below in Open a Pull Request and Code Review." , 0, 1, 0, 0
+"For quick reference on contributor resources, we have a handy contributor cheatsheet." , 1, 0, 0, 0
+"Communication" , 0, 0, 0, 0
+"It is best to contact your SIG for issues related to the SIG's topic." , 0, 0, 0, 0
+"Your SIG will be able to help you much more quickly than a general question would." , 1, 1, 0, 0
+"For general questions and troubleshooting, use the standard lines of communication and work through the troubleshooting guide." , 1, 0, 0, 0
+"GitHub workflow" , 0, 0, 0, 0
+"To check out code to work on, please refer to the GitHub Workflow Guide." , 0, 0, 0, 0
+"The full workflow for a pull request is documented here:" , 0, 0, 0, 0
+"- Kubernetes-specific github workflow." , 0, 0, 0, 0
+"That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here:" , 1, 0, 0, 0
+"Opening a Pull Request" , 0, 0, 0, 0
+"Pull requests are often called a ""PR""." , 0, 0, 0, 0
+"Kubernetes generally follows the standard github pull request process, but there is a layer of additional kubernetes specific (and sometimes SIG specific) differences:" , 0, 1, 0, 0
+"The first difference you'll see is that a bot will begin applying structured labels to your PR." , 0, 0, 0, 0
+"The bot may also make some helpful suggestions for commands to run in your PR to facilitate review." , 0, 0, 0, 0
+"These /command options can be entered in comments to trigger auto-labeling and notifications." , 0, 1, 0, 0
+"Refer to its command reference documentation." , 0, 0, 0, 0
+"Common new contributor PR issues are:" , 0, 0, 0, 0
+"Not having correctly signed the CLA ahead of your first PR." , 0, 0, 0, 0
+"See the CLA page for troubleshooting help, in some cases you might need to file a ticket with the CNCF to resolve a CLA problem." , 0, 0, 0, 0
+"- Finding the right SIG or reviewer(s) for the PR (see Code Review section) and following any SIG or repository specific contributing guidelines (see Learn about SIGs section)" , 0, 0, 0, 0
+"  - Dealing with test cases which fail on your PR, unrelated to the changes you introduce (see Test Flakes)" , 0, 0, 1, 0
+"Not following scalability good practices" , 0, 0, 0, 0
+"  - Include mentions (like @person) and keywords which could close the issue (like fixes #xxxx) in commit messages." , 1, 0, 0, 1
+"Code Review" , 0, 1, 1, 0
+"For a brief description of the importance of code review, please read On Code Review." , 0, 1, 0, 0
+"There are two aspects of code review: giving and receiving." , 0, 0, 0, 0
+"To make it easier for your PR to receive reviews, consider the reviewers will need you to:" , 0, 0, 0, 0
+"Reviewers, the people giving the review, are highly encouraged to revisit the Code of Conduct as well as community expectations and must go above and beyond to promote a collaborative, respectful community." , 0, 0, 0, 0
+"When reviewing PRs from others The Gentle Art of Patch Review suggests an iterative series of focuses which is designed to lead new contributors to positive collaboration without inundating them initially with nuances:" , 0, 0, 1, 1
+"Is the idea behind the contribution sound?" , 0, 0, 0, 0
+"Is the contribution architected correctly?" , 0, 0, 0, 0
+"Is the contribution polished?" , 0, 0, 0, 0
+"Note: if your pull request isn't getting enough attention, you can use the #pr-reviews channel on Slack to get help finding reviewers." , 1, 1, 1, 0
+"Best practices" , 0, 1, 0, 0
+"- Write clear and meaningful git commit messages." , 0, 0, 0, 0
+"If the PR will completely fix a specific issue, include fixes #123 in the PR body (where 123 is the specific issue number the PR will fix." , 0, 0, 0, 0
+"This will automatically close the issue when the PR is merged." , 0, 0, 1, 0
+"Make sure you don't include @mentions or fixes keywords in your git commit messages." , 0, 0, 0, 0
+"These should be included in the PR body instead." , 0, 0, 0, 0
+"When you make a PR for small change (such as fixing a typo, style change, or grammar fix), please squash your commits so that we can maintain a cleaner git history." , 0, 0, 0, 0
+"Make sure you include a clear and detailed PR description explaining the reasons for the changes, and ensuring there is sufficient information for the reviewer to understand your PR." , 0, 0, 0, 0
+"- Additional Readings: - chris.beams.io/posts/git-commit/ - github.com/blog/1506-closing-issues-via-pull-requests - davidwalsh.name/squash-commits-git  - https://mtlynch.io/code-review-love/" , 1, 0, 0, 1
+"Testing" , 0, 1, 1, 0
+"Testing is the responsibility of all contributors and is in part owned by all SIGs, but is also coordinated by sig-testing." , 0, 0, 0, 0
+"Refer to the Testing Guide for more information." , 0, 0, 0, 0
+"There are multiple types of tests." , 0, 0, 0, 0
+"The location of the test code varies with type, as do the specifics of the environment needed to successfully run the test:" , 0, 0, 0, 0
+"- Unit: These confirm that a particular function behaves as intended." , 0, 0, 0, 0
+"Golang includes a native ability for unit testing via the testing package." , 0, 0, 0, 0
+"Unit test source code can be found adjacent to the corresponding source code within a given package." , 0, 0, 0, 0
+"For example: functions defined in kubernetes/cmd/kubeadm/app/util/version.go will have unit tests in kubernetes/cmd/kubeadm/app/util/version_test.go." , 0, 0, 0, 0
+"These are easily run locally by any developer on any OS." , 0, 0, 0, 0
+"- Integration: These tests cover interactions of package components or interactions between kubernetes components and some other non-kubernetes system resource (eg: etcd)." , 0, 0, 0, 0
+"An example would be testing whether a piece of code can correctly store data to or retrieve data from etcd." , 0, 0, 0, 0
+"Integration tests are stored in kubernetes/test/integration/." , 0, 0, 0, 0
+"Running these can require the developer set up additional functionality on their development system." , 0, 0, 0, 0
+"- End-to-end (""e2e""):" , 0, 0, 0, 0
+"These are broad tests of overall system behavior and coherence." , 0, 0, 0, 0
+"These are more complicated as they require a functional kubernetes cluster built from the sources to be tested." , 0, 0, 0, 0
+"A separate document detailing e2e testing and test cases themselves can be found in kubernetes/test/e2e/." , 0, 0, 0, 0
+"- Conformance: These are a set of testcases, currently a subset of the integration/e2e tests, that the Architecture SIG has approved to define the core set of interoperable features that all Kubernetes deployments must support." , 0, 0, 0, 0
+"For more information on Conformance tests please see the Conformance Testing Document." , 0, 0, 0, 0
+"Continuous integration will run these tests either as pre-submits on PRs, post-submits against master/release branches, or both." , 0, 1, 0, 0
+"The results appear on testgrid." , 0, 0, 0, 0
+"sig-testing is responsible for that official infrastructure and CI." , 0, 0, 0, 0
+"The associated automation is tracked in the test-infra repo." , 0, 0, 0, 0
+"If you're looking to run e2e tests on your own infrastructure, kubetest is the mechanism." , 1, 1, 0, 0
+"Security" , 0, 0, 1, 0
+"- Security Release Page - outlines the procedures for the handling of security issues." , 0, 0, 0, 0
+"- Security and Disclosure Information - check this page if you wish to report a security vulnerability." , 1, 0, 0, 1
+"Documentation" , 0, 0, 0, 0
+"Issues Management or Triage" , 0, 0, 1, 0
+"Have you ever noticed the total number of open issues?" , 0, 0, 0, 0
+"Helping to manage or triage these open issues can be a great contribution and a great opportunity to learn about the various areas of the project." , 0, 0, 0, 0
+"Triaging is the word we use to describe the process of adding multiple types of descriptive labels to GitHub issues, in order to speed up routing issues to the right folks." , 0, 0, 0, 0
+"Refer to the Issue Triage Guidelines for more information." , 1, 1, 1, 1

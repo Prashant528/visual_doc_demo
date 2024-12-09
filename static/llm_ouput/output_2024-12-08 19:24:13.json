@@ -1,0 +1,48 @@
+{
+    "DC \u2013 Deal with the code": {
+        "content": {
+            "Coding Conventions": "This document outlines a collection of guidelines, style suggestions, and tips for writing code in the different programming languages used throughout the Kubernetes project. Code conventions include Bash, Shell Style Guide, Go, and Go Code Review Comments. It covers effective Go practices, commenting conventions, naming conventions, and testing conventions.",
+            "Package Management": "Avoid package sprawl by finding appropriate subdirectories for new packages. Libraries with no appropriate home belong in new package subdirectories of pkg/util. Avoid general utility packages and derive a name that describes your desired function. Follow conventions for third-party code, including managing Go code with go modules and placing other third-party code in third_party directories."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Coding Conventions"
+                },
+                {
+                    "source": "Coding Conventions",
+                    "target": "Package Management"
+                }
+            ]
+        }
+    },
+    "SC \u2013 Submit the changes": {
+        "content": {
+            "Testing": "All new packages and most new significant functionality must come with unit tests. Table-driven tests are preferred for testing multiple scenarios/inputs. For an example, see TestNamespaceAuthorization. Significant features should come with integration (test/integration) and/or end-to-end (test/e2e) tests. Including new kubectl commands and major features of existing commands. Unit tests must pass on macOS and Windows platforms - if you use Linux specific features, your test case must either be skipped on windows or compiled out (skipped is better when running Linux specific commands, compiled out is required when your code does not compile on Windows).",
+            "Dependency Management": "Avoid relying on Docker Hub. Use the Google Cloud Artifact Registry instead.",
+            "Asynchronous Operations": "Do not expect an asynchronous thing to happen immediately---do not wait for one second and expect a pod to be running. Wait and retry instead.",
+            "Guidelines": "See the testing guide for additional testing advice. Directory and file conventions"
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Testing"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Dependency Management"
+                },
+                {
+                    "source": "Dependency Management",
+                    "target": "Asynchronous Operations"
+                },
+                {
+                    "source": "Asynchronous Operations",
+                    "target": "Guidelines"
+                }
+            ]
+        }
+    }
+}
