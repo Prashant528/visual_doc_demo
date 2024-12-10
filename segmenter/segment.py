@@ -10,7 +10,7 @@ from segmenter.transformers_call import generate_sentences_not_considering_block
 from segmenter.clean_markdown import markdn2text_gfm
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
-def segment(sentence_feature_extractor, md_file_path, out_filename='latest', segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False):
+def segment(sentence_feature_extractor, md_file_path, openai_service, out_filename='latest', segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False, use_llm=True):
     '''
     Methods:
     1. unsupervised_window_based (https://arxiv.org/pdf/2106.12978)
@@ -48,12 +48,12 @@ def segment(sentence_feature_extractor, md_file_path, out_filename='latest', seg
     
     file_name= None
     if save_to_file:
-        file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
-        file1  = open(file_name, "w")
+        segmented_file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
+        file1  = open(segmented_file_name, "w")
         #works for both sentences and paragraphs
         for segment in segments:
             file1.write(segment)
-            file1.write("\n\n-----------------------------<PREDICTEDSEGMENT>--------------------------\n\n")
+            file1.write("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
         file1.close()
 
         file_name = 'segmenter/parsed_sentences/'+ out_filename +'_parsed_by_algo.txt'
@@ -63,6 +63,11 @@ def segment(sentence_feature_extractor, md_file_path, out_filename='latest', seg
             file2.write(sentence)
             file2.write("\n--------\n")
         file2.close()
+
+        if save_to_file and use_llm:
+            openai_service.clean_segments(prompt_for_llm='PROMPT_FOR_CLEANING_SEGMENTATION', document=segmented_file_name)
+            predicted_segmentation, segments, file_name = get_segments_from_file(segmented_file_name)
+        
     print("Number of sentences in our segmentation algo = ", len(sentences))
     return predicted_segmentation, segments, file_name
 
@@ -214,3 +219,27 @@ def segment_langchain(sentences, block_marker_indices):
     predicted_segmentation, segments = text_splitter.split_text_modified(sentences, block_marker_indices)
     
     return predicted_segmentation, segments
+
+def get_segments_from_file(filename):
+    segments = []  # List to hold the segments
+    current_segment = ''  # Temporary list to collect lines for the current segment
+
+    # Read the file line by line
+    with open(filename, "r") as file:
+        for line in file:
+            line = line.strip()  # Remove leading/trailing whitespace
+            if "<PREDICTED_SEGMENT_BOUNDARY>" in line:
+                # If boundary marker found, add current segment to segments
+                if current_segment:  # Avoid appending empty segments
+                    segments.append(current_segment)
+                    current_segment = ''  # Reset for the next segment
+            else:
+                if line:
+                    # Add line to the current segment
+                    current_segment = current_segment + ' ' + line
+
+        # Add the last segment if it exists
+        if current_segment:
+            segments.append(current_segment)
+
+        return [], segments, filename

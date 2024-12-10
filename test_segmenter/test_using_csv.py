@@ -13,7 +13,7 @@ combined_df = pd.concat(dataframes, ignore_index=True)
 print(combined_df.columns)
 ground_truth = combined_df['ground_truth'].tolist()
 ground_truth_str = ''.join(str(x) for x in ground_truth)
-all_columns = ['segments_from_unsupervised_0.05_4','segments_from_langchain_90_2', 'segments_from_langchain_default']
+all_columns = ['segments_from_unsupervised_0.05_4','segments_from_langchain_90_2', 'segments_from_langchain_default', 'segments_from_llm']
 
 for column in all_columns:
     if not combined_df[column].isna().any():

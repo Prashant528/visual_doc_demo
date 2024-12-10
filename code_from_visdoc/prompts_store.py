@@ -235,4 +235,17 @@ class Prompts:
             }
         ]
     
-    #(you can modify it slightly so that each topic has a discrete task contained within it)
+    PROMPT_FOR_CLEANING_SEGMENTATION = [
+            {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes.'''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    I have a document from a Github repository. It contains different sections that highlight a task to be carried out. I have created segments based on tasks, the segment boundaries are denoted by "--------<PREDICTED_SEGMENT_BOUNDARY>--------" . Can you please take a look and check if the segmentation is correct. If not, you can move the boundaries and you can also remove or add additional boundaries if needed. Please denote the new boundaries with the same marker "--------<PREDICTED_SEGMENT_BOUNDARY>--------". The document is given below:\n
+                    '''
+            }
+        ]
+
+
