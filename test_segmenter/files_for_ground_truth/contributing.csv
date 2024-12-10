@@ -1,4 +1,4 @@
-sentence, ground_truth, segments_from_unsupervised_0.05_4, segments_from_langchain_90_2, segments_from_langchain_default, segments_from_llm
+sentence,ground_truth,segments_from_unsupervised_0.05_4,segments_from_langchain_90_2,segments_from_langchain_default,segments_from_llm
 "title: ""Contributing to Kubernetes"" weight: 4 description: | An entrypoint to getting started with contributing to the Kubernetes project." , 1, 0, 1, 1
 "Contributing" , 0, 0, 0, 0
 "Kubernetes is open source, but many of the people working on it do so as their day job." , 0, 0, 0, 0

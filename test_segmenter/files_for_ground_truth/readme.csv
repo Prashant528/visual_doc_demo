@@ -1,4 +1,4 @@
-sentence, ground_truth, segments_from_unsupervised_0.05_4, segments_from_langchain_90_2, segments_from_langchain_default, segments_from_llm
+sentence,ground_truth,segments_from_unsupervised_0.05_4,segments_from_langchain_90_2,segments_from_langchain_default,segments_from_llm
 "title: "Getting Started" weight: 1 aliases: ["/guide"] description: A small list of things that you should read and be familiar with before you get started with contributing.", 0, 0, 0, 1
 "This includes such things as signing the Contributor License Agreement, familiarizing yourself with our Code of Conduct, and more.", 1, 0, 1, 1
 "Getting Started", 0, 0, 0, 0

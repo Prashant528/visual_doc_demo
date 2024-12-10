@@ -1,4 +1,4 @@
-sentence, ground_truth, segments_from_unsupervised_0.05_4, segments_from_langchain_90_2, segments_from_langchain_default, segments_from_llm
+sentence,ground_truth,segments_from_unsupervised_0.05_4,segments_from_langchain_90_2,segments_from_langchain_default,segments_from_llm
 "title: ""Coding Conventions"" weight: 8 description: | This document outlines a collection of guidelines, style suggestions, and tips for writing code in the different programming languages used throughout the Kubernetes project." , 1, 0, 0, 1
 "Code conventions" , 0 , 0, 1, 0
 "- Bash" , 0, 0, 0, 0
