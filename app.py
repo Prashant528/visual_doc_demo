@@ -11,6 +11,7 @@ from code_from_visdoc.config import Config
 from code_from_visdoc.utils import parse_openai_single_json
 from code_from_visdoc.github_link_parser import parse_github_url
 from segmenter.transformers_call import SentenceFeatureExtractor
+import sys
 
 app = Flask(__name__)
 CORS(app) 
@@ -63,7 +64,9 @@ def fetch_and_analyze():
             #commented for demo, need to uncomment
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
-            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, file_name, segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True)
+            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True)
+            print(segments)
+            sys.exit("EXITED")
             if TURN_CLASSIFIER_ON:
                 segments, segment_classes = run_classifier_with_paragraphs(segments)
                 prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS'
