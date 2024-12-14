@@ -1,146 +1,150 @@
-title: "Getting Started" weight: 1 aliases: ["/guide"] description: A small list of things that you should read and be familiar with before you get started with contributing. This includes such things as signing the Contributor License Agreement, familiarizing yourself with our Code of Conduct, and more.
+title: "Contributing to Kubernetes" weight: 4 description: | An entrypoint to getting started with contributing to the Kubernetes project.
 
-Getting Started
-
-THIS IS START BLOCK MARKER.
-  - Getting Started
-      - Welcome
-      - Contributor Guide
-      - Prerequisites
-          - Create a GitHub account
-          - Sign the CLA
-          - Code of Conduct
-          - Setting up your development environment
-          - Community Expectations and Roles
-      - Kubernetes Contributor Playground
-          - Contributor Workshops
-      - Community
-          - Communication
-          - Events
-          - Meetups
-          - Mentorship
-      - Advanced Topics
-THIS IS END BLOCK MARKER.
-
-Welcome
-
-Have you ever wanted to contribute to the coolest cloud technology?
-This guide will help you understand the overall organization of the Kubernetes
-project, and direct you to the best places to get started contributing. You'll
-be able to pick up issues, write code to fix them, and get your work reviewed
-and merged.
-
-This document is the single source of truth for how to contribute to the code
-base. Feel free to browse the open issues and file new ones, all feedback
-is welcome!
-
-Contributor Guide
-
-Welcome to Kubernetes! This guide is broken up into the following sections.
-It is recommended that you follow these steps in order:
+Contributing
 
 THIS IS START BLOCK MARKER.
-  - Welcome - this page
-  - Prerequisites - tasks you need to complete before
-    you can start contributing to Kubernetes
-  - Your First Contribution - things you'll need to know
-    before making your first contribution
-  - Contributing - the main reference guide to contributing
-    to Kubernetes
+  - Communication
+  - GitHub workflow
+  - Open a Pull Request
+  - Code Review
+  - Best Practices
+  - Testing
+  - Security
+  - Documentation
+  - Issues Management or Triage
 THIS IS END BLOCK MARKER.
 
-Prerequisites
+Kubernetes is open source, but many of the people working on it do so as their day job.
+In order to avoid forcing people to be "at work" effectively 24/7, we want to establish some semi-formal protocols around development.
+Hopefully, these rules make things go more smoothly.
+If you find that this is not the case, please complain loudly.
 
-Before submitting code to Kubernetes, you should first complete the following
-prerequisites. These steps are checked automatically by a bot during your
-first submission. Completing these steps will make your first contribution
-easier:
+As a potential contributor, your changes and ideas are welcome at any hour of the day or night, weekdays, weekends, and holidays.
+Please do not ever hesitate to ask a question or send a pull request.
 
-Create a GitHub account
+Check out our community guiding principles on how to create great code as a big group.
 
-Before you get started, you will need to sign up for a GitHub user account.
+Beginner focused information can be found below in Open a Pull Request and Code Review.
 
-Sign the CLA
-
-Before you can contribute to Kubernetes, you will need to sign the
-Contributor License Agreement.
-The easiest way to do so is to open a PR against the contributor playground repo, you can find an example PR here.
-
-Note: kubernetes-sigs/contributor-playground is a repository for practicing submitting your first PR, not just for CLA registration. When creating and submitting a new PR, please write the PR description according to the provided template. Check the above example PR for reference.
-
-Code of Conduct
-
-Please make sure to read and observe the Code of Conduct and
-Community Values
-
-Setting up your development environment
-
-It is not required to set up a developer environment in order to contribute to
-Kubernetes.
-
-If you plan to contribute code changes, review the developer resources page
-for how to set up your environment.
-
-Community Expectations and Roles
-
-Kubernetes is a community project. Consequently, it is wholly dependent on its
-community to provide a productive, friendly, and collaborative environment.
-
-THIS IS START BLOCK MARKER.
-  - Read and review the Community Expectations for an
-    understanding of code and review expectations.
-  - See Community Membership for a list of the various
-    responsibilities of contributor roles.
-  - You are encouraged to move up this contributor ladder as you gain experience.
-THIS IS END BLOCK MARKER.
-
-Kubernetes Contributor Playground
-
-If you are looking for a safe place, where you can familiarize yourself with
-the pull request and issue review process in Kubernetes, then the
-Kubernetes Contributor Playground is the right place for you.
-
-Contributor Workshops
-
-A Youtube playlist of the New Contributor workshop has been posted. An
-outline of the video content can be found here.
-
-Community
-
-Kubernetes is a large, lively, friendly open-source community. As many open
-source projects often do, it depends on new people becoming members and regular
-code contributors. The Community Membership Document covers membership
-processes and roles. Please consider joining Kubernetes, and making your way
-up the contributor ladder!
+For quick reference on contributor resources, we have a handy contributor cheatsheet.
 
 Communication
 
-THIS IS START BLOCK MARKER.
-  - General Information relating to Kubernetes communication policies
-THIS IS END BLOCK MARKER.
+It is best to contact your SIG for issues related to the SIG's topic. Your SIG will be able to help you much more quickly than a general question would.
 
-Events
+For general questions and troubleshooting, use the standard lines of communication and work through the troubleshooting guide.
 
-Kubernetes participates in KubeCon + CloudNativeCon, held three times per year
-in China, Europe, and North America. Information about these and other
-community events is available on the CNCF Events pages.
+GitHub workflow
 
-Meetups
+To check out code to work on, please refer to the GitHub Workflow Guide.
 
-All Kubernetes meetups follow the general Cloud Native Computing Foundation Guidelines
-You may also contact CNCF Staff driving the Community Groups (previously known
-as Meetups) program by email (meetups@cncf.io)
-
-Mentorship
-
-Learn more about the Kubernetes mentoring initiatives.
-
-Advanced Topics
-
-This section includes things that need to be documented, but typical contributors
-do not need to interact with regularly.
+The full workflow for a pull request is documented here:
 
 THIS IS START BLOCK MARKER.
-  - OWNERS files - The Kubernetes organizations are managed with OWNERS files,
+  - Kubernetes-specific github workflow.
 THIS IS END BLOCK MARKER.
-    which outline which parts of the code are owned by what groups.
+
+That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here:
+
+Opening a Pull Request
+
+Pull requests are often called a "PR".
+Kubernetes generally follows the standard github pull request process, but there is a layer of additional kubernetes specific (and sometimes SIG specific) differences:
+
+The first difference you'll see is that a bot will begin applying structured labels to your PR.
+
+The bot may also make some helpful suggestions for commands to run in your PR to facilitate review.
+These /command options can be entered in comments to trigger auto-labeling and notifications.
+Refer to its command reference documentation.
+
+Common new contributor PR issues are:
+
+THIS IS START BLOCK MARKER.
+  - Not having correctly signed the CLA ahead of your first PR. See the CLA page for troubleshooting help, in some cases you might need to file a ticket with the CNCF to resolve a CLA problem.
+  - Finding the right SIG or reviewer(s) for the PR (see Code Review section) and following any SIG or repository specific contributing guidelines (see Learn about SIGs section)
+  - Dealing with test cases which fail on your PR, unrelated to the changes you introduce (see Test Flakes)
+  - Not following scalability good practices
+  - Include mentions (like @person) and keywords which could close the issue (like fixes #xxxx) in commit messages.
+THIS IS END BLOCK MARKER.
+
+Code Review
+
+For a brief description of the importance of code review, please read On Code Review.
+There are two aspects of code review: giving and receiving.
+
+To make it easier for your PR to receive reviews, consider the reviewers will need you to:
+
+THIS IS START BLOCK MARKER.
+  - Follow the project coding conventions
+  - Write good commit messages
+  - Break large changes into a logical series of smaller patches which individually make easily understandable changes, and in aggregate solve a broader issue
+  - Label PRs with appropriate SIGs and reviewers: to do this read the messages the bot sends you to guide you through the PR process
+THIS IS END BLOCK MARKER.
+
+Reviewers, the people giving the review, are highly encouraged to revisit the Code of Conduct as well as community expectations and must go above and beyond to promote a collaborative, respectful community.
+When reviewing PRs from others The Gentle Art of Patch Review suggests an iterative series of focuses which is designed to lead new contributors to positive collaboration without inundating them initially with nuances:
+
+THIS IS START BLOCK MARKER.
+  - Is the idea behind the contribution sound?
+  - Is the contribution architected correctly?
+  - Is the contribution polished?
+THIS IS END BLOCK MARKER.
+
+Note: if your pull request isn't getting enough attention, you can use the #pr-reviews channel on Slack to get help finding reviewers.
+
+Best practices
+
+THIS IS START BLOCK MARKER.
+  - Write clear and meaningful git commit messages.
+  - If the PR will completely fix a specific issue, include fixes #123 in the PR body (where 123 is the specific issue number the PR will fix. This will automatically close the issue when the PR is merged.
+  - Make sure you don't include @mentions or fixes keywords in your git commit messages. These should be included in the PR body instead.
+  - When you make a PR for small change (such as fixing a typo, style change, or grammar fix), please squash your commits so that we can maintain a cleaner git history.
+  - Make sure you include a clear and detailed PR description explaining the reasons for the changes, and ensuring there is sufficient information for the reviewer to understand your PR.
+  - Additional Readings:
+      - chris.beams.io/posts/git-commit/
+      - github.com/blog/1506-closing-issues-via-pull-requests 
+      - davidwalsh.name/squash-commits-git 
+      - https://mtlynch.io/code-review-love/
+THIS IS END BLOCK MARKER.
+
+Testing
+
+Testing is the responsibility of all contributors and is in part owned by all SIGs, but is also coordinated by sig-testing.
+Refer to the Testing Guide for more information.
+
+There are multiple types of tests.
+The location of the test code varies with type, as do the specifics of the environment needed to successfully run the test:
+
+THIS IS START BLOCK MARKER.
+  - Unit: These confirm that a particular function behaves as intended.  Golang includes a native ability for unit testing via the testing package.  Unit test source code can be found adjacent to the corresponding source code within a given package.  For example: functions defined in kubernetes/cmd/kubeadm/app/util/version.go will have unit tests in kubernetes/cmd/kubeadm/app/util/version_test.go.  These are easily run locally by any developer on any OS.
+  - Integration: These tests cover interactions of package components or interactions between kubernetes components and some other non-kubernetes system resource (eg: etcd).  An example would be testing whether a piece of code can correctly store data to or retrieve data from etcd.  Integration tests are stored in kubernetes/test/integration/.  Running these can require the developer set up additional functionality on their development system.
+  - End-to-end ("e2e"): These are broad tests of overall system behavior and coherence.  These are more complicated as they require a functional kubernetes cluster built from the sources to be tested. A separate document detailing e2e testing and test cases themselves can be found in kubernetes/test/e2e/.
+  - Conformance: These are a set of testcases, currently a subset of the integration/e2e tests, that the Architecture SIG has approved to define the core set of interoperable features that all Kubernetes deployments must support. For more information on Conformance tests please see the Conformance Testing Document.
+THIS IS END BLOCK MARKER.
+
+Continuous integration will run these tests either as pre-submits on PRs, post-submits against master/release branches, or both.
+The results appear on testgrid.
+
+sig-testing is responsible for that official infrastructure and CI.
+The associated automation is tracked in the test-infra repo.
+If you're looking to run e2e tests on your own infrastructure, kubetest is the mechanism.
+
+Security
+
+THIS IS START BLOCK MARKER.
+  - Security Release Page - outlines the procedures for the handling of security issues.
+  - Security and Disclosure Information - check this page if you wish to report a security vulnerability.
+THIS IS END BLOCK MARKER.
+
+Documentation
+
+THIS IS START BLOCK MARKER.
+  - Contributing to Documentation
+THIS IS END BLOCK MARKER.
+
+Issues Management or Triage
+
+Have you ever noticed the total number of open issues?
+Helping to manage or triage these open issues can be a great contribution and a great opportunity to learn about the various areas of the project.
+Triaging is the word we use to describe the process of adding multiple types of descriptive labels to GitHub issues, in order to speed up routing issues to the right folks.
+Refer to the Issue Triage Guidelines for more information.

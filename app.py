@@ -66,7 +66,6 @@ def fetch_and_analyze():
             # return graph
             predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True)
             print(segments)
-            sys.exit("EXITED")
             if TURN_CLASSIFIER_ON:
                 segments, segment_classes = run_classifier_with_paragraphs(segments)
                 prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS'

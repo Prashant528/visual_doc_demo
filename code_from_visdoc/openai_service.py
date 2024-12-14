@@ -58,8 +58,11 @@ class OpenAIService:
         return prompt
 
     def add_segments_to_prompt(self, prompt, segments):
-        prompt_with_segments = {"role": "user", "content": f"{segments}" }
-        prompt.append(prompt_with_segments)
+        # prompt_with_segments = {"role": "user", "content": f"{segments}" }
+        for item in prompt:
+            if item["role"] == "user":
+                item["content"] += str(segments)
+        # prompt.append(prompt_with_segments)
         return prompt
 
     def build_prompt(self, system_prompt, user_prompt, documents):

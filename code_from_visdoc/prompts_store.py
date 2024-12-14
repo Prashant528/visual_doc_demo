@@ -165,7 +165,7 @@ class Prompts:
                 
                     Second, I want you to create the following two JSONs from the new list:
                     1. JSON name = "content". 
-                    Description: For each element in the list, I want to map the topic of the element to the content of the element. 
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Please add markdown syntax to better format the content and also add <br /> for indicating newlines. 
                     Extract one topic from the content. 
                     This json would be named "content" and an example looks like: 
                     { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
@@ -177,15 +177,16 @@ class Prompts:
                     The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. 
                     Please make sure that the first "source" node for each flow is always a dummy node named "Parent Node".
                     Finally, merge the two JSONs into a single one that looks like: {content: "...", flow:"..."}.
+                    This is the list of action steps:
 
                     '''
             },
-            {
-                "role": "assistant", 
-                "content": '''
-                        Certainly, can you provide me the list of the action steps?
-                        '''
-            }
+            # {
+            #     "role": "assistant", 
+            #     "content": '''
+            #             Certainly, can you provide me the list of the action steps?
+            #             '''
+            # }
         ]
     
     PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS = [
