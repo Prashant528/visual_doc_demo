@@ -1,0 +1,84 @@
+{
+    "CF \u2013 Contribution flow": {
+        "content": {
+            "Contributing Guidelines": "Contributing Kubernetes is open source, but many of the people working on it do so as their day job. In order to avoid forcing people to be \"at work\" effectively 24/7, we want to establish some semi-formal protocols around development. Hopefully, these rules make things go more smoothly. If you find that this is not the case, please complain loudly. As a potential contributor, your changes and ideas are welcome at any hour of the day or night, weekdays, weekends, and holidays. Please do not ever hesitate to ask a question or send a pull request. Check out our community guiding principles on how to create great code as a big group. Beginner focused information can be found below in Open a Pull Request and Code Review. For quick reference on contributor resources, we have a handy contributor cheatsheet.<br />",
+            "GitHub Workflow": "GitHub workflow To check out code to work on, please refer to the GitHub Workflow Guide. The full workflow for a pull request is documented here:<br />- Kubernetes-specific github workflow. That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here:<br />"
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Contributing Guidelines"
+                },
+                {
+                    "source": "Contributing Guidelines",
+                    "target": "GitHub Workflow"
+                }
+            ]
+        }
+    },
+    "No categories identified.": {
+        "content": {
+            "Contributing to Kubernetes": "**Contributing to Kubernetes**<br />An entrypoint to getting started with contributing to the Kubernetes project.",
+            "Security": "**Security**<br />- Security Release Page - outlines the procedures for the handling of security issues.<br />- Security and Disclosure Information - check this page if you wish to report a security vulnerability.",
+            "Documentation Issues Management or Triage": "**Documentation Issues Management or Triage**<br />Have you ever noticed the total number of open issues? Helping to manage or triage these open issues can be a great contribution and a great opportunity to learn about the various areas of the project.<br />Triaging is the word we use to describe the process of adding multiple types of descriptive labels to GitHub issues, in order to speed up routing issues to the right folks.<br />Refer to the Issue Triage Guidelines for more information."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Contributing to Kubernetes"
+                },
+                {
+                    "source": "Contributing to Kubernetes",
+                    "target": "Security"
+                },
+                {
+                    "source": "Security",
+                    "target": "Documentation Issues Management or Triage"
+                }
+            ]
+        }
+    },
+    "TC \u2013 Talk to the community": {
+        "content": {
+            "Communication": "It is best to contact your SIG for issues related to the SIG's topic. Your SIG will be able to help you much more quickly than a general question would. For general questions and troubleshooting, use the standard lines of communication and work through the troubleshooting guide.<br />"
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Communication"
+                }
+            ]
+        }
+    },
+    "SC \u2013 Submit the changes": {
+        "content": {
+            "Opening a Pull Request": "### Opening a Pull Request<br />Pull requests are often called a \"PR\". Kubernetes generally follows the standard GitHub pull request process, but there is a layer of additional Kubernetes specific (and sometimes SIG specific) differences:<br />- A bot will begin applying structured labels to your PR.<br />- The bot may also make some helpful suggestions for commands to run in your PR to facilitate review.<br />- Common new contributor PR issues include not having correctly signed the CLA, finding the right SIG or reviewer(s), dealing with test cases which fail, and not following scalability good practices.<br />- Include mentions (like @person) and keywords which could close the issue (like fixes #xxxx) in commit messages.",
+            "Code Review": "### Code Review<br />For a brief description of the importance of code review, please read On Code Review. There are two aspects of code review: giving and receiving.<br />- Reviewers are encouraged to revisit the Code of Conduct and community expectations.<br />- When reviewing PRs, consider if the idea is sound, if the contribution is architected correctly, and if it is polished.<br />- If your pull request isn't getting enough attention, use the #pr-reviews channel on Slack to find reviewers.",
+            "Best Practices": "### Best Practices<br />- Write clear and meaningful git commit messages.<br />- Include fixes #123 in the PR body if the PR will completely fix a specific issue.<br />- Do not include @mentions or fixes keywords in your git commit messages.<br />- Squash commits for small changes to maintain a cleaner git history.<br />- Include a clear and detailed PR description.<br />- Additional Readings:<br />  - [chris.beams.io/posts/git-commit/](https://chris.beams.io/posts/git-commit/)<br />  - [github.com/blog/1506-closing-issues-via-pull-requests](https://github.com/blog/1506-closing-issues-via-pull-requests)<br />  - [davidwalsh.name/squash-commits-git](https://davidwalsh.name/squash-commits-git)<br />  - [mtlynch.io/code-review-love](https://mtlynch.io/code-review-love/)",
+            "Testing": "### Testing<br />Testing is the responsibility of all contributors and is coordinated by sig-testing. Refer to the Testing Guide for more information.<br />- **Unit Tests**: Confirm that a particular function behaves as intended. Golang includes a native ability for unit testing via the testing package.<br />- **Integration Tests**: Cover interactions of package components or interactions between Kubernetes components and some other non-Kubernetes system resource.<br />- **End-to-end (\"e2e\") Tests**: Broad tests of overall system behavior and coherence.<br />- **Conformance Tests**: A set of test cases that define the core set of interoperable features that all Kubernetes deployments must support.<br />Continuous integration will run these tests either as pre-submits on PRs, post-submits against master/release branches, or both. The results appear on testgrid."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Opening a Pull Request"
+                },
+                {
+                    "source": "Opening a Pull Request",
+                    "target": "Code Review"
+                },
+                {
+                    "source": "Code Review",
+                    "target": "Best Practices"
+                },
+                {
+                    "source": "Best Practices",
+                    "target": "Testing"
+                }
+            ]
+        }
+    }
+}

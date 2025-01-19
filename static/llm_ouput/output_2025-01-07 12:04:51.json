@@ -1,0 +1,142 @@
+{
+    "No categories identified.": {
+        "content": {
+            "Joining the Flutter Community": "### Joining the Flutter Community<br />Join Discord, be courteous, and follow the steps below to set up a development environment. If you stick around and contribute, you can join the team and get commit access. Welcome! We invite you to join the Flutter team, which is made up of volunteers and sponsored folk alike! There are many ways to contribute, including writing code, filing issues on GitHub, helping people on our mailing lists, our chat channels, or on Stack Overflow, helping to triage, reproduce, or fix bugs that people have filed, adding to our documentation, doing outreach about Flutter, or helping out in any other way. We grant commit access (which includes full rights to the issue database, such as being able to edit labels) to people who have gained our trust and demonstrated a commitment to Flutter.",
+            "Understanding Community Norms": "### Understanding Community Norms<br />We communicate primarily over GitHub and Discord. Before you get started, we encourage you to read these documents which describe some of our community norms: 1. Our code of conduct, which stipulates explicitly that everyone must be gracious, respectful, and professional. This also documents our conflict resolution policy and encourages people to ask questions. 2. Values, which talks about what we care most about.",
+            "Helping with Issue Triage": "### Helping with Issue Triage<br />Triage is the process of going through bug reports and determining if they are valid, finding out how to reproduce them, catching duplicate reports, and generally making our issues list useful for our engineers. If you want to help us triage, you are very welcome to do so! 1. Join the #hackers-triage Discord channel. 2. Read our code of conduct, which stipulates explicitly that everyone must be gracious, respectful, and professional. If you're helping out with triage, you are representing the Flutter team, and so you want to make sure to make a good impression! 3. Help out as described in our triage guide. You won't be able to add labels at first, so instead start by trying to do the other steps, e.g. trying to reproduce the problem and asking for people to provide enough details that you can reproduce the problem, pointing out duplicates, and so on. Chat on the #hackers-triage channel to let us know what you're up to! 4. Familiarize yourself with our issue hygiene wiki page, which covers the meanings of some important GitHub labels and milestones. 5. Once you've been doing this for a while, someone will invite you to the flutter-hackers team on GitHub and you'll be able to add labels too.",
+            "Contributing to DevTools": "### Contributing to DevTools<br />Contributing code to Dart & Flutter DevTools may be a good place to start if you are looking to dip your toes into contributing with a relatively low-cost setup or if you are generally excited about improving the Dart & Flutter developer experience. Please see the DevTools CONTRIBUTING.md guide to get started.",
+            "Helping with Existing PRs": "### Helping with Existing PRs<br />Once you've learned the process of contributing, if you aren't sure what to work on next you might be interested in helping other developers complete their contributions by picking up an incomplete patch from the list of issues with partial patches.",
+            "Outreach and Developer Relations": "### Outreach and Developer Relations<br />If your interests lie in the direction of developer relations and developer outreach, whether advocating for Flutter, answering questions in fora like Stack Overflow or Reddit, or creating content for our documentation or sites like YouTube, the best starting point is to join the #hackers-devrel Discord channel. From there, you can describe what you're interested in doing, and go ahead and do it! As others become familiar with your work, they may have feedback, be interested in collaborating, or want to coordinate their efforts with yours.",
+            "Contributing to API Documentation": "### Contributing to API Documentation<br />Another great area to contribute in is sample code and API documentation. If this is an area that interests you, join our Discord server and introduce yourself on the #hackers-devrel, #hackers-framework, or #hackers-engine channels, describing your area of interest. As our API docs are integrated into our source code, see the \"developing for Flutter\" section above for a guide on how to set up your developer environment. To contribute API documentation, an excellent command of the English language is particularly helpful, as is a careful attention to detail. We have a whole section in our style guide that you should read before you write API documentation. It includes notes on the \"Flutter Voice\", such as our word and grammar conventions. In general, a really productive way to improve documentation is to use Flutter and stop any time you have a question: find the answer, then document the answer where you first looked for it. We also keep a list of areas that need better API documentation. In many cases, we have written down what needs to be said in the relevant issue, we just haven't gotten around to doing it! We're especially eager to add sample code and diagrams to our API documentation. Diagrams are generated from Flutter code that draws to a canvas, and stored in a special repository.",
+            "Contributing to Kubernetes": "### Contributing to Kubernetes<br />An entrypoint to getting started with contributing to the Kubernetes project.",
+            "Documentation Issues Management": "### Documentation Issues Management<br />Have you ever noticed the total number of open issues? Helping to manage or triage these open issues can be a great contribution and a great opportunity to learn about the various areas of the project. Triaging is the word we use to describe the process of adding multiple types of descriptive labels to GitHub issues, in order to speed up routing issues to the right folks. Refer to the Issue Triage Guidelines for more information.",
+            "Contributing to Node.js": "### Contributing to Node.js<br />Contributions to Node.js include code, documentation, answering user questions, running the project's infrastructure, and advocating for all types of Node.js users. The Node.js project welcomes all contributions from anyone willing to work in good faith with other contributors and the community. No contribution is too small and all contributions are valued. The Node.js project has an open governance model. Individuals making significant and valuable contributions are made Collaborators and given commit-access to the project. See the GOVERNANCE.md document for more information about how this works."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Joining the Flutter Community"
+                },
+                {
+                    "source": "Joining the Flutter Community",
+                    "target": "Understanding Community Norms"
+                },
+                {
+                    "source": "Understanding Community Norms",
+                    "target": "Helping with Issue Triage"
+                },
+                {
+                    "source": "Helping with Issue Triage",
+                    "target": "Contributing to DevTools"
+                },
+                {
+                    "source": "Contributing to DevTools",
+                    "target": "Helping with Existing PRs"
+                },
+                {
+                    "source": "Helping with Existing PRs",
+                    "target": "Outreach and Developer Relations"
+                },
+                {
+                    "source": "Outreach and Developer Relations",
+                    "target": "Contributing to API Documentation"
+                },
+                {
+                    "source": "Contributing to API Documentation",
+                    "target": "Contributing to Kubernetes"
+                },
+                {
+                    "source": "Contributing to Kubernetes",
+                    "target": "Documentation Issues Management"
+                },
+                {
+                    "source": "Documentation Issues Management",
+                    "target": "Contributing to Node.js"
+                }
+            ]
+        }
+    },
+    "SC \u2013 Submit the changes": {
+        "content": {
+            "Quality Assurance": "### Quality Assurance<br />One of the most useful tasks, closely related to triage, is finding and filing bug reports. Testing beta releases, looking for regressions, creating test cases, adding to our test suites, and other work along these lines can really drive the quality of the product up. Creating tests that increase our test coverage, writing tests for issues others have filed, all these tasks are really valuable contributions to open source projects. If this interests you, you can jump in and submit bug reports without needing anyone's permission! The #quality-assurance channel on our Discord server is a good place to talk about what you're doing. We're especially eager for QA testing when we announce a beta release. See quality assurance for more details. If you want to contribute test cases, you can also submit PRs. See the next section for how to set up your development environment, or ask in #hackers-test on Discord.<br />As a personal side note, this is exactly the kind of work that first got me into open source. I was a Quality Assurance volunteer on the Mozilla project, writing test cases for browsers, long before I wrote a line of code for any open source project. \u2014Hixie",
+            "Code Review": "### Code Review<br />For a brief description of the importance of code review, please read On Code Review. There are two aspects of code review: giving and receiving. To make it easier for your PR to receive reviews, consider the reviewers will need you to:<br />- Reviewers, the people giving the review, are highly encouraged to revisit the Code of Conduct as well as community expectations and must go above and beyond to promote a collaborative, respectful community.<br />When reviewing PRs from others The Gentle Art of Patch Review suggests an iterative series of focuses which is designed to lead new contributors to positive collaboration without inundating them initially with nuances:<br />- Is the idea behind the contribution sound?<br />- Is the contribution architected correctly?<br />- Is the contribution polished?<br />Note: if your pull request isn't getting enough attention, you can use the #pr-reviews channel on Slack to get help finding reviewers.<br />Best practices<br />- Write clear and meaningful git commit messages.<br />- If the PR will completely fix a specific issue, include fixes #123 in the PR body (where 123 is the specific issue number the PR will fix. This will automatically close the issue when the PR is merged.<br />- Make sure you don't include @mentions or fixes keywords in your git commit messages. These should be included in the PR body instead.<br />- When you make a PR for small change (such as fixing a typo, style change, or grammar fix), please squash your commits so that we can maintain a cleaner git history.<br />- Make sure you include a clear and detailed PR description explaining the reasons for the changes, and ensuring there is sufficient information for the reviewer to understand your PR.<br />Additional Readings:<br />- chris.beams.io/posts/git-commit/<br />- github.com/blog/1506-closing-issues-via-pull-requests<br />- davidwalsh.name/squash-commits-git<br />- https://mtlynch.io/code-review-love/",
+            "Developer's Certificate of Origin": "### Developer's Certificate of Origin 1.1<br />By making a contribution to this project, I certify that:<br />(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or<br />(b) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate open source license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same open source license (unless I am permitted to submit under a different license), as indicated in the file; or<br />(c) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.<br />(d) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the open source license(s) involved."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Quality Assurance"
+                },
+                {
+                    "source": "Quality Assurance",
+                    "target": "Code Review"
+                },
+                {
+                    "source": "Code Review",
+                    "target": "Developer's Certificate of Origin"
+                }
+            ]
+        }
+    },
+    "CF \u2013 Contribution flow": {
+        "content": {
+            "Developing for Flutter": "### Developing for Flutter<br />If you prefer to write code, consider starting with the list of good first issues for Flutter or for Flutter DevTools. Reference the respective sections below for further instructions.<br />**Framework and Engine**<br />To develop for Flutter, you will eventually need to become familiar with our processes and conventions. This section lists the documents that describe these methodologies. The following list is ordered: you are strongly recommended to go through these documents in the order presented.<br />1. **Setting up your engine development environment**, which describes the steps you need to configure your computer to work on Flutter's engine. If you only want to write code for the Flutter framework, you can skip this step. Flutter's engine mainly uses C++, Java, and Objective-C.<br />2. **Setting up your framework development environment**, which describes the steps you need to configure your computer to work on Flutter's framework. Flutter's framework mainly uses Dart.<br />3. **Tree hygiene**, which covers how to land a PR, how to do code review, how to handle breaking changes, how to handle regressions, and how to handle post-commit test failures.<br />4. **Our style guide**, which includes advice for designing APIs for Flutter, and how to format code in the framework.<br />5. **Flutter design doc template**, which should be used when proposing a new technical design. This is a good practice to do before coding more intricate changes. See also our guidance for writing design docs.<br />**How to contribute to Flutter**<br />In addition to the documents, there is a video linked above on How to contribute to Flutter from the Flutter YouTube channel, there are many pages in our docs, and an article Contributing to Flutter: Getting Started on Medium that may be of interest.",
+            "Contributing to Kubernetes": "### Contributing to Kubernetes<br />Kubernetes is open source, but many of the people working on it do so as their day job. In order to avoid forcing people to be \"at work\" effectively 24/7, we want to establish some semi-formal protocols around development. Hopefully, these rules make things go more smoothly. If you find that this is not the case, please complain loudly. As a potential contributor, your changes and ideas are welcome at any hour of the day or night, weekdays, weekends, and holidays. Please do not ever hesitate to ask a question or send a pull request. Check out our community guiding principles on how to create great code as a big group. Beginner focused information can be found below in Open a Pull Request and Code Review. For quick reference on contributor resources, we have a handy contributor cheatsheet.<br />**Communication**<br />It is best to contact your SIG for issues related to the SIG's topic. Your SIG will be able to help you much more quickly than a general question would. For general questions and troubleshooting, use the standard lines of communication and work through the troubleshooting guide.<br />**GitHub workflow**<br />To check out code to work on, please refer to the GitHub Workflow Guide. The full workflow for a pull request is documented here:<br />- Kubernetes-specific github workflow. That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here:<br />**Opening a Pull Request**<br />Pull requests are often called a \"PR\". Kubernetes generally follows the standard github pull request process, but there is a layer of additional kubernetes specific (and sometimes SIG specific) differences: The first difference you'll see is that a bot will begin applying structured labels to your PR. The bot may also make some helpful suggestions for commands to run in your PR to facilitate review. These /command options can be entered in comments to trigger auto-labeling and notifications. Refer to its command reference documentation.<br />Common new contributor PR issues are:<br />- Not having correctly signed the CLA ahead of your first PR. See the CLA page for troubleshooting help, in some cases you might need to file a ticket with the CNCF to resolve a CLA problem.<br />- Finding the right SIG or reviewer(s) for the PR (see Code Review section) and following any SIG or repository specific contributing guidelines (see Learn about SIGs section)<br />- Dealing with test cases which fail on your PR, unrelated to the changes you introduce (see Test Flakes)<br />- Not following scalability good practices<br />- Include mentions (like @person) and keywords which could close the issue (like fixes #xxxx) in commit messages."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Developing for Flutter"
+                },
+                {
+                    "source": "Developing for Flutter",
+                    "target": "Contributing to Kubernetes"
+                }
+            ]
+        }
+    },
+    "TC \u2013 Talk to the community": {
+        "content": {
+            "Creating Diagrams": "It can be a lot of fun to create new diagrams for the API docs.<br />",
+            "Release Participation": "Releases<br />If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases channel of our Discord server.<br />",
+            "Social Events": "Social events in the contributor community<br />Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself. This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example. If this is an area that is of interest to you, please join our Discord and ping Hixie on the #hackers channel!<br />"
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Creating Diagrams"
+                },
+                {
+                    "source": "Creating Diagrams",
+                    "target": "Release Participation"
+                },
+                {
+                    "source": "Release Participation",
+                    "target": "Social Events"
+                }
+            ]
+        }
+    },
+    "DC \u2013 Deal with the code": {
+        "content": {
+            "Testing": "**Testing**<br />Testing is the responsibility of all contributors and is in part owned by all SIGs, but is also coordinated by sig-testing. Refer to the Testing Guide for more information. There are multiple types of tests. The location of the test code varies with type, as do the specifics of the environment needed to successfully run the test:<br />- **Unit**: These confirm that a particular function behaves as intended. Golang includes a native ability for unit testing via the testing package. Unit test source code can be found adjacent to the corresponding source code within a given package. For example: functions defined in `kubernetes/cmd/kubeadm/app/util/version.go` will have unit tests in `kubernetes/cmd/kubeadm/app/util/version_test.go`. These are easily run locally by any developer on any OS.<br />- **Integration**: These tests cover interactions of package components or interactions between Kubernetes components and some other non-Kubernetes system resource (e.g., etcd). An example would be testing whether a piece of code can correctly store data to or retrieve data from etcd. Integration tests are stored in `kubernetes/test/integration/`. Running these can require the developer set up additional functionality on their development system.<br />- **End-to-end (\"e2e\")**: These are broad tests of overall system behavior and coherence. These are more complicated as they require a functional Kubernetes cluster built from the sources to be tested. A separate document detailing e2e testing and test cases themselves can be found in `kubernetes/test/e2e/`.<br />- **Conformance**: These are a set of test cases, currently a subset of the integration/e2e tests, that the Architecture SIG has approved to define the core set of interoperable features that all Kubernetes deployments must support. For more information on Conformance tests please see the Conformance Testing Document. Continuous integration will run these tests either as pre-submits on PRs, post-submits against master/release branches, or both. The results appear on testgrid. sig-testing is responsible for that official infrastructure and CI. The associated automation is tracked in the test-infra repo. If you're looking to run e2e tests on your own infrastructure, kubetest is the mechanism.",
+            "Security": "**Security**<br />- **Security Release Page**: outlines the procedures for the handling of security issues.<br />- **Security and Disclosure Information**: check this page if you wish to report a security vulnerability."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Testing"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Security"
+                }
+            ]
+        }
+    }
+}

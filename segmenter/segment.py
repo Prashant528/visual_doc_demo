@@ -7,7 +7,7 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 from segmenter.core import *
 from segmenter.transformers_call import generate_sentences_not_considering_blocks
 # mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
-from segmenter.clean_markdown import markdn2text_gfm
+from segmenter.clean_markdown import markdn2text_gfm, markdn2text_with_links
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
 def segment(sentence_feature_extractor, md_file_path, openai_service, out_filename='latest', segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False, use_llm=True):
@@ -19,7 +19,8 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
 
     #Parse the file and get the unseparable blocks
     #gfm parser gets the md file and parses it to a text file.
-    parsed_file_path = markdn2text_gfm(md_file_path)
+    # parsed_file_path = markdn2text_gfm(md_file_path)
+    parsed_file_path = markdn2text_with_links(md_file_path)
 
     #adding blocks information in parsed file since it preserves the formatting of md.
     block_of_lines = get_block_lines(parsed_file_path)
