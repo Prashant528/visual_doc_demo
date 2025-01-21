@@ -1,0 +1,284 @@
+title: "Contributing to Kubernetes"
+weight: 4
+description: |
+An entrypoint to getting started with contributing to the Kubernetes project.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- - - - -
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- - -
+Kubernetes is open source, but many of the people working on it do so as their day job. In order to avoid forcing people to be "at work" effectively 24/7, we want to establish some semi-formal protocols around development. Hopefully, these rules make things go more smoothly. If you find that this is not the case, please complain loudly. As a potential contributor, your changes and ideas are welcome at any hour of the day or night, weekdays, weekends, and holidays. Please do not ever hesitate to ask a question or send a pull request. Check out our [community guiding principles](/contributors/guide/expectations.md#code-review) on how to create great code as a big group. Beginner focused information can be found below in  and . For quick reference on contributor resources, we have a handy [contributor cheatsheet](./contributor-cheatsheet/).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Communication It is best to contact your [SIG](first-contribution.md#learn-about-sigs) for issues related to the SIG's topic. Your SIG will be able to help you much more quickly than a general question would. For general questions and troubleshooting, use the [standard lines of communication](/communication/README.md) and work through the [troubleshooting guide](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+GitHub workflow To check out code to work on, please refer to [the GitHub Workflow Guide](./github-workflow.md). - [Kubernetes-specific github workflow](pull-requests.md#the-testing-and-merge-workflow). That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here:
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Opening a Pull Request
+Pull requests are often called a "PR". Kubernetes generally follows the standard [github pull request] (https://help.github.com/articles/about-pull-requests/) process, but there is a layer of additional kubernetes specific (and sometimes SIG specific) differences: The first difference you'll see is that a bot will begin applying structured labels to your PR. The bot may also make some helpful suggestions for commands to run in your PR to facilitate review. These `/command` options can be entered in comments to trigger auto-labeling and notifications. Refer to its [command reference documentation](https://go.k8s.io/bot-commands).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- Not having correctly signed the CLA ahead of your first PR. See the [CLA page](/CLA.md) for troubleshooting help, in some cases you might need to file a ticket with the CNCF to resolve a CLA problem.
+- Finding the right SIG or reviewer(s) for the PR (see  section) and following any SIG or repository specific contributing guidelines (see [Learn about SIGs](first-contribution.md#learn-about-sigs) section)
+- Dealing with test cases which fail on your PR, unrelated to the changes you introduce (see [Test Flakes](/contributors/devel/sig-testing/flaky-tests.md))
+- Not following [scalability good practices](scalability-good-practices.md)
+- Include mentions (like @person) and [keywords] (https://help.github.com/en/articles/closing-issues-using-keywords) which could close the issue (like fixes #xxxx) in commit messages.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Code Review For a brief description of the importance of code review, please read [On Code Review](/contributors/guide/expectations.md#code-review). There are two aspects of code review: giving and receiving.
+- Follow the project [coding conventions](coding-conventions.md)
+- Write [good commit messages] (https://chris.beams.io/posts/git-commit/)
+- Break large changes into a logical series of smaller patches which individually make easily understandable changes, and in aggregate solve a broader issue
+- Label PRs with appropriate SIGs and reviewers: to do this read the messages the bot sends you to guide you through the PR process
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Reviewers, the people giving the review, are highly encouraged to revisit the [Code of Conduct](/code-of-conduct.md) as well as [community expectations](./expectations.md#expectations-of-reviewers-review-latency) and must go above and beyond to promote a collaborative, respectful community.
+- Is the idea behind the contribution sound?
+- Is the contribution architected correctly?
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- Is the contribution polished? Note: if your pull request isn't getting enough attention, you can use the [#pr-reviews] (https://kubernetes.slack.com/messages/pr-reviews) channel on Slack to get help finding reviewers.
+- Write clear and meaningful git commit messages.
+- If the PR will completely fix a specific issue, include `fixes #123` in the PR body (where 123 is the specific issue number the PR will fix. This will automatically close the issue when the PR is merged.
+- Make sure you don't include `@mentions` or `fixes` keywords in your git commit messages. These should be included in the PR body instead.
+- When you make a PR for small change (such as fixing a typo, style change, or grammar fix), please squash your commits so that we can maintain a cleaner git history.
+- Make sure you include a clear and detailed PR description explaining the reasons for the changes, and ensuring there is sufficient information for the reviewer to understand your PR.
+- Additional Readings:
+  - [chris.beams.io/posts/git-commit/](https://chris.beams.io/posts/git-commit/)
+  - [github.com/blog/1506-closing-issues-via-pull-requests ] (https://github.com/blog/1506-closing-issues-via-pull-requests)
+  - [davidwalsh.name/squash-commits-git ](https://davidwalsh.name/squash-commits-git)
+  - [https://mtlynch.io/code-review-love/](https://mtlynch.io/code-review-love/)
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Testing
+Testing is the responsibility of all contributors and is in part owned by all SIGs, but is also coordinated by [sig-testing](/sig-testing). Refer to the [Testing Guide](/contributors/devel/sig-testing/testing.md) for more information. There are multiple types of tests.
+- Unit: These confirm that a particular function behaves as intended. Golang includes a native ability for unit testing via the [testing](https://golang.org/pkg/testing/) package. Unit test source code can be found adjacent to the corresponding source code within a given package. For example: functions defined in [kubernetes/cmd/kubeadm/app/util/version.go] (https://git.k8s.io/kubernetes/cmd/kubeadm/app/util/version.go) will have unit tests in [kubernetes/cmd/kubeadm/app/util/version_test.go] (https://git.k8s.io/kubernetes/cmd/kubeadm/app/util/version_test.go). These are easily run locally by any developer on any OS.
+- Integration: These tests cover interactions of package components or interactions between kubernetes components and some other non-kubernetes system resource (eg: etcd). An example would be testing whether a piece of code can correctly store data to or retrieve data from etcd. Integration tests are stored in [kubernetes/test/integration/] (https://git.k8s.io/kubernetes/test/integration). Running these can require the developer set up additional functionality on their development system.
+- End-to-end ("e2e"): These are broad tests of overall system behavior and coherence. These are more complicated as they require a functional kubernetes cluster built from the sources to be tested. A separate [document detailing e2e testing](/contributors/devel/sig-testing/e2e-tests.md) and test cases themselves can be found in [kubernetes/test/e2e/] (https://git.k8s.io/kubernetes/test/e2e).
+- Conformance: These are a set of testcases, currently a subset of the integration/e2e tests, that the Architecture SIG has approved to define the core set of interoperable features that all Kubernetes deployments must support. For more information on Conformance tests please see the [Conformance Testing](/contributors/devel/sig-architecture/conformance-tests.md) Document.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Continuous integration will run these tests either as pre-submits on PRs, post-submits against master/release branches, or both. The results appear on [testgrid](https://testgrid.k8s.io). sig-testing is responsible for that official infrastructure and CI. The associated automation is tracked in the [test-infra repo](https://git.k8s.io/test-infra). If you're looking to run e2e tests on your own infrastructure, [kubetest] (https://git.k8s.io/test-infra/kubetest) is the mechanism.
+- [Security Release Page] (https://git.k8s.io/security/security-release-process.md) - outlines the procedures for the handling of security issues.
+- [Security and Disclosure Information](https://kubernetes.io/docs/reference/issues-security/security/) - check this page if you wish to report a security vulnerability.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- [Contributing to Documentation](https://kubernetes.io/editdocs/)
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Issues Management or Triage Have you ever noticed the total number of [open issues] (https://issues.k8s.io)? Helping to manage or triage these open issues can be a great contribution and a great opportunity to learn about the various areas of the project. Triaging is the word we use to describe the process of adding multiple types of descriptive labels to GitHub issues, in order to speed up routing issues to the right folks. Refer to the [Issue Triage Guidelines](/contributors/guide/issue-triage.md) for more information.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- - - - - - - - -
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+- - This assumes you already read the [development guide](../development.md) to install go and configure your git client. All command examples are relative to the `kubernetes` root directory. Before sending pull requests you should at least make sure your changes have passed both unit and integration tests. Kubernetes only merges pull requests when unit, integration, and e2e tests are passing, so it is often a good idea to make sure the e2e tests work as well.
+- Unit tests should be fully hermetic
+- Only access resources in the test binary.
+- All packages and any significant files require unit tests.
+- The preferred method of testing multiple scenarios or input is [table driven testing] (https://github.com/golang/go/wiki/TableDrivenTests)
+- Example: [TestNamespaceAuthorization] (https://git.k8s.io/kubernetes/test/integration/auth/auth_test.go)
+- Unit tests must pass on macOS and Windows platforms.
+- Tests using linux-specific features must be skipped or compiled out.
+- Skipped is better, compiled out is required when it won't compile.
+- Concurrent unit test runs must pass.
+- See [coding conventions] (../../guide/coding-conventions.md).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+`make test` is the entrypoint for running the unit tests that ensures that `GOPATH` is set up correctly.
+```
+cd kubernetes
+make test  # Run all unit tests.
+```
+If any unit test fails with a timeout panic (see [#1594] (https://github.com/kubernetes/community/issues/1594)) on the testing package, you can increase the `KUBE_TIMEOUT` value as shown below.
+```
+make test KUBE_TIMEOUT="-timeout=300s"
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+```
+Set go flags during unit tests You can set [go flags](https://golang.org/cmd/go/) by setting the `GOFLAGS` environment variable.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Run unit tests from certain packages `make test` accepts packages as arguments; the `k8s.io/kubernetes` prefix is added automatically to these:
+```
+make test WHAT=./pkg/kubelet                # run tests for pkg/kubelet
+```
+To run tests for a package and all of its subpackages, you need to append `...` to the package path:
+```
+make test WHAT=./pkg/api/...  # run tests for pkg/api and all its subpackages
+```
+To run multiple targets you need quotes:
+```
+make test WHAT="./pkg/kubelet ./pkg/scheduler"  # run tests for pkg/kubelet and pkg/scheduler
+```
+In a shell, it's often handy to use brace expansion:
+```
+make test WHAT=./pkg/{kubelet,scheduler}
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+# run tests for pkg/kubelet and pkg/scheduler
+```
+Run specific unit test cases in a package You can set the test args using the `KUBE_TEST_ARGS` environment variable. You can use this to pass the `-run` argument to `go test`, which accepts a regular expression for the name of the test that should be run.
+```
+# Runs TestValidatePod in pkg/api/validation with the verbose flag set
+make test WHAT=./pkg/apis/core/validation GOFLAGS="-v" KUBE_TEST_ARGS='-run ^TestValidatePod$'
+# Runs tests that match the regex ValidatePod|ValidateConfigMap in pkg/api/validation
+make test WHAT=./pkg/apis/core/validation GOFLAGS="-v" KUBE_TEST_ARGS="-run ValidatePod\|ValidateConfigMap$"
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+```
+For other supported test flags, see the [golang documentation] (https://golang.org/cmd/go/#hdr-Testing_flags).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Stress running unit tests Running the same tests repeatedly is one way to root out flakes. You can do this efficiently.
+```
+# Have 2 workers run all tests 5 times each (10 total iterations).
+make test PARALLEL=2 ITERATION=5
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+```
+For more advanced ideas please see [flaky-tests.md](flaky-tests.md).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Unit test coverage Currently, collecting coverage is only supported for the Go unit tests. To run all unit tests and generate an HTML coverage report, run the following:
+```
+make test KUBE_COVER=y
+```
+At the end of the run, an HTML report will be generated with the path printed to stdout. To run tests and collect coverage in only one package, pass its relative path under the `kubernetes` directory as an argument, for example:
+```
+make test WHAT=./pkg/kubectl KUBE_COVER=y
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+```
+Multiple arguments can be passed, in which case the coverage results will be combined for all tests run.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Benchmark unit tests To run benchmark tests, you'll typically use something like:
+```
+make test WHAT=./pkg/scheduler/internal/cache KUBE_TEST_ARGS='-benchmem -run=XXX -bench=BenchmarkExpirePods'
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+```
+This will do the following:
+- `-run=XXX` is a regular expression filter on the name of test cases to run. Go will execute both the tests matching the `-bench` regex and the `-run` regex. Since we only want to execute benchmark tests, we set the `-run` regex to XXX, which will not match any tests. See `go help test` and `go help testflag` for additional info.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Run unit tests using go test You can optionally use `go test` to run unit tests. For example:
+```
+cd kubernetes
+# Run unit tests in the kubelet package
+go test ./pkg/kubelet
+# Run all unit tests found within ./pkg/api and its subdirectories
+go test ./pkg/api/...
+# Run a specific unit test within a package
+go test ./pkg/apis/core/validation -v -run ^TestValidatePods$
+# Run benchmark tests
+go test ./pkg/scheduler/internal/cache -benchmem -run=XXX -bench=Benchmark
+```
+When running tests contained within a staging module, you first need to change to the staging module's subdirectory and then run the tests, like this:
+```
+cd kubernetes/staging/src/k8s.io/kubectl
+# Run all unit tests within the kubectl staging module
+go test ./...
+```
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Integration tests Please refer to [Integration Testing in Kubernetes](integration-tests.md).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+End-to-End tests Please refer to [End-to-End Testing in Kubernetes](e2e-tests.md).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Testing Strategy Either if you are a feature owner or subsystem or area maintaner, you have to define a testing strategy for your area, please refer to [Defining a Robust Testing Strategy in Kubernetes](testing-strategy.md).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Running your contribution through Kubernetes CI Once you open a PR, [prow](https://prow.k8s.io) runs pre-submit tests in CI. You can find more about `prow` in [kubernetes/test-infra] (https://sigs.k8s.io/prow/pkg) and in [this blog post] (https://kubernetes.io/blog/2018/08/29/the-machines-can-do-the-work-a-story-of-kubernetes-testing-ci-and-automating-the-contributor-experience/#enter-prow) on automation involved in testing PRs to Kubernetes. If you are not a [Kubernetes org member](https://github.com/kubernetes/community/blob/master/community-membership.md#member), another org member will need to run [/ok-to-test] (https://prow.k8s.io/command-help#ok_to_test) on your PR. Find out more about [other commands] (https://prow.k8s.io/command-help) you can use to interact with prow through GitHub comments.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Troubleshooting a failure Click on `Details` to look at artifacts produced by the test and the cluster under test, to help you debug the failure.
+- metadata on the test run (including versions of binaries used, test duration)
+- output from tests that have failed
+- build log showing the full test run
+- logs from the cluster under test (k8s components such as kubelet and apiserver, possibly other logs such as etcd and kernel)
+- junit xml files
+If the failure seems unrelated to the change you're submitting:
+- Is it a flake?
+  - Check if a GitHub issue is already open for that flake
+  - If not, open a new one (like [this example] (https://github.com/kubernetes/kubernetes/issues/71430)) and [label it kind/flake] (https://prow.k8s.io/command-help#kind)
+  - If yes, any help troubleshooting and resolving it is very appreciated. Look at  for how to do it.
+  - Run [/retest] (https://prow.k8s.io/command-help#retest) on your PR to re-trigger the tests
+- Is it a failure that shouldn't be happening (in other words; is the test expectation now wrong)?
+  - Get in touch with the SIG that your PR is labeled after
+  - preferably as a comment on your PR, by tagging the [GitHub team](https://github.com/orgs/kubernetes/teams) (for example a [reviewers team for the SIG] (https://github.com/orgs/kubernetes/teams?utf8=%E2%9C%93&query=review))
+  - write your reasoning as to why you think the test is now outdated and should be changed
+  - if you don't get a response in 24 hours, engage with the SIG on their channel on the [Kubernetes slack] (http://slack.k8s.io/) and/or attend one of the [SIG meetings] (https://github.com/kubernetes/community/blob/master/sig-list.md) to ask for input.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Helping with known flakes For known flakes (i.e. with open GitHub issues against them), the community deeply values help in troubleshooting and resolving them.
+- Mention the SIG's GitHub handle on the issue, optionally `cc` the SIG's chair(s) (locate them under kubernetes/community/sig-<name>)
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Testgrid [testgrid](https://testgrid.k8s.io/) is a visualization of the Kubernetes CI status. It is useful as a way to:
+- see the run history of a test you are debugging (access it starting from a gubernator report for that test)
+- get an overview of the project's general health
+- You can learn more about Testgrid from the [Kubecon NA San Diego Contributor Summit] (https://youtu.be/8xS6mmGhbIQ)
+- collection of assertions in a test file
+- each test is typically owned by a single SIG
+- each test is represented as a row on the grid
+- jobs
+  - collection of tests
+  - each job is typically owned by a single SIG
+  - each job is represented as a tab
+- dashboards
+  - collection of jobs
+  - each dashboard is represented as a button
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+PR Process All new PRs for tests should attempt to follow these steps in order to help enable a smooth review process:
+- test and why it is needed.
+- Get some agreement on how to design your test from the relevant SIG.
+- Create the PR.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Slack channels, Github mentions).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------

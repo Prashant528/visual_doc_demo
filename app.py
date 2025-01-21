@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui
+from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui, add_links_to_json_from_content
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
@@ -12,6 +12,7 @@ from code_from_visdoc.utils import parse_openai_single_json
 from code_from_visdoc.github_link_parser import parse_github_url
 from segmenter.transformers_call import SentenceFeatureExtractor
 import sys
+from second_layer import *
 
 app = Flask(__name__)
 CORS(app) 
@@ -76,6 +77,7 @@ def fetch_and_analyze():
             segments_and_classes_in_all_files.append((segments, segment_classes))
             print("No of segments found = ", len(segments))
 
+        #------------------ <UNCOMMENT THIS
         # Returns a dictionary with class: list of segments
         segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
         #Call the LLM to find the sequence
@@ -85,8 +87,14 @@ def fetch_and_analyze():
         modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
         # print(f"\nModified response from API:\n {modified_json_for_ui}")
 
+        json_with_links = add_links_to_json_from_content(modified_json_for_ui)
+        #------------------ UNCOMMENT THIS>
+
+        #-------------Starting second layer
+        json_with_second_layer = add_second_layer_from_links(json_with_links, file_path, github_url_components)
+
     # return render_template('text_segment_editor.html', file_path=segmented_file_path)
-    return modified_json_for_ui
+    return json_with_links
 
 @app.route('/generate')
 def generate():

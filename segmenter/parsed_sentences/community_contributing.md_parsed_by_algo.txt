@@ -3,23 +3,21 @@ weight: 4
 description: |
 An entrypoint to getting started with contributing to the Kubernetes project.
 --------
-- [Communication](#communication)
+-
 --------
-- [GitHub workflow](#github-workflow)
+-
 --------
-- [Open a Pull Request](#opening-a-pull-request)
+-
 --------
-- [Code Review](#code-review)
+-
 --------
-- [Best Practices](#best-practices)
+-
 --------
-- [Testing](#testing)
+-
 --------
-- [Security](#security)
+-
 --------
-- [Documentation](#documentation)
---------
-- [Issues Management or Triage](#issues-management-or-triage)
+-
 Kubernetes is open source, but many of the people working on it do so as their day job.
 --------
 In order to avoid forcing people to be "at work" effectively 24/7, we want to establish some semi-formal protocols around development.
@@ -34,7 +32,7 @@ Please do not ever hesitate to ask a question or send a pull request.
 --------
 Check out our [community guiding principles](/contributors/guide/expectations.md#code-review) on how to create great code as a big group.
 --------
-Beginner focused information can be found below in [Open a Pull Request](#opening-a-pull-request) and [Code Review](#code-review).
+Beginner focused information can be found below in  and .
 --------
 For quick reference on contributor resources, we have a handy [contributor cheatsheet](./contributor-cheatsheet/).
 --------
@@ -76,7 +74,7 @@ Not having correctly signed the CLA ahead of your first PR.
 --------
 See the [CLA page](/CLA.md) for troubleshooting help, in some cases you might need to file a ticket with the CNCF to resolve a CLA problem.
 --------
-- Finding the right SIG or reviewer(s) for the PR (see [Code Review](#code-review) section) and following any SIG or repository specific contributing guidelines (see [Learn about SIGs](first-contribution.md#learn-about-sigs) section)
+- Finding the right SIG or reviewer(s) for the PR (see  section) and following any SIG or repository specific contributing guidelines (see [Learn about SIGs](first-contribution.md#learn-about-sigs) section)
 --------
 - Dealing with test cases which fail on your PR, unrelated to the changes you introduce (see [Test Flakes](/contributors/devel/sig-testing/flaky-tests.md))
 --------

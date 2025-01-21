@@ -56,7 +56,9 @@ def markdown_to_plain_text_with_links(markdown_text):
             if child.name == "a":  # Links
                 link_text = child.get_text()
                 href = child.get("href", "")
-                plain_text += f"[{link_text}]({href})"
+                # Exclude links with href starting with '#'
+                if not href.startswith("#"):
+                    plain_text += f"[{link_text}]({href})"
             elif child.name in {"strong", "em"}:  # Bold/Italic
                 plain_text += traverse(child)  # Handle nested text
             elif child.name == "li":  # List items

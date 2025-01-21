@@ -1,146 +1,258 @@
-title: "Getting Started" weight: 1 aliases: ["/guide"] description: A small list of things that you should read and be familiar with before you get started with contributing.
+Communication
 --------
-This includes such things as signing the Contributor License Agreement, familiarizing yourself with our Code of Conduct, and more.
+The Kubernetes community abides by the [Kubernetes code of conduct](/code-of-conduct.md) on all of
+the communication platforms that we moderate listed below with noted exceptions.
 --------
-Getting Started
+Here is an excerpt from the code of conduct:
 --------
-Welcome
+As contributors and maintainers of this project, and in the interest
+of fostering an open and welcoming community, we pledge to respect
+all people who contribute through reporting issues, posting feature
+requests, updating documentation, submitting pull requests or patches,
+and other activities.
 --------
-Have you ever wanted to contribute to the coolest cloud technology?
+Purpose of This Doc
+A detailed list of upstream communication platforms and resources for contributors.
 --------
-This guide will help you understand the overall organization of the Kubernetes
-project, and direct you to the best places to get started contributing.
+Since upstream contributors are generally consumers, many of our channels intertwine.
 --------
-You'll
-be able to pick up issues, write code to fix them, and get your work reviewed
-and merged.
+See  for more end
+user/troubleshooting targeted paths.
 --------
-This document is the single source of truth for how to contribute to the code
-base.
+Community Groups
+Kubernetes encompasses many projects, organized into [community groups](/governance.md#community-groups).
 --------
-Feel free to browse the open issues and file new ones, all feedback
-is welcome!
+Upstream communication flows through those channels, most notably in the Special
+Interest Groups [SIGs](/sig-list.md) that own the docs and codebases.
 --------
-Contributor Guide
---------
-Welcome to Kubernetes!
---------
-This guide is broken up into the following sections.
---------
-It is recommended that you follow these steps in order:
---------
-Prerequisites
---------
-Before submitting code to Kubernetes, you should first complete the following
-prerequisites.
---------
-These steps are checked automatically by a bot during your
-first submission.
---------
-Completing these steps will make your first contribution
-easier:
---------
-Create a GitHub account
---------
-Before you get started, you will need to sign up for a GitHub user account.
---------
-Sign the CLA
---------
-Before you can contribute to Kubernetes, you will need to sign the
-Contributor License Agreement.
---------
-The easiest way to do so is to open a PR against the contributor playground repo, you can find an example PR here.
---------
-Note: kubernetes-sigs/contributor-playground is a repository for practicing submitting your first PR, not just for CLA registration.
---------
-When creating and submitting a new PR, please write the PR description according to the provided template.
---------
-Check the above example PR for reference.
---------
-Code of Conduct
---------
-Please make sure to read and observe the Code of Conduct and
-Community Values
---------
-Setting up your development environment
---------
-It is not required to set up a developer environment in order to contribute to
-Kubernetes.
---------
-If you plan to contribute code changes, review the developer resources page
-for how to set up your environment.
---------
-Community Expectations and Roles
---------
-Kubernetes is a community project.
---------
-Consequently, it is wholly dependent on its
-community to provide a productive, friendly, and collaborative environment.
---------
-- Read and review the Community Expectations for an
-    understanding of code and review expectations.
---------
-- See Community Membership for a list of the various
-    responsibilities of contributor roles.
+Their communication
+channels may include mailing lists, slack channels, zoom meetings, meeting
+agenda/notes, and can be found on their READMEs and on the community
+groups/[SIGs](/sig-list.md) page.
 --------
 -
 --------
-You are encouraged to move up this contributor ladder as you gain experience.
+The community group's public meeting(s) listed on the above community groups page
 --------
-Kubernetes Contributor Playground
+- Every Third Thursday at our [monthly community meeting]
 --------
-If you are looking for a safe place, where you can familiarize yourself with
-the pull request and issue review process in Kubernetes, then the
-Kubernetes Contributor Playground is the right place for you.
+(https://docs.google.com/document/d/1VQDIAB0OqiSjIHI8AWMvSdceWhnz56jNpZrLs6o7NJY/edit#) over [zoom](https://zoom.us/my/kubernetescommunity) at [10am US Pacific Time]
 --------
-Contributor Workshops
+(https://www.thetimezoneconverter.com/?t=10:00&tz=PT%20%28Pacific%20Time%29)
 --------
-A Youtube playlist of the New Contributor workshop has been posted.
+- Intro sessions at KubeCon/CloudNativeCon live or [recordings on YouTube]
 --------
-An
-outline of the video content can be found here.
+(https://www.youtube.com/channel/UCvqbFHwN-nwalWPjPUKpvTA)
 --------
-Community
+Nevertheless, below find a list of many general channels, groups, and meetings
+devoted to the Kubernetes project.
 --------
-Kubernetes is a large, lively, friendly open-source community.
+Please check the guidelines and any relevant
+chat/conversation history before posting.
 --------
-As many open
-source projects often do, it depends on new people becoming members and regular
-code contributors.
+Spam and sales pitches are not tolerated
+on these platforms.
 --------
-The Community Membership Document covers membership
-processes and roles.
+Appropriate Content for Community Resources
 --------
-Please consider joining Kubernetes, and making your way
-up the contributor ladder!
+All communications properties are under the [Kubernetes code of conduct](/code-of-conduct.md).
 --------
-Communication
+Additionally, these resources are for the contributors and users of Kubernetes; commercial usage of these properties is heavily moderated.
 --------
-Events
+- Posting unsolicited content of a commercial nature on Slack or other community forums
 --------
-Kubernetes participates in KubeCon + CloudNativeCon, held three times per year
-in China, Europe, and North America.
+- Messaging people individually on a platform with content of an unsolicited commercial nature
 --------
-Information about these and other
-community events is available on the CNCF Events pages.
+- Asking about commercial products in an appropriate channel.
 --------
-Meetups
+For example most clouds have a channel in Slack, asking how to use GKE on the GKE channel or AKS on the Azure channels is fine.
 --------
-All Kubernetes meetups follow the general Cloud Native Computing Foundation Guidelines
+- "Does anyone have experience with project foo?" is fine
 --------
-You may also contact CNCF Staff driving the Community Groups (previously known
-as Meetups) program by email (meetups@cncf.io)
+- Some OSS projects are also hosted on the Kubernetes Slack that also have a commercial offering, these are allowed.
 --------
-Mentorship
+Decisions Are Made Here
 --------
-Learn more about the Kubernetes mentoring initiatives.
+The project is very large with a robust community group ecosystem and bubbling up
+information is important.
 --------
-Advanced Topics
+- [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) mailing list - all upstream Kubernetes news and discussion.
 --------
-This section includes things that need to be documented, but typical contributors
-do not need to interact with regularly.
+Many community groups have charters that state they have to post here for
+certain topics like project wide changes.
 --------
-- OWNERS files -
+Joining this mailing list is required
+[k-dev moderators](./moderators.md#kubernetes-dev)
+for GitHub [org membership](/community-membership.md) and will get you access to all community docs that are
+not in GitHub.
 --------
-which outline which parts of the code are owned by what groups.
+- GitHub Issues and PRs in an [associated repository](/github-management#actively-used-github-organizations) and
+--------
+- KEPs[(Kubernetes Enhancement Proposals)]
+--------
+(https://git.k8s.io/enhancements/keps)
+--------
+-
+--------
+We don't recommend following or watching any repository unless you are using
+[heavy email filters](./best-practices.md).
+--------
+Getting involved with the community
+group(s) directly is the best way to find out how to best watch what you need
+on GitHub.
+--------
+Discussions Happen Here
+--------
+We talk a lot, too.
+--------
+Slack
+Our real-time platform with Kubernetes enthusiasts spread across 250+ channels.
+--------
+Owned and operated by sig-contributor-experience.
+--------
+[Join]
+--------
+(http://slack.k8s.io) | [Slack Guidelines](/communication/slack-guidelines.md) | [slack moderators](./moderators.md#slack) | [#kubernetes-contributors]
+--------
+(https://app.slack.com/client/T09NY5SBT/C09R23FHP)
+--------
+Pro-tip:
+--------
+If you want to add a new channel, simply file a request following
+[these instructions](/communication/slack-guidelines.md#requesting-a-channel).
+--------
+Mailing lists and forums
+Most of the Kubernetes mailing lists are hosted through Google Groups or
+[Discuss Kubernetes](https://discuss.kubernetes.io).
+--------
+These also power most of the access to our documentation
+and calendar items like SIG meetings.
+--------
+[mailing list guidelines](./mailing-list-guidelines.md) | [email filtering tips](./best-practices.md)
+--------
+- [kubernetes-announce]
+--------
+(https://groups.google.com/forum/#!forum/kubernetes-announce) broadcasts major project announcements such as releases
+and security issues
+--------
+- [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) hosts contributor announcements and discussions for upstream
+--------
+- [Discuss Kubernetes]
+--------
+(https://discuss.kubernetes.io) is a forum where Kubernetes users trade notes with sections
+for contributors and all kinds of ecosystem related content
+--------
+- Additional Google groups exist and can be joined for discussion related to each
+community group as noted above.
+--------
+These are linked from the [SIG list](/sig-list.md).
+--------
+Calendar & Meetings
+--------
+We use Zoom for all of our community group meetings and contributor programs.
+--------
+-
+[Zoom Guidelines](./zoom-guidelines.md)
+--------
+We keep a [shared calendar](https://calendar.google.com/calendar/embed?src=calendar%40kubernetes.io) with all of our community group meetings.
+--------
+If you'd
+like a contributor event published, please reach out to [#sig-contribex]
+--------
+(https://app.slack.com/client/T09NY5SBT/C1TU9EB9S) on slack.
+--------
+Website
+Documentation is published at [https://kubernetes.io](https://kubernetes.io)
+--------
+- [website guidelines](./website-guidelines.md)
+--------
+- [@kubernetesio]
+--------
+(https://twitter.com/kubernetesio)
+- owned and operated by CNCF.
+--------
+Contact: [social@cncf.io](mailto:social@cncf.io)
+--------
+- [Last Week in Kubernetes Development]
+--------
+(http://lwkd.info/)
+--------
+- owned and operated by [Josh Berkus]
+--------
+(https://github.com/jberkus)
+--------
+YouTube
+Owned and operated by sig-contribex [community management](/sig-contributor-experience#community-management) subproject.
+--------
+[Kubernetes Community channel]
+--------
+(https://www.youtube.com/c/kubernetescommunity) - recordings of community group meetings, Thursday
+community call, and more [YouTube Guidelines](./youtube/youtube-guidelines.md).
+--------
+Kubernetes Blog
+The [Kubernetes Blog](https://kubernetes.io/blog/) is owned by SIG Docs and operated by the [blog team](/sig-docs/blog-subproject).
+--------
+[submit a blog post]
+--------
+(https://kubernetes.io/docs/contribute/start/#write-a-blog-post)
+--------
+Misc Community Resources
+Issues & Troubleshooting
+For questions about installing, running, or troubleshooting Kubernetes,
+please start with the [troubleshooting guide](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+--------
+If that doesn't answer your question(s),
+try to post on discuss.
+--------
+kubernetes.io or if you think you found a bug, please [file an issue]
+--------
+(https://github.com/kubernetes/kubernetes/issues/new).
+--------
+- [r/kubernetes]
+--------
+(https://www.reddit.com/r/kubernetes/) - reddit channel owned and operated by community members and
+not an official channel for the project.
+--------
+- [awesome kubernetes list](https://github.com/ramitsurana/awesome-kubernetes) - not an official repo; maintained by a community member.
+--------
+a repo with a huge collection of links to books, talks, and other Kubernetes learning
+resources.
+--------
+- [kubeweekly](https://kubeweekly.io/) - owned by cncf and curated by community members listed on the site.
+--------
+Collection of news, blogs, talks, and events for all things Kubernetes.
+--------
+send submissions to [kubeweekly@cncf.io](mailto:kubeweekly@cncf.io)
+--------
+- [LWKD]
+--------
+(https://lwkd.info) - a weekly newsletter that summarizes changes to Kubernetes code, development,
+and release schedules.
+--------
+Written by two members of SIG-Contribex.
+--------
+Conferences, Meetups, Summits, and Face to Face Meetings
+CNCF is the main driver for all KubeCon + CloudNativeCons, Kubernetes Forums,
+and the [Kubernetes Meetup Pro](https://github.com/cncf/meetups) program on meetup.com.
+--------
+KubeCon + CloudNativeCon,
+is held every spring in Europe, summer in China, and winter in North America.
+--------
+Information about these and other community events is available on the CNCF [events]
+--------
+(https://www.cncf.io/events/)
+pages.
+--------
+The project also has several face to face meetings and contributor summits
+throughout the year.
+--------
+To stay updated, check the calendar, your community group of
+interest, and/or the #contributor-summit slack channel for more information.
+--------
+Thank
+--------
+You
+A special thanks to all of our volunteer [moderators](./moderators.md) who work in different time
+zones all over the world to make all of our communication platforms an enjoyable
+place!
 --------

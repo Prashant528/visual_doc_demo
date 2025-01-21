@@ -28,7 +28,7 @@ class OpenAIService:
             model=self.model,
             messages = prompt,
             temperature = 0.0,
-            response_format={ 'type': "json_object" }
+            response_format={ "type": "json_object" }
         )
         # print(response.choices[0].message.content)
         print("Completed: Calling LLM API...")

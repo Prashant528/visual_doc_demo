@@ -83,114 +83,53 @@ Have you ever noticed the total number of [open issues] (https://issues.k8s.io)?
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Communication
-The Kubernetes community abides by the [Kubernetes code of conduct](/code-of-conduct.md) on all of the communication platforms that we moderate listed below with noted exceptions.
+The Contributor License Agreement
+The [Cloud Native Computing Foundation](https://www.cncf.io) (CNCF) defines
+the legal status of the contributed code in two different types of Contributor License Agreements
+(CLAs), [individual contributors](https://github.com/cncf/cla/blob/master/individual-cla.pdf) and [corporations] (https://github.com/cncf/cla/blob/master/corporate-cla.pdf). Kubernetes can only accept original source code from CLA signatories. This policy does not apply to [third_party] (https://git.k8s.io/kubernetes/third_party)
+and [vendor](https://git.k8s.io/kubernetes/vendor). It is important to read and understand this legal agreement.
 
-Here is an excerpt from the code of conduct: As contributors and maintainers of this project, and in the interest of fostering an open and welcoming community, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Purpose of This Doc
-A detailed list of upstream communication platforms and resources for contributors.
-
-Since upstream contributors are generally consumers, many of our channels intertwine. See  for more end user/troubleshooting targeted paths.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Community Groups
-Kubernetes encompasses many projects, organized into [community groups](/governance.md#community-groups). Upstream communication flows through those channels, most notably in the Special Interest Groups [SIGs](/sig-list.md) that own the docs and codebases. Their communication channels may include mailing lists, slack channels, zoom meetings, meeting agenda/notes, and can be found on their READMEs and on the community groups/[SIGs](/sig-list.md) page.
-
-- The community group's public meeting(s) listed on the above community groups page
-- Every Third Thursday at our [monthly community meeting] (https://docs.google.com/document/d/1VQDIAB0OqiSjIHI8AWMvSdceWhnz56jNpZrLs6o7NJY/edit#) over [zoom](https://zoom.us/my/kubernetescommunity) at [10am US Pacific Time] (https://www.thetimezoneconverter.com/?t=10:00&tz=PT%20%28Pacific%20Time%29)
-- Intro sessions at KubeCon/CloudNativeCon live or [recordings on YouTube] (https://www.youtube.com/channel/UCvqbFHwN-nwalWPjPUKpvTA)
-
-Nevertheless, below find a list of many general channels, groups, and meetings devoted to the Kubernetes project. Please check the guidelines and any relevant chat/conversation history before posting. Spam and sales pitches are not tolerated on these platforms.
+How do I sign?
+After creating your first Pull Request, the linux-foundation-easycla bot will respond with information regarding your CLA status along with a link to sign the CLA.
+1. If you are signing up as a corporate contributor, ensure that you have linked your corporate email address to your GitHub profile (it doesn't have to be your primary email address for GitHub) or else it can lead to issues with the CLA system. For more information, please see [Adding an email address to your GitHub account] (https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account).
+2. Authorize EasyCLA to read some of your GitHub information
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Appropriate Content for Community Resources
-All communications properties are under the [Kubernetes code of conduct](/code-of-conduct.md). Additionally, these resources are for the contributors and users of Kubernetes; commercial usage of these properties is heavily moderated.
+- Click on the Please click here to be authorized link to navigate to the GitHub Authorize Linux Foundation: EasyCLA page.
+- Then click Authorize LF-Engineering to give the Linux Foundation read-only access to list the email addresses associated with your GitHub account.
 
-- Posting unsolicited content of a commercial nature on Slack or other community forums
-- Messaging people individually on a platform with content of an unsolicited commercial nature
-- Asking about commercial products in an appropriate channel. For example most clouds have a channel in Slack, asking how to use GKE on the GKE channel or AKS on the Azure channels is fine.
-- "Does anyone have experience with project foo?" is fine
-- Some OSS projects are also hosted on the Kubernetes Slack that also have a commercial offering, these are allowed.
+After authorizing EasyCLA, you will be redirected to a page to identify which type of contributor you are.
+- Individual Contributor: You are contributing as yourself, and not as part of another organization.
+- Corporate Contributor: You are contributing on behalf of your employer or other organization.
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
+4. Sign the CLA
+Once you select the type of contributor, proceed to Sign the CLA and follow the instructions to complete the signing process through DocuSign. After you have filled out  the information, Click "Finish" and you will be redirected back to your Pull Request.
 
-Decisions Are Made Here
-The project is very large with a robust community group ecosystem and bubbling up information is important.
+5. Look for an email indicating successful signup.
+Hello,
+This is a notification email from EasyCLA regarding the project Cloud Native Computing > Foundation (CNCF). The CLA has now been signed. You can download the signed CLA as a PDF here.
+If you need help or have questions about EasyCLA, you can read the documentation or reach out to us for support.
+Thanks,
+EasyCLA
 
-- [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) mailing list - all upstream Kubernetes news and discussion. Many community groups have charters that state they have to post here for certain topics like project wide changes. Joining this mailing list is required [k-dev moderators](./moderators.md#kubernetes-dev) for GitHub [org membership](/community-membership.md) and will get you access to all community docs that are not in GitHub.
-- GitHub Issues and PRs in an [associated repository](/github-management#actively-used-github-organizations) and
-- KEPs[(Kubernetes Enhancement Proposals)] (https://git.k8s.io/enhancements/keps)
-- We don't recommend following or watching any repository unless you are using [heavy email filters](./best-practices.md). Getting involved with the community group(s) directly is the best way to find out how to best watch what you need on GitHub.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Discussions Happen Here
-We talk a lot, too.
-
-Slack
-Our real-time platform with Kubernetes enthusiasts spread across 250+ channels. Owned and operated by sig-contributor-experience. [Join] (http://slack.k8s.io) | [Slack Guidelines](/communication/slack-guidelines.md) | [slack moderators](./moderators.md#slack) | [#kubernetes-contributors](https://app.slack.com/client/T09NY5SBT/C09R23FHP)
-
-Pro-tip: If you want to add a new channel, simply file a request following [these instructions](/communication/slack-guidelines.md#requesting-a-channel).
+6. Validate your CLA
+Once you are redirected back to your GitHub Pull Request, reply with a comment `/easycla` to update the CLA status of your PR.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Mailing lists and forums
-Most of the Kubernetes mailing lists are hosted through Google Groups or [Discuss Kubernetes](https://discuss.kubernetes.io). These also power most of the access to our documentation and calendar items like SIG meetings. [mailing list guidelines](./mailing-list-guidelines.md) | [email filtering tips](./best-practices.md)
-
-- [kubernetes-announce] (https://groups.google.com/forum/#!forum/kubernetes-announce) broadcasts major project announcements such as releases and security issues
-- [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) hosts contributor announcements and discussions for upstream
-- [Discuss Kubernetes] (https://discuss.kubernetes.io) is a forum where Kubernetes users trade notes with sections for contributors and all kinds of ecosystem related content
-- Additional Google groups exist and can be joined for discussion related to each community group as noted above. These are linked from the [SIG list](/sig-list.md).
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Calendar & Meetings
-We use Zoom for all of our community group meetings and contributor programs. - [Zoom Guidelines](./zoom-guidelines.md)
-
-We keep a [shared calendar](https://calendar.google.com/calendar/embed?src=calendar%40kubernetes.io) with all of our community group meetings. If you'd like a contributor event published, please reach out to [#sig-contribex] (https://app.slack.com/client/T09NY5SBT/C1TU9EB9S) on slack.
+Changing your Affiliation
+If you've changed employers and still contribute to Kubernetes, your affiliation needs to be updated. The Cloud Native Computing Foundation uses [gitdm](https://github.com/cncf/gitdm) to track who is contributing and from where. Create a pull request on the [gitdm](https://github.com/cncf/gitdm) repository with a change to the corresponding developer affiliation text file. Your entry should look similar to this:
+```
+Jorge O. Castro*: jorge!heptio.com, jorge!ubuntu.com, jorge.castro!gmail.com Heptio
+Canonical until 2017-03-31
+```
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Website
-Documentation is published at [https://kubernetes.io](https://kubernetes.io)
-- [website guidelines](./website-guidelines.md)
-- [@kubernetesio] (https://twitter.com/kubernetesio) - owned and operated by CNCF. Contact: [social@cncf.io](mailto:social@cncf.io)
-- [Last Week in Kubernetes Development] (http://lwkd.info/) - owned and operated by [Josh Berkus] (https://github.com/jberkus)
+Troubleshooting
+If you encounter any problems signing the CLA and need further assistance, log a ticket by clicking on the link [please submit a support request ticket] (https://jira.linuxfoundation.org/plugins/servlet/theme/portal/4) from the EasyCLA bot's response. Someone from the CNCF will respond to your ticket to help. Should you have any issues using the LF Support Site, send a message to the backup email support address [login-issues@jira.linuxfoundation.org](mailto:login-issues@jira.linuxfoundation.org)
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-YouTube
-Owned and operated by sig-contribex [community management](/sig-contributor-experience#community-management) subproject. [Kubernetes Community channel] (https://www.youtube.com/c/kubernetescommunity) - recordings of community group meetings, Thursday community call, and more [YouTube Guidelines](./youtube/youtube-guidelines.md).
-
-Kubernetes Blog
-The [Kubernetes Blog](https://kubernetes.io/blog/) is owned by SIG Docs and operated by the [blog team](/sig-docs/blog-subproject).
-
-[submit a blog post] (https://kubernetes.io/docs/contribute/start/#write-a-blog-post)
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Misc Community Resources
-Issues & Troubleshooting
-For questions about installing, running, or troubleshooting Kubernetes, please start with the [troubleshooting guide](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/). If that doesn't answer your question(s), try to post on discuss. kubernetes.io or if you think you found a bug, please [file an issue] (https://github.com/kubernetes/kubernetes/issues/new).
-
-- [r/kubernetes] (https://www.reddit.com/r/kubernetes/) - reddit channel owned and operated by community members and not an official channel for the project.
-- [awesome kubernetes list](https://github.com/ramitsurana/awesome-kubernetes) - not an official repo; maintained by a community member. a repo with a huge collection of links to books, talks, and other Kubernetes learning resources.
-- [kubeweekly](https://kubeweekly.io/) - owned by cncf and curated by community members listed on the site. Collection of news, blogs, talks, and events for all things Kubernetes. send submissions to [kubeweekly@cncf.io](mailto:kubeweekly@cncf.io)
-- [LWKD] (https://lwkd.info) - a weekly newsletter that summarizes changes to Kubernetes code, development, and release schedules. Written by two members of SIG-Contribex.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Conferences, Meetups, Summits, and Face to Face Meetings
-CNCF is the main driver for all KubeCon + CloudNativeCons, Kubernetes Forums, and the [Kubernetes Meetup Pro](https://github.com/cncf/meetups) program on meetup.com. KubeCon + CloudNativeCon, is held every spring in Europe, summer in China, and winter in North America. Information about these and other community events is available on the CNCF [events] (https://www.cncf.io/events/) pages. The project also has several face to face meetings and contributor summits throughout the year. To stay updated, check the calendar, your community group of interest, and/or the #contributor-summit slack channel for more information.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
-Thank You
-A special thanks to all of our volunteer [moderators](./moderators.md) who work in different time zones all over the world to make all of our communication platforms an enjoyable place!
+If you are a Kubernetes GitHub organization or repo owner and would like to setup the Linux Foundation CNCF CLA check for your repositories, [read the docs on setting up the CNCF CLA check](/github-management/setting-up-cla-check.md)
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------

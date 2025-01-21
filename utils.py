@@ -1,5 +1,6 @@
 import requests
 from collections import defaultdict
+import regex as re
 
 def download_file(owner, repo, file_path):
     # GitHub repository information. Example:
@@ -77,6 +78,28 @@ def modfify_json_for_ui(old_json, repo_name):
         # Add flow with updated edges and sequence name
         new_json["flow"].append({"edges": updated_edges, "sequence": sequence_name})
     return new_json
+
+
+def add_links_to_json_from_content(data):
+    #Extract links from each content topic
+    links_dict = {}
+    for topic, markdown_content in data["content"].items():
+        links_dict[topic] = extract_links_from_markdown(markdown_content)
+    
+    #Add the 'links' key to the JSON structure
+    data["links"] = links_dict
+
+    return data
+
+def extract_links_from_markdown(markdown_text):
+    """
+    Extract all links from a Markdown string.
+    Returns a list of link URLs (including relative paths, anchors, etc.).
+    """
+    # This regex captures the URL within parentheses following a standard Markdown link [text](URL).
+    pattern = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
+    return pattern.findall(markdown_text)
+
 
 if __name__ == '__main__':
     print(download_file('flutter', 'flutter', 'CONTRIBUTING.md'))
