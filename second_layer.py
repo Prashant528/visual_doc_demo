@@ -11,12 +11,14 @@ from code_from_visdoc.config import Config
 from code_from_visdoc.utils import parse_openai_single_json
 from code_from_visdoc.github_link_parser import parse_github_url
 from segmenter.transformers_call import SentenceFeatureExtractor
+import json
 import sys
 
 def process_md_and_wiki(topic, link, data, github_service, github_url_components):
     """
     Dummy function to process .md or .wiki links.
     """
+
     print(f"Processing MD/WIKI link: {link}")
 
     clean_link = link.split('#')[0].split('?')[0]
@@ -57,7 +59,7 @@ def get_new_nodes_from_md(link, github_service, github_url_components):
     content = file_and_content[1]
     md_file_path = save_to_md(content, file_name)
 
-    predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True)
+    predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True, repo=repo, filename=file_path)
 
     prompt_for_llm = 'PROMPT_FOR_SEQUENCING_SECOND_LAYER'
 
@@ -94,8 +96,13 @@ def add_second_layer_from_links(data, file_path, github_url_components):
 
     outbound_link_counter = 1  # to label outbound links uniquely
 
+    #If there are no links, the data would be the final result
+    merged_json = data
+
     # Iterate over each topic and its list of extracted links
     for topic, links_list in data.get("links", {}).items():
+        print("Second page started...")
+        print("Processing for topic: ", topic)
         topic_links = []
         for link in links_list:
             # We check the portion before possible '#' or query params
@@ -111,6 +118,7 @@ def add_second_layer_from_links(data, file_path, github_url_components):
             
         #now process the unique links in each topic
         uniq_topic_links = list(set(topic_links))
+        print("Links in the topic: ", uniq_topic_links)
         #if there is a link to the same page(different element), remove that too.
         if file_path in topic_links:
             topic_links.remove(file_path)
@@ -141,51 +149,127 @@ def add_second_layer_from_links(data, file_path, github_url_components):
     return merged_json
 
 
+def rename_duplicate_topics(data, second_layer_nodes):
+    """
+    Ensures no topics in second_layer_nodes['content'] duplicate each other
+    or any existing topics in data['content'].
+    
+    If a collision is found, the duplicate second-layer topic is renamed with a #<counter> suffix.
+    
+    This updates second_layer_nodes in place (both 'content' keys and 'flow' edges).
+    """
+
+    # 1. Build a set of all existing topics from data
+    existing_topics = set(data["content"].keys())
+
+    # 2. Create a rename map for any second-layer topics
+    rename_map = {}
+    
+    # We'll gather all second-layer topics in a list so we can iterate deterministically
+    second_layer_topic_names = list(second_layer_nodes["content"].keys())
+
+    for old_topic in second_layer_topic_names:
+        # If we've not processed this old_topic yet:
+        if old_topic not in rename_map:
+            if old_topic in existing_topics:
+                # We must generate a unique new topic name
+                i = 1
+                new_topic = f"{old_topic}#{i}"
+                while new_topic in existing_topics:
+                    i += 1
+                    new_topic = f"{old_topic}#{i}"
+                
+                rename_map[old_topic] = new_topic
+                existing_topics.add(new_topic)
+            else:
+                # The topic is new overall; keep it as-is
+                rename_map[old_topic] = old_topic
+                existing_topics.add(old_topic)
+
+    # 3. Rename 'content' keys in second_layer_nodes
+    new_content = {}
+    for old_topic, text in second_layer_nodes["content"].items():
+        new_content[rename_map[old_topic]] = text
+    second_layer_nodes["content"] = new_content
+
+    # 4. Update edges in second_layer_nodes['flow'] to reflect any renamed topics
+    if "flow" in second_layer_nodes:
+        flow_value = second_layer_nodes["flow"]
+        # If it's a single dict, wrap it in a list to iterate
+        if isinstance(flow_value, dict):
+            flow_items = [flow_value]
+        else:
+            flow_items = flow_value
+
+        for flow_item in flow_items:
+            edges = flow_item.get("edges", [])
+            for edge in edges:
+                if edge["source"] in rename_map:
+                    edge["source"] = rename_map[edge["source"]]
+                if edge["target"] in rename_map:
+                    edge["target"] = rename_map[edge["target"]]
+
+        # Put them back if needed
+        if isinstance(flow_value, dict):
+            second_layer_nodes["flow"] = flow_items[0]
+        else:
+            second_layer_nodes["flow"] = flow_items
+
+
 def attach_second_layer(data, second_layer_nodes, topic):
-    # Merge 'content'
+    """
+    Merges second_layer_nodes into data so that:
+      1) second_layer_nodes["content"] entries are merged into data["content"].
+      2) second_layer_nodes["flow"] entries are appended to data["flow"].
+      3) The 'first node' in second_layer_nodes is linked as a child of 'topic' in data.
+      4) All new flow items inherit the same 'sequence' that 'topic' uses.
+      5) No duplicate topics remain in the final structure (renamed if necessary).
+    """
+
+    # A) First rename any duplicates in second_layer_nodes itself
+    #    or conflicts with data's existing topics.
+    rename_duplicate_topics(data, second_layer_nodes)
+
+    # B) Merge the second-layer content
     data["content"].update(second_layer_nodes.get("content", {}))
 
-    # Get flow from second_layer_nodes
-    flow_value = second_layer_nodes.get("flow", None)
-    if not flow_value:
-        # No flow => just return data after merging content
-        return data
-
-    # If it's a dict, wrap it in a list
+    # C) Prepare second-layer flow as a list
+    flow_value = second_layer_nodes.get("flow", [])
     if isinstance(flow_value, dict):
         flow_items = [flow_value]
-    elif isinstance(flow_value, list):
-        flow_items = flow_value
     else:
-        # Unexpected type => handle error or return
-        print("ERROR: 'flow' is neither a list nor a dict.")
-        return data
+        flow_items = flow_value
 
-    # If flow_items is empty or doesn't have edges, bail out
     if not flow_items:
+        # No flow to attach
         return data
 
+    # Identify the 'first node' in second_layer_nodes.
+    # We'll assume: the first flow item -> first edge -> 'source' is the root.
     first_flow_item = flow_items[0]
     first_edges = first_flow_item.get("edges", [])
     if not first_edges:
+        # If no edges in the first flow item, we can't link a child
         return data
 
     first_node = first_edges[0]["source"]
 
-    # Extract the existing sequence for 'topic'
+    # D) Find the parent's sequence
     topic_sequence = None
     for flow_item in data["flow"]:
-        for edge in flow_item.get("edges", []):
+        for edge in flow_item["edges"]:
             if edge["source"] == topic or edge["target"] == topic:
                 topic_sequence = flow_item.get("sequence")
                 break
         if topic_sequence:
             break
+
     if topic_sequence is None:
+        # Default if topic not found in existing flow edges
         topic_sequence = "Attached second layer"
 
-    # Create a link from 'topic' -> first_node
-    new_flow_item = {
+    # E) Create a bridging edge from topic -> first_node, using the parent's sequence
+    bridging_flow_item = {
         "edges": [
             {
                 "source": topic,
@@ -194,12 +278,18 @@ def attach_second_layer(data, second_layer_nodes, topic):
         ],
         "sequence": topic_sequence
     }
-    data["flow"].append(new_flow_item)
+    data["flow"].append(bridging_flow_item)
 
-    # Append the second layer flow
+    # F) Force all second-layer flow items to use the parent's sequence
+    for item in flow_items:
+        item["sequence"] = topic_sequence
+
+    # G) Append second-layer flow items to the main data flow
     data["flow"].extend(flow_items)
-    
-    with open('new_flow_items.txt', 'w') as outfile:
-        outfile.write(str(flow_items))
-        
+
+    with open("second_layer_merged_data.json", "w") as f:
+        json.dump(data, f, indent=4)
+
     return data
+
+

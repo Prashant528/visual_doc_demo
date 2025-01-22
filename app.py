@@ -65,11 +65,11 @@ def fetch_and_analyze():
             #commented for demo, need to uncomment
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
-            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True)
+            predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True, repo=repo, filename=file_path)
             print(segments)
             if TURN_CLASSIFIER_ON:
                 segments, segment_classes = run_classifier_with_paragraphs(segments)
-                prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS'
+                prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS_VER_2'
             else:
                 segment_classes = [f'Contributing to {repo}']
                 prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS'
@@ -87,14 +87,20 @@ def fetch_and_analyze():
         modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
         # print(f"\nModified response from API:\n {modified_json_for_ui}")
 
-        json_with_links = add_links_to_json_from_content(modified_json_for_ui)
-        #------------------ UNCOMMENT THIS>
+        turn_second_layer_on = False
+        if turn_second_layer_on:
+            json_with_links = add_links_to_json_from_content(modified_json_for_ui)
+            #------------------ UNCOMMENT THIS>
 
-        #-------------Starting second layer
-        json_with_second_layer = add_second_layer_from_links(json_with_links, file_path, github_url_components)
-
+            #-------------Starting second layer
+            json_with_second_layer = add_second_layer_from_links(json_with_links, file_path, github_url_components)
+            
+            #-------------Removing the links
+            result = {key: json_with_second_layer[key] for key in ["content", "flow"]}
+        else:
+            result = modified_json_for_ui
     # return render_template('text_segment_editor.html', file_path=segmented_file_path)
-    return json_with_links
+    return result
 
 @app.route('/generate')
 def generate():

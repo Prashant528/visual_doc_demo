@@ -138,7 +138,7 @@ def add_block_identifier(file_path, blocks):
     for block in blocks:
         start_line, end_line = block
         lines.insert(start_line + block_marker_offset, start_block_marker + '\n')
-        lines.insert(end_line + 1 + block_marker_offset, end_block_marker + '\n')
+        lines.insert(end_line + 2 + block_marker_offset, end_block_marker + '\n')
         block_marker_offset = block_marker_offset + 2
 
 

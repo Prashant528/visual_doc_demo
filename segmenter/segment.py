@@ -10,17 +10,17 @@ from segmenter.transformers_call import generate_sentences_not_considering_block
 from segmenter.clean_markdown import markdn2text_gfm, markdn2text_with_links
 from segmenter.bullet_points_finder import get_block_lines, add_block_identifier, find_block_markers_in_sentences
 
-def segment(sentence_feature_extractor, md_file_path, openai_service, out_filename='latest', segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False, use_llm=True):
+def segment(sentence_feature_extractor, md_file_path, openai_service, out_filename='latest', segmentation_method='unsupervised_window_based', sentence_method= 'stanza', save_to_file=False, use_llm=True, repo='', filename=''):
     '''
     Methods:
     1. unsupervised_window_based (https://arxiv.org/pdf/2106.12978)
     2. langchain (https://python.langchain.com/v0.2/docs/how_to/semantic-chunker/)
     '''
-
+    segments = []
     #Parse the file and get the unseparable blocks
     #gfm parser gets the md file and parses it to a text file.
     # parsed_file_path = markdn2text_gfm(md_file_path)
-    parsed_file_path = markdn2text_with_links(md_file_path)
+    parsed_file_path = markdn2text_with_links(md_file_path, repo=repo, filename=filename)
 
     #adding blocks information in parsed file since it preserves the formatting of md.
     block_of_lines = get_block_lines(parsed_file_path)
@@ -29,10 +29,13 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
     add_block_identifier(parsed_file_path, block_of_lines)
     #get the sentences with the block markers as sentences too.
     sentences = generate_sentences_not_considering_blocks(parsed_file_path, method=sentence_method)
+    with open('sentences.txt', 'w') as f:
+            for sent in sentences:
+                f.write(str(sent))
     #get the block marker indices, remove the marker sentences and return original sentences.
     block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
     print("Block markers in sentences:", block_marker_indices)
-
+    
     if segmentation_method=='unsupervised_window_based':
         predicted_segmentation, segments = segment_unsupervised(sentence_feature_extractor, sentences, block_marker_indices)
         #account for the ending topic border => already did inside the function
@@ -50,23 +53,31 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
     file_name= None
     if save_to_file:
         segmented_file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
-        file1  = open(segmented_file_name, "w")
-        #works for both sentences and paragraphs
-        for segment in segments:
-            file1.write(segment)
-            file1.write("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
-        file1.close()
+        print("\n\n WRITING UNCLEANED SEGMENTS TO: ", segmented_file_name)
+        with open(segmented_file_name, "w") as file1:
+            #works for both sentences and paragraphs
+            for segment in segments:
+                print(segment)
+                print("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
+                file1.write(segment)
+                file1.write("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
+        
 
         file_name = 'segmenter/parsed_sentences/'+ out_filename +'_parsed_by_algo.txt'
-        file2  = open(file_name, "w")
-        #works for both sentences and paragraphs
-        for sentence in sentences:
-            file2.write(sentence)
-            file2.write("\n--------\n")
-        file2.close()
+        with open(file_name, "w") as file2:
+            #works for both sentences and paragraphs
+            for sentence in sentences:
+                file2.write(sentence)
+                file2.write("\n--------\n")
+        
+        # print("\n\nBEFORE CALLING LLM\n\n")
+        # with open(segmented_file_name, "r") as file1:
+        #     print(file1.read())
 
+        #------------------------BUG BETWEEN THIS AND
         if save_to_file and use_llm:
             openai_service.clean_segments(prompt_for_llm='PROMPT_FOR_CLEANING_SEGMENTATION', document=segmented_file_name)
+            #------------------------------THIS
             predicted_segmentation, segments, file_name = get_segments_from_file(segmented_file_name)
         
     print("Number of sentences in our segmentation algo = ", len(sentences))
@@ -225,10 +236,12 @@ def get_segments_from_file(filename):
     segments = []  # List to hold the segments
     current_segment = ''  # Temporary list to collect lines for the current segment
 
+    # print('\n\nWHAT LLM READS \n\n')
     # Read the file line by line
     with open(filename, "r") as file:
         for line in file:
             line = line.strip()  # Remove leading/trailing whitespace
+            # print(line)
             if "<PREDICTED_SEGMENT_BOUNDARY>" in line:
                 # If boundary marker found, add current segment to segments
                 if current_segment:  # Avoid appending empty segments

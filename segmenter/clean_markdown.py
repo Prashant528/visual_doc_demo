@@ -5,6 +5,7 @@ import csv
 import subprocess
 from cmarkgfm import github_flavored_markdown_to_html
 from bs4 import BeautifulSoup
+import sys
 
 def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing.md', repo=''):
     print("Parsing markdown as plain text file...")
@@ -26,14 +27,14 @@ def markdn2text_gfm(md_file = '/Users/tandanp/Documents/doc_scraper/contributing
 
     return plain_parsed_file
 
-def markdn2text_with_links(md_file = '/Users/tandanp/Documents/doc_scraper/contributing.md', repo=''):
+def markdn2text_with_links(md_file = '/Users/tandanp/Documents/doc_scraper/contributing.md', repo='', filename=''):
     # Read the Markdown file
     with open(md_file, "r", encoding="utf-8") as f:
         markdown_content = f.read()
 
     # Convert to plain text while preserving links
     plain_text_with_links = markdown_to_plain_text_with_links(markdown_content)
-    plain_parsed_file = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+repo+'.txt'
+    plain_parsed_file = '/Users/tandanp/Documents/doc_scraper/segmenter/outputs/parsed_file_'+repo+'_'+filename+'.txt'
     # Optionally, save the plain text to a file
     with open(plain_parsed_file, "w", encoding="utf-8") as f:
         f.write(plain_text_with_links)
@@ -75,6 +76,7 @@ def markdown_to_plain_text_with_links(markdown_text):
 
     # Traverse the root element to rebuild plain text
     plain_text = traverse(soup)
+    print(plain_text.strip())
     return plain_text.strip()
 
 
