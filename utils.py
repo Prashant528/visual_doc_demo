@@ -1,6 +1,9 @@
 import requests
 from collections import defaultdict
 import regex as re
+from datetime import datetime
+import json
+import os
 
 def download_file(owner, repo, file_path):
     # GitHub repository information. Example:
@@ -100,6 +103,15 @@ def extract_links_from_markdown(markdown_text):
     pattern = re.compile(r'\[[^\]]*\]\(([^)]+)\)')
     return pattern.findall(markdown_text)
 
+
+def save_llm_output(json_output):
+        now = datetime.now()
+        current_directory = os.getcwd()
+        # Format the date and time as a string
+        formatted = now.strftime("%Y-%m-%d %H:%M:%S")
+        filename =  current_directory + '/static/llm_ouput/output2_' + formatted +'.json'
+        with open(filename, "w") as file:
+            json.dump(json_output, file, indent=4)
 
 if __name__ == '__main__':
     print(download_file('flutter', 'flutter', 'CONTRIBUTING.md'))

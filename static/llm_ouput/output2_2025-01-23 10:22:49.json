@@ -152,20 +152,5 @@
             ],
             "sequence": "No categories identified."
         }
-    ],
-    "links": {
-        "Setup Guide": [
-            "./INSTALLATION_GUIDE.md"
-        ],
-        "Community Guidelines": [
-            "./CODE_OF_CONDUCT.md"
-        ],
-        "Introduction": [
-            "./README.md"
-        ],
-        "Reporting and Proposing": [],
-        "Submitting Changes": [
-            "./PULL_REQUEST_TEMPLATE.md"
-        ]
-    }
+    ]
 }

@@ -100,10 +100,10 @@ class OpenAIService:
             segment_prompt = self.get_prompt_for_segmentclass(segment_class, prompt_for_llm)
             full_prompt_with_segments = self.add_segments_to_prompt(segment_prompt, all_segments)
             # print(full_prompt_with_segments)
-            with open('segments_before_llm.txt', "a") as file:
-                for segment in all_segments:
-                    file.write(segment)
-                    file.write("\n----------------------\n")
+            # with open('segments_before_llm.txt', "a") as file:
+            #     for segment in all_segments:
+            #         file.write(segment)
+            #         file.write("\n----------------------\n")
             llm_result = parse_openai_single_json(self.get_llm_response_json(full_prompt_with_segments))
             flow_and_contents[segment_class] = llm_result
         print(f"Completed finding sequences...")
@@ -111,7 +111,7 @@ class OpenAIService:
         current_directory = os.getcwd()
         # Format the date and time as a string
         formatted = now.strftime("%Y-%m-%d %H:%M:%S")
-        filename =  current_directory + '/static/llm_ouput/output_' + formatted +'.json'
+        filename =  current_directory + '/static/llm_ouput/output1_' + formatted +'.json'
         with open(filename, "w") as file:
             json.dump(flow_and_contents, file, indent=4)
         return flow_and_contents

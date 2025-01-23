@@ -142,9 +142,6 @@ def add_second_layer_from_links(data, file_path, github_url_components):
                 print(new_link)
                 # print(github_url_components)
                 merged_json = process_md_and_wiki(topic, new_link, data, github_service, github_url_components)
-                break
-            break
-        break
 
     return merged_json
 
@@ -220,17 +217,15 @@ def attach_second_layer(data, second_layer_nodes, topic):
     """
     Merges second_layer_nodes into data so that:
       1) second_layer_nodes["content"] entries are merged into data["content"].
-      2) second_layer_nodes["flow"] entries are appended to data["flow"].
+      2) All new edges are placed in the flow item with the same sequence as the parent topic.
       3) The 'first node' in second_layer_nodes is linked as a child of 'topic' in data.
-      4) All new flow items inherit the same 'sequence' that 'topic' uses.
-      5) No duplicate topics remain in the final structure (renamed if necessary).
+      4) No duplicate topics remain in the final structure (renamed if necessary).
     """
 
-    # A) First rename any duplicates in second_layer_nodes itself
-    #    or conflicts with data's existing topics.
+    # A) Rename duplicates in second_layer_nodes to avoid conflicts
     rename_duplicate_topics(data, second_layer_nodes)
 
-    # B) Merge the second-layer content
+    # B) Merge the second-layer content into data
     data["content"].update(second_layer_nodes.get("content", {}))
 
     # C) Prepare second-layer flow as a list
@@ -244,52 +239,47 @@ def attach_second_layer(data, second_layer_nodes, topic):
         # No flow to attach
         return data
 
-    # Identify the 'first node' in second_layer_nodes.
-    # We'll assume: the first flow item -> first edge -> 'source' is the root.
+    # Identify the 'first node' in second_layer_nodes (assume it's the source of the first edge)
     first_flow_item = flow_items[0]
     first_edges = first_flow_item.get("edges", [])
     if not first_edges:
-        # If no edges in the first flow item, we can't link a child
-        return data
+        return data  # No edges, nothing to attach
 
     first_node = first_edges[0]["source"]
 
-    # D) Find the parent's sequence
+    # D) Find the flow item in data with the same sequence as the parent topic
     topic_sequence = None
+    parent_flow_item = None
     for flow_item in data["flow"]:
-        for edge in flow_item["edges"]:
-            if edge["source"] == topic or edge["target"] == topic:
-                topic_sequence = flow_item.get("sequence")
-                break
-        if topic_sequence:
+        if any(edge["source"] == topic or edge["target"] == topic for edge in flow_item["edges"]):
+            topic_sequence = flow_item.get("sequence")
+            parent_flow_item = flow_item
             break
 
     if topic_sequence is None:
-        # Default if topic not found in existing flow edges
+        # If no matching sequence, default to a new sequence
         topic_sequence = "Attached second layer"
 
-    # E) Create a bridging edge from topic -> first_node, using the parent's sequence
-    bridging_flow_item = {
-        "edges": [
-            {
-                "source": topic,
-                "target": first_node
-            }
-        ],
-        "sequence": topic_sequence
-    }
-    data["flow"].append(bridging_flow_item)
+    # E) Ensure we have a parent flow item to append to
+    if not parent_flow_item:
+        # If no parent flow item matches, create a new one
+        parent_flow_item = {"edges": [], "sequence": topic_sequence}
+        data["flow"].append(parent_flow_item)
 
-    # F) Force all second-layer flow items to use the parent's sequence
+    # F) Add the bridging edge (topic -> first_node) to the parent flow item
+    bridging_edge = {"source": topic, "target": first_node}
+    parent_flow_item["edges"].append(bridging_edge)
+
+    # G) Add all second-layer edges to the parent flow item
     for item in flow_items:
-        item["sequence"] = topic_sequence
+        for edge in item.get("edges", []):
+            parent_flow_item["edges"].append(edge)
 
-    # G) Append second-layer flow items to the main data flow
-    data["flow"].extend(flow_items)
-
+    # H) Save the updated data to a file (optional)
     with open("second_layer_merged_data.json", "w") as f:
         json.dump(data, f, indent=4)
 
     return data
+
 
 

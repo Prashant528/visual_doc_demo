@@ -192,7 +192,7 @@ class Prompts:
             {
                 "role": "user", 
                 "content": '''
-                    I have a Python list, and each element represents a step in contributing to an open source project. First of all, analyze the elements.If there are elements that are too short, merge them together.
+                    I have a Python list, and each element represents a step in contributing to an open source project. First of all, analyze the elements.If there are elements that are too short, merge them together. Don't break existing elements into shorter ones.
                 
                     Second, I want you to create the following two JSONs from the new list:
                     1. JSON name = "content". 

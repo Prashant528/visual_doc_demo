@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui, add_links_to_json_from_content
+from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui, add_links_to_json_from_content, save_llm_output
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
@@ -87,7 +87,7 @@ def fetch_and_analyze():
         modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
         # print(f"\nModified response from API:\n {modified_json_for_ui}")
 
-        turn_second_layer_on = False
+        turn_second_layer_on = True
         if turn_second_layer_on:
             json_with_links = add_links_to_json_from_content(modified_json_for_ui)
             #------------------ UNCOMMENT THIS>
@@ -97,6 +97,10 @@ def fetch_and_analyze():
             
             #-------------Removing the links
             result = {key: json_with_second_layer[key] for key in ["content", "flow"]}
+
+            #--------------Saving the result
+            save_llm_output(result)
+            
         else:
             result = modified_json_for_ui
     # return render_template('text_segment_editor.html', file_path=segmented_file_path)
