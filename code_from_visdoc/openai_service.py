@@ -5,6 +5,7 @@ from datetime import datetime
 import json
 import os
 from pydantic import BaseModel
+import copy
 
 class OpenAIService:
     def __init__(self, api_key, repo):
@@ -28,7 +29,7 @@ class OpenAIService:
             model=self.model,
             messages = prompt,
             temperature = 0.0,
-            response_format={ 'type': "json_object" }
+            response_format={ "type": "json_object" }
         )
         # print(response.choices[0].message.content)
         print("Completed: Calling LLM API...")
@@ -88,7 +89,7 @@ class OpenAIService:
             for item in prompt_for_sequencing
         ]
         print(f"Completed: Creating prompt for LLM for segment_class <{segment_class_name}>")
-        print(updated_prompt)
+        # print(updated_prompt)
         return updated_prompt
     
     def find_sequences_for_allsegments(self, segregated_segments, prompt_for_llm):
@@ -99,6 +100,10 @@ class OpenAIService:
             segment_prompt = self.get_prompt_for_segmentclass(segment_class, prompt_for_llm)
             full_prompt_with_segments = self.add_segments_to_prompt(segment_prompt, all_segments)
             # print(full_prompt_with_segments)
+            # with open('segments_before_llm.txt', "a") as file:
+            #     for segment in all_segments:
+            #         file.write(segment)
+            #         file.write("\n----------------------\n")
             llm_result = parse_openai_single_json(self.get_llm_response_json(full_prompt_with_segments))
             flow_and_contents[segment_class] = llm_result
         print(f"Completed finding sequences...")
@@ -106,7 +111,7 @@ class OpenAIService:
         current_directory = os.getcwd()
         # Format the date and time as a string
         formatted = now.strftime("%Y-%m-%d %H:%M:%S")
-        filename =  current_directory + '/static/llm_ouput/output_' + formatted +'.json'
+        filename =  current_directory + '/static/llm_ouput/output1_' + formatted +'.json'
         with open(filename, "w") as file:
             json.dump(flow_and_contents, file, indent=4)
         return flow_and_contents
@@ -114,6 +119,7 @@ class OpenAIService:
     def add_document_to_prompt(self, prompt_for_cleaning, document):
         with open(document, "r") as file:
             segmented_content = file.read()
+        
         for item in prompt_for_cleaning:
             if item["role"] == "user":
                 item["content"] += segmented_content
@@ -122,7 +128,10 @@ class OpenAIService:
 
     def clean_segments(self, prompt_for_llm, document):
         print(f"Cleaning segments for {document} ")
-        prompt_for_cleaning=   self.fetch_prompt(prompt_for_llm)
+        prompt_for_cleaning =   copy.deepcopy(self.fetch_prompt(prompt_for_llm))
+        # prompt_for_cleaning = copy.deepcopy(self.prompts.PROMPT_FOR_CLEANING_SEGMENTATION)
+        print("\n\n PROMPMT FOR CLEANING \n\n")
+        # print(prompt_for_cleaning)
         full_prompt_with_document = self.add_document_to_prompt(prompt_for_cleaning, document)
         llm_result = self.get_llm_response_normal(full_prompt_with_document)
         print(f"Completed cleaning up segmentation...")
@@ -131,6 +140,10 @@ class OpenAIService:
         # Format the date and time as a string
         # formatted = now.strftime("%Y-%m-%d %H:%M:%S")
         # filename =  current_directory + '/static/llm_ouput/output_' + formatted +'.json'
-        with open(document, "w") as file:
-            file.write(llm_result)
+        # print("\n\n FILENAME I'M LOOKING AT:\n\n", document)
+        # print("\n\n LLM RESULT \n\n")
+        # print(llm_result)
+        print("\n\n WRITING CLEAN SEGMENTS TO: ", document)
+        with open(document, "w") as file1:
+            file1.write(llm_result)
         print(f"Saved cleaned up file to: {document}")

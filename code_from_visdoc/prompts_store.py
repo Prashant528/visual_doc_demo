@@ -180,13 +180,38 @@ class Prompts:
                     This is the list of action steps:
 
                     '''
+            }
+        ]
+    
+
+    PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS_VER_2 = [
+            {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
             },
-            # {
-            #     "role": "assistant", 
-            #     "content": '''
-            #             Certainly, can you provide me the list of the action steps?
-            #             '''
-            # }
+            {
+                "role": "user", 
+                "content": '''
+                    I have a Python list, and each element represents a step in contributing to an open source project. First of all, analyze the elements.If there are elements that are too short, merge them together. Don't break existing elements into shorter ones.
+                
+                    Second, I want you to create the following two JSONs from the new list:
+                    1. JSON name = "content". 
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Please add markdown syntax to better format the content and also add <br /> for indicating newlines. 
+                    Extract one topic from the content. 
+                    This json would be named "content" and an example looks like: 
+                    { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    2. JSON name = "flow".
+                    Description: For all the elements in the list, 
+                    I want to find the sequence that a person contributing to that project would follow in a practical scenario. 
+                    If each element in the list was a node in a graph, 
+                    I want a JSON that gives me a source node and the target node for each edge in the graph. 
+                    The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. 
+                    Please make sure that the first "source" node for each flow is always a dummy node named "Parent Node".
+                    Finally, merge the two JSONs into a single one that looks like: {content: "...", flow:"..."}.
+                    This is the list of action steps:
+
+                    '''
+            }
         ]
     
     PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS = [
@@ -250,3 +275,33 @@ class Prompts:
         ]
 
 
+
+    PROMPT_FOR_SEQUENCING_SECOND_LAYER = [
+            {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    I have a Python list, and each element represents a step in contributing to an open source project. Please review the list to ensure each element resembles a valid task in this process. If any elements are unclear, too brief, or need improvement, 
+                      feel free to merge elements, remove unnecessary parts, and create a revised list that accurately reflects meaningful contribution steps.
+                
+                    Second, I want you to create the following two JSONs from the new list:
+                    1. JSON name = "content". 
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Please add markdown syntax to better format the content and also add <br /> for indicating newlines. 
+                    Extract one topic from the content. 
+                    This json would be named "content" and an example looks like: 
+                    { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    2. JSON name = "flow".
+                    Description: For all the elements in the list, 
+                    I want to find the sequence that a person contributing to that project would follow in a practical scenario. 
+                    If each element in the list was a node in a graph, 
+                    I want a JSON that gives me a source node and the target node for each edge in the graph. 
+                    The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. 
+                    Finally, merge the two JSONs into a single one that looks like: {"content": "...", "flow":"..."}. Please provide a valid JSON output with double quotes around keys and values.
+                    This is the list of action steps:
+
+                    '''
+            },
+    ]

@@ -104,7 +104,7 @@ def generate_sentences_considering_blocks(corpus_file):
 
   return all_sentences
 
-def generate_sentences_not_considering_blocks(corpus_file, method='nltk'):
+def generate_sentences_not_considering_blocks(corpus_file, method='nltk', write_to_file=True):
   '''
   returns a list of sentences given a a paragraph.
   We  don't treat lines in between the bullet points as a single sentence(unit).
