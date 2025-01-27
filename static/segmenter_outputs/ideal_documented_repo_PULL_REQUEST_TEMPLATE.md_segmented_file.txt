@@ -7,11 +7,11 @@
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Description
+Description:
 Please describe your changes and their purpose here. Include any context or background that will help reviewers understand your contribution.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Related Issues
+Related Issues:
 Link any relevant issues or feature requests here.
 - Resolves #123

@@ -1,9 +1,6 @@
 from flask import jsonify
-from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui, add_links_to_json_from_content
 from scrape_website import save_to_md
-from graph_generator import get_final_graph
 from segmenter.segment import segment
-from classifier.run_classifier import run_classifier_with_paragraphs
 from flask_cors import CORS
 from code_from_visdoc.github_service import GitHubService
 from code_from_visdoc.openai_service import OpenAIService
@@ -12,7 +9,7 @@ from code_from_visdoc.utils import parse_openai_single_json
 from code_from_visdoc.github_link_parser import parse_github_url
 from segmenter.transformers_call import SentenceFeatureExtractor
 import json
-import sys
+import copy
 
 def process_md_and_wiki(topic, link, data, github_service, github_url_components):
     """
@@ -64,7 +61,7 @@ def get_new_nodes_from_md(link, github_service, github_url_components):
     prompt_for_llm = 'PROMPT_FOR_SEQUENCING_SECOND_LAYER'
 
     #Call the LLM to find the sequence
-    prompt = openai_service.fetch_prompt(prompt_for_llm)
+    prompt = copy.deepcopy(openai_service.fetch_prompt(prompt_for_llm))
 
     for item in prompt:
             if item["role"] == "user":
@@ -132,7 +129,6 @@ def add_second_layer_from_links(data, file_path, github_url_components):
                 print(clean_link)
                 # print(github_url_components)
                 merged_json  = process_md_and_wiki(topic, clean_link, data, github_service, github_url_components)
-                break
 
             else:
                 print("Relative link found")

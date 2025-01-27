@@ -87,19 +87,5 @@
             ],
             "sequence": "SC \u2013 Submit the changes"
         }
-    ],
-    "links": {
-        "Community Guidelines": [
-            "./CODE_OF_CONDUCT.md"
-        ],
-        "Introduction": [
-            "./README.md"
-        ],
-        "Contribution Guidelines": [
-            "./PULL_REQUEST_TEMPLATE.md"
-        ],
-        "Setup Guide": [
-            "./INSTALLATION_GUIDE.md"
-        ]
-    }
+    ]
 }
