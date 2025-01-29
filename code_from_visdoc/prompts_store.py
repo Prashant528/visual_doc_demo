@@ -192,7 +192,7 @@ class Prompts:
             {
                 "role": "user", 
                 "content": '''
-                    I have a Python list, and each element represents a step in contributing to an open source project. First of all, analyze the elements.If there are elements that are too short, merge them together. Don't break existing elements into shorter ones.
+                    I have a Python list, and each element represents a step in contributing to an open source project. First of all, analyze the elements.If there are elements that are too short, merge them together. Don't break existing elements into shorter ones. Make sure each content has appropriate headers too.
                 
                     Second, I want you to create the following two JSONs from the new list:
                     1. JSON name = "content". 
@@ -261,6 +261,24 @@ class Prompts:
             }
         ]
     
+    PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS_VER_2 = [
+        {
+                "role": "system", 
+                "content": '''You are a helpful assistant. You are knowledgeable on Open Source Communities and Projects, onboarding processes and JSON. You do not explain things. You are an API endpoint and just give the JSON response that has been asked for.'''
+            },
+            {
+                "role": "user", 
+                "content": '''
+                    I have a Python list, and each element represents a step in contributing to an open source project. First of all, analyze the elements.If there are elements that are too short, merge them together. Don't break existing elements into shorter ones. Make sure each content has appropriate headers too.
+                
+                    Then, I want you to create a JSON from the new list:
+                    Description: For each element in the list, I want to map the topic of the element to the content of the element. Please add markdown syntax to better format the content and also add <br /> for indicating newlines. 
+                    Extract one topic from the content. An example looks like: 
+                    { "Topic 1": "content 1", "Topic 2": "content 2", "Topic 3": "content 3"}.
+                    This is the list of elements:
+                    '''
+            }
+    ]
     PROMPT_FOR_CLEANING_SEGMENTATION = [
             {
                 "role": "system", 

@@ -1,0 +1,15 @@
+{
+    "Contributing to ideal_documented_repo": {
+        "content": {
+            "Introduction": "How to Contribute Thank you for considering contributing to Hypothetical Repo!"
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Introduction"
+                }
+            ]
+        }
+    }
+}

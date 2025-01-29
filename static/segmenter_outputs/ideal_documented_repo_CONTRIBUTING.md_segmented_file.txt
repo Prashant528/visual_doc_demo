@@ -1,8 +1,6 @@
 How to Contribute
 Thank you for considering contributing to Hypothetical Repo!
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
 Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
@@ -24,5 +22,3 @@ Setup Guide
 
 Community Guidelines
 Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------

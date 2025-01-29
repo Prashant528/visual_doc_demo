@@ -92,17 +92,5 @@
             ],
             "sequence": "Community Guidelines"
         }
-    ],
-    "links": {
-        "How to Contribute": [
-            "./README.md",
-            "./PULL_REQUEST_TEMPLATE.md"
-        ],
-        "Setup Guide": [
-            "./INSTALLATION_GUIDE.md"
-        ],
-        "Community Guidelines": [
-            "./CODE_OF_CONDUCT.md"
-        ]
-    }
+    ]
 }

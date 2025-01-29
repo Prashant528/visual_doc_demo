@@ -3,12 +3,12 @@
         "How to Contribute": "Thank you for considering contributing to Hypothetical Repo! Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview.<br /><br />- **Report Bugs**: Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.<br />- **Submit Enhancements**: Have a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project.<br />- **Pull Requests**: Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes. Ensure your code is well-documented and adheres to our style guidelines.",
         "Setup Guide": "- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes.",
         "Community Guidelines": "Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone.",
-        "Project Overview": "Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.<br />This project aims to empower users with tools that are both easy to use and highly customizable.<br />Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).<br />- **Feature 1**: A robust functionality that enhances productivity by automating repetitive tasks.<br />- **Feature 2**: An intuitive interface designed for ease of use and accessibility.<br />- **Feature 3**: Seamless integration with popular tools and platforms for a smoother workflow.",
-        "Getting Started": "To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.<br />The guide will walk you through prerequisites, installation steps, and how to run the project.<br />For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).<br />We encourage all users to participate in making this project even better!",
         "Commit Message": "- The title is descriptive and provides context about the changes.<br />- Tests have been added for new features or fixes, and they pass successfully.",
         "Documentation": "- Documentation has been updated where necessary to reflect the changes.",
-        "Description": "Description: Please describe your changes and their purpose here.<br />Include any context or background that will help reviewers understand your contribution.",
-        "Related Issues": "Related Issues: Link any relevant issues or feature requests here.<br />- Resolves #123",
+        "Description": "Please describe your changes and their purpose here. Include any context or background that will help reviewers understand your contribution.",
+        "Related Issues": "Link any relevant issues or feature requests here.<br />- Resolves #123",
+        "Project Overview": "Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.<br />This project aims to empower users with tools that are both easy to use and highly customizable.<br />Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).<br />- **Feature 1**: A robust functionality that enhances productivity by automating repetitive tasks.<br />- **Feature 2**: An intuitive interface designed for ease of use and accessibility.<br />- **Feature 3**: Seamless integration with popular tools and platforms for a smoother workflow.",
+        "Getting Started": "To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.<br />The guide will walk you through prerequisites, installation steps, and how to run the project.<br />For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).<br />We encourage all users to participate in making this project even better!",
         "Environment Setup": "- **Operating system**: Windows/Linux/MacOS.<br />- **Tools**: Git, Python 3.8+, Node.js (optional).<br />- **Additional libraries or dependencies** specified in `requirements.txt`.<br />- **Clone the repository**: `git clone https://github.com/example/hypothetical-repo.git`<br />- **Navigate to the project folder**: `cd hypothetical-repo`<br />- **Install dependencies**: `pip install -r requirements.txt`<br />- Optionally, **set up environment variables or configuration files** for advanced usage.",
         "Post Installation": "After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.<br />Learn about additional configurations, integrations, and usage examples to make the most of the tool.",
         "Introduction": "We are committed to maintaining a respectful and inclusive community. By participating, you agree to uphold the principles outlined here to ensure a positive experience for everyone.<br />- Be respectful to all participants and their contributions.<br />- Provide constructive feedback and engage in discussions thoughtfully.<br />- Respect differing viewpoints and experiences.",
@@ -23,33 +23,27 @@
                 },
                 {
                     "source": "How to Contribute",
-                    "target": "Project Overview",
-                    "edge_label": "README.md"
-                },
-                {
-                    "source": "Project Overview",
-                    "target": "Getting Started",
-                    "edge_label": "README.md"
-                },
-                {
-                    "source": "How to Contribute",
-                    "target": "Commit Message",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
-                },
-                {
-                    "source": "Commit Message",
-                    "target": "Description",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "target": "Description"
                 },
                 {
                     "source": "Description",
-                    "target": "Documentation",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "target": "Commit Message"
+                },
+                {
+                    "source": "Commit Message",
+                    "target": "Documentation"
                 },
                 {
                     "source": "Documentation",
-                    "target": "Related Issues",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "target": "Related Issues"
+                },
+                {
+                    "source": "How to Contribute",
+                    "target": "Project Overview"
+                },
+                {
+                    "source": "Project Overview",
+                    "target": "Getting Started"
                 }
             ],
             "sequence": "How to Contribute"
@@ -62,13 +56,11 @@
                 },
                 {
                     "source": "Setup Guide",
-                    "target": "Environment Setup",
-                    "edge_label": "INSTALLATION_GUIDE.md"
+                    "target": "Environment Setup"
                 },
                 {
                     "source": "Environment Setup",
-                    "target": "Post Installation",
-                    "edge_label": "INSTALLATION_GUIDE.md"
+                    "target": "Post Installation"
                 }
             ],
             "sequence": "Setup Guide"
@@ -81,28 +73,14 @@
                 },
                 {
                     "source": "Community Guidelines",
-                    "target": "Introduction",
-                    "edge_label": "CODE_OF_CONDUCT.md"
+                    "target": "Introduction"
                 },
                 {
                     "source": "Introduction",
-                    "target": "Reporting Issues",
-                    "edge_label": "CODE_OF_CONDUCT.md"
+                    "target": "Reporting Issues"
                 }
             ],
             "sequence": "Community Guidelines"
         }
-    ],
-    "links": {
-        "How to Contribute": [
-            "./README.md",
-            "./PULL_REQUEST_TEMPLATE.md"
-        ],
-        "Setup Guide": [
-            "./INSTALLATION_GUIDE.md"
-        ],
-        "Community Guidelines": [
-            "./CODE_OF_CONDUCT.md"
-        ]
-    }
+    ]
 }

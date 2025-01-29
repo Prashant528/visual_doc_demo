@@ -33,7 +33,7 @@ def process_md_and_wiki(topic, link, data, github_service, github_url_components
     else:
         print("Link is outbound to other pages than current repository.")
     
-    merged_json = attach_second_layer(data, content_from_link, topic)
+    merged_json = attach_second_layer(data, content_from_link, topic, clean_link)
     return merged_json
 
 def get_new_nodes_from_md(link, github_service, github_url_components):
@@ -209,7 +209,7 @@ def rename_duplicate_topics(data, second_layer_nodes):
             second_layer_nodes["flow"] = flow_items
 
 
-def attach_second_layer(data, second_layer_nodes, topic):
+def attach_second_layer(data, second_layer_nodes, topic, link):
     """
     Merges second_layer_nodes into data so that:
       1) second_layer_nodes["content"] entries are merged into data["content"].
@@ -263,13 +263,14 @@ def attach_second_layer(data, second_layer_nodes, topic):
         data["flow"].append(parent_flow_item)
 
     # F) Add the bridging edge (topic -> first_node) to the parent flow item
-    bridging_edge = {"source": topic, "target": first_node}
+    bridging_edge = {"source": topic, "target": first_node, "edge_label": link}
     parent_flow_item["edges"].append(bridging_edge)
 
     # G) Add all second-layer edges to the parent flow item
     for item in flow_items:
         for edge in item.get("edges", []):
-            parent_flow_item["edges"].append(edge)
+            edge["edge_label"] = link
+            # parent_flow_item["edges"].append(edge)
 
     # H) Save the updated data to a file (optional)
     with open("second_layer_merged_data.json", "w") as f:

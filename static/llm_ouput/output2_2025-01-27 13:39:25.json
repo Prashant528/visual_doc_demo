@@ -1,0 +1,26 @@
+{
+    "content": {
+        "Introduction": "How to Contribute Thank you for considering contributing to Hypothetical Repo! Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview.",
+        "Project Overview": "Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.<br />This project aims to empower users with tools that are both easy to use and highly customizable.<br />Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).<br />- **Feature 1**: A robust functionality that enhances productivity by automating repetitive tasks.<br />- **Feature 2**: An intuitive interface designed for ease of use and accessibility.<br />- **Feature 3**: Seamless integration with popular tools and platforms for a smoother workflow.",
+        "Getting Started": "To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.<br />The guide will walk you through prerequisites, installation steps, and how to run the project.<br />For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).<br />We encourage all users to participate in making this project even better!"
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Introduction"
+                },
+                {
+                    "source": "Introduction",
+                    "target": "Project Overview"
+                },
+                {
+                    "source": "Project Overview",
+                    "target": "Getting Started"
+                }
+            ],
+            "sequence": "Contributing to ideal_documented_repo"
+        }
+    ]
+}
