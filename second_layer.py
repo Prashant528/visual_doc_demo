@@ -10,6 +10,8 @@ from code_from_visdoc.github_link_parser import parse_github_url
 from segmenter.transformers_call import SentenceFeatureExtractor
 import json
 import copy
+from datetime import datetime
+import os
 
 def process_md_and_wiki(topic, link, data, github_service, github_url_components):
     """
@@ -24,8 +26,6 @@ def process_md_and_wiki(topic, link, data, github_service, github_url_components
         print(f"Processing MD filepath: {github_url_components.filepath}")
         content_from_link = get_new_nodes_from_md(link, github_service, github_url_components)
         print("Fetching content_from_link successful.")
-        with open('second_layer_output.txt', 'w') as outfile:
-            outfile.write(str(content_from_link))
 
     elif clean_link.endswith(".wiki"):
         print(f"Processing wiki link: {link}")
@@ -250,7 +250,7 @@ def attach_second_layer(data, second_layer_nodes, topic, link):
         if any(edge["source"] == topic or edge["target"] == topic for edge in flow_item["edges"]):
             topic_sequence = flow_item.get("sequence")
             parent_flow_item = flow_item
-            break
+            break  # ← Ensure we stop once we find the correct sequence
 
     if topic_sequence is None:
         # If no matching sequence, default to a new sequence
@@ -266,17 +266,22 @@ def attach_second_layer(data, second_layer_nodes, topic, link):
     bridging_edge = {"source": topic, "target": first_node, "edge_label": link}
     parent_flow_item["edges"].append(bridging_edge)
 
-    # G) Add all second-layer edges to the parent flow item
+    # G) **Fix: Append second-layer edges correctly**
     for item in flow_items:
         for edge in item.get("edges", []):
-            edge["edge_label"] = link
-            # parent_flow_item["edges"].append(edge)
+            edge_with_label = {
+                "source": edge["source"],
+                "target": edge["target"],
+                "edge_label": link  # Add edge label to each child edge
+            }
+            parent_flow_item["edges"].append(edge_with_label)  # **Fix: Append the updated edge**
 
     # H) Save the updated data to a file (optional)
     with open("second_layer_merged_data.json", "w") as f:
         json.dump(data, f, indent=4)
 
     return data
+
 
 
 
