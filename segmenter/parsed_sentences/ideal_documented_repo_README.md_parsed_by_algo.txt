@@ -5,6 +5,8 @@ This project aims to empower users with tools that are both easy to use and high
 --------
 Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).
 --------
+Features
+--------
 - Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.
 --------
 - Feature 2: An intuitive interface designed for ease of use and accessibility.

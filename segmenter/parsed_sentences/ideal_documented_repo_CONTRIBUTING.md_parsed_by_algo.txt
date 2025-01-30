@@ -21,6 +21,8 @@ Ensure your code is well-documented and adheres to our style guidelines.
 --------
 Setup Guide
 --------
+To set up the project locally:
+--------
 - Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.
 --------
 - Make your changes and test locally to ensure they work as intended.

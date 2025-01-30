@@ -1,120 +1,370 @@
 {
     "content": {
-        "How to Contribute": "Thank you for considering contributing to Hypothetical Repo! Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview.<br />",
-        "Contribution Guidelines": "- **Report Bugs**: Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.<br />- **Submit Enhancements**: Have a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project.<br />- **Pull Requests**: Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes. Ensure your code is well-documented and adheres to our style guidelines.<br />",
-        "Setup Guide": "- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes.<br />",
-        "Community Guidelines": "Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone.<br />",
-        "Project Overview": "Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.<br />This project aims to empower users with tools that are both easy to use and highly customizable.<br />Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).<br />- **Feature 1**: A robust functionality that enhances productivity by automating repetitive tasks.<br />- **Feature 2**: An intuitive interface designed for ease of use and accessibility.<br />- **Feature 3**: Seamless integration with popular tools and platforms for a smoother workflow.",
-        "Getting Started": "To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.<br />The guide will walk you through prerequisites, installation steps, and how to run the project.<br />For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).<br />We encourage all users to participate in making this project even better!",
-        "Commit Message": "- The title is descriptive and provides context about the changes.<br />- Tests have been added for new features or fixes, and they pass successfully.",
-        "Documentation": "- Documentation has been updated where necessary to reflect the changes.",
-        "Description": "Description: Please describe your changes and their purpose here.<br />Include any context or background that will help reviewers understand your contribution.",
-        "Related Issues": "Related Issues: Link any relevant issues or feature requests here.<br />- Resolves #123",
-        "Environment Setup": "- **Operating system**: Windows/Linux/MacOS.<br />- **Tools**: Git, Python 3.8+, Node.js (optional).<br />- **Additional libraries or dependencies** specified in `requirements.txt`.<br />- **Clone the repository**: `git clone https://github.com/example/hypothetical-repo.git`<br />- **Navigate to the project folder**: `cd hypothetical-repo`<br />- **Install dependencies**: `pip install -r requirements.txt`<br />- Optionally, set up **environment variables** or **configuration files** for advanced usage.",
-        "Post-Installation": "After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.<br />Learn about additional configurations, integrations, and usage examples to make the most of the tool.",
-        "Introduction": "We are committed to maintaining a respectful and inclusive community. By participating, you agree to uphold the principles outlined here to ensure a positive experience for everyone.<br />- Be respectful to all participants and their contributions.<br />- Provide constructive feedback and engage in discussions thoughtfully.<br />- Respect differing viewpoints and experiences.",
-        "Reporting Issues": "To report violations, please contact our team at [support@example.com](mailto:support@example.com). Include details about the incident and any relevant context. All reports will be handled with confidentiality."
+        "Getting Started": "### Contributing to Flutter<br />**tl;dr:** Join [Discord](./docs/contributing/Chat.md), be [courteous](CODE_OF_CONDUCT.md), follow the steps below to set up a development environment; if you stick around and contribute, you can [join the team](./docs/contributing/Contributor-access.md) and get commit access.<br /><br />### Welcome<br />We invite you to join the Flutter team, which is made up of volunteers and sponsored folk alike! There are many ways to contribute, including writing code, filing issues on GitHub, helping people on our mailing lists, our chat channels, or on Stack Overflow, helping to triage, reproduce, or fix bugs that people have filed, adding to our documentation, doing outreach about Flutter, or helping out in any other way. We grant commit access (which includes full rights to the issue database, such as being able to edit labels) to people who have gained our trust and demonstrated a commitment to Flutter. For more details see the [Contributor access](./docs/contributing/Contributor-access.md) page in our docs. We communicate primarily over GitHub and [Discord](./docs/contributing/Chat.md). Before you get started, we encourage you to read these documents which describe some of our community norms:<br />- [Our code of conduct](CODE_OF_CONDUCT.md), which stipulates explicitly that everyone must be gracious, respectful, and professional. This also documents our conflict resolution policy and encourages people to ask questions.<br />- [Values](./docs/about/Values.md), which talks about what we care most about.",
+        "Issue Triage": "### Helping out in the issue database<br />Triage is the process of going through bug reports and determining if they are valid, finding out how to reproduce them, catching duplicate reports, and generally making our issues list useful for our engineers. If you want to help us triage, you are very welcome to do so!<br />- Join the #hackers-triage [Discord channel](./docs/contributing/Chat.md).<br />- Read [our code of conduct](CODE_OF_CONDUCT.md), which stipulates explicitly that everyone must be gracious, respectful, and professional. If you're helping out with triage, you are representing the Flutter team, and so you want to make sure to make a good impression!<br />- Help out as described in our [triage guide](./docs/triage/README.md).<br />You won't be able to add labels at first, so instead start by trying to do the other steps, e.g. trying to reproduce the problem and asking for people to provide enough details that you can reproduce the problem, pointing out duplicates, and so on. Chat on the #hackers-triage channel to let us know what you're up to!<br />- Familiarize yourself with our [issue hygiene](./docs/contributing/issue_hygiene/README.md) wiki page, which covers the meanings of some important GitHub labels and milestones.<br />- Once you've been doing this for a while, someone will invite you to the flutter-hackers team on GitHub and you'll be able to add labels too. See the [contributor access](./docs/contributing/Contributor-access.md) wiki page for details.",
+        "Quality Assurance": "### Quality Assurance<br />One of the most useful tasks, closely related to triage, is finding and filing bug reports. Testing beta releases, looking for regressions, creating test cases, adding to our test suites, and other work along these lines can really drive the quality of the product up. Creating tests that increase our test coverage, writing tests for issues others have filed, all these tasks are really valuable contributions to open source projects. If this interests you, you can jump in and submit bug reports without needing anyone's permission! The #quality-assurance channel on our [Discord server](./docs/contributing/Chat.md) is a good place to talk about what you're doing. We're especially eager for QA testing when we announce a beta release. See [quality assurance](./docs/releases/Quality-Assurance.md) for more details. If you want to contribute test cases, you can also submit PRs. See the next section for how to set up your development environment, or ask in #hackers-test on Discord. As a personal side note, this is exactly the kind of work that first got me into open source. I was a Quality Assurance volunteer on the Mozilla project, writing test cases for browsers, long before I wrote a line of code for any open source project. \u2014Hixie",
+        "Development": "### Developing for Flutter<br />If you prefer to write code, consider starting with the list of good first issues for [Flutter](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or for [Flutter DevTools](https://github.com/flutter/devtools/labels/good%20first%20issue). Reference the respective sections below for further instructions.<br /><br />#### Framework and Engine<br />To develop for Flutter, you will eventually need to become familiar with our processes and conventions. This section lists the documents that describe these methodologies. The following list is ordered: you are strongly recommended to go through these documents in the order presented.<br />- [Setting up your engine development environment](./engine/src/flutter/docs/contributing/Setting-up-the-Engine-development-environment.md), which describes the steps you need to configure your computer to work on Flutter's engine. If you only want to write code for the Flutter framework, you can skip this step. Flutter's engine mainly uses C++, Java, and Objective-C.<br />- [Setting up your framework development environment](./docs/contributing/Setting-up-the-Framework-development-environment.md), which describes the steps you need to configure your computer to work on Flutter's framework. Flutter's framework mainly uses Dart.<br />- [Tree hygiene](./docs/contributing/Tree-hygiene.md), which covers how to land a PR, how to do code review, how to handle breaking changes, how to handle regressions, and how to handle post-commit test failures.<br />- [Our style guide](./docs/contributing/Style-guide-for-Flutter-repo.md), which includes advice for designing APIs for Flutter, and how to format code in the framework.<br />- [Flutter design doc template](https://flutter.dev/go/template), which should be used when proposing a new technical design. This is a good practice to do before coding more intricate changes. See also our [guidance for writing design docs](./docs/contributing/Design-Documents.md).<br />In addition to the documents, there is a video linked above on How to contribute to Flutter from the [Flutter](https://youtube.com/c/flutterdev) YouTube channel, there are many pages in [our docs](./docs/README.md), and an article [Contributing to Flutter: Getting Started](https://medium.com/@ayushbherwani/contributing-to-flutter-getting-started-a0db68cbcd5b) on Medium that may be of interest. For a curated list of pages see the sidebar on the wiki's home page. They are more or less listed in order of importance.<br /><br />#### DevTools<br />Contributing code to Dart & Flutter DevTools may be a good place to start if you are looking to dip your toes into contributing with a relatively low-cost setup or if you are generally excited about improving the Dart & Flutter developer experience. Please see the DevTools [CONTRIBUTING.md](https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md) guide to get started.",
+        "Helping with PRs": "### Helping with existing PRs<br />Once you've learned the process of contributing, if you aren't sure what to work on next you might be interested in helping other developers complete their contributions by picking up an incomplete patch from the list of [issues with partial patches](https://github.com/flutter/flutter/labels/has%20partial%20patch).",
+        "Outreach": "### Outreach<br />If your interests lie in the direction of developer relations and developer outreach, whether advocating for Flutter, answering questions in fora like [Stack Overflow](https://stackoverflow.com/questions/tagged/flutter?sort=Newest&filters=NoAnswers,NoAcceptedAnswer&edited=true) or [Reddit](https://www.reddit.com/r/flutterhelp/new/?f=flair_name%3A%22OPEN%22), or creating content for our [documentation](https://docs.flutter.dev/) or sites like [YouTube](https://www.youtube.com/results?search_query=flutter&sp=EgQIAxAB), the best starting point is to join the #hackers-devrel [Discord channel](./docs/contributing/Chat.md). From there, you can describe what you're interested in doing, and go ahead and do it! As others become familiar with your work, they may have feedback, be interested in collaborating, or want to coordinate their efforts with yours.",
+        "API Documentation": "### API documentation<br />Another great area to contribute in is sample code and API documentation. If this is an area that interests you, join our [Discord](./docs/contributing/Chat.md) server and introduce yourself on the #hackers-devrel, #hackers-framework, or #hackers-engine channels, describing your area of interest. As our API docs are integrated into our source code, see the \"developing for Flutter\" section above for a guide on how to set up your developer environment. To contribute API documentation, an excellent command of the English language is particularly helpful, as is a careful attention to detail. We have a [whole section in our style guide](./docs/contributing/Style-guide-for-Flutter-repo.md#documentation-dartdocs-javadocs-etc) that you should read before you write API documentation. It includes notes on the \"Flutter Voice\", such as our word and grammar conventions. In general, a really productive way to improve documentation is to use Flutter and stop any time you have a question: find the answer, then document the answer where you first looked for it. We also keep [a list of areas that need better API documentation](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22d%3A+api+docs%22+sort%3Areactions-%2B1-desc). In many cases, we have written down what needs to be said in the relevant issue, we just haven't gotten around to doing it! We're especially eager to add sample code and diagrams to our API documentation. Diagrams are generated from Flutter code that draws to a canvas, and stored in a [special repository](https://github.com/flutter/assets-for-api-docs/#readme). It can be a lot of fun to create new diagrams for the API docs.",
+        "Releases": "### Releases<br />If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases channel of our [Discord](./docs/contributing/Chat.md) server.",
+        "Community Events": "### Social events in the contributor community<br />Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself. This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example. If this is an area that is of interest to you, please join our [Discord](./docs/contributing/Chat.md) and ping Hixie on the #hackers channel!",
+        "Commit Access": "For people who make the occasional contribution to Flutter (filing an issue, submitting the occasional PR, chatting on Discord), the default set of permissions is fine. However, if you are a frequent contributor, whether helping us in triage, or often fixing bugs, or regularly improving our documentation, or regularly helping others in our #help channel, or participating in high-level design discussions and prioritization, you may find your life is more pleasant with commit access (also known as \"contributor access\", \"being a member of the flutter-hackers group\", \"being a member of the Flutter team\"). We grant commit access (which includes full rights to the issue database, such as being able to edit labels, and grants access to our internal chat channels) to people who have gained our trust and demonstrated a commitment to Flutter. Specifically, if you meet one of the following criteria and you have a sponsor (someone who already has contributor access and agrees that you should be granted access), then please ask your sponsor to propose, on the #server-support [Chat](Chat.md) channel, that you be made a member of the team, and then reply to that message explaining which criteria below you are claiming to meet.<br />",
+        "Criteria for Access": "The possible criteria are:<br />- You have a long history of participating productively, e.g. in our [Chat](Chat.md) channels, helping with [Triage](../triage/README.md), helping other contributors track down problems, finding meaningful issues in submitted PRs, helping people in our #help channel, etc, all while demonstrating exemplary behavior that closely aligns with our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md).<br />- You have recently submitted several PRs that have landed successfully (received an LGTM, PR was merged, no regressions reported, PR was not reverted), without needing extensive tutoring in the process.<br />- You are employed by a company with a history of contributing to Flutter, for the purpose of yourself regularly contributing to Flutter.<br />- You represent a development team that creates applications, plugins, or packages using Flutter and have a close relationship with our developer relations team, including having a customer label, and have a great need to regularly update labels on issues (see [Issue hygiene, Customers](./issue_hygiene/README.md#customers)). (This is rare.)<br />",
+        "Responsibilities": "Being granted access means that you will be added to the \"flutter-hackers\" group on GitHub and the \"team\" role on Discord. This privilege is granted with some expectation of responsibility: contributors are people who care about Flutter and want to help Flutter along our [roadmap](../roadmap/Roadmap.md). A contributor is not just someone who can make changes or comment on issues, but someone who has demonstrated their ability to collaborate with the team, get the most knowledgeable people to review code, contribute high-quality code, follow through to fix bugs (in code or tests), and provide meaningful insights on issues. We grant access optimistically based on a reasonably small volume of evidence of good faith. Correspondingly, we will remove access quickly if we find our trust has been violated. Contributors with commit access must still follow all our processes and policies, and must follow our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) rigorously. (Please read it, it's stricter than most.)<br />",
+        "Code of Conduct": "Responsibilities Code of conduct If you have commit access or \"team\" access on the Discord server, you are responsible for enforcing our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md). Our code of conduct is much, much stricter than most. We do not wait until someone has been actively rude or insulting. Being disrespectful in any way is grounds for action. For example, passive-aggressive whining and general unconstructive negativity are all violations of the code of conduct. If someone is in a bad mood, we would rather they avoided contributing to Flutter on that day. When you see something that might be described as unwelcoming or is in some other way a violation of our code of conduct, promptly contact the offender and ask them to read the code of conduct and consider how they might more effectively espouse its philosophy.<br />",
+        "Handling Violations": "Most people react very positively to this. If they react negatively, or if they continue to make the environment unpleasant, they should be removed from the environment. On Discord, this would be kicking them from the channel. Repeat offenders should be banned. On GitHub, they can be blocked from our organisation (you may need to ask @Hixie or another admin of our GitHub org to do this). Please let the #server-support [Chat](Chat.md) channel know when you do anything like this, so that we can keep an eye on how common it is.<br />",
+        "Documentation": "Maintaining documentation Part of being a contributor is making sure our documentation is up to date, including our internal (team-facing) documentation such as this wiki.<br />",
+        "Fixing Documentation": "If you spot something wrong, please fix it! As a contributor, you have access to the wiki.<br />",
+        "Privileges": "Privileges Being in the GitHub \"flutter-hackers\" group gives you the following:<br />- The ability to merge your own PRs once they are reviewed (see [Tree Hygiene](Tree-hygiene.md)).<br />- The ability to add labels, milestones, etc, on issues on GitHub (see [Issue Hygiene](./issue_hygiene/README.md)).<br />- PRs will run their tests slightly faster.<br />",
+        "Discord Privileges": "Being in the Discord \"team\" group gives you the following:<br />- The ability to talk without rate-limiting on the #hackers-* channels.<br />- The ability to kick people.<br />- The ability to manage the server emoji.<br />",
+        "Process": "Process The actual process (as followed by Flutter repo admins) is as follows:<br />- Verify that they qualify under all the terms described above. Make sure they have a sponsor who isn't you.<br />- Verify the identity of the person making the request. Ask them to confirm, on Discord, that they have read the style guide, issue or tree hygiene wiki page, code of conduct, and other documents relevant to them.<br />- Add them to our private spreadsheet (go/flutter-organization-members).<br />- Click the \"Add a member\" button on [the flutter-hackers team page](https://github.com/orgs/flutter/teams/flutter-hackers/members) on GitHub.<br />- Type their name in the text field, select them, then click the \"Invite\" button.<br />- Add them to the \"team\" group on Discord. Be sure to verify that you are promoting the right person; multiple people can have the same nickname on Discord!<br />",
+        "New Googlers": "For new Googlers joining the team: You need to ask someone in the team to add you to get added. It's not an automatic process after you join the flutter Google group.<br />",
+        "Inactivity": "Inactivity We occasionally check for account with commit access that have not been used for a while. It takes very little to count as \"active\" (e.g. commenting on an issue, even adding an emoji reaction to an issue). If your account has been inactive for over a year we will try to reach out (e.g. by e-mail or on Discord) before removing access. If your account access was removed but you wish to return to contributing to Flutter, you are most welcome to do so; just reach out on the Discord (see [Chat](Chat.md)) and ask someone to renominate you according to the process described above.<br />",
+        "Flutter Dashboard Access": "Access rights to Flutter dashboard The [Flutter dashboard](https://flutter-dashboard.appspot.com/) shows what recently landed and what tests passed or failed with those commits. To see rerun tasks, you need to be added to an allowlist. Anyone with commit access is eligible to be added to that allowlist, but only certain team members have the permissions required to update the backend database where the permissions are stored. To get access, ask on #hackers-infra to be added to the allowlist.<br />",
+        "Adding to Flutter Dashboard": "Adding a contributor to Flutter Dashboard This is only for team members with access to the Flutter Dashboard Datastore.<br />- Open [flutter-dashboard datastore](https://console.cloud.google.com/datastore/entities;kind=AllowedAccount;ns=__$DEFAULT$__/query/kind?project=flutter-dashboard)<br />- Click `Create Entity`<br />- Click `Email: Empty` -> Edit property. Insert contributor Google account<br />- Click `Create`<br />",
+        "LUCI Access": "Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs. Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)<br />",
+        "Flutter Gold Access": "Access to Flutter Gold If you need access to triage images in [Flutter Gold](https://flutter-gold.skia.org/), you need to be added as an authorized user. Users in the `@google.com` domain are already authorized to use Flutter Gold, but `@gmail.com` addresses can also be added to the allow list.<br />",
+        "Flutter Gold Process": "Process The list of authorized users is maintained in the [skia build-bot repository](https://skia.googlesource.com/buildbot), in [this file](https://skia.googlesource.com/buildbot/+/refs/heads/main/golden/k8s-instances/flutter/flutter-skiacorrectness.json5). Googlers can submit a change to add to the authorized users. This repository is also [mirrored on GitHub.](https://github.com/google/skia-buildbot)<br />",
+        "fcontrib.org Accounts": "fcontrib.org accounts If you are a team member who wants to share design docs (see [Chat](Chat.md)) but you don't want to use your own personal account, you can ask a Flutter admin for an fcontrib.org account. Ping @Hixie or another admin in the #server-support channel on Discord.<br />",
+        "fcontrib.org Process": "Process You\u2019ll need the user\u2019s email account somewhere else, first and last name, and desired fcontrib.org account login before you begin. To add a fcontrib.org participant:<br />- Open an incognito window and log in using your admin fcontrib credentials at [https://admin.google.com/](https://admin.google.com/). (q.v. valentine)<br />- Under \u201cUsers\u201d in the upper left of the main content area, click \u201cAdd a User\u201d and follow the prompts.<br />- For a password, choose \u201cGenerate Password\u201d and email the password to the new account holder using their non-fcontrib account -- they\u2019ll be able to log in with that and then choose a new password.<br />",
+        "Review Teams": "Review teams Some parts of the codebase have teams specified so that PRs get round-robin assigned for review. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). We currently have the following review teams:<br />- [android-reviewers](https://github.com/orgs/flutter/teams/android-reviewers): for folks working on the Android port of Flutter; use `#hackers-android` for discussions.<br />- [devtools-reviewers](https://github.com/orgs/flutter/teams/devtools-reviewers): for the [devtools](https://github.com/flutter/devtools) repo; use `#hackers-devexp` for discussions.<br />- [website-reviewers](https://github.com/orgs/flutter/teams/website-reviewers): for folks working on [www.flutter.dev](http://www.flutter.dev) and docs.flutter.dev; use `#hackers-devrel` for discussions. To create a new team, contact @Hixie. You will also need to create a `CODEOWNERS` file to actually trigger the review assignment.<br />",
+        "Pusher Permissions": "Pusher permissions Some branches are protected to avoid accidents. Only people in the specific branches can push to them. Anyone can ask to be added or removed from these groups, they exist only to reduce accidents, not for security. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). The following groups have been defined for these purposes: pushers-beta, pushers-fuchsia<br />",
+        "Chatting on Discord": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Existing channels": "We have different channels for different purposes (this list is not exhaustive):<br />**Channel Description Participants**<br />#welcome Welcome message. Only admins can post. Anyone can read.<br />#announcements Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />#server-support Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />#general Chat about anything related to Flutter. Anyone.<br />#help People asking for our help. Anyone.<br />#package-authors For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />#dart Questions about the Dart language. Anyone.<br />#tree-status Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />#hackers Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />#hackers-* Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />#hackers-dart Questions about the Dart language. Flutter contributors. Anyone can watch.<br />#hackers-new New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />#hackers-triage For use while triaging bugs. Flutter contributors. Anyone can watch.<br />#hidden-chat Chat about anything related to Flutter. Flutter contributors only. Not public.<br />general (voice) Talk (audio) about anything related to Flutter. Anyone.<br />team (voice) Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "New channels": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Policies": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord features": "Threading Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. Status You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design documents": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Code of Conduct#1": "**Code of Conduct**<br />The Flutter project expects Flutter's contributors to act professionally and respectfully. Flutter contributors are expected to maintain the safety and dignity of Flutter's social environments (such as GitHub and Discord).<br /><br />Specifically:<br />- Respect people, their identities, their culture, and their work.<br />- Be kind. Be courteous. Be welcoming.<br />- Listen. Consider and acknowledge people's points before responding.<br /><br />Should you experience anything that makes you feel unwelcome in Flutter's community, please contact [conduct@flutter.dev](mailto:conduct@flutter.dev) or, if you prefer, directly contact someone on the project, for instance [Hixie](mailto:ian@hixie.ch).<br /><br />The Flutter project will not tolerate harassment in Flutter's community, even outside of Flutter's public communication channels.",
+        "Conflict Resolution": "**Conflict Resolution**<br />When multiple contributors disagree on the direction for a particular patch or the general direction of the project, the conflict should be resolved by communication. The people who disagree should get together, try to understand each other's points of view, and work to find a design that addresses everyone's concerns. This is usually sufficient to resolve issues.<br /><br />If you cannot come to an agreement, ask for the advice of a more senior member of the project. Be wary of agreement by attrition, where one person argues a point repeatedly until other participants give up in the interests of moving on. This is not conflict resolution, as it does not address everyone's concerns. Be wary of agreement by compromise, where two good competing solutions are merged into one mediocre solution. A conflict is addressed when the participants agree that the final solution is better than all the conflicting proposals. Sometimes the solution is more work than either of the proposals. [Embrace the yak shave](./docs/contributing/Style-guide-for-Flutter-repo.md#lazy-programming).",
+        "Questions": "**Questions**<br />It's always ok to ask questions. Our systems are large, and nobody will be an expert in all the systems. Once you find the answer, document it in the first place you looked. That way, the next person will be brought up to speed even quicker.<br /><br />Source: [xkcd, May 2012](https://xkcd.com/1053/)",
+        "Core Values": "### Flutter's Core Values \ud83c\udfd7\ufe0f <br /> - **Build the best way to develop user interfaces.** <br /> This tells us what we are creating. It helps narrow our focus. The best way to develop user interfaces is a productive way of developing. The best way to develop user interfaces creates beautiful applications. The best way to develop user interfaces creates fast applications. The best way to develop user interfaces enables developers to create applications fast. The best way to develop user interfaces is extensible, so that we are not a barrier to developers. <br /> - **Focus on the user and all else will follow.** <br /> Our user is the developer. Our developer's user is the end user of the application written with Flutter. Our first priority is to our developer's user, the end user. Our second priority is to our user, the developer. Caring about the end user means having high quality support for accessibility, top performance, stability, high fidelity and compatibility with the user's platform, supporting low-end devices, and so forth. Caring about the developer means creating a joyful and productive development experience with quick iteration cycles, creating usable, simple, reliable, predictable APIs, giving the developer full access to the underlying platform, and so forth.",
+        "Openness": "### Openness \ud83d\udcd6 <br /> Flutter is an open source project, in the full senses of the word: we are open to ideas, we are open to contributions, our code and our roadmap are open, our priorities are open. Transparency leads to a higher quality product. While the most active part of our team is currently primarily formed of employees from Google, we are growing and welcome anyone to join the team; at this point, the majority of people with commit access are not part of Google's Flutter team. Flutter's stewardship is managed by a team at Google.",
+        "Maintaining Quality": "### Maintaining Quality \ud83d\udcab <br /> A mediocre product cannot be the best way to develop user interfaces, so we must build processes around maintaining high levels of quality. This manifests in various ways. One is that we are feature-driven, not date-driven: we do not plan work based on deadlines. We may sometimes host events where we announce new features, but these events will announce features that have become available, rather than the features becoming available in order to be announced. This means sometimes a feature we intended to announce will slip and not be announced, but we prefer this to announcing a rushed feature. We may sometimes gate features behind flags until we are confident of their quality.",
+        "Have Fun": "### Have Fun \ud83e\udd23 <br /> Last, but definitely not least, we want to make sure that our work environment is pleasant for everyone involved. Your health and the health of your family and friends is more important than Flutter. Our community [is welcoming](../../CODE_OF_CONDUCT.md). We don't know everything; all of us can make mistakes. We want team members to feel empowered to make changes to the code and to our processes. We encourage a bias towards action. It's better to try something and be wrong, than to plan forever and never execute.",
+        "Support": "### Support <br /> When we think about whether we claim to \"support\" something, e.g. whether Flutter supports Windows 7, we use the following frame of reference. We document [which platforms we consider to fall into each category](https://docs.flutter.dev/reference/supported-platforms) on flutter.dev. <br /> **Areas of support** <br /> We distinguish several categories along which one can describe a level of support: <br /> - Supporting for deployment (we support a platform for deployment if you can run release builds of applications on that platform). <br /> - Supporting for development (we support a platform for development if you can run debug builds of applications on that platform, connect them to a debugger, hot reload, view logs, and so forth; we support a plugin for development if it can be stepped through in a debugger). <br /> - Supporting for hosting development (we support a platform for hosting development if it is one on which you can compile a Flutter application; we support an IDE for hosting development if it has a Flutter plugin). <br /> - Supporting for Flutter development (we support a platform for Flutter development if one can contribute to Flutter itself from that platform). <br /> The list of supported platforms on flutter.dev is describing the platforms supported for deployment. <br /> **Levels of support** <br /> For each area, we consider the level to which we provide support: <br /> - We will literally help you with your code if things don't work. This is very rare. (See also \"[top-tier customers](../contributing/issue_hygiene/README.md#customers)\"). <br /> - We will make a best effort to ensure that well written code works (e.g. we have testing on that platform). This is a common level for target platforms that have reached a label of \"stable\" (e.g. Android, iOS) on devices that are widely available (e.g. 64bit ARM). This corresponds to the \"Supported Google-tested platforms\" category on the list of supported platforms. <br /> - We will not go out of our way to prevent code from working, but if it works it's because of luck and our best intentions rather than a coordinated effort (e.g. we do no testing on that platform). This is a common level of support for less commonly-used devices. For example, we do minimal testing of 32bit iOS devices. This corresponds to the \"Best effort platforms tested by the community\" category on the list of supported platforms. <br /> - We will pay no attention to whether code works, but we will accept patches that are easy to reason about. This is a common level of support for the many esoteric embedded platforms that we have no way to even manually test. For example, if you have your own SoC and are running Flutter, we want you to succeed but we don't have any way to ensure it keeps working. At this level, we would not accept what we consider \"risky\" PRs, or PRs that involve significant refactorings. If you are willing to provide reliable CI support for your platform, we are more than happy to work with you to move that platform to level 2 (at which point more invasive PRs become viable). <br /> - We won't accept patches. This is the appropriate response for features and platforms that are wildly outside our roadmap. For example, maintaining a Rust port of the framework is not something the Flutter project would accept patches for. This corresponds to the \"Unsupported platforms\" category on the list of supported platforms.",
+        "Resources": "### See also \ud83d\udc99 <br /> - [Code of Conduct](../../CODE_OF_CONDUCT.md) <br /> - [Contributor Guide](../../CONTRIBUTING.md) <br /> - [Flutter's Culture of Inclusivity](https://flutter.dev/culture) <br /> - [Flutter culture and how to preserve it](https://medium.com/flutter/flutter-culture-and-how-to-preserve-it-436b4ed1031d)"
     },
     "flow": [
         {
             "edges": [
                 {
-                    "source": "Contributing to ideal_documented_repo",
-                    "target": "How to Contribute"
+                    "source": "Contributing to flutter",
+                    "target": "Getting Started"
                 },
                 {
-                    "source": "How to Contribute",
-                    "target": "Project Overview",
-                    "edge_label": "README.md"
+                    "source": "Getting Started",
+                    "target": "Commit Access",
+                    "edge_label": "docs/contributing/Contributor-access.md"
                 },
                 {
-                    "source": "Project Overview",
-                    "target": "Getting Started",
-                    "edge_label": "README.md"
-                }
-            ],
-            "sequence": "How to Contribute"
-        },
-        {
-            "edges": [
-                {
-                    "source": "Contributing to ideal_documented_repo",
-                    "target": "Contribution Guidelines"
+                    "source": "Commit Access",
+                    "target": "Criteria for Access",
+                    "edge_label": "docs/contributing/Contributor-access.md"
                 },
                 {
-                    "source": "Contribution Guidelines",
-                    "target": "Commit Message",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "source": "Criteria for Access",
+                    "target": "Responsibilities",
+                    "edge_label": "docs/contributing/Contributor-access.md"
                 },
                 {
-                    "source": "Commit Message",
-                    "target": "Description",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "source": "Responsibilities",
+                    "target": "Code of Conduct",
+                    "edge_label": "docs/contributing/Contributor-access.md"
                 },
                 {
-                    "source": "Description",
-                    "target": "Related Issues",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "source": "Code of Conduct",
+                    "target": "Handling Violations",
+                    "edge_label": "docs/contributing/Contributor-access.md"
                 },
                 {
-                    "source": "Related Issues",
+                    "source": "Handling Violations",
                     "target": "Documentation",
-                    "edge_label": "PULL_REQUEST_TEMPLATE.md"
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Documentation",
+                    "target": "Fixing Documentation",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Fixing Documentation",
+                    "target": "Privileges",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Privileges",
+                    "target": "Discord Privileges",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Discord Privileges",
+                    "target": "Process",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Process",
+                    "target": "New Googlers",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "New Googlers",
+                    "target": "Inactivity",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Inactivity",
+                    "target": "Flutter Dashboard Access",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Flutter Dashboard Access",
+                    "target": "Adding to Flutter Dashboard",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Adding to Flutter Dashboard",
+                    "target": "LUCI Access",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "LUCI Access",
+                    "target": "Flutter Gold Access",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Flutter Gold Access",
+                    "target": "Flutter Gold Process",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Flutter Gold Process",
+                    "target": "fcontrib.org Accounts",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "fcontrib.org Accounts",
+                    "target": "fcontrib.org Process",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "fcontrib.org Process",
+                    "target": "Review Teams",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Review Teams",
+                    "target": "Pusher Permissions",
+                    "edge_label": "docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Getting Started",
+                    "target": "Chatting on Discord",
+                    "edge_label": "docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Chatting on Discord",
+                    "target": "Existing channels",
+                    "edge_label": "docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Existing channels",
+                    "target": "New channels",
+                    "edge_label": "docs/contributing/Chat.md"
+                },
+                {
+                    "source": "New channels",
+                    "target": "Policies",
+                    "edge_label": "docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Policies",
+                    "target": "Discord features",
+                    "edge_label": "docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord features",
+                    "target": "Design documents",
+                    "edge_label": "docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Getting Started",
+                    "target": "Code of Conduct#1",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Code of Conduct#1",
+                    "target": "Conflict Resolution",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Conflict Resolution",
+                    "target": "Questions",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Getting Started",
+                    "target": "Core Values",
+                    "edge_label": "docs/about/Values.md"
+                },
+                {
+                    "source": "Core Values",
+                    "target": "Openness",
+                    "edge_label": "docs/about/Values.md"
+                },
+                {
+                    "source": "Openness",
+                    "target": "Maintaining Quality",
+                    "edge_label": "docs/about/Values.md"
+                },
+                {
+                    "source": "Maintaining Quality",
+                    "target": "Have Fun",
+                    "edge_label": "docs/about/Values.md"
+                },
+                {
+                    "source": "Have Fun",
+                    "target": "Support",
+                    "edge_label": "docs/about/Values.md"
+                },
+                {
+                    "source": "Support",
+                    "target": "Resources",
+                    "edge_label": "docs/about/Values.md"
                 }
             ],
-            "sequence": "Contribution Guidelines"
+            "sequence": "Getting Started"
         },
         {
             "edges": [
                 {
-                    "source": "Contributing to ideal_documented_repo",
-                    "target": "Setup Guide"
-                },
-                {
-                    "source": "Setup Guide",
-                    "target": "Environment Setup",
-                    "edge_label": "INSTALLATION_GUIDE.md"
-                },
-                {
-                    "source": "Environment Setup",
-                    "target": "Post-Installation",
-                    "edge_label": "INSTALLATION_GUIDE.md"
+                    "source": "Contributing to flutter",
+                    "target": "Issue Triage"
                 }
             ],
-            "sequence": "Setup Guide"
+            "sequence": "Issue Triage"
         },
         {
             "edges": [
                 {
-                    "source": "Contributing to ideal_documented_repo",
-                    "target": "Community Guidelines"
-                },
-                {
-                    "source": "Community Guidelines",
-                    "target": "Introduction",
-                    "edge_label": "CODE_OF_CONDUCT.md"
-                },
-                {
-                    "source": "Introduction",
-                    "target": "Reporting Issues",
-                    "edge_label": "CODE_OF_CONDUCT.md"
+                    "source": "Contributing to flutter",
+                    "target": "Quality Assurance"
                 }
             ],
-            "sequence": "Community Guidelines"
+            "sequence": "Quality Assurance"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Development"
+                }
+            ],
+            "sequence": "Development"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Helping with PRs"
+                }
+            ],
+            "sequence": "Helping with PRs"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Outreach"
+                }
+            ],
+            "sequence": "Outreach"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "API Documentation"
+                }
+            ],
+            "sequence": "API Documentation"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Releases"
+                }
+            ],
+            "sequence": "Releases"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Community Events"
+                }
+            ],
+            "sequence": "Community Events"
         }
     ],
     "links": {
-        "How to Contribute": [
-            "./README.md"
+        "Getting Started": [
+            "./docs/contributing/Chat.md",
+            "CODE_OF_CONDUCT.md",
+            "./docs/contributing/Contributor-access.md",
+            "./docs/contributing/Contributor-access.md",
+            "./docs/contributing/Chat.md",
+            "CODE_OF_CONDUCT.md",
+            "./docs/about/Values.md"
         ],
-        "Contribution Guidelines": [
-            "./PULL_REQUEST_TEMPLATE.md"
+        "Issue Triage": [
+            "./docs/contributing/Chat.md",
+            "CODE_OF_CONDUCT.md",
+            "./docs/triage/README.md",
+            "./docs/contributing/issue_hygiene/README.md",
+            "./docs/contributing/Contributor-access.md"
         ],
-        "Setup Guide": [
-            "./INSTALLATION_GUIDE.md"
+        "Quality Assurance": [
+            "./docs/contributing/Chat.md",
+            "./docs/releases/Quality-Assurance.md"
         ],
-        "Community Guidelines": [
-            "./CODE_OF_CONDUCT.md"
+        "Development": [
+            "https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22",
+            "https://github.com/flutter/devtools/labels/good%20first%20issue",
+            "./engine/src/flutter/docs/contributing/Setting-up-the-Engine-development-environment.md",
+            "./docs/contributing/Setting-up-the-Framework-development-environment.md",
+            "./docs/contributing/Tree-hygiene.md",
+            "./docs/contributing/Style-guide-for-Flutter-repo.md",
+            "https://flutter.dev/go/template",
+            "./docs/contributing/Design-Documents.md",
+            "https://youtube.com/c/flutterdev",
+            "./docs/README.md",
+            "https://medium.com/@ayushbherwani/contributing-to-flutter-getting-started-a0db68cbcd5b",
+            "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+        ],
+        "Helping with PRs": [
+            "https://github.com/flutter/flutter/labels/has%20partial%20patch"
+        ],
+        "Outreach": [
+            "https://stackoverflow.com/questions/tagged/flutter?sort=Newest&filters=NoAnswers,NoAcceptedAnswer&edited=true",
+            "https://www.reddit.com/r/flutterhelp/new/?f=flair_name%3A%22OPEN%22",
+            "https://docs.flutter.dev/",
+            "https://www.youtube.com/results?search_query=flutter&sp=EgQIAxAB",
+            "./docs/contributing/Chat.md"
+        ],
+        "API Documentation": [
+            "./docs/contributing/Chat.md",
+            "./docs/contributing/Style-guide-for-Flutter-repo.md#documentation-dartdocs-javadocs-etc",
+            "https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22d%3A+api+docs%22+sort%3Areactions-%2B1-desc",
+            "https://github.com/flutter/assets-for-api-docs/#readme"
+        ],
+        "Releases": [
+            "./docs/contributing/Chat.md"
+        ],
+        "Community Events": [
+            "./docs/contributing/Chat.md"
         ]
     }
 }

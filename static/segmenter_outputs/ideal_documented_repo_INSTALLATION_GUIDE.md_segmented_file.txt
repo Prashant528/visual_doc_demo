@@ -1,9 +1,11 @@
+Prerequisites
 - Operating system: Windows/Linux/MacOS.
+- Tools: Git, Python 3.8+, Node.js (optional).
+- Additional libraries or dependencies specified in `requirements.txt`.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-- Tools: Git, Python 3.8+, Node.js (optional).
-- Additional libraries or dependencies specified in `requirements.txt`.
+Steps to Install
 - Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`
 - Navigate to the project folder: `cd hypothetical-repo`
 - Install dependencies: `pip install -r requirements.txt`

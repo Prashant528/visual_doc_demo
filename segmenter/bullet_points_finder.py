@@ -148,34 +148,52 @@ def add_block_identifier(file_path, blocks):
 
 def find_block_markers_in_sentences(sentences):
     start_block_marker = "THIS IS START BLOCK MARKER."
-    end_block_marker = "THIS IS END BLOCK MARKER."
-    new_sentences  = []
+    end_block_marker   = "THIS IS END BLOCK MARKER."
+    
+    new_sentences = []
     block_markers = []
+    
     start_block_index = None
-    end_block_index = None
-    # add into consideration the offset caused by removing block marker sentences.
-    offset=0
-    for i in range(len(sentences)):
-        # print(sentences[i])
-        #the first condition is to make sure we consider the first START_MARKER if we get multiple starting markers consecutively.
-        if start_block_marker in sentences[i]:
-            start_block_index = i - offset
-            offset = offset + 1
-            # print("Starting block found at ", i)
-        elif end_block_marker in sentences[i]:
-            end_block_index = i - offset
-            offset = offset + 1
-            # print("Ending block found at ", i)
-        else:
-            new_sentences.append(sentences[i])
+    
+    for i, sentence in enumerate(sentences):
+        # If it *contains* the start marker, remove that substring:
+        if start_block_marker in sentence:
+            # Record where the block starts in terms of new_sentences
+            if start_block_index is None:
+                start_block_index = len(new_sentences)
+            
+            # Remove marker text but keep the rest of the line
+            sentence = sentence.replace(start_block_marker, "")
+            
+            # If there's leftover text, keep it
+            stripped_sentence = sentence.strip()
+            if stripped_sentence:
+                new_sentences.append(stripped_sentence)
         
-        if start_block_index and end_block_index:
-            block_markers.append((start_block_index, end_block_index))
-            print(f"Block marker added: {start_block_index}, {end_block_index}")
-            start_block_index = None
-            end_block_index = None
-
+        # Similarly for end marker
+        elif end_block_marker in sentence:
+            # Remove marker from the sentence
+            sentence = sentence.replace(end_block_marker, "")
+            
+            # End block index is the last real sentence index we have
+            end_block_index = len(new_sentences) - 1
+            
+            # If we had a start, record the block
+            if start_block_index is not None:
+                block_markers.append((start_block_index, end_block_index))
+                start_block_index = None
+            
+            stripped_sentence = sentence.strip()
+            if stripped_sentence:
+                new_sentences.append(stripped_sentence)
+        
+        else:
+            # Normal sentence with no markers
+            new_sentences.append(sentence)
+    
     return block_markers, new_sentences
+
+
 
 
 def main():

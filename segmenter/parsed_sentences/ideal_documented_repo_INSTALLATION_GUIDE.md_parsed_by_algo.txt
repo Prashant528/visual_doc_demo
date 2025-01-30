@@ -1,8 +1,12 @@
+Prerequisites
+--------
 - Operating system: Windows/Linux/MacOS.
 --------
 - Tools: Git, Python 3.8+, Node.js (optional).
 --------
 - Additional libraries or dependencies specified in `requirements.txt`.
+--------
+Steps to Install
 --------
 - Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`
 --------

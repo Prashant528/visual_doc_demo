@@ -3,7 +3,7 @@ import pandas as pd
 import torch
 from segmenter.langchain_semantic_chunker import SemanticChunker
 from langchain_openai.embeddings import OpenAIEmbeddings
-
+import os
 from segmenter.core import *
 from segmenter.transformers_call import generate_sentences_not_considering_blocks
 # mean_pooling, get_features_from_sentence, generate_sentences_considering_blocks, generate_sentences_not_considering_blocks
@@ -20,6 +20,7 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
     #Parse the file and get the unseparable blocks
     #gfm parser gets the md file and parses it to a text file.
     # parsed_file_path = markdn2text_gfm(md_file_path)
+    filename = os.path.basename(filename)
     parsed_file_path = markdn2text_with_links(md_file_path, repo=repo, filename=filename)
 
     #adding blocks information in parsed file since it preserves the formatting of md.
@@ -29,11 +30,14 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
     add_block_identifier(parsed_file_path, block_of_lines)
     #get the sentences with the block markers as sentences too.
     sentences = generate_sentences_not_considering_blocks(parsed_file_path, method=sentence_method)
-    with open('sentences.txt', 'w') as f:
-            for sent in sentences:
-                f.write(str(sent))
+    
+
     #get the block marker indices, remove the marker sentences and return original sentences.
     block_marker_indices, sentences = find_block_markers_in_sentences(sentences)
+    with open('sentences.txt', 'a') as f:
+        for sent in sentences:
+            f.write(str(sent))
+        f.write("\n\n--------------------------------\n\n")
     print("Block markers in sentences:", block_marker_indices)
     
     if segmentation_method=='unsupervised_window_based':
@@ -49,7 +53,6 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
 
     else:
         raise Exception("Unknown segmentation method provided. Please check segment() method in /segmenter/segment file")
-    
     file_name= None
     if save_to_file:
         segmented_file_name = 'static/segmenter_outputs/'+ out_filename +'_segmented_file.txt'
