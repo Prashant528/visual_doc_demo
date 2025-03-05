@@ -4,6 +4,7 @@ import regex as re
 from datetime import datetime
 import json
 import os
+import tiktoken
 
 def download_file(owner, repo, file_path):
     # GitHub repository information. Example:
@@ -107,7 +108,7 @@ def modify_json_for_ui_without_classifier(old_json, repo_name):
         target = topic
         # Add flow with updated edges and sequence name
         new_json["flow"].append({"edges": [{"source": source, "target": target}], "sequence": target})
-    print(new_json)
+    # print(new_json)
     return new_json
 
 def add_links_to_json_from_content(data):
@@ -139,6 +140,18 @@ def save_llm_output(json_output, file_prefix):
         filename =  current_directory + '/static/llm_ouput/' + file_prefix + '_' + formatted +'.json'
         with open(filename, "w") as file:
             json.dump(json_output, file, indent=4)
+
+def exceeds_token_size(text, max_tokens):
+    '''
+    checks if the given text exceeds the given max_tokens number.
+    '''
+    encoding = tiktoken.encoding_for_model("gpt-4o")
+    tokens = encoding.encode(text)
+    if len(tokens) > max_tokens:
+        return True
+    else:
+        return False
+
 
 if __name__ == '__main__':
     print(download_file('flutter', 'flutter', 'CONTRIBUTING.md'))

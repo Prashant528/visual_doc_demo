@@ -15,6 +15,8 @@ Features
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Getting Started
-To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions. The guide will walk you through prerequisites, installation steps, and how to run the project. For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md). We encourage all users to participate in making this project even better!
+To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions. The guide will walk you through prerequisites, installation steps, and how to run the project.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md). We encourage all users to participate in making this project even better!

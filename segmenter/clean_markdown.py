@@ -76,7 +76,7 @@ def markdown_to_plain_text_with_links(markdown_text):
 
     # Traverse the root element to rebuild plain text
     plain_text = traverse(soup)
-    print(plain_text.strip())
+    # print(plain_text.strip())
     return plain_text.strip()
 
 

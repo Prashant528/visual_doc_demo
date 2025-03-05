@@ -33,8 +33,7 @@ def process_md_and_wiki(topic, link, data, github_service, github_url_components
     else:
         print("Link is outbound to other pages than current repository.")
     
-    merged_json = attach_second_layer(data, content_from_link, topic, clean_link)
-    return merged_json
+    return content_from_link
 
 def get_new_nodes_from_md(link, github_service, github_url_components):
     '''
@@ -50,30 +49,33 @@ def get_new_nodes_from_md(link, github_service, github_url_components):
     openai_service = OpenAIService(Config.OPENAI_API_KEY, repo)
     sentence_feature_extractor = SentenceFeatureExtractor()
     files_and_contents = github_service.download_recursive(owner, repo, file_path)
-    file_and_content = files_and_contents[0]
+    if files_and_contents:
+        file_and_content = files_and_contents[0]
 
-    file_name = repo + '_' + file_and_content[0].split('/')[-1]
-    content = file_and_content[1]
-    md_file_path = save_to_md(content, file_name)
+        file_name = repo + '_' + file_and_content[0].split('/')[-1]
+        content = file_and_content[1]
+        md_file_path = save_to_md(content, file_name)
 
-    predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True, repo=repo, filename=file_path)
+        predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True, repo=repo, filename=file_path)
 
-    prompt_for_llm = 'PROMPT_FOR_SEQUENCING_SECOND_LAYER'
+        prompt_for_llm = 'PROMPT_FOR_SEQUENCING_SECOND_LAYER'
 
-    #Call the LLM to find the sequence
-    prompt = copy.deepcopy(openai_service.fetch_prompt(prompt_for_llm))
+        #Call the LLM to find the sequence
+        prompt = copy.deepcopy(openai_service.fetch_prompt(prompt_for_llm))
 
-    for item in prompt:
-            if item["role"] == "user":
-                item["content"] += str(segments)
+        for item in prompt:
+                if item["role"] == "user":
+                    item["content"] += str(segments)
 
-    with open('llm_prompt.txt', 'w') as outfile:
-        outfile.write(str(prompt))
-    # print(full_prompt_with_segments)
-    llm_result = parse_openai_single_json(openai_service.get_llm_response_json(prompt))
-    # print(f"\nActual response from API:\n {segments_flow_and_contents}")
-    return llm_result
-
+        with open('llm_prompt.txt', 'w') as outfile:
+            outfile.write(str(prompt))
+        # print(full_prompt_with_segments)
+        llm_result = parse_openai_single_json(openai_service.get_llm_response_json(prompt))
+        # print(f"\nActual response from API:\n {segments_flow_and_contents}")
+        return llm_result
+    else:
+        return None
+    
 def get_new_nodes_from_wiki(link, github_service, github_url_components):
     '''
     Get all the segments from the file like in app.py.
@@ -92,9 +94,14 @@ def add_second_layer_from_links(data, file_path, github_url_components):
     github_service = GitHubService(Config.GITHUB_TOKEN)
 
     outbound_link_counter = 1  # to label outbound links uniquely
+    #dictionary to cache already processed links and their contents
+    processed_links = {}
 
     #If there are no links, the data would be the final result
     merged_json = data
+
+    print("\n\n LINKS in the first file:")
+    print(len(data["links"]))
 
     # Iterate over each topic and its list of extracted links
     for topic, links_list in data.get("links", {}).items():
@@ -121,23 +128,38 @@ def add_second_layer_from_links(data, file_path, github_url_components):
             topic_links.remove(file_path)
         for clean_link in uniq_topic_links:
             print("Processing for link : ", clean_link)
-
-            if clean_link.startswith(('http://', 'https://')):
-                # If the link is an absolute URL, add it directly
-                print("Absolute link found")
-                github_url_components = parse_github_url(link)
-                print(clean_link)
-                # print(github_url_components)
-                merged_json  = process_md_and_wiki(topic, clean_link, data, github_service, github_url_components)
-
+            content_from_link = None
+            if clean_link in processed_links:  # If the link has already been processed
+                print(f"Reusing cached content for {clean_link}")
+                content_from_link = processed_links[clean_link]
             else:
-                print("Relative link found")
-                # Otherwise, add it to relative links
-                new_link = github_service.create_new_filepath(file_path, clean_link)
-                github_url_components.filepath = new_link
-                print(new_link)
-                # print(github_url_components)
-                merged_json = process_md_and_wiki(topic, new_link, data, github_service, github_url_components)
+                if clean_link.startswith(('http://', 'https://')):
+                    # If the link is an absolute URL, add it directly
+                    print("Absolute link found")
+                    # github_url_components = parse_github_url(link)
+                    # print(clean_link)
+                    # # print(github_url_components)
+                    # content_from_link  = process_md_and_wiki(topic, clean_link, data, github_service, github_url_components)
+                    
+                    #If the link takes us to a github tree, get the md files from the tree
+                    if '/tree/' in clean_link and 'github.com' in clean_link:
+                        directory = clean_link.split('/')[-1]
+                        file_url = get_directory_file_url(directory, github_url_components)
+
+
+                else:
+                    print("Relative link found")
+                    # Otherwise, add it to relative links
+                    new_link = github_service.create_new_filepath(file_path, clean_link)
+                    github_url_components.filepath = new_link
+                    print(new_link)
+                    # print(github_url_components)
+                    content_from_link = process_md_and_wiki(topic, new_link, data, github_service, github_url_components)                       
+                    # Store processed content in cache
+                    processed_links[clean_link] = content_from_link
+            if content_from_link:
+                merged_json = attach_second_layer(data, content_from_link, topic, clean_link)
+            
 
     return merged_json
 
@@ -267,13 +289,16 @@ def attach_second_layer(data, second_layer_nodes, topic, link):
     parent_flow_item["edges"].append(bridging_edge)
 
     # G) **Fix: Append second-layer edges correctly**
+    label_added = False
     for item in flow_items:
         for edge in item.get("edges", []):
             edge_with_label = {
                 "source": edge["source"],
                 "target": edge["target"],
-                "edge_label": link  # Add edge label to each child edge
             }
+            if not label_added:
+                edge_with_label["edge_label"] = link  # Add edge label to the first edge
+                label_added = True  
             parent_flow_item["edges"].append(edge_with_label)  # **Fix: Append the updated edge**
 
     # H) Save the updated data to a file (optional)
@@ -283,5 +308,8 @@ def attach_second_layer(data, second_layer_nodes, topic, link):
     return data
 
 
-
-
+def get_directory_file_url(dir, github_url_components):
+    base_url = 'https://api.github.com/repos/'
+    base_url = base_url + github_url_components.owner + '/' + github_url_components.repo + '/contents/'
+    file_url = base_url + dir
+    return file_url

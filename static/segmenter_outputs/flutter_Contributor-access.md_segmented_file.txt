@@ -31,6 +31,8 @@ If you spot something wrong, please fix it! As a contributor, you have access to
 Privileges
 Being in the GitHub "flutter-hackers" group gives you the following: - The ability to merge your own PRs once they are reviewed (see [Tree Hygiene](Tree-hygiene.md)). - The ability to add labels, milestones, etc, on issues on GitHub (see [Issue Hygiene](./issue_hygiene/README.md)).
 
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
 - PRs will run their tests slightly faster.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
@@ -59,7 +61,11 @@ Adding a contributor to Flutter Dashboard This is only for team members with acc
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs. Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)
+Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs.
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
@@ -75,6 +81,8 @@ fcontrib.org accounts If you are a team member who wants to share design docs (s
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Process You’ll need the user’s email account somewhere else, first and last name, and desired fcontrib.org account login before you begin. To add a fcontrib.org participant: - Open an incognito window and log in using your admin fcontrib credentials at [https://admin.google.com/](https://admin.google.com/). (q.v. valentine)
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 - Under “Users” in the upper left of the main content area, click “Add a User” and follow the prompts. - For a password, choose “Generate Password” and email the password to the new account holder using their non-fcontrib account -- they’ll be able to log in with that and then choose a new password.
 

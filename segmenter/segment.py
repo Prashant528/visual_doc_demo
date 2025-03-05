@@ -60,8 +60,8 @@ def segment(sentence_feature_extractor, md_file_path, openai_service, out_filena
         with open(segmented_file_name, "w") as file1:
             #works for both sentences and paragraphs
             for segment in segments:
-                print(segment)
-                print("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
+                # print(segment)
+                # print("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
                 file1.write(segment)
                 file1.write("\n\n--------<PREDICTED_SEGMENT_BOUNDARY>--------\n\n")
         

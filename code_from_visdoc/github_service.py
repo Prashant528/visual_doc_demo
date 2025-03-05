@@ -1,6 +1,7 @@
 import requests
 import re
 from urllib.parse import urljoin
+from utils import exceeds_token_size
 
 class GitHubService:
     def __init__(self, token):
@@ -76,6 +77,10 @@ class GitHubService:
         if not content:
             print("File not downloaded.")
             return
+
+        if exceeds_token_size(text=content, max_tokens=16000):
+            print("Token size exceeded for this file.")
+            return None
         
         # PTANDAN UNComment below section to go deeper on links
         #------------------------------

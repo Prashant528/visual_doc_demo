@@ -1,0 +1,291 @@
+{
+    "content": {
+        "Contributing to Angular": "## Contributing to Angular<br />We would love for you to contribute to Angular and help make it even better than it is today! As a contributor, here are the guidelines we would like you to follow:",
+        "Code of Conduct": "## Code of Conduct<br />Help us keep Angular open and inclusive. Please read and follow our [Code of Conduct](https://github.com/angular/code-of-conduct/blob/main/CODE_OF_CONDUCT.md).",
+        "Questions or Problems": "## Got a Question or Problem?<br />Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. Instead, we recommend using [Stack Overflow](https://stackoverflow.com/questions/tagged/angular) to ask support-related questions. When creating a new question on Stack Overflow, make sure to add the `angular` tag. Stack Overflow is a much better place to ask questions since:<br />- there are thousands of people willing to help on Stack Overflow<br />- questions and answers stay available for public viewing so your question/answer might help someone else<br />- Stack Overflow's voting system assures that the best answers are prominently visible.<br />To save your and our time, we will systematically close all issues that are requests for general support and redirect people to Stack Overflow. If you would like to chat about the question in real-time, you can reach out via [the Angular community Discord server](https://discord.gg/angular).",
+        "Found a Bug": "## Found a Bug?<br />If you find a bug in the source code, you can help us by reporting it to our [GitHub Repository](https://github.com/angular/angular). Even better, you can submit a pull request with a fix.",
+        "Missing a Feature": "## Missing a Feature?<br />You can request a new feature by submitting an issue to our GitHub Repository. If you would like to implement a new feature, please consider the size of the change in order to determine the right steps to proceed:<br />- For a Major Feature, first open an issue and outline your proposal so that it can be discussed. This process allows us to better coordinate our efforts, prevent duplication of work, and help you to craft the change so that it is successfully accepted into the project. Note: Adding a new topic to the documentation, or significantly re-writing a topic, counts as a major feature.<br />- Small Features can be crafted and directly submitted as a pull request.",
+        "Submission Guidelines": "## Submission Guidelines<br />### Submitting an Issue<br />Before you submit an issue, please search the issue tracker. An issue for your problem might already exist and the discussion might inform you of workarounds readily available. We want to fix all the issues as soon as possible, but before fixing a bug, we need to reproduce and confirm it. In order to reproduce bugs, we require that you provide a minimal reproduction. Having a minimal reproducible scenario gives us a wealth of important information without going back and forth to you with additional questions. A minimal reproduction allows us to quickly confirm a bug (or point out a coding problem) as well as confirm that we are fixing the right problem. We require a minimal reproduction to save maintainers' time and ultimately be able to fix more bugs. Often, developers find coding problems themselves while preparing a minimal reproduction. We understand that sometimes it might be hard to extract essential bits of code from a larger codebase, but we really need to isolate the problem before we can fix it. Unfortunately, we are not able to investigate / fix bugs without a minimal reproduction, so if we don't hear back from you, we are going to close an issue that doesn't have enough info to be reproduced. You can file new issues by selecting from our [new issue templates](https://github.com/angular/angular/issues/new/choose) and filling out the issue template.",
+        "Reviewing a Pull Request": "## Reviewing a Pull Request<br />The Angular team reserves the right not to accept pull requests from community members who haven't been good citizens of the community. Such behavior includes not following the [Angular code of conduct](https://github.com/angular/code-of-conduct) and applies within or outside of Angular managed channels.",
+        "Submitting a Pull Request": "### Submitting a Pull Request (PR)<br />Before you submit your Pull Request (PR) consider the following guidelines:<br />- Search [GitHub](https://github.com/angular/angular/pulls) for an open or closed PR that relates to your submission. You don't want to duplicate existing efforts.<br />- Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add. Discussing the design upfront helps to ensure that we're ready to accept your work.<br />- Please sign our Contributor License Agreement (CLA) before sending PRs. We cannot accept code without a signed CLA. Make sure you author all contributed Git commits with email address associated with your CLA signature.<br />- [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the [angular/angular](https://github.com/angular/angular/fork) repo.<br />- In your forked repository, make your changes in a new git branch:<br />```<br />git checkout -b my-fix-branch main<br />```<br />- Create your patch, including appropriate test cases.<br />- Follow our coding rules.<br />- Run the full Angular test suite, as described in the [developer documentation](./contributing-docs/building-and-testing-angular.md), and ensure that all tests pass.<br />- Commit your changes using a descriptive commit message that follows our commit message format. Adherence to these conventions is necessary because release notes are automatically generated from these messages.<br />```<br />git commit --all<br />```<br />Note: the optional commit `--all` command line option will automatically \"add\" and \"rm\" edited files.<br />- Push your branch to GitHub:<br />```<br />git push origin my-fix-branch<br />```<br />- In GitHub, send a pull request to `angular:main`.",
+        "Addressing Review Feedback": "### Addressing Review Feedback<br />If we ask for changes via code reviews then:<br />- Make the required updates to the code.<br />- Re-run the Angular test suites to ensure tests are still passing.<br />- Create a fixup commit and push to your GitHub repository (this will update your Pull Request):<br />```<br />git commit --all --fixup HEAD<br />git push<br />```<br />For more info on working with fixup commits see [here](./contributing-docs/using-fixup-commits.md).",
+        "Updating the Commit Message": "### Updating the Commit Message<br />A reviewer might often suggest changes to a commit message (for example, to add more context for a change or adhere to our commit message format). In order to update the commit message of the last commit on your branch:<br />- Check out your branch:<br />```<br />git checkout my-fix-branch<br />```<br />- Amend the last commit and modify the commit message:<br />```<br />git commit --amend<br />```<br />- Push to your GitHub repository:<br />```<br />git push --force-with-lease<br />```<br />NOTE: If you need to update the commit message of an earlier commit, you can use `git rebase` in interactive mode. See the [git docs](https://git-scm.com/docs/git-rebase#_interactive_mode) for more details.",
+        "After Your Pull Request is Merged": "### After Your Pull Request is Merged<br />After your pull request is merged, you can safely delete your branch and pull the changes from the main (upstream) repository:<br />- Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:<br />```<br />git push origin --delete my-fix-branch<br />```<br />- Check out the main branch:<br />```<br />git checkout main -f<br />```<br />- Delete the local branch:<br />```<br />git branch -D my-fix-branch<br />```<br />- Update your local `main` with the latest upstream version:<br />```<br />git pull --ff upstream main<br />```",
+        "Commit Message Format": "### Commit Message Format<br />This specification is inspired by and supersedes the [AngularJS commit message format](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). We have very precise rules over how our Git commit messages must be formatted. This format leads to easier to read commit history. Each commit message consists of a header, a body, and a footer.<br />```<br /><header><br /><BLANK LINE><br /><body><br /><BLANK LINE><br /><footer><br />```<br />The `header` is mandatory and must conform to the commit message header format. The `body` is mandatory for all commits except for those of type \"docs\". When the body is present it must be at least 20 characters long and must conform to the commit message body format. The `footer` is optional. The commit message footer format describes what the footer is used for and the structure it must have.",
+        "Commit Message Header": "### Commit Message Header<br />```<br /><type>(<scope>): <short summary><br />\u2502       \u2502             \u2502<br />\u2502       \u2502             \u2514\u2500\u2af8 Summary in present tense. Not capitalized. No period at the end.<br />\u2502       \u2502<br />\u2502       \u2514\u2500\u2af8 Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|<br />\u2502                          elements|forms|http|language-service|localize|platform-browser|<br />\u2502                          platform-browser-dynamic|platform-server|router|service-worker|<br />\u2502                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|<br />\u2502                          devtools<br />\u2502<br />\u2514\u2500\u2af8 Commit Type: build|ci|docs|feat|fix|perf|refactor|test<br />```",
+        "Commit Message Body": "### Commit Message Body<br />Just as in the summary, use the imperative, present tense: \"fix\" not \"fixed\" nor \"fixes\". Explain the motivation for the change in the commit message body. This commit message should explain why you are making the change. You can include a comparison of the previous behavior with the new behavior in order to illustrate the impact of the change.",
+        "Commit Message Footer": "### Commit Message Footer<br />The footer can contain information about breaking changes and deprecations and is also the place to reference GitHub issues, Jira tickets, and other PRs that this commit closes or is related to.<br />For example:<br />```<br />BREAKING CHANGE: <breaking change summary><br /><BLANK LINE><br /><breaking change description + migration instructions><br /><BLANK LINE><br /><BLANK LINE><br />Fixes #<issue number><br />```<br />or<br />```<br />DEPRECATED: <what is deprecated><br /><BLANK LINE><br /><deprecation description + recommended update path><br /><BLANK LINE><br /><BLANK LINE><br />Closes #<pr number><br />```<br />Breaking Change section should start with the phrase `BREAKING CHANGE: ` followed by a summary of the breaking change, a blank line, and a detailed description of the breaking change that also includes migration instructions. Similarly, a Deprecation section should start with `DEPRECATED: ` followed by a short description of what is deprecated, a blank line, and a detailed description of the deprecation that also mentions the recommended update path.",
+        "Revert Commits": "### Revert Commits<br />If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit. The content of the commit message body should contain:<br />- information about the SHA of the commit being reverted in the following format: `This reverts commit <SHA>`,<br />- a clear description of the reason for reverting the commit message.",
+        "Signing the CLA": "### Signing the CLA<br />Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code changes to be accepted, the CLA must be signed.<br />It's a quick process, we promise!<br />- For individuals, we have a [simple click-through form](https://cla.developers.google.com/about/google-individual).<br />- For corporations, we'll need you to [print, sign and one of scan+email, fax or mail the form](https://cla.developers.google.com/about/google-corporate).<br />If you have more than one GitHub accounts, or multiple email addresses associated with a single GitHub account, you must sign the CLA using the primary email address of the GitHub account used to author Git commits and send pull requests. The following documents can help you sort out issues with GitHub accounts and multiple email addresses:<br />- [https://help.github.com/articles/setting-your-commit-email-address-in-git/](https://help.github.com/articles/setting-your-commit-email-address-in-git/)<br />- [https://stackoverflow.com/questions/37245303/what-does-usera-committed-with-userb-13-days-ago-on-github-mean](https://stackoverflow.com/questions/37245303/what-does-usera-committed-with-userb-13-days-ago-on-github-mean)<br />- [https://help.github.com/articles/about-commit-email-addresses/](https://help.github.com/articles/about-commit-email-addresses/)<br />- [https://help.github.com/articles/blocking-command-line-pushes-that-expose-your-personal-email-address/](https://help.github.com/articles/blocking-command-line-pushes-that-expose-your-personal-email-address/)",
+        "Coding Rules": "### Coding Rules<br />To ensure consistency throughout the source code, keep these rules in mind as you are working:<br />- All features or bug fixes must be tested by one or more specs (unit-tests).<br />- All public API methods must be documented.<br />- We follow [Google's TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html), but wrap all code at 100 characters. An automated formatter is available, see [DEVELOPER.md](contributing-docs/building-and-testing-angular.md#formatting-your-source-code).",
+        "Setup Development Environment": "### Building and Testing Angular<br />This document describes how to set up your development environment to build and test Angular. It also explains the basic mechanics of using `git`, `node`, and `yarn`.<br />See the [contribution guidelines](https://github.com/angular/angular/blob/main/CONTRIBUTING.md) if you'd like to contribute to Angular.<br />**Prerequisite Software**<br />Before you can build and test Angular, you must install and configure the following on your development machine:<br />- [Git](https://git-scm.com/) and/or the [GitHub app](https://desktop.github.com/) (for Mac and Windows); [GitHub's Guide to Installing Git](https://help.github.com/articles/set-up-git) is a good source of information. Windows Users: Git Bash or an equivalent shell is required. Windows Powershell and cmd shells are not supported [#46780](https://github.com/angular/angular/issues/46780) so some commands might fail.<br />- [Node.js](https://nodejs.org), (version specified in [.nvmrc](../.nvmrc)) which is used to run a development web server, run tests, and generate distributable files. `.nvmrc` is read by [nvm](https://github.com/nvm-sh/nvm) commands like `nvm install` and `nvm use`.<br />- [Yarn](https://yarnpkg.com) (version specified in the engines field of [package.json](../package.json)) which is used to install dependencies.<br />- On Windows: [MSYS2](https://www.msys2.org/) which is used by Bazel. Follow the [instructions](https://bazel.build/install/windows#installing-compilers-and-language-runtimes).",
+        "Fork and Clone Repository": "### Getting the Sources<br />Fork and clone the Angular repository:<br />- Login to your GitHub account or create one by following the instructions given [here](https://github.com/signup/free).<br />- [Fork](https://help.github.com/forking) the [main Angular repository](https://github.com/angular/angular).<br />- Clone your fork of the Angular repository and define an `upstream` remote pointing back to the Angular repository that you forked in the first place.<br />```<br /># Clone your GitHub repository:<br />git clone git@github.com:<github username>/angular.git<br /># Go to the Angular directory:<br />cd angular<br /># Add the main Angular repository as an upstream remote to your repository:<br />git remote add upstream https://github.com/angular/angular.git<br />```",
+        "Install Dependencies": "### Installing NPM Modules<br />Next, install the JavaScript modules needed to build and test Angular:<br />```<br /># Install Angular project dependencies (package.json)<br />yarn install<br />```",
+        "Build Angular": "### Building<br />To build Angular run:<br />```<br />yarn build<br />```<br />- Results are put in the `dist/packages-dist` folder.",
+        "Run Tests Locally": "### Running Tests Locally<br />Bazel is used as the primary tool for building and testing Angular. To see how to run and debug Angular tests locally please refer to the Bazel [Testing Angular](./building-with-bazel.md#testing-angular) section. Note that you should execute all test suites before submitting a PR to GitHub (`yarn test //packages/...`). However, affected tests will be executed on our CI infrastructure. So if you forgot to run some affected tests which would fail, GitHub will indicate the error state and present you the failures. PRs can only be merged if the code is formatted properly and all tests are passing.",
+        "Test Changes Locally": "### Testing changes against a local library/project<br />Often for developers the best way to ensure the changes they have made work as expected is to run use changes in another library or project. To do this developers can build Angular locally, and using `yarn link` build a local project with the created artifacts. This can be done by running:<br />```<br />yarn ng-dev misc build-and-link <path-to-local-project-root><br />```",
+        "Disable Cache": "### Building and serving a project Cache<br />When making changes to Angular packages and testing in a local library/project you need to run `ng cache disable` to disable the Angular CLI disk cache. If you are making changes that are not reflected in your locally served library/project, verify if you have [CLI Cache](https://angular.io/guide/workspace-config#cache-options) disabled.<br />**Invoking the Angular CLI**<br />The Angular CLI needs to be invoked using Node.js [--preserve-symlinks](https://nodejs.org/api/cli.html#--preserve-symlinks) flag. Otherwise the symbolic links will be resolved using their real path which causes node module resolution to fail.<br />```<br />node --preserve-symlinks --preserve-symlinks-main node_modules/@angular/cli/lib/init.js serve<br />```",
+        "Format Source Code": "### Formatting your source code<br />Angular uses [prettier](https://prettier.io) to format the source code. If the source code is not properly formatted, the CI will fail and the PR cannot be merged. You can automatically format your code by running:<br />- `yarn ng-dev format changed [shaOrRef]`: format only files changed since the provided sha/ref. `shaOrRef` defaults to `main`.<br />- `yarn ng-dev format all`: format all source code<br />- `yarn ng-dev format files <files..>`: format only provided files",
+        "Lint Source Code": "### Linting/verifying your Source Code<br />You can check that your code is properly formatted and adheres to coding style by running:<br />```<br />$ yarn lint<br />```",
+        "Publish Snapshot Builds": "### Publishing Snapshot Builds<br />When a build of any branch on the upstream fork angular/angular is green on CI, it automatically publishes build artifacts to repositories in the Angular org. For example, the `@angular/core` package is published to [https://github.com/angular/core-builds](https://github.com/angular/core-builds). You may find that your un-merged change needs some validation from external participants. Rather than requiring them to pull your Pull Request and build Angular locally, they can depend on snapshots of the Angular packages created based on the code in the Pull Request.<br />**Publishing to GitHub Repos**<br />You can also manually publish `*-builds` snapshots just like our CI build does for upstream builds. Before being able to publish the packages, you need to build them locally by running the `yarn build` command. First time, you need to create the GitHub repositories:<br />```<br />$ export TOKEN=[get one from https://github.com/settings/tokens]<br />$ CREATE_REPOS=1 ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />For subsequent snapshots, just run:<br />```<br />$ ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />The script will publish the build snapshot to a branch with the same name as your current branch, and create it if it doesn't exist.",
+        "Bazel Support": "### Bazel Support IDEs<br />**VS Code**<br />- Install [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) extension for VS Code.<br />**WebStorm / IntelliJ**<br />- Install the [Bazel](https://plugins.jetbrains.com/plugin/8609-bazel) plugin<br />- You can find the settings under `Preferences-> Other Settings->Bazel Settings`<br />It will automatically recognize `*.bazel` and `*.bzl` files.<br />**Remote Build Execution and Remote Caching**<br />Bazel builds in the Angular repository use a shared cache. When a build occurs, a hash of the inputs is computed and checked against available outputs in the shared cache. If an output is found, it is used as the output for the build action rather than performing the build locally. Remote Build Execution requires authentication as a google.com account.<br />**--config=remote flag**<br />The `--config=remote` flag can be added to enable remote execution of builds.",
+        "Working with fixup commits": "This document provides information and guidelines for working with fixup commits:<br />- [This blog post](https://thoughtbot.com/blog/autosquashing-git-commits) is also a good resource on the subject.",
+        "What are fixup commits": "At their core, fixup commits are just regular commits with a special commit message: The first line of their commit message starts with \"fixup! \" (notice the space after \"!\") followed by the first line of the commit message of an earlier commit (it doesn't have to be the immediately preceding one). The purpose of a fixup commit is to modify an earlier commit. I.e. it allows adding more changes in a new commit, but \"marking\" them as belonging to an earlier commit. `Git` provides tools to make it easy to squash fixup commits into the original commit at a later time (see for details).<br />For example, let's assume you have added the following commits to your branch:<br />```<br />feat: first commit<br />fix: second commit<br />```<br />If you want to add more changes to the first commit, you can create a new commit with the commit message: `fixup! feat: first commit`:<br />```<br />feat: first commit<br />fix: second commit<br />fixup! feat: first commit<br />```",
+        "Why use fixup commits": "So, when are fixup commits useful? During the life of a Pull Request, a reviewer might request changes. The Pull Request author can make the requested changes and submit them for another review. Normally, these changes should be part of one of the original commits of the Pull Request. However, amending an existing commit with the changes makes it difficult for the reviewer to know exactly what has changed since the last time they reviewed the Pull Request. Here is where fixup commits come in handy. By addressing review feedback in fixup commits, you make it very straightforward for the reviewer to see what are the new changes that need to be reviewed and verify that their earlier feedback has been addressed. This can save a lot of effort, especially on larger Pull Requests (where having to re-review all the changes is pretty wasteful). When the time comes to merge the Pull Request into the repository, the merge script knows how to automatically squash fixup commits with the corresponding regular commits.",
+        "Creating fixup commits": "As mentioned, the only thing that differentiates a fixup commit from a regular commit is the commit message. You can create a fixup commit by specifying an appropriate commit message (i.e. `fixup! <original-commit-message-subject>`). In addition, the `git` command-line tool provides an easy way to create a fixup commit via [git commit --fixup](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupltcommitgt):<br />```<br /># Create a fixup commit to fix up the last commit on the branch:<br />git commit --fixup HEAD<br />...<br /># Create a fixup commit to fix up commit with SHA <COMMIT_SHA>:<br />git commit --fixup <COMMIT_SHA><br />...<br />```",
+        "Squashing fixup commits": "As mentioned above, the merge script will automatically squash fixup commits. However, sometimes you might want to manually squash a fixup commit.<br />Rebasing to squash fixup commits<br />The easiest way to re-order and squash any commit is via [rebasing interactively](https://git-scm.com/docs/git-rebase#_interactive_mode). You move a commit right after the one you want to squash it into in the rebase TODO list and change the corresponding action from `pick` to `fixup`. `Git` can do all these automatically for you if you pass the `--autosquash` option to `git rebase`. See the [git docs](https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash) for more details.<br />Additional options<br />You may like to consider some optional configurations:<br />Configuring `git` to auto-squash by default<br />By default, `git` will not automatically squash fixup commits when interactively rebasing. If you prefer to not have to pass the `--autosquash` option every time, you can change the default behavior by setting the `rebase.autoSquash` `git` config option to true. See the [git docs](https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt-rebaseautoSquash) for more details. If you have `rebase.autoSquash` set to true, you can pass the `--no-autosquash` option to `git rebase` to override and disable this setting.",
+        "Setup Development Environment#1": "### Building and Testing Angular<br />This document describes how to set up your development environment to build and test Angular. It also explains the basic mechanics of using `git`, `node`, and `yarn`.<br />",
+        "Contribution Guidelines": "### Contribution Guidelines<br />See the [contribution guidelines](https://github.com/angular/angular/blob/main/CONTRIBUTING.md) if you'd like to contribute to Angular.<br />",
+        "Prerequisite Software": "### Prerequisite Software<br />Before you can build and test Angular, you must install and configure the following on your development machine:<br />- [Git](https://git-scm.com/) and/or the [GitHub app](https://desktop.github.com/) (for Mac and Windows); [GitHub's Guide to Installing Git](https://help.github.com/articles/set-up-git) is a good source of information. Windows Users: Git Bash or an equivalent shell is required. Windows Powershell and cmd shells are not supported [#46780](https://github.com/angular/angular/issues/46780) so some commands might fail.<br />- [Node.js](https://nodejs.org), (version specified in [.nvmrc](../.nvmrc)) which is used to run a development web server, run tests, and generate distributable files. `.nvmrc` is read by [nvm](https://github.com/nvm-sh/nvm) commands like `nvm install` and `nvm use`.<br />- [Yarn](https://yarnpkg.com) (version specified in the engines field of [package.json](../package.json)) which is used to install dependencies.<br />- On Windows: [MSYS2](https://www.msys2.org/) which is used by Bazel. Follow the [instructions](https://bazel.build/install/windows#installing-compilers-and-language-runtimes).<br />",
+        "Fork and Clone Repository#1": "### Getting the Sources<br />Fork and clone the Angular repository:<br />- Login to your GitHub account or create one by following the instructions given [here](https://github.com/signup/free).<br />- [Fork](https://help.github.com/forking) the [main Angular repository](https://github.com/angular/angular).<br />- Clone your fork of the Angular repository and define an `upstream` remote pointing back to the Angular repository that you forked in the first place.<br />```<br /># Clone your GitHub repository:<br />git clone git@github.com:<github username>/angular.git<br /># Go to the Angular directory:<br />cd angular<br /># Add the main Angular repository as an upstream remote to your repository:<br />git remote add upstream https://github.com/angular/angular.git<br />```<br />",
+        "Install Dependencies#1": "### Installing NPM Modules<br />Next, install the JavaScript modules needed to build and test Angular:<br />```<br /># Install Angular project dependencies (package.json)<br />yarn install<br />```<br />",
+        "Build Angular#1": "### Building<br />To build Angular run:<br />```<br />yarn build<br />```<br />- Results are put in the `dist/packages-dist` folder.<br />",
+        "Run Tests Locally#1": "### Running Tests Locally<br />Bazel is used as the primary tool for building and testing Angular. To see how to run and debug Angular tests locally please refer to the Bazel [Testing Angular](./building-with-bazel.md#testing-angular) section. Note that you should execute all test suites before submitting a PR to GitHub (`yarn test //packages/...`). However, affected tests will be executed on our CI infrastructure. So if you forgot to run some affected tests which would fail, GitHub will indicate the error state and present you the failures. PRs can only be merged if the code is formatted properly and all tests are passing.<br />",
+        "Test Changes Locally#1": "### Testing changes against a local library/project<br />Often for developers, the best way to ensure the changes they have made work as expected is to run use changes in another library or project. To do this developers can build Angular locally, and using `yarn link` build a local project with the created artifacts. This can be done by running:<br />```<br />yarn ng-dev misc build-and-link <path-to-local-project-root><br />```<br />",
+        "Disable Cache#1": "### Building and serving a project Cache<br />When making changes to Angular packages and testing in a local library/project you need to run `ng cache disable` to disable the Angular CLI disk cache. If you are making changes that are not reflected in your locally served library/project, verify if you have [CLI Cache](https://angular.io/guide/workspace-config#cache-options) disabled.<br />",
+        "Invoke Angular CLI": "### Invoking the Angular CLI<br />The Angular CLI needs to be invoked using Node.js [--preserve-symlinks](https://nodejs.org/api/cli.html#--preserve-symlinks) flag. Otherwise, the symbolic links will be resolved using their real path which causes node module resolution to fail.<br />```<br />node --preserve-symlinks --preserve-symlinks-main node_modules/@angular/cli/lib/init.js serve<br />```<br />",
+        "Format Source Code#1": "### Formatting your source code<br />Angular uses [prettier](https://prettier.io) to format the source code. If the source code is not properly formatted, the CI will fail and the PR cannot be merged. You can automatically format your code by running:<br />- `yarn ng-dev format changed [shaOrRef]`: format only files changed since the provided sha/ref. `shaOrRef` defaults to `main`.<br />- `yarn ng-dev format all`: format all source code<br />- `yarn ng-dev format files <files..>`: format only provided files<br />",
+        "Lint Source Code#1": "### Linting/verifying your Source Code<br />You can check that your code is properly formatted and adheres to coding style by running:<br />```<br />$ yarn lint<br />```<br />",
+        "Publish Snapshot Builds#1": "### Publishing Snapshot Builds<br />When a build of any branch on the upstream fork angular/angular is green on CI, it automatically publishes build artifacts to repositories in the Angular org. For example, the `@angular/core` package is published to [https://github.com/angular/core-builds](https://github.com/angular/core-builds). You may find that your un-merged change needs some validation from external participants. Rather than requiring them to pull your Pull Request and build Angular locally, they can depend on snapshots of the Angular packages created based on the code in the Pull Request.<br />Publishing to GitHub Repos<br />You can also manually publish `*-builds` snapshots just like our CI build does for upstream builds. Before being able to publish the packages, you need to build them locally by running the `yarn build` command. First time, you need to create the GitHub repositories:<br />```<br />$ export TOKEN=[get one from https://github.com/settings/tokens]<br />$ CREATE_REPOS=1 ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />For subsequent snapshots, just run:<br />```<br />$ ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />The script will publish the build snapshot to a branch with the same name as your current branch, and create it if it doesn't exist.<br />",
+        "Bazel Support#1": "### Bazel Support IDEs<br />VS Code<br />- Install [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) extension for VS Code.<br />WebStorm / IntelliJ<br />- Install the [Bazel](https://plugins.jetbrains.com/plugin/8609-bazel) plugin<br />- You can find the settings under `Preferences-> Other Settings->Bazel Settings`<br />It will automatically recognize `*.bazel` and `*.bzl` files.<br />Remote Build Execution and Remote Caching<br />Bazel builds in the Angular repository use a shared cache. When a build occurs, a hash of the inputs is computed and checked against available outputs in the shared cache. If an output is found, it is used as the output for the build action rather than performing the build locally. Remote Build Execution requires authentication as a google.com account.<br />--config=remote flag<br />The `--config=remote` flag can be added to enable remote execution of builds.<br />"
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to angular",
+                    "target": "Contributing to Angular"
+                },
+                {
+                    "source": "Contributing to Angular",
+                    "target": "Code of Conduct"
+                },
+                {
+                    "source": "Code of Conduct",
+                    "target": "Questions or Problems"
+                },
+                {
+                    "source": "Questions or Problems",
+                    "target": "Found a Bug"
+                },
+                {
+                    "source": "Found a Bug",
+                    "target": "Missing a Feature"
+                },
+                {
+                    "source": "Missing a Feature",
+                    "target": "Submission Guidelines"
+                },
+                {
+                    "source": "Submission Guidelines",
+                    "target": "Reviewing a Pull Request"
+                }
+            ],
+            "sequence": "No categories identified."
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to angular",
+                    "target": "Submitting a Pull Request"
+                },
+                {
+                    "source": "Submitting a Pull Request",
+                    "target": "Addressing Review Feedback"
+                },
+                {
+                    "source": "Addressing Review Feedback",
+                    "target": "Updating the Commit Message"
+                },
+                {
+                    "source": "Updating the Commit Message",
+                    "target": "After Your Pull Request is Merged"
+                },
+                {
+                    "source": "After Your Pull Request is Merged",
+                    "target": "Commit Message Format"
+                },
+                {
+                    "source": "Commit Message Format",
+                    "target": "Commit Message Header"
+                },
+                {
+                    "source": "Commit Message Header",
+                    "target": "Commit Message Body"
+                },
+                {
+                    "source": "Commit Message Body",
+                    "target": "Commit Message Footer"
+                },
+                {
+                    "source": "Commit Message Footer",
+                    "target": "Revert Commits"
+                },
+                {
+                    "source": "Revert Commits",
+                    "target": "Signing the CLA"
+                },
+                {
+                    "source": "Submitting a Pull Request",
+                    "target": "Setup Development Environment",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Setup Development Environment",
+                    "target": "Fork and Clone Repository",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Fork and Clone Repository",
+                    "target": "Install Dependencies",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Install Dependencies",
+                    "target": "Build Angular",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Build Angular",
+                    "target": "Run Tests Locally",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Run Tests Locally",
+                    "target": "Test Changes Locally",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Test Changes Locally",
+                    "target": "Disable Cache",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Disable Cache",
+                    "target": "Format Source Code",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Format Source Code",
+                    "target": "Lint Source Code",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Lint Source Code",
+                    "target": "Publish Snapshot Builds",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Publish Snapshot Builds",
+                    "target": "Bazel Support",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Addressing Review Feedback",
+                    "target": "Working with fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "Working with fixup commits",
+                    "target": "What are fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "What are fixup commits",
+                    "target": "Why use fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "Why use fixup commits",
+                    "target": "Creating fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "Creating fixup commits",
+                    "target": "Squashing fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                }
+            ],
+            "sequence": "SC \u2013 Submit the changes"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to angular",
+                    "target": "Coding Rules"
+                },
+                {
+                    "source": "Coding Rules",
+                    "target": "Setup Development Environment#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Setup Development Environment#1",
+                    "target": "Contribution Guidelines",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Contribution Guidelines",
+                    "target": "Prerequisite Software",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Prerequisite Software",
+                    "target": "Fork and Clone Repository#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Fork and Clone Repository#1",
+                    "target": "Install Dependencies#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Install Dependencies#1",
+                    "target": "Build Angular#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Build Angular#1",
+                    "target": "Run Tests Locally#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Run Tests Locally#1",
+                    "target": "Test Changes Locally#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Test Changes Locally#1",
+                    "target": "Disable Cache#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Disable Cache#1",
+                    "target": "Invoke Angular CLI",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Invoke Angular CLI",
+                    "target": "Format Source Code#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Format Source Code#1",
+                    "target": "Lint Source Code#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Lint Source Code#1",
+                    "target": "Publish Snapshot Builds#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Publish Snapshot Builds#1",
+                    "target": "Bazel Support#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                }
+            ],
+            "sequence": "DC \u2013 Deal with the code"
+        }
+    ]
+}

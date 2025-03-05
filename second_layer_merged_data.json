@@ -1,370 +1,343 @@
 {
     "content": {
-        "Getting Started": "### Contributing to Flutter<br />**tl;dr:** Join [Discord](./docs/contributing/Chat.md), be [courteous](CODE_OF_CONDUCT.md), follow the steps below to set up a development environment; if you stick around and contribute, you can [join the team](./docs/contributing/Contributor-access.md) and get commit access.<br /><br />### Welcome<br />We invite you to join the Flutter team, which is made up of volunteers and sponsored folk alike! There are many ways to contribute, including writing code, filing issues on GitHub, helping people on our mailing lists, our chat channels, or on Stack Overflow, helping to triage, reproduce, or fix bugs that people have filed, adding to our documentation, doing outreach about Flutter, or helping out in any other way. We grant commit access (which includes full rights to the issue database, such as being able to edit labels) to people who have gained our trust and demonstrated a commitment to Flutter. For more details see the [Contributor access](./docs/contributing/Contributor-access.md) page in our docs. We communicate primarily over GitHub and [Discord](./docs/contributing/Chat.md). Before you get started, we encourage you to read these documents which describe some of our community norms:<br />- [Our code of conduct](CODE_OF_CONDUCT.md), which stipulates explicitly that everyone must be gracious, respectful, and professional. This also documents our conflict resolution policy and encourages people to ask questions.<br />- [Values](./docs/about/Values.md), which talks about what we care most about.",
-        "Issue Triage": "### Helping out in the issue database<br />Triage is the process of going through bug reports and determining if they are valid, finding out how to reproduce them, catching duplicate reports, and generally making our issues list useful for our engineers. If you want to help us triage, you are very welcome to do so!<br />- Join the #hackers-triage [Discord channel](./docs/contributing/Chat.md).<br />- Read [our code of conduct](CODE_OF_CONDUCT.md), which stipulates explicitly that everyone must be gracious, respectful, and professional. If you're helping out with triage, you are representing the Flutter team, and so you want to make sure to make a good impression!<br />- Help out as described in our [triage guide](./docs/triage/README.md).<br />You won't be able to add labels at first, so instead start by trying to do the other steps, e.g. trying to reproduce the problem and asking for people to provide enough details that you can reproduce the problem, pointing out duplicates, and so on. Chat on the #hackers-triage channel to let us know what you're up to!<br />- Familiarize yourself with our [issue hygiene](./docs/contributing/issue_hygiene/README.md) wiki page, which covers the meanings of some important GitHub labels and milestones.<br />- Once you've been doing this for a while, someone will invite you to the flutter-hackers team on GitHub and you'll be able to add labels too. See the [contributor access](./docs/contributing/Contributor-access.md) wiki page for details.",
-        "Quality Assurance": "### Quality Assurance<br />One of the most useful tasks, closely related to triage, is finding and filing bug reports. Testing beta releases, looking for regressions, creating test cases, adding to our test suites, and other work along these lines can really drive the quality of the product up. Creating tests that increase our test coverage, writing tests for issues others have filed, all these tasks are really valuable contributions to open source projects. If this interests you, you can jump in and submit bug reports without needing anyone's permission! The #quality-assurance channel on our [Discord server](./docs/contributing/Chat.md) is a good place to talk about what you're doing. We're especially eager for QA testing when we announce a beta release. See [quality assurance](./docs/releases/Quality-Assurance.md) for more details. If you want to contribute test cases, you can also submit PRs. See the next section for how to set up your development environment, or ask in #hackers-test on Discord. As a personal side note, this is exactly the kind of work that first got me into open source. I was a Quality Assurance volunteer on the Mozilla project, writing test cases for browsers, long before I wrote a line of code for any open source project. \u2014Hixie",
-        "Development": "### Developing for Flutter<br />If you prefer to write code, consider starting with the list of good first issues for [Flutter](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or for [Flutter DevTools](https://github.com/flutter/devtools/labels/good%20first%20issue). Reference the respective sections below for further instructions.<br /><br />#### Framework and Engine<br />To develop for Flutter, you will eventually need to become familiar with our processes and conventions. This section lists the documents that describe these methodologies. The following list is ordered: you are strongly recommended to go through these documents in the order presented.<br />- [Setting up your engine development environment](./engine/src/flutter/docs/contributing/Setting-up-the-Engine-development-environment.md), which describes the steps you need to configure your computer to work on Flutter's engine. If you only want to write code for the Flutter framework, you can skip this step. Flutter's engine mainly uses C++, Java, and Objective-C.<br />- [Setting up your framework development environment](./docs/contributing/Setting-up-the-Framework-development-environment.md), which describes the steps you need to configure your computer to work on Flutter's framework. Flutter's framework mainly uses Dart.<br />- [Tree hygiene](./docs/contributing/Tree-hygiene.md), which covers how to land a PR, how to do code review, how to handle breaking changes, how to handle regressions, and how to handle post-commit test failures.<br />- [Our style guide](./docs/contributing/Style-guide-for-Flutter-repo.md), which includes advice for designing APIs for Flutter, and how to format code in the framework.<br />- [Flutter design doc template](https://flutter.dev/go/template), which should be used when proposing a new technical design. This is a good practice to do before coding more intricate changes. See also our [guidance for writing design docs](./docs/contributing/Design-Documents.md).<br />In addition to the documents, there is a video linked above on How to contribute to Flutter from the [Flutter](https://youtube.com/c/flutterdev) YouTube channel, there are many pages in [our docs](./docs/README.md), and an article [Contributing to Flutter: Getting Started](https://medium.com/@ayushbherwani/contributing-to-flutter-getting-started-a0db68cbcd5b) on Medium that may be of interest. For a curated list of pages see the sidebar on the wiki's home page. They are more or less listed in order of importance.<br /><br />#### DevTools<br />Contributing code to Dart & Flutter DevTools may be a good place to start if you are looking to dip your toes into contributing with a relatively low-cost setup or if you are generally excited about improving the Dart & Flutter developer experience. Please see the DevTools [CONTRIBUTING.md](https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md) guide to get started.",
-        "Helping with PRs": "### Helping with existing PRs<br />Once you've learned the process of contributing, if you aren't sure what to work on next you might be interested in helping other developers complete their contributions by picking up an incomplete patch from the list of [issues with partial patches](https://github.com/flutter/flutter/labels/has%20partial%20patch).",
-        "Outreach": "### Outreach<br />If your interests lie in the direction of developer relations and developer outreach, whether advocating for Flutter, answering questions in fora like [Stack Overflow](https://stackoverflow.com/questions/tagged/flutter?sort=Newest&filters=NoAnswers,NoAcceptedAnswer&edited=true) or [Reddit](https://www.reddit.com/r/flutterhelp/new/?f=flair_name%3A%22OPEN%22), or creating content for our [documentation](https://docs.flutter.dev/) or sites like [YouTube](https://www.youtube.com/results?search_query=flutter&sp=EgQIAxAB), the best starting point is to join the #hackers-devrel [Discord channel](./docs/contributing/Chat.md). From there, you can describe what you're interested in doing, and go ahead and do it! As others become familiar with your work, they may have feedback, be interested in collaborating, or want to coordinate their efforts with yours.",
-        "API Documentation": "### API documentation<br />Another great area to contribute in is sample code and API documentation. If this is an area that interests you, join our [Discord](./docs/contributing/Chat.md) server and introduce yourself on the #hackers-devrel, #hackers-framework, or #hackers-engine channels, describing your area of interest. As our API docs are integrated into our source code, see the \"developing for Flutter\" section above for a guide on how to set up your developer environment. To contribute API documentation, an excellent command of the English language is particularly helpful, as is a careful attention to detail. We have a [whole section in our style guide](./docs/contributing/Style-guide-for-Flutter-repo.md#documentation-dartdocs-javadocs-etc) that you should read before you write API documentation. It includes notes on the \"Flutter Voice\", such as our word and grammar conventions. In general, a really productive way to improve documentation is to use Flutter and stop any time you have a question: find the answer, then document the answer where you first looked for it. We also keep [a list of areas that need better API documentation](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22d%3A+api+docs%22+sort%3Areactions-%2B1-desc). In many cases, we have written down what needs to be said in the relevant issue, we just haven't gotten around to doing it! We're especially eager to add sample code and diagrams to our API documentation. Diagrams are generated from Flutter code that draws to a canvas, and stored in a [special repository](https://github.com/flutter/assets-for-api-docs/#readme). It can be a lot of fun to create new diagrams for the API docs.",
-        "Releases": "### Releases<br />If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases channel of our [Discord](./docs/contributing/Chat.md) server.",
-        "Community Events": "### Social events in the contributor community<br />Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself. This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example. If this is an area that is of interest to you, please join our [Discord](./docs/contributing/Chat.md) and ping Hixie on the #hackers channel!",
-        "Commit Access": "For people who make the occasional contribution to Flutter (filing an issue, submitting the occasional PR, chatting on Discord), the default set of permissions is fine. However, if you are a frequent contributor, whether helping us in triage, or often fixing bugs, or regularly improving our documentation, or regularly helping others in our #help channel, or participating in high-level design discussions and prioritization, you may find your life is more pleasant with commit access (also known as \"contributor access\", \"being a member of the flutter-hackers group\", \"being a member of the Flutter team\"). We grant commit access (which includes full rights to the issue database, such as being able to edit labels, and grants access to our internal chat channels) to people who have gained our trust and demonstrated a commitment to Flutter. Specifically, if you meet one of the following criteria and you have a sponsor (someone who already has contributor access and agrees that you should be granted access), then please ask your sponsor to propose, on the #server-support [Chat](Chat.md) channel, that you be made a member of the team, and then reply to that message explaining which criteria below you are claiming to meet.<br />",
-        "Criteria for Access": "The possible criteria are:<br />- You have a long history of participating productively, e.g. in our [Chat](Chat.md) channels, helping with [Triage](../triage/README.md), helping other contributors track down problems, finding meaningful issues in submitted PRs, helping people in our #help channel, etc, all while demonstrating exemplary behavior that closely aligns with our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md).<br />- You have recently submitted several PRs that have landed successfully (received an LGTM, PR was merged, no regressions reported, PR was not reverted), without needing extensive tutoring in the process.<br />- You are employed by a company with a history of contributing to Flutter, for the purpose of yourself regularly contributing to Flutter.<br />- You represent a development team that creates applications, plugins, or packages using Flutter and have a close relationship with our developer relations team, including having a customer label, and have a great need to regularly update labels on issues (see [Issue hygiene, Customers](./issue_hygiene/README.md#customers)). (This is rare.)<br />",
-        "Responsibilities": "Being granted access means that you will be added to the \"flutter-hackers\" group on GitHub and the \"team\" role on Discord. This privilege is granted with some expectation of responsibility: contributors are people who care about Flutter and want to help Flutter along our [roadmap](../roadmap/Roadmap.md). A contributor is not just someone who can make changes or comment on issues, but someone who has demonstrated their ability to collaborate with the team, get the most knowledgeable people to review code, contribute high-quality code, follow through to fix bugs (in code or tests), and provide meaningful insights on issues. We grant access optimistically based on a reasonably small volume of evidence of good faith. Correspondingly, we will remove access quickly if we find our trust has been violated. Contributors with commit access must still follow all our processes and policies, and must follow our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) rigorously. (Please read it, it's stricter than most.)<br />",
-        "Code of Conduct": "Responsibilities Code of conduct If you have commit access or \"team\" access on the Discord server, you are responsible for enforcing our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md). Our code of conduct is much, much stricter than most. We do not wait until someone has been actively rude or insulting. Being disrespectful in any way is grounds for action. For example, passive-aggressive whining and general unconstructive negativity are all violations of the code of conduct. If someone is in a bad mood, we would rather they avoided contributing to Flutter on that day. When you see something that might be described as unwelcoming or is in some other way a violation of our code of conduct, promptly contact the offender and ask them to read the code of conduct and consider how they might more effectively espouse its philosophy.<br />",
-        "Handling Violations": "Most people react very positively to this. If they react negatively, or if they continue to make the environment unpleasant, they should be removed from the environment. On Discord, this would be kicking them from the channel. Repeat offenders should be banned. On GitHub, they can be blocked from our organisation (you may need to ask @Hixie or another admin of our GitHub org to do this). Please let the #server-support [Chat](Chat.md) channel know when you do anything like this, so that we can keep an eye on how common it is.<br />",
-        "Documentation": "Maintaining documentation Part of being a contributor is making sure our documentation is up to date, including our internal (team-facing) documentation such as this wiki.<br />",
-        "Fixing Documentation": "If you spot something wrong, please fix it! As a contributor, you have access to the wiki.<br />",
-        "Privileges": "Privileges Being in the GitHub \"flutter-hackers\" group gives you the following:<br />- The ability to merge your own PRs once they are reviewed (see [Tree Hygiene](Tree-hygiene.md)).<br />- The ability to add labels, milestones, etc, on issues on GitHub (see [Issue Hygiene](./issue_hygiene/README.md)).<br />- PRs will run their tests slightly faster.<br />",
-        "Discord Privileges": "Being in the Discord \"team\" group gives you the following:<br />- The ability to talk without rate-limiting on the #hackers-* channels.<br />- The ability to kick people.<br />- The ability to manage the server emoji.<br />",
-        "Process": "Process The actual process (as followed by Flutter repo admins) is as follows:<br />- Verify that they qualify under all the terms described above. Make sure they have a sponsor who isn't you.<br />- Verify the identity of the person making the request. Ask them to confirm, on Discord, that they have read the style guide, issue or tree hygiene wiki page, code of conduct, and other documents relevant to them.<br />- Add them to our private spreadsheet (go/flutter-organization-members).<br />- Click the \"Add a member\" button on [the flutter-hackers team page](https://github.com/orgs/flutter/teams/flutter-hackers/members) on GitHub.<br />- Type their name in the text field, select them, then click the \"Invite\" button.<br />- Add them to the \"team\" group on Discord. Be sure to verify that you are promoting the right person; multiple people can have the same nickname on Discord!<br />",
-        "New Googlers": "For new Googlers joining the team: You need to ask someone in the team to add you to get added. It's not an automatic process after you join the flutter Google group.<br />",
-        "Inactivity": "Inactivity We occasionally check for account with commit access that have not been used for a while. It takes very little to count as \"active\" (e.g. commenting on an issue, even adding an emoji reaction to an issue). If your account has been inactive for over a year we will try to reach out (e.g. by e-mail or on Discord) before removing access. If your account access was removed but you wish to return to contributing to Flutter, you are most welcome to do so; just reach out on the Discord (see [Chat](Chat.md)) and ask someone to renominate you according to the process described above.<br />",
-        "Flutter Dashboard Access": "Access rights to Flutter dashboard The [Flutter dashboard](https://flutter-dashboard.appspot.com/) shows what recently landed and what tests passed or failed with those commits. To see rerun tasks, you need to be added to an allowlist. Anyone with commit access is eligible to be added to that allowlist, but only certain team members have the permissions required to update the backend database where the permissions are stored. To get access, ask on #hackers-infra to be added to the allowlist.<br />",
-        "Adding to Flutter Dashboard": "Adding a contributor to Flutter Dashboard This is only for team members with access to the Flutter Dashboard Datastore.<br />- Open [flutter-dashboard datastore](https://console.cloud.google.com/datastore/entities;kind=AllowedAccount;ns=__$DEFAULT$__/query/kind?project=flutter-dashboard)<br />- Click `Create Entity`<br />- Click `Email: Empty` -> Edit property. Insert contributor Google account<br />- Click `Create`<br />",
-        "LUCI Access": "Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs. Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)<br />",
-        "Flutter Gold Access": "Access to Flutter Gold If you need access to triage images in [Flutter Gold](https://flutter-gold.skia.org/), you need to be added as an authorized user. Users in the `@google.com` domain are already authorized to use Flutter Gold, but `@gmail.com` addresses can also be added to the allow list.<br />",
-        "Flutter Gold Process": "Process The list of authorized users is maintained in the [skia build-bot repository](https://skia.googlesource.com/buildbot), in [this file](https://skia.googlesource.com/buildbot/+/refs/heads/main/golden/k8s-instances/flutter/flutter-skiacorrectness.json5). Googlers can submit a change to add to the authorized users. This repository is also [mirrored on GitHub.](https://github.com/google/skia-buildbot)<br />",
-        "fcontrib.org Accounts": "fcontrib.org accounts If you are a team member who wants to share design docs (see [Chat](Chat.md)) but you don't want to use your own personal account, you can ask a Flutter admin for an fcontrib.org account. Ping @Hixie or another admin in the #server-support channel on Discord.<br />",
-        "fcontrib.org Process": "Process You\u2019ll need the user\u2019s email account somewhere else, first and last name, and desired fcontrib.org account login before you begin. To add a fcontrib.org participant:<br />- Open an incognito window and log in using your admin fcontrib credentials at [https://admin.google.com/](https://admin.google.com/). (q.v. valentine)<br />- Under \u201cUsers\u201d in the upper left of the main content area, click \u201cAdd a User\u201d and follow the prompts.<br />- For a password, choose \u201cGenerate Password\u201d and email the password to the new account holder using their non-fcontrib account -- they\u2019ll be able to log in with that and then choose a new password.<br />",
-        "Review Teams": "Review teams Some parts of the codebase have teams specified so that PRs get round-robin assigned for review. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). We currently have the following review teams:<br />- [android-reviewers](https://github.com/orgs/flutter/teams/android-reviewers): for folks working on the Android port of Flutter; use `#hackers-android` for discussions.<br />- [devtools-reviewers](https://github.com/orgs/flutter/teams/devtools-reviewers): for the [devtools](https://github.com/flutter/devtools) repo; use `#hackers-devexp` for discussions.<br />- [website-reviewers](https://github.com/orgs/flutter/teams/website-reviewers): for folks working on [www.flutter.dev](http://www.flutter.dev) and docs.flutter.dev; use `#hackers-devrel` for discussions. To create a new team, contact @Hixie. You will also need to create a `CODEOWNERS` file to actually trigger the review assignment.<br />",
-        "Pusher Permissions": "Pusher permissions Some branches are protected to avoid accidents. Only people in the specific branches can push to them. Anyone can ask to be added or removed from these groups, they exist only to reduce accidents, not for security. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). The following groups have been defined for these purposes: pushers-beta, pushers-fuchsia<br />",
-        "Chatting on Discord": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
-        "Existing channels": "We have different channels for different purposes (this list is not exhaustive):<br />**Channel Description Participants**<br />#welcome Welcome message. Only admins can post. Anyone can read.<br />#announcements Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />#server-support Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />#general Chat about anything related to Flutter. Anyone.<br />#help People asking for our help. Anyone.<br />#package-authors For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />#dart Questions about the Dart language. Anyone.<br />#tree-status Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />#hackers Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />#hackers-* Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />#hackers-dart Questions about the Dart language. Flutter contributors. Anyone can watch.<br />#hackers-new New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />#hackers-triage For use while triaging bugs. Flutter contributors. Anyone can watch.<br />#hidden-chat Chat about anything related to Flutter. Flutter contributors only. Not public.<br />general (voice) Talk (audio) about anything related to Flutter. Anyone.<br />team (voice) Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
-        "New channels": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
-        "Policies": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
-        "Discord features": "Threading Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. Status You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
-        "Design documents": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
-        "Code of Conduct#1": "**Code of Conduct**<br />The Flutter project expects Flutter's contributors to act professionally and respectfully. Flutter contributors are expected to maintain the safety and dignity of Flutter's social environments (such as GitHub and Discord).<br /><br />Specifically:<br />- Respect people, their identities, their culture, and their work.<br />- Be kind. Be courteous. Be welcoming.<br />- Listen. Consider and acknowledge people's points before responding.<br /><br />Should you experience anything that makes you feel unwelcome in Flutter's community, please contact [conduct@flutter.dev](mailto:conduct@flutter.dev) or, if you prefer, directly contact someone on the project, for instance [Hixie](mailto:ian@hixie.ch).<br /><br />The Flutter project will not tolerate harassment in Flutter's community, even outside of Flutter's public communication channels.",
-        "Conflict Resolution": "**Conflict Resolution**<br />When multiple contributors disagree on the direction for a particular patch or the general direction of the project, the conflict should be resolved by communication. The people who disagree should get together, try to understand each other's points of view, and work to find a design that addresses everyone's concerns. This is usually sufficient to resolve issues.<br /><br />If you cannot come to an agreement, ask for the advice of a more senior member of the project. Be wary of agreement by attrition, where one person argues a point repeatedly until other participants give up in the interests of moving on. This is not conflict resolution, as it does not address everyone's concerns. Be wary of agreement by compromise, where two good competing solutions are merged into one mediocre solution. A conflict is addressed when the participants agree that the final solution is better than all the conflicting proposals. Sometimes the solution is more work than either of the proposals. [Embrace the yak shave](./docs/contributing/Style-guide-for-Flutter-repo.md#lazy-programming).",
-        "Questions": "**Questions**<br />It's always ok to ask questions. Our systems are large, and nobody will be an expert in all the systems. Once you find the answer, document it in the first place you looked. That way, the next person will be brought up to speed even quicker.<br /><br />Source: [xkcd, May 2012](https://xkcd.com/1053/)",
-        "Core Values": "### Flutter's Core Values \ud83c\udfd7\ufe0f <br /> - **Build the best way to develop user interfaces.** <br /> This tells us what we are creating. It helps narrow our focus. The best way to develop user interfaces is a productive way of developing. The best way to develop user interfaces creates beautiful applications. The best way to develop user interfaces creates fast applications. The best way to develop user interfaces enables developers to create applications fast. The best way to develop user interfaces is extensible, so that we are not a barrier to developers. <br /> - **Focus on the user and all else will follow.** <br /> Our user is the developer. Our developer's user is the end user of the application written with Flutter. Our first priority is to our developer's user, the end user. Our second priority is to our user, the developer. Caring about the end user means having high quality support for accessibility, top performance, stability, high fidelity and compatibility with the user's platform, supporting low-end devices, and so forth. Caring about the developer means creating a joyful and productive development experience with quick iteration cycles, creating usable, simple, reliable, predictable APIs, giving the developer full access to the underlying platform, and so forth.",
-        "Openness": "### Openness \ud83d\udcd6 <br /> Flutter is an open source project, in the full senses of the word: we are open to ideas, we are open to contributions, our code and our roadmap are open, our priorities are open. Transparency leads to a higher quality product. While the most active part of our team is currently primarily formed of employees from Google, we are growing and welcome anyone to join the team; at this point, the majority of people with commit access are not part of Google's Flutter team. Flutter's stewardship is managed by a team at Google.",
-        "Maintaining Quality": "### Maintaining Quality \ud83d\udcab <br /> A mediocre product cannot be the best way to develop user interfaces, so we must build processes around maintaining high levels of quality. This manifests in various ways. One is that we are feature-driven, not date-driven: we do not plan work based on deadlines. We may sometimes host events where we announce new features, but these events will announce features that have become available, rather than the features becoming available in order to be announced. This means sometimes a feature we intended to announce will slip and not be announced, but we prefer this to announcing a rushed feature. We may sometimes gate features behind flags until we are confident of their quality.",
-        "Have Fun": "### Have Fun \ud83e\udd23 <br /> Last, but definitely not least, we want to make sure that our work environment is pleasant for everyone involved. Your health and the health of your family and friends is more important than Flutter. Our community [is welcoming](../../CODE_OF_CONDUCT.md). We don't know everything; all of us can make mistakes. We want team members to feel empowered to make changes to the code and to our processes. We encourage a bias towards action. It's better to try something and be wrong, than to plan forever and never execute.",
-        "Support": "### Support <br /> When we think about whether we claim to \"support\" something, e.g. whether Flutter supports Windows 7, we use the following frame of reference. We document [which platforms we consider to fall into each category](https://docs.flutter.dev/reference/supported-platforms) on flutter.dev. <br /> **Areas of support** <br /> We distinguish several categories along which one can describe a level of support: <br /> - Supporting for deployment (we support a platform for deployment if you can run release builds of applications on that platform). <br /> - Supporting for development (we support a platform for development if you can run debug builds of applications on that platform, connect them to a debugger, hot reload, view logs, and so forth; we support a plugin for development if it can be stepped through in a debugger). <br /> - Supporting for hosting development (we support a platform for hosting development if it is one on which you can compile a Flutter application; we support an IDE for hosting development if it has a Flutter plugin). <br /> - Supporting for Flutter development (we support a platform for Flutter development if one can contribute to Flutter itself from that platform). <br /> The list of supported platforms on flutter.dev is describing the platforms supported for deployment. <br /> **Levels of support** <br /> For each area, we consider the level to which we provide support: <br /> - We will literally help you with your code if things don't work. This is very rare. (See also \"[top-tier customers](../contributing/issue_hygiene/README.md#customers)\"). <br /> - We will make a best effort to ensure that well written code works (e.g. we have testing on that platform). This is a common level for target platforms that have reached a label of \"stable\" (e.g. Android, iOS) on devices that are widely available (e.g. 64bit ARM). This corresponds to the \"Supported Google-tested platforms\" category on the list of supported platforms. <br /> - We will not go out of our way to prevent code from working, but if it works it's because of luck and our best intentions rather than a coordinated effort (e.g. we do no testing on that platform). This is a common level of support for less commonly-used devices. For example, we do minimal testing of 32bit iOS devices. This corresponds to the \"Best effort platforms tested by the community\" category on the list of supported platforms. <br /> - We will pay no attention to whether code works, but we will accept patches that are easy to reason about. This is a common level of support for the many esoteric embedded platforms that we have no way to even manually test. For example, if you have your own SoC and are running Flutter, we want you to succeed but we don't have any way to ensure it keeps working. At this level, we would not accept what we consider \"risky\" PRs, or PRs that involve significant refactorings. If you are willing to provide reliable CI support for your platform, we are more than happy to work with you to move that platform to level 2 (at which point more invasive PRs become viable). <br /> - We won't accept patches. This is the appropriate response for features and platforms that are wildly outside our roadmap. For example, maintaining a Rust port of the framework is not something the Flutter project would accept patches for. This corresponds to the \"Unsupported platforms\" category on the list of supported platforms.",
-        "Resources": "### See also \ud83d\udc99 <br /> - [Code of Conduct](../../CODE_OF_CONDUCT.md) <br /> - [Contributor Guide](../../CONTRIBUTING.md) <br /> - [Flutter's Culture of Inclusivity](https://flutter.dev/culture) <br /> - [Flutter culture and how to preserve it](https://medium.com/flutter/flutter-culture-and-how-to-preserve-it-436b4ed1031d)"
+        "Contributing to Angular": "## Contributing to Angular<br />We would love for you to contribute to Angular and help make it even better than it is today! As a contributor, here are the guidelines we would like you to follow:",
+        "Code of Conduct": "## Code of Conduct<br />Help us keep Angular open and inclusive. Please read and follow our [Code of Conduct](https://github.com/angular/code-of-conduct/blob/main/CODE_OF_CONDUCT.md).",
+        "Questions or Problems": "## Got a Question or Problem?<br />Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. Instead, we recommend using [Stack Overflow](https://stackoverflow.com/questions/tagged/angular) to ask support-related questions. When creating a new question on Stack Overflow, make sure to add the `angular` tag. Stack Overflow is a much better place to ask questions since:<br />- there are thousands of people willing to help on Stack Overflow<br />- questions and answers stay available for public viewing so your question/answer might help someone else<br />- Stack Overflow's voting system assures that the best answers are prominently visible.<br />To save your and our time, we will systematically close all issues that are requests for general support and redirect people to Stack Overflow. If you would like to chat about the question in real-time, you can reach out via [the Angular community Discord server](https://discord.gg/angular).",
+        "Found a Bug": "## Found a Bug?<br />If you find a bug in the source code, you can help us by reporting it to our [GitHub Repository](https://github.com/angular/angular). Even better, you can submit a pull request with a fix.",
+        "Missing a Feature": "## Missing a Feature?<br />You can request a new feature by submitting an issue to our GitHub Repository. If you would like to implement a new feature, please consider the size of the change in order to determine the right steps to proceed:<br />- For a Major Feature, first open an issue and outline your proposal so that it can be discussed. This process allows us to better coordinate our efforts, prevent duplication of work, and help you to craft the change so that it is successfully accepted into the project. Note: Adding a new topic to the documentation, or significantly re-writing a topic, counts as a major feature.<br />- Small Features can be crafted and directly submitted as a pull request.",
+        "Submission Guidelines": "## Submission Guidelines<br />### Submitting an Issue<br />Before you submit an issue, please search the issue tracker. An issue for your problem might already exist and the discussion might inform you of workarounds readily available. We want to fix all the issues as soon as possible, but before fixing a bug, we need to reproduce and confirm it. In order to reproduce bugs, we require that you provide a minimal reproduction. Having a minimal reproducible scenario gives us a wealth of important information without going back and forth to you with additional questions. A minimal reproduction allows us to quickly confirm a bug (or point out a coding problem) as well as confirm that we are fixing the right problem. We require a minimal reproduction to save maintainers' time and ultimately be able to fix more bugs. Often, developers find coding problems themselves while preparing a minimal reproduction. We understand that sometimes it might be hard to extract essential bits of code from a larger codebase, but we really need to isolate the problem before we can fix it. Unfortunately, we are not able to investigate / fix bugs without a minimal reproduction, so if we don't hear back from you, we are going to close an issue that doesn't have enough info to be reproduced. You can file new issues by selecting from our [new issue templates](https://github.com/angular/angular/issues/new/choose) and filling out the issue template.",
+        "Reviewing a Pull Request": "## Reviewing a Pull Request<br />The Angular team reserves the right not to accept pull requests from community members who haven't been good citizens of the community. Such behavior includes not following the [Angular code of conduct](https://github.com/angular/code-of-conduct) and applies within or outside of Angular managed channels.",
+        "Submitting a Pull Request": "### Submitting a Pull Request (PR)<br />Before you submit your Pull Request (PR) consider the following guidelines:<br />- Search [GitHub](https://github.com/angular/angular/pulls) for an open or closed PR that relates to your submission. You don't want to duplicate existing efforts.<br />- Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add. Discussing the design upfront helps to ensure that we're ready to accept your work.<br />- Please sign our Contributor License Agreement (CLA) before sending PRs. We cannot accept code without a signed CLA. Make sure you author all contributed Git commits with email address associated with your CLA signature.<br />- [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the [angular/angular](https://github.com/angular/angular/fork) repo.<br />- In your forked repository, make your changes in a new git branch:<br />```<br />git checkout -b my-fix-branch main<br />```<br />- Create your patch, including appropriate test cases.<br />- Follow our coding rules.<br />- Run the full Angular test suite, as described in the [developer documentation](./contributing-docs/building-and-testing-angular.md), and ensure that all tests pass.<br />- Commit your changes using a descriptive commit message that follows our commit message format. Adherence to these conventions is necessary because release notes are automatically generated from these messages.<br />```<br />git commit --all<br />```<br />Note: the optional commit `--all` command line option will automatically \"add\" and \"rm\" edited files.<br />- Push your branch to GitHub:<br />```<br />git push origin my-fix-branch<br />```<br />- In GitHub, send a pull request to `angular:main`.",
+        "Addressing Review Feedback": "### Addressing Review Feedback<br />If we ask for changes via code reviews then:<br />- Make the required updates to the code.<br />- Re-run the Angular test suites to ensure tests are still passing.<br />- Create a fixup commit and push to your GitHub repository (this will update your Pull Request):<br />```<br />git commit --all --fixup HEAD<br />git push<br />```<br />For more info on working with fixup commits see [here](./contributing-docs/using-fixup-commits.md).",
+        "Updating the Commit Message": "### Updating the Commit Message<br />A reviewer might often suggest changes to a commit message (for example, to add more context for a change or adhere to our commit message format). In order to update the commit message of the last commit on your branch:<br />- Check out your branch:<br />```<br />git checkout my-fix-branch<br />```<br />- Amend the last commit and modify the commit message:<br />```<br />git commit --amend<br />```<br />- Push to your GitHub repository:<br />```<br />git push --force-with-lease<br />```<br />NOTE: If you need to update the commit message of an earlier commit, you can use `git rebase` in interactive mode. See the [git docs](https://git-scm.com/docs/git-rebase#_interactive_mode) for more details.",
+        "After Your Pull Request is Merged": "### After Your Pull Request is Merged<br />After your pull request is merged, you can safely delete your branch and pull the changes from the main (upstream) repository:<br />- Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:<br />```<br />git push origin --delete my-fix-branch<br />```<br />- Check out the main branch:<br />```<br />git checkout main -f<br />```<br />- Delete the local branch:<br />```<br />git branch -D my-fix-branch<br />```<br />- Update your local `main` with the latest upstream version:<br />```<br />git pull --ff upstream main<br />```",
+        "Commit Message Format": "### Commit Message Format<br />This specification is inspired by and supersedes the [AngularJS commit message format](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). We have very precise rules over how our Git commit messages must be formatted. This format leads to easier to read commit history. Each commit message consists of a header, a body, and a footer.<br />```<br /><header><br /><BLANK LINE><br /><body><br /><BLANK LINE><br /><footer><br />```<br />The `header` is mandatory and must conform to the commit message header format. The `body` is mandatory for all commits except for those of type \"docs\". When the body is present it must be at least 20 characters long and must conform to the commit message body format. The `footer` is optional. The commit message footer format describes what the footer is used for and the structure it must have.",
+        "Commit Message Header": "### Commit Message Header<br />```<br /><type>(<scope>): <short summary><br />\u2502       \u2502             \u2502<br />\u2502       \u2502             \u2514\u2500\u2af8 Summary in present tense. Not capitalized. No period at the end.<br />\u2502       \u2502<br />\u2502       \u2514\u2500\u2af8 Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|<br />\u2502                          elements|forms|http|language-service|localize|platform-browser|<br />\u2502                          platform-browser-dynamic|platform-server|router|service-worker|<br />\u2502                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|<br />\u2502                          devtools<br />\u2502<br />\u2514\u2500\u2af8 Commit Type: build|ci|docs|feat|fix|perf|refactor|test<br />```",
+        "Commit Message Body": "### Commit Message Body<br />Just as in the summary, use the imperative, present tense: \"fix\" not \"fixed\" nor \"fixes\". Explain the motivation for the change in the commit message body. This commit message should explain why you are making the change. You can include a comparison of the previous behavior with the new behavior in order to illustrate the impact of the change.",
+        "Commit Message Footer": "### Commit Message Footer<br />The footer can contain information about breaking changes and deprecations and is also the place to reference GitHub issues, Jira tickets, and other PRs that this commit closes or is related to.<br />For example:<br />```<br />BREAKING CHANGE: <breaking change summary><br /><BLANK LINE><br /><breaking change description + migration instructions><br /><BLANK LINE><br /><BLANK LINE><br />Fixes #<issue number><br />```<br />or<br />```<br />DEPRECATED: <what is deprecated><br /><BLANK LINE><br /><deprecation description + recommended update path><br /><BLANK LINE><br /><BLANK LINE><br />Closes #<pr number><br />```<br />Breaking Change section should start with the phrase `BREAKING CHANGE: ` followed by a summary of the breaking change, a blank line, and a detailed description of the breaking change that also includes migration instructions. Similarly, a Deprecation section should start with `DEPRECATED: ` followed by a short description of what is deprecated, a blank line, and a detailed description of the deprecation that also mentions the recommended update path.",
+        "Revert Commits": "### Revert Commits<br />If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit. The content of the commit message body should contain:<br />- information about the SHA of the commit being reverted in the following format: `This reverts commit <SHA>`,<br />- a clear description of the reason for reverting the commit message.",
+        "Signing the CLA": "### Signing the CLA<br />Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code changes to be accepted, the CLA must be signed.<br />It's a quick process, we promise!<br />- For individuals, we have a [simple click-through form](https://cla.developers.google.com/about/google-individual).<br />- For corporations, we'll need you to [print, sign and one of scan+email, fax or mail the form](https://cla.developers.google.com/about/google-corporate).<br />If you have more than one GitHub accounts, or multiple email addresses associated with a single GitHub account, you must sign the CLA using the primary email address of the GitHub account used to author Git commits and send pull requests. The following documents can help you sort out issues with GitHub accounts and multiple email addresses:<br />- [https://help.github.com/articles/setting-your-commit-email-address-in-git/](https://help.github.com/articles/setting-your-commit-email-address-in-git/)<br />- [https://stackoverflow.com/questions/37245303/what-does-usera-committed-with-userb-13-days-ago-on-github-mean](https://stackoverflow.com/questions/37245303/what-does-usera-committed-with-userb-13-days-ago-on-github-mean)<br />- [https://help.github.com/articles/about-commit-email-addresses/](https://help.github.com/articles/about-commit-email-addresses/)<br />- [https://help.github.com/articles/blocking-command-line-pushes-that-expose-your-personal-email-address/](https://help.github.com/articles/blocking-command-line-pushes-that-expose-your-personal-email-address/)",
+        "Coding Rules": "### Coding Rules<br />To ensure consistency throughout the source code, keep these rules in mind as you are working:<br />- All features or bug fixes must be tested by one or more specs (unit-tests).<br />- All public API methods must be documented.<br />- We follow [Google's TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html), but wrap all code at 100 characters. An automated formatter is available, see [DEVELOPER.md](contributing-docs/building-and-testing-angular.md#formatting-your-source-code).",
+        "Setup Development Environment": "### Building and Testing Angular<br />This document describes how to set up your development environment to build and test Angular. It also explains the basic mechanics of using `git`, `node`, and `yarn`.<br />See the [contribution guidelines](https://github.com/angular/angular/blob/main/CONTRIBUTING.md) if you'd like to contribute to Angular.<br />**Prerequisite Software**<br />Before you can build and test Angular, you must install and configure the following on your development machine:<br />- [Git](https://git-scm.com/) and/or the [GitHub app](https://desktop.github.com/) (for Mac and Windows); [GitHub's Guide to Installing Git](https://help.github.com/articles/set-up-git) is a good source of information. Windows Users: Git Bash or an equivalent shell is required. Windows Powershell and cmd shells are not supported [#46780](https://github.com/angular/angular/issues/46780) so some commands might fail.<br />- [Node.js](https://nodejs.org), (version specified in [.nvmrc](../.nvmrc)) which is used to run a development web server, run tests, and generate distributable files. `.nvmrc` is read by [nvm](https://github.com/nvm-sh/nvm) commands like `nvm install` and `nvm use`.<br />- [Yarn](https://yarnpkg.com) (version specified in the engines field of [package.json](../package.json)) which is used to install dependencies.<br />- On Windows: [MSYS2](https://www.msys2.org/) which is used by Bazel. Follow the [instructions](https://bazel.build/install/windows#installing-compilers-and-language-runtimes).",
+        "Fork and Clone Repository": "### Getting the Sources<br />Fork and clone the Angular repository:<br />- Login to your GitHub account or create one by following the instructions given [here](https://github.com/signup/free).<br />- [Fork](https://help.github.com/forking) the [main Angular repository](https://github.com/angular/angular).<br />- Clone your fork of the Angular repository and define an `upstream` remote pointing back to the Angular repository that you forked in the first place.<br />```<br /># Clone your GitHub repository:<br />git clone git@github.com:<github username>/angular.git<br /># Go to the Angular directory:<br />cd angular<br /># Add the main Angular repository as an upstream remote to your repository:<br />git remote add upstream https://github.com/angular/angular.git<br />```",
+        "Install Dependencies": "### Installing NPM Modules<br />Next, install the JavaScript modules needed to build and test Angular:<br />```<br /># Install Angular project dependencies (package.json)<br />yarn install<br />```",
+        "Build Angular": "### Building<br />To build Angular run:<br />```<br />yarn build<br />```<br />- Results are put in the `dist/packages-dist` folder.",
+        "Run Tests Locally": "### Running Tests Locally<br />Bazel is used as the primary tool for building and testing Angular. To see how to run and debug Angular tests locally please refer to the Bazel [Testing Angular](./building-with-bazel.md#testing-angular) section. Note that you should execute all test suites before submitting a PR to GitHub (`yarn test //packages/...`). However, affected tests will be executed on our CI infrastructure. So if you forgot to run some affected tests which would fail, GitHub will indicate the error state and present you the failures. PRs can only be merged if the code is formatted properly and all tests are passing.",
+        "Test Changes Locally": "### Testing changes against a local library/project<br />Often for developers the best way to ensure the changes they have made work as expected is to run use changes in another library or project. To do this developers can build Angular locally, and using `yarn link` build a local project with the created artifacts. This can be done by running:<br />```<br />yarn ng-dev misc build-and-link <path-to-local-project-root><br />```",
+        "Disable Cache": "### Building and serving a project Cache<br />When making changes to Angular packages and testing in a local library/project you need to run `ng cache disable` to disable the Angular CLI disk cache. If you are making changes that are not reflected in your locally served library/project, verify if you have [CLI Cache](https://angular.io/guide/workspace-config#cache-options) disabled.<br />**Invoking the Angular CLI**<br />The Angular CLI needs to be invoked using Node.js [--preserve-symlinks](https://nodejs.org/api/cli.html#--preserve-symlinks) flag. Otherwise the symbolic links will be resolved using their real path which causes node module resolution to fail.<br />```<br />node --preserve-symlinks --preserve-symlinks-main node_modules/@angular/cli/lib/init.js serve<br />```",
+        "Format Source Code": "### Formatting your source code<br />Angular uses [prettier](https://prettier.io) to format the source code. If the source code is not properly formatted, the CI will fail and the PR cannot be merged. You can automatically format your code by running:<br />- `yarn ng-dev format changed [shaOrRef]`: format only files changed since the provided sha/ref. `shaOrRef` defaults to `main`.<br />- `yarn ng-dev format all`: format all source code<br />- `yarn ng-dev format files <files..>`: format only provided files",
+        "Lint Source Code": "### Linting/verifying your Source Code<br />You can check that your code is properly formatted and adheres to coding style by running:<br />```<br />$ yarn lint<br />```",
+        "Publish Snapshot Builds": "### Publishing Snapshot Builds<br />When a build of any branch on the upstream fork angular/angular is green on CI, it automatically publishes build artifacts to repositories in the Angular org. For example, the `@angular/core` package is published to [https://github.com/angular/core-builds](https://github.com/angular/core-builds). You may find that your un-merged change needs some validation from external participants. Rather than requiring them to pull your Pull Request and build Angular locally, they can depend on snapshots of the Angular packages created based on the code in the Pull Request.<br />**Publishing to GitHub Repos**<br />You can also manually publish `*-builds` snapshots just like our CI build does for upstream builds. Before being able to publish the packages, you need to build them locally by running the `yarn build` command. First time, you need to create the GitHub repositories:<br />```<br />$ export TOKEN=[get one from https://github.com/settings/tokens]<br />$ CREATE_REPOS=1 ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />For subsequent snapshots, just run:<br />```<br />$ ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />The script will publish the build snapshot to a branch with the same name as your current branch, and create it if it doesn't exist.",
+        "Bazel Support": "### Bazel Support IDEs<br />**VS Code**<br />- Install [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) extension for VS Code.<br />**WebStorm / IntelliJ**<br />- Install the [Bazel](https://plugins.jetbrains.com/plugin/8609-bazel) plugin<br />- You can find the settings under `Preferences-> Other Settings->Bazel Settings`<br />It will automatically recognize `*.bazel` and `*.bzl` files.<br />**Remote Build Execution and Remote Caching**<br />Bazel builds in the Angular repository use a shared cache. When a build occurs, a hash of the inputs is computed and checked against available outputs in the shared cache. If an output is found, it is used as the output for the build action rather than performing the build locally. Remote Build Execution requires authentication as a google.com account.<br />**--config=remote flag**<br />The `--config=remote` flag can be added to enable remote execution of builds.",
+        "Working with fixup commits": "This document provides information and guidelines for working with fixup commits:<br />- [This blog post](https://thoughtbot.com/blog/autosquashing-git-commits) is also a good resource on the subject.",
+        "What are fixup commits": "At their core, fixup commits are just regular commits with a special commit message: The first line of their commit message starts with \"fixup! \" (notice the space after \"!\") followed by the first line of the commit message of an earlier commit (it doesn't have to be the immediately preceding one). The purpose of a fixup commit is to modify an earlier commit. I.e. it allows adding more changes in a new commit, but \"marking\" them as belonging to an earlier commit. `Git` provides tools to make it easy to squash fixup commits into the original commit at a later time (see for details).<br />For example, let's assume you have added the following commits to your branch:<br />```<br />feat: first commit<br />fix: second commit<br />```<br />If you want to add more changes to the first commit, you can create a new commit with the commit message: `fixup! feat: first commit`:<br />```<br />feat: first commit<br />fix: second commit<br />fixup! feat: first commit<br />```",
+        "Why use fixup commits": "So, when are fixup commits useful? During the life of a Pull Request, a reviewer might request changes. The Pull Request author can make the requested changes and submit them for another review. Normally, these changes should be part of one of the original commits of the Pull Request. However, amending an existing commit with the changes makes it difficult for the reviewer to know exactly what has changed since the last time they reviewed the Pull Request. Here is where fixup commits come in handy. By addressing review feedback in fixup commits, you make it very straightforward for the reviewer to see what are the new changes that need to be reviewed and verify that their earlier feedback has been addressed. This can save a lot of effort, especially on larger Pull Requests (where having to re-review all the changes is pretty wasteful). When the time comes to merge the Pull Request into the repository, the merge script knows how to automatically squash fixup commits with the corresponding regular commits.",
+        "Creating fixup commits": "As mentioned, the only thing that differentiates a fixup commit from a regular commit is the commit message. You can create a fixup commit by specifying an appropriate commit message (i.e. `fixup! <original-commit-message-subject>`). In addition, the `git` command-line tool provides an easy way to create a fixup commit via [git commit --fixup](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---fixupltcommitgt):<br />```<br /># Create a fixup commit to fix up the last commit on the branch:<br />git commit --fixup HEAD<br />...<br /># Create a fixup commit to fix up commit with SHA <COMMIT_SHA>:<br />git commit --fixup <COMMIT_SHA><br />...<br />```",
+        "Squashing fixup commits": "As mentioned above, the merge script will automatically squash fixup commits. However, sometimes you might want to manually squash a fixup commit.<br />Rebasing to squash fixup commits<br />The easiest way to re-order and squash any commit is via [rebasing interactively](https://git-scm.com/docs/git-rebase#_interactive_mode). You move a commit right after the one you want to squash it into in the rebase TODO list and change the corresponding action from `pick` to `fixup`. `Git` can do all these automatically for you if you pass the `--autosquash` option to `git rebase`. See the [git docs](https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt---autosquash) for more details.<br />Additional options<br />You may like to consider some optional configurations:<br />Configuring `git` to auto-squash by default<br />By default, `git` will not automatically squash fixup commits when interactively rebasing. If you prefer to not have to pass the `--autosquash` option every time, you can change the default behavior by setting the `rebase.autoSquash` `git` config option to true. See the [git docs](https://git-scm.com/docs/git-rebase#Documentation/git-rebase.txt-rebaseautoSquash) for more details. If you have `rebase.autoSquash` set to true, you can pass the `--no-autosquash` option to `git rebase` to override and disable this setting.",
+        "Setup Development Environment#1": "### Building and Testing Angular<br />This document describes how to set up your development environment to build and test Angular. It also explains the basic mechanics of using `git`, `node`, and `yarn`.<br />",
+        "Contribution Guidelines": "### Contribution Guidelines<br />See the [contribution guidelines](https://github.com/angular/angular/blob/main/CONTRIBUTING.md) if you'd like to contribute to Angular.<br />",
+        "Prerequisite Software": "### Prerequisite Software<br />Before you can build and test Angular, you must install and configure the following on your development machine:<br />- [Git](https://git-scm.com/) and/or the [GitHub app](https://desktop.github.com/) (for Mac and Windows); [GitHub's Guide to Installing Git](https://help.github.com/articles/set-up-git) is a good source of information. Windows Users: Git Bash or an equivalent shell is required. Windows Powershell and cmd shells are not supported [#46780](https://github.com/angular/angular/issues/46780) so some commands might fail.<br />- [Node.js](https://nodejs.org), (version specified in [.nvmrc](../.nvmrc)) which is used to run a development web server, run tests, and generate distributable files. `.nvmrc` is read by [nvm](https://github.com/nvm-sh/nvm) commands like `nvm install` and `nvm use`.<br />- [Yarn](https://yarnpkg.com) (version specified in the engines field of [package.json](../package.json)) which is used to install dependencies.<br />- On Windows: [MSYS2](https://www.msys2.org/) which is used by Bazel. Follow the [instructions](https://bazel.build/install/windows#installing-compilers-and-language-runtimes).<br />",
+        "Fork and Clone Repository#1": "### Getting the Sources<br />Fork and clone the Angular repository:<br />- Login to your GitHub account or create one by following the instructions given [here](https://github.com/signup/free).<br />- [Fork](https://help.github.com/forking) the [main Angular repository](https://github.com/angular/angular).<br />- Clone your fork of the Angular repository and define an `upstream` remote pointing back to the Angular repository that you forked in the first place.<br />```<br /># Clone your GitHub repository:<br />git clone git@github.com:<github username>/angular.git<br /># Go to the Angular directory:<br />cd angular<br /># Add the main Angular repository as an upstream remote to your repository:<br />git remote add upstream https://github.com/angular/angular.git<br />```<br />",
+        "Install Dependencies#1": "### Installing NPM Modules<br />Next, install the JavaScript modules needed to build and test Angular:<br />```<br /># Install Angular project dependencies (package.json)<br />yarn install<br />```<br />",
+        "Build Angular#1": "### Building<br />To build Angular run:<br />```<br />yarn build<br />```<br />- Results are put in the `dist/packages-dist` folder.<br />",
+        "Run Tests Locally#1": "### Running Tests Locally<br />Bazel is used as the primary tool for building and testing Angular. To see how to run and debug Angular tests locally please refer to the Bazel [Testing Angular](./building-with-bazel.md#testing-angular) section. Note that you should execute all test suites before submitting a PR to GitHub (`yarn test //packages/...`). However, affected tests will be executed on our CI infrastructure. So if you forgot to run some affected tests which would fail, GitHub will indicate the error state and present you the failures. PRs can only be merged if the code is formatted properly and all tests are passing.<br />",
+        "Test Changes Locally#1": "### Testing changes against a local library/project<br />Often for developers, the best way to ensure the changes they have made work as expected is to run use changes in another library or project. To do this developers can build Angular locally, and using `yarn link` build a local project with the created artifacts. This can be done by running:<br />```<br />yarn ng-dev misc build-and-link <path-to-local-project-root><br />```<br />",
+        "Disable Cache#1": "### Building and serving a project Cache<br />When making changes to Angular packages and testing in a local library/project you need to run `ng cache disable` to disable the Angular CLI disk cache. If you are making changes that are not reflected in your locally served library/project, verify if you have [CLI Cache](https://angular.io/guide/workspace-config#cache-options) disabled.<br />",
+        "Invoke Angular CLI": "### Invoking the Angular CLI<br />The Angular CLI needs to be invoked using Node.js [--preserve-symlinks](https://nodejs.org/api/cli.html#--preserve-symlinks) flag. Otherwise, the symbolic links will be resolved using their real path which causes node module resolution to fail.<br />```<br />node --preserve-symlinks --preserve-symlinks-main node_modules/@angular/cli/lib/init.js serve<br />```<br />",
+        "Format Source Code#1": "### Formatting your source code<br />Angular uses [prettier](https://prettier.io) to format the source code. If the source code is not properly formatted, the CI will fail and the PR cannot be merged. You can automatically format your code by running:<br />- `yarn ng-dev format changed [shaOrRef]`: format only files changed since the provided sha/ref. `shaOrRef` defaults to `main`.<br />- `yarn ng-dev format all`: format all source code<br />- `yarn ng-dev format files <files..>`: format only provided files<br />",
+        "Lint Source Code#1": "### Linting/verifying your Source Code<br />You can check that your code is properly formatted and adheres to coding style by running:<br />```<br />$ yarn lint<br />```<br />",
+        "Publish Snapshot Builds#1": "### Publishing Snapshot Builds<br />When a build of any branch on the upstream fork angular/angular is green on CI, it automatically publishes build artifacts to repositories in the Angular org. For example, the `@angular/core` package is published to [https://github.com/angular/core-builds](https://github.com/angular/core-builds). You may find that your un-merged change needs some validation from external participants. Rather than requiring them to pull your Pull Request and build Angular locally, they can depend on snapshots of the Angular packages created based on the code in the Pull Request.<br />Publishing to GitHub Repos<br />You can also manually publish `*-builds` snapshots just like our CI build does for upstream builds. Before being able to publish the packages, you need to build them locally by running the `yarn build` command. First time, you need to create the GitHub repositories:<br />```<br />$ export TOKEN=[get one from https://github.com/settings/tokens]<br />$ CREATE_REPOS=1 ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />For subsequent snapshots, just run:<br />```<br />$ ./scripts/ci/publish-build-artifacts.sh [GitHub username]<br />```<br />The script will publish the build snapshot to a branch with the same name as your current branch, and create it if it doesn't exist.<br />",
+        "Bazel Support#1": "### Bazel Support IDEs<br />VS Code<br />- Install [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) extension for VS Code.<br />WebStorm / IntelliJ<br />- Install the [Bazel](https://plugins.jetbrains.com/plugin/8609-bazel) plugin<br />- You can find the settings under `Preferences-> Other Settings->Bazel Settings`<br />It will automatically recognize `*.bazel` and `*.bzl` files.<br />Remote Build Execution and Remote Caching<br />Bazel builds in the Angular repository use a shared cache. When a build occurs, a hash of the inputs is computed and checked against available outputs in the shared cache. If an output is found, it is used as the output for the build action rather than performing the build locally. Remote Build Execution requires authentication as a google.com account.<br />--config=remote flag<br />The `--config=remote` flag can be added to enable remote execution of builds.<br />"
     },
     "flow": [
         {
             "edges": [
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Getting Started"
+                    "source": "Contributing to angular",
+                    "target": "Contributing to Angular"
                 },
                 {
-                    "source": "Getting Started",
-                    "target": "Commit Access",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Commit Access",
-                    "target": "Criteria for Access",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Criteria for Access",
-                    "target": "Responsibilities",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Responsibilities",
-                    "target": "Code of Conduct",
-                    "edge_label": "docs/contributing/Contributor-access.md"
+                    "source": "Contributing to Angular",
+                    "target": "Code of Conduct"
                 },
                 {
                     "source": "Code of Conduct",
-                    "target": "Handling Violations",
-                    "edge_label": "docs/contributing/Contributor-access.md"
+                    "target": "Questions or Problems"
                 },
                 {
-                    "source": "Handling Violations",
-                    "target": "Documentation",
-                    "edge_label": "docs/contributing/Contributor-access.md"
+                    "source": "Questions or Problems",
+                    "target": "Found a Bug"
                 },
                 {
-                    "source": "Documentation",
-                    "target": "Fixing Documentation",
-                    "edge_label": "docs/contributing/Contributor-access.md"
+                    "source": "Found a Bug",
+                    "target": "Missing a Feature"
                 },
                 {
-                    "source": "Fixing Documentation",
-                    "target": "Privileges",
-                    "edge_label": "docs/contributing/Contributor-access.md"
+                    "source": "Missing a Feature",
+                    "target": "Submission Guidelines"
                 },
                 {
-                    "source": "Privileges",
-                    "target": "Discord Privileges",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Discord Privileges",
-                    "target": "Process",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Process",
-                    "target": "New Googlers",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "New Googlers",
-                    "target": "Inactivity",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Inactivity",
-                    "target": "Flutter Dashboard Access",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Flutter Dashboard Access",
-                    "target": "Adding to Flutter Dashboard",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Adding to Flutter Dashboard",
-                    "target": "LUCI Access",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "LUCI Access",
-                    "target": "Flutter Gold Access",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Flutter Gold Access",
-                    "target": "Flutter Gold Process",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Flutter Gold Process",
-                    "target": "fcontrib.org Accounts",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "fcontrib.org Accounts",
-                    "target": "fcontrib.org Process",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "fcontrib.org Process",
-                    "target": "Review Teams",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Review Teams",
-                    "target": "Pusher Permissions",
-                    "edge_label": "docs/contributing/Contributor-access.md"
-                },
-                {
-                    "source": "Getting Started",
-                    "target": "Chatting on Discord",
-                    "edge_label": "docs/contributing/Chat.md"
-                },
-                {
-                    "source": "Chatting on Discord",
-                    "target": "Existing channels",
-                    "edge_label": "docs/contributing/Chat.md"
-                },
-                {
-                    "source": "Existing channels",
-                    "target": "New channels",
-                    "edge_label": "docs/contributing/Chat.md"
-                },
-                {
-                    "source": "New channels",
-                    "target": "Policies",
-                    "edge_label": "docs/contributing/Chat.md"
-                },
-                {
-                    "source": "Policies",
-                    "target": "Discord features",
-                    "edge_label": "docs/contributing/Chat.md"
-                },
-                {
-                    "source": "Discord features",
-                    "target": "Design documents",
-                    "edge_label": "docs/contributing/Chat.md"
-                },
-                {
-                    "source": "Getting Started",
-                    "target": "Code of Conduct#1",
-                    "edge_label": "CODE_OF_CONDUCT.md"
-                },
-                {
-                    "source": "Code of Conduct#1",
-                    "target": "Conflict Resolution",
-                    "edge_label": "CODE_OF_CONDUCT.md"
-                },
-                {
-                    "source": "Conflict Resolution",
-                    "target": "Questions",
-                    "edge_label": "CODE_OF_CONDUCT.md"
-                },
-                {
-                    "source": "Getting Started",
-                    "target": "Core Values",
-                    "edge_label": "docs/about/Values.md"
-                },
-                {
-                    "source": "Core Values",
-                    "target": "Openness",
-                    "edge_label": "docs/about/Values.md"
-                },
-                {
-                    "source": "Openness",
-                    "target": "Maintaining Quality",
-                    "edge_label": "docs/about/Values.md"
-                },
-                {
-                    "source": "Maintaining Quality",
-                    "target": "Have Fun",
-                    "edge_label": "docs/about/Values.md"
-                },
-                {
-                    "source": "Have Fun",
-                    "target": "Support",
-                    "edge_label": "docs/about/Values.md"
-                },
-                {
-                    "source": "Support",
-                    "target": "Resources",
-                    "edge_label": "docs/about/Values.md"
+                    "source": "Submission Guidelines",
+                    "target": "Reviewing a Pull Request"
                 }
             ],
-            "sequence": "Getting Started"
+            "sequence": "No categories identified."
         },
         {
             "edges": [
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Issue Triage"
+                    "source": "Contributing to angular",
+                    "target": "Submitting a Pull Request"
+                },
+                {
+                    "source": "Submitting a Pull Request",
+                    "target": "Addressing Review Feedback"
+                },
+                {
+                    "source": "Addressing Review Feedback",
+                    "target": "Updating the Commit Message"
+                },
+                {
+                    "source": "Updating the Commit Message",
+                    "target": "After Your Pull Request is Merged"
+                },
+                {
+                    "source": "After Your Pull Request is Merged",
+                    "target": "Commit Message Format"
+                },
+                {
+                    "source": "Commit Message Format",
+                    "target": "Commit Message Header"
+                },
+                {
+                    "source": "Commit Message Header",
+                    "target": "Commit Message Body"
+                },
+                {
+                    "source": "Commit Message Body",
+                    "target": "Commit Message Footer"
+                },
+                {
+                    "source": "Commit Message Footer",
+                    "target": "Revert Commits"
+                },
+                {
+                    "source": "Revert Commits",
+                    "target": "Signing the CLA"
+                },
+                {
+                    "source": "Submitting a Pull Request",
+                    "target": "Setup Development Environment",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Setup Development Environment",
+                    "target": "Fork and Clone Repository",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Fork and Clone Repository",
+                    "target": "Install Dependencies",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Install Dependencies",
+                    "target": "Build Angular",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Build Angular",
+                    "target": "Run Tests Locally",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Run Tests Locally",
+                    "target": "Test Changes Locally",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Test Changes Locally",
+                    "target": "Disable Cache",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Disable Cache",
+                    "target": "Format Source Code",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Format Source Code",
+                    "target": "Lint Source Code",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Lint Source Code",
+                    "target": "Publish Snapshot Builds",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Publish Snapshot Builds",
+                    "target": "Bazel Support",
+                    "edge_label": "./contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Addressing Review Feedback",
+                    "target": "Working with fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "Working with fixup commits",
+                    "target": "What are fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "What are fixup commits",
+                    "target": "Why use fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "Why use fixup commits",
+                    "target": "Creating fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
+                },
+                {
+                    "source": "Creating fixup commits",
+                    "target": "Squashing fixup commits",
+                    "edge_label": "./contributing-docs/using-fixup-commits.md"
                 }
             ],
-            "sequence": "Issue Triage"
+            "sequence": "SC \u2013 Submit the changes"
         },
         {
             "edges": [
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Quality Assurance"
-                }
-            ],
-            "sequence": "Quality Assurance"
-        },
-        {
-            "edges": [
+                    "source": "Contributing to angular",
+                    "target": "Coding Rules"
+                },
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Development"
-                }
-            ],
-            "sequence": "Development"
-        },
-        {
-            "edges": [
+                    "source": "Coding Rules",
+                    "target": "Setup Development Environment#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Helping with PRs"
-                }
-            ],
-            "sequence": "Helping with PRs"
-        },
-        {
-            "edges": [
+                    "source": "Setup Development Environment#1",
+                    "target": "Contribution Guidelines",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Outreach"
-                }
-            ],
-            "sequence": "Outreach"
-        },
-        {
-            "edges": [
+                    "source": "Contribution Guidelines",
+                    "target": "Prerequisite Software",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
                 {
-                    "source": "Contributing to flutter",
-                    "target": "API Documentation"
-                }
-            ],
-            "sequence": "API Documentation"
-        },
-        {
-            "edges": [
+                    "source": "Prerequisite Software",
+                    "target": "Fork and Clone Repository#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Releases"
-                }
-            ],
-            "sequence": "Releases"
-        },
-        {
-            "edges": [
+                    "source": "Fork and Clone Repository#1",
+                    "target": "Install Dependencies#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
                 {
-                    "source": "Contributing to flutter",
-                    "target": "Community Events"
+                    "source": "Install Dependencies#1",
+                    "target": "Build Angular#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Build Angular#1",
+                    "target": "Run Tests Locally#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Run Tests Locally#1",
+                    "target": "Test Changes Locally#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Test Changes Locally#1",
+                    "target": "Disable Cache#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Disable Cache#1",
+                    "target": "Invoke Angular CLI",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Invoke Angular CLI",
+                    "target": "Format Source Code#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Format Source Code#1",
+                    "target": "Lint Source Code#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Lint Source Code#1",
+                    "target": "Publish Snapshot Builds#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
+                },
+                {
+                    "source": "Publish Snapshot Builds#1",
+                    "target": "Bazel Support#1",
+                    "edge_label": "contributing-docs/building-and-testing-angular.md"
                 }
             ],
-            "sequence": "Community Events"
+            "sequence": "DC \u2013 Deal with the code"
         }
     ],
     "links": {
-        "Getting Started": [
-            "./docs/contributing/Chat.md",
-            "CODE_OF_CONDUCT.md",
-            "./docs/contributing/Contributor-access.md",
-            "./docs/contributing/Contributor-access.md",
-            "./docs/contributing/Chat.md",
-            "CODE_OF_CONDUCT.md",
-            "./docs/about/Values.md"
+        "Contributing to Angular": [],
+        "Code of Conduct": [
+            "https://github.com/angular/code-of-conduct/blob/main/CODE_OF_CONDUCT.md"
         ],
-        "Issue Triage": [
-            "./docs/contributing/Chat.md",
-            "CODE_OF_CONDUCT.md",
-            "./docs/triage/README.md",
-            "./docs/contributing/issue_hygiene/README.md",
-            "./docs/contributing/Contributor-access.md"
+        "Questions or Problems": [
+            "https://stackoverflow.com/questions/tagged/angular",
+            "https://discord.gg/angular"
         ],
-        "Quality Assurance": [
-            "./docs/contributing/Chat.md",
-            "./docs/releases/Quality-Assurance.md"
+        "Found a Bug": [
+            "https://github.com/angular/angular"
         ],
-        "Development": [
-            "https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22",
-            "https://github.com/flutter/devtools/labels/good%20first%20issue",
-            "./engine/src/flutter/docs/contributing/Setting-up-the-Engine-development-environment.md",
-            "./docs/contributing/Setting-up-the-Framework-development-environment.md",
-            "./docs/contributing/Tree-hygiene.md",
-            "./docs/contributing/Style-guide-for-Flutter-repo.md",
-            "https://flutter.dev/go/template",
-            "./docs/contributing/Design-Documents.md",
-            "https://youtube.com/c/flutterdev",
-            "./docs/README.md",
-            "https://medium.com/@ayushbherwani/contributing-to-flutter-getting-started-a0db68cbcd5b",
-            "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+        "Missing a Feature": [],
+        "Submission Guidelines": [
+            "https://github.com/angular/angular/issues/new/choose"
         ],
-        "Helping with PRs": [
-            "https://github.com/flutter/flutter/labels/has%20partial%20patch"
+        "Reviewing a Pull Request": [
+            "https://github.com/angular/code-of-conduct"
         ],
-        "Outreach": [
-            "https://stackoverflow.com/questions/tagged/flutter?sort=Newest&filters=NoAnswers,NoAcceptedAnswer&edited=true",
-            "https://www.reddit.com/r/flutterhelp/new/?f=flair_name%3A%22OPEN%22",
-            "https://docs.flutter.dev/",
-            "https://www.youtube.com/results?search_query=flutter&sp=EgQIAxAB",
-            "./docs/contributing/Chat.md"
+        "Submitting a Pull Request": [
+            "https://github.com/angular/angular/pulls",
+            "https://docs.github.com/en/github/getting-started-with-github/fork-a-repo",
+            "https://github.com/angular/angular/fork",
+            "./contributing-docs/building-and-testing-angular.md"
         ],
-        "API Documentation": [
-            "./docs/contributing/Chat.md",
-            "./docs/contributing/Style-guide-for-Flutter-repo.md#documentation-dartdocs-javadocs-etc",
-            "https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22d%3A+api+docs%22+sort%3Areactions-%2B1-desc",
-            "https://github.com/flutter/assets-for-api-docs/#readme"
+        "Addressing Review Feedback": [
+            "./contributing-docs/using-fixup-commits.md"
         ],
-        "Releases": [
-            "./docs/contributing/Chat.md"
+        "Updating the Commit Message": [
+            "https://git-scm.com/docs/git-rebase#_interactive_mode"
         ],
-        "Community Events": [
-            "./docs/contributing/Chat.md"
+        "After Your Pull Request is Merged": [],
+        "Commit Message Format": [
+            "https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#"
+        ],
+        "Commit Message Header": [],
+        "Commit Message Body": [],
+        "Commit Message Footer": [],
+        "Revert Commits": [],
+        "Signing the CLA": [
+            "https://cla.developers.google.com/about/google-individual",
+            "https://cla.developers.google.com/about/google-corporate",
+            "https://help.github.com/articles/setting-your-commit-email-address-in-git/",
+            "https://stackoverflow.com/questions/37245303/what-does-usera-committed-with-userb-13-days-ago-on-github-mean",
+            "https://help.github.com/articles/about-commit-email-addresses/",
+            "https://help.github.com/articles/blocking-command-line-pushes-that-expose-your-personal-email-address/"
+        ],
+        "Coding Rules": [
+            "https://google.github.io/styleguide/tsguide.html",
+            "contributing-docs/building-and-testing-angular.md#formatting-your-source-code"
         ]
     }
 }

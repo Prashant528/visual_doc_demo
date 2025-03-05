@@ -19,7 +19,7 @@ CORS(app)
 
 # Initialize services
 github_service = GitHubService(Config.GITHUB_TOKEN)
-TURN_CLASSIFIER_ON = False
+TURN_CLASSIFIER_ON = True
 turn_second_layer_on = True
 save_llm_output_to_files = True
 
@@ -57,7 +57,7 @@ def fetch_and_analyze():
         #TODO: I need to add some mechanism to store the contents of each file and return them as a list here inside download_recursive function.
         files_and_contents = github_service.download_recursive(owner, repo, file_path)
 
-        print(files_and_contents)
+        # print(files_and_contents)
 
         segments_and_classes_in_all_files = []
         for file_and_content in files_and_contents:
@@ -69,7 +69,7 @@ def fetch_and_analyze():
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
             predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True, repo=repo, filename=file_path)
-            print(segments)
+            # print(segments)
             if TURN_CLASSIFIER_ON:
                 #returns two lists. First list = segment, second list = the class for that segment.
                 segments, segment_classes = run_classifier_with_paragraphs(segments)
@@ -103,6 +103,7 @@ def fetch_and_analyze():
 
         if turn_second_layer_on:
             json_with_links = add_links_to_json_from_content(modified_json_for_ui)
+            save_llm_output(json_with_links, 'json_with_links')
             #------------------ UNCOMMENT THIS>
 
             #-------------Starting second layer
@@ -122,6 +123,33 @@ def fetch_and_analyze():
 @app.route('/generate')
 def generate():
     return render_template('flutter_flutter.html')
+
+@app.route('/flutter_cached', methods=['GET'])
+def flutter_cached():
+    file_path = os.path.join('static', 'cached_results', 'flutter.json')
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({'error': 'File not found'}), 404
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON format'}), 500
+    
+
+@app.route('/node_cached', methods=['GET'])
+def node_cached():
+    file_path = os.path.join('static', 'cached_results', 'node.json')
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({'error': 'File not found'}), 404
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON format'}), 500
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True, threaded=True)

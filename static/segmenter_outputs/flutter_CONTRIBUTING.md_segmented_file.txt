@@ -29,8 +29,6 @@ In addition to the documents, there is a video linked above on How to contribute
 
 DevTools Contributing code to Dart & Flutter DevTools may be a good place to start if you are looking to dip your toes into contributing with a relatively low-cost setup or if you are generally excited about improving the Dart & Flutter developer experience. Please see the DevTools [CONTRIBUTING.md](https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md) guide to get started.
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
 Helping with existing PRs Once you've learned the process of contributing, if you aren't sure what to work on next you might be interested in helping other developers complete their contributions by picking up an incomplete patch from the list of [issues with partial patches](https://github.com/flutter/flutter/labels/has%20partial%20patch).
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
@@ -46,7 +44,5 @@ API documentation Another great area to contribute in is sample code and API doc
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Releases If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases channel of our [Discord](./docs/contributing/Chat.md) server.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Social events in the contributor community Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself. This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example. If this is an area that is of interest to you, please join our [Discord](./docs/contributing/Chat.md) and ping Hixie on the #hackers channel!

@@ -12,4 +12,4 @@ To set up the project locally:
 3. Submit your pull request with a detailed description of your changes.
 
 ## Community Guidelines
-Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone.
+Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone. You can also go through [Readme](./README.md) to get the project overview and how to communicate.

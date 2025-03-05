@@ -1,0 +1,1036 @@
+{
+    "content": {
+        "Introduction": "# Contributing to Kubernetes<br />An entrypoint to getting started with contributing to the Kubernetes project.<br />Kubernetes is open source, but many of the people working on it do so as their day job. In order to avoid forcing people to be \"at work\" effectively 24/7, we want to establish some semi-formal protocols around development. Hopefully, these rules make things go more smoothly. If you find that this is not the case, please complain loudly. As a potential contributor, your changes and ideas are welcome at any hour of the day or night, weekdays, weekends, and holidays. Please do not ever hesitate to ask a question or send a pull request. Check out our [community guiding principles](/contributors/guide/expectations.md#code-review) on how to create great code as a big group. Beginner focused information can be found below in and. For quick reference on contributor resources, we have a handy [contributor cheatsheet](./contributor-cheatsheet/).",
+        "Communication": "# Communication<br />It is best to contact your [SIG](first-contribution.md#learn-about-sigs) for issues related to the SIG's topic. Your SIG will be able to help you much more quickly than a general question would. For general questions and troubleshooting, use the [standard lines of communication](/communication/README.md) and work through the [troubleshooting guide](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).",
+        "GitHub Workflow": "# GitHub Workflow<br />To check out code to work on, please refer to [the GitHub Workflow Guide](./github-workflow.md). The full workflow for a pull request is documented here: - [Kubernetes-specific github workflow](pull-requests.md#the-testing-and-merge-workflow). That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here: Opening a Pull Request Pull requests are often called a \"PR\". Kubernetes generally follows the standard [github pull request](https://help.github.com/articles/about-pull-requests/) process, but there is a layer of additional kubernetes specific (and sometimes SIG specific) differences: The first difference you'll see is that a bot will begin applying structured labels to your PR. The bot may also make some helpful suggestions for commands to run in your PR to facilitate review. These `/command` options can be entered in comments to trigger auto-labeling and notifications. Refer to its [command reference documentation](https://go.k8s.io/bot-commands). Common new contributor PR issues are: - Not having correctly signed the CLA ahead of your first PR. See the [CLA page](/CLA.md) for troubleshooting help, in some cases you might need to file a ticket with the CNCF to resolve a CLA problem. - Finding the right SIG or reviewer(s) for the PR (see section) and following any SIG or repository specific contributing guidelines (see [Learn about SIGs](first-contribution.md#learn-about-sigs) section) - Dealing with test cases which fail on your PR, unrelated to the changes you introduce (see [Test Flakes](/contributors/devel/sig-testing/flaky-tests.md)) - Not following [scalability good practices](scalability-good-practices.md) - Include mentions (like @person) and [keywords](https://help.github.com/en/articles/closing-issues-using-keywords) which could close the issue (like fixes #xxxx) in commit messages.",
+        "Code Review": "# Code Review<br />For a brief description of the importance of code review, please read [On Code Review](/contributors/guide/expectations.md#code-review). There are two aspects of code review: giving and receiving. To make it easier for your PR to receive reviews, consider the reviewers will need you to: - Follow the project [coding conventions](coding-conventions.md) - Write [good commit messages](https://chris.beams.io/posts/git-commit/) - Break large changes into a logical series of smaller patches which individually make easily understandable changes, and in aggregate solve a broader issue - Label PRs with appropriate SIGs and reviewers: to do this read the messages the bot sends you to guide you through the PR process Reviewers, the people giving the review, are highly encouraged to revisit the [Code of Conduct](/code-of-conduct.md) as well as [community expectations](./expectations.md#expectations-of-reviewers-review-latency) and must go above and beyond to promote a collaborative, respectful community. When reviewing PRs from others [The Gentle Art of Patch Review](http://sage.thesharps.us/2014/09/01/the-gentle-art-of-patch-review/) suggests an iterative series of focuses which is designed to lead new contributors to positive collaboration without inundating them initially with nuances: - Is the idea behind the contribution sound? - Is the contribution architected correctly? - Is the contribution polished? Note: if your pull request isn't getting enough attention, you can use the [#pr-reviews](https://kubernetes.slack.com/messages/pr-reviews) channel on Slack to get help finding reviewers.",
+        "Best Practices": "# Best Practices<br />- Write clear and meaningful git commit messages.<br />- If the PR will completely fix a specific issue, include `fixes #123` in the PR body (where 123 is the specific issue number the PR will fix. This will automatically close the issue when the PR is merged.<br />- Make sure you don't include `@mentions` or `fixes` keywords in your git commit messages. These should be included in the PR body instead.<br />- When you make a PR for small change (such as fixing a typo, style change, or grammar fix), please squash your commits so that we can maintain a cleaner git history.<br />- Make sure you include a clear and detailed PR description explaining the reasons for the changes, and ensuring there is sufficient information for the reviewer to understand your PR.<br />Additional Readings:<br />- [chris.beams.io/posts/git-commit/](https://chris.beams.io/posts/git-commit/)<br />- [github.com/blog/1506-closing-issues-via-pull-requests](https://github.com/blog/1506-closing-issues-via-pull-requests)<br />- [davidwalsh.name/squash-commits-git](https://davidwalsh.name/squash-commits-git)<br />- [https://mtlynch.io/code-review-love/](https://mtlynch.io/code-review-love/)",
+        "Testing": "# Testing<br />Testing is the responsibility of all contributors and is in part owned by all SIGs, but is also coordinated by [sig-testing](/sig-testing). Refer to the [Testing Guide](/contributors/devel/sig-testing/testing.md) for more information. There are multiple types of tests. The location of the test code varies with type, as do the specifics of the environment needed to successfully run the test:<br />- Unit: These confirm that a particular function behaves as intended. Golang includes a native ability for unit testing via the [testing](https://golang.org/pkg/testing/) package. Unit test source code can be found adjacent to the corresponding source code within a given package. For example: functions defined in [kubernetes/cmd/kubeadm/app/util/version.go](https://git.k8s.io/kubernetes/cmd/kubeadm/app/util/version.go) will have unit tests in [kubernetes/cmd/kubeadm/app/util/version_test.go](https://git.k8s.io/kubernetes/cmd/kubeadm/app/util/version_test.go). These are easily run locally by any developer on any OS.<br />- Integration: These tests cover interactions of package components or interactions between kubernetes components and some other non-kubernetes system resource (eg: etcd). An example would be testing whether a piece of code can correctly store data to or retrieve data from etcd. Integration tests are stored in [kubernetes/test/integration/](https://git.k8s.io/kubernetes/test/integration). Running these can require the developer set up additional functionality on their development system.<br />- End-to-end (\"e2e\"): These are broad tests of overall system behavior and coherence. These are more complicated as they require a functional kubernetes cluster built from the sources to be tested. A separate [document detailing e2e testing](/contributors/devel/sig-testing/e2e-tests.md) and test cases themselves can be found in [kubernetes/test/e2e/](https://git.k8s.io/kubernetes/test/e2e).<br />- Conformance: These are a set of testcases, currently a subset of the integration/e2e tests, that the Architecture SIG has approved to define the core set of interoperable features that all Kubernetes deployments must support. For more information on Conformance tests please see the [Conformance Testing](/contributors/devel/sig-architecture/conformance-tests.md)",
+        "Continuous Integration": "# Continuous Integration<br />Continuous integration will run these tests either as pre-submits on PRs, post-submits against master/release branches, or both. The results appear on [testgrid](https://testgrid.k8s.io). sig-testing is responsible for that official infrastructure and CI. The associated automation is tracked in the [test-infra repo](https://git.k8s.io/test-infra). If you're looking to run e2e tests on your own infrastructure, [kubetest](https://git.k8s.io/test-infra/kubetest) is the mechanism.",
+        "Security": "# Security<br />- [Security Release Page](https://git.k8s.io/security/security-release-process.md) - outlines the procedures for the handling of security issues.<br />- [Security and Disclosure Information](https://kubernetes.io/docs/reference/issues-security/security/) - check this page if you wish to report a security vulnerability.",
+        "Documentation": "# Documentation<br />- [Contributing to Documentation](https://kubernetes.io/editdocs/)",
+        "Issues Management": "# Issues Management or Triage<br />Have you ever noticed the total number of [open issues](https://issues.k8s.io)? Helping to manage or triage these open issues can be a great contribution and a great opportunity to learn about the various areas of the project. Triaging is the word we use to describe the process of adding multiple types of descriptive labels to GitHub issues, in order to speed up routing issues to the right folks. Refer to the [Issue Triage Guidelines](/contributors/guide/issue-triage.md) for more information.",
+        "Community Expectations": "**Community Expectations**<br />Expectations of conduct and code review that govern all members of the community.<br />Kubernetes is a community project. Consequently, it is wholly dependent on its community to provide a productive, friendly and collaborative environment. The first and foremost goal of the Kubernetes community is to develop orchestration technology that radically simplifies the process of creating reliable distributed systems. However, a second, equally important goal is the creation of a community that fosters easy, agile development of such orchestration systems. We therefore describe the expectations for members of the Kubernetes community. This document is intended to be a living one that evolves as the community evolves via the same PR and code review process that shapes the rest of the project. It currently covers the expectations of conduct that govern all members of the community as well as the expectations around code review that govern all active contributors to Kubernetes.",
+        "Code Review#1": "**Code Review**<br />As a community, we believe in the value of code review for all contributions. Code review increases both the quality and readability of our codebase, which in turn produces high-quality software. See the [pull request documentation](/contributors/guide/pull-requests.md) for more information on code review. Consequently, as a community, we expect that all active participants in the community will also be active reviewers. The [community membership](/community-membership.md) outlines the responsibilities of the different contributor roles. Expect reviewers to request that you avoid [common go style mistakes](https://github.com/golang/go/wiki/CodeReviewComments) in your PRs.",
+        "Expectations of Reviewers": "**Expectations of Reviewers**<br />Review comments: Because reviewers are often the first points of contact between new members of the community and can significantly impact the first impression of the Kubernetes community, reviewers are especially important in shaping the Kubernetes community. Reviewers are highly encouraged to not only abide by the [code of conduct](/governance.md#code-of-conduct) but are strongly encouraged to go above and beyond the code of conduct to promote a collaborative, respectful Kubernetes community.<br />Review latency: Reviewers are expected to respond in a timely fashion to PRs that are assigned to them. Reviewers are expected to respond to active PRs with reasonable latency, and if reviewers fail to respond, those PRs may be assigned to other reviewers. If reviewers are unavailable to review for some time, they are expected to set their [user status](https://help.github.com/en/articles/personalizing-your-profile#setting-a-status) to \"busy\" so that the bot will not request reviews from them on new PRs automatically. If they are unavailable for a longer period of time, they are expected to remove themselves from the OWNERS file and potentially nominate someone else. Active PRs are considered those which have a proper CLA (`cla:yes`) label and do not need rebase to be merged. PRs that do not have a proper CLA, or require a rebase are not considered active PRs.",
+        "Acknowledgements": "**Acknowledgements**<br />Many thanks in advance to everyone who contributes their time and effort to making Kubernetes both a successful system as well as a successful community. The strength of our software shines in the strengths of each individual community member. Thanks!",
+        "First Contribution": "### Making your First Contribution<br />Not sure where to make your first contribution?<br />This doc has some tips and ideas to help get you started.<br />Your First Contribution - - - - - -<br />- Find something to work on<br />The first step to getting started contributing to Kubernetes is to find something to work on. Help is always welcome, and no contribution is too small (but see below)! Here are some things you can do today to get started contributing:<br />- Help improve the Kubernetes documentation<br />- Clarify code, variables, or functions that can be renamed or commented on<br />- Write test coverage<br />- Help triage issues<br />If the above suggestions don't appeal to you, you can browse the [issues labeled as a good first issue](https://go.k8s.io/good-first-issue) to see who is looking for help. Those interested in contributing without writing code can also find ideas in the [Non-Code Contributions Guide](./non-code-contributions.md).<br />Note: although contributions are welcome, beware that every pull request creates work for maintainers and costs for testing it. Fixing linter warnings is often not worth it because the existing code is fine. Always discuss with maintainers first before creating such PRs.",
+        "Find a Topic": "### Find a good first topic<br />There are [multiple repositories](https://github.com/kubernetes/) within the Kubernetes organization. Each repository has beginner-friendly issues that are a great place to get started on your contributor journey. For example, [kubernetes/kubernetes](https://git.k8s.io/kubernetes) has [help wanted](https://go.k8s.io/help-wanted) and [good first issue](https://go.k8s.io/good-first-issue) labels for issues that don't need high-level Kubernetes knowledge to contribute to. The `good first issue` label also indicates that Kubernetes Members have committed to providing [extra assistance](./help-wanted.md) for new contributors. Another way to get started is to find a documentation improvement, such as a missing/broken link, which will give you exposure to the code submission/review process without the added complication of technical depth.",
+        "Issue Assignment": "### Issue Assignment in Github<br />When you've found an issue to work on, you can assign it to yourself.<br />- Reply with `/assign` or `/assign @yourself` on the issue you'd like to work on<br />- The [K8s-ci-robot](https://github.com/k8s-ci-robot) will automatically assign the issue to you.<br />- Your name will then be listed under, `Assignees`.",
+        "Learn about SIGs": "### Learn about SIGs<br />Some repositories in the Kubernetes Organization are owned by [Special Interest Groups], or SIGs. The Kubernetes community is broken out into SIGs in order to improve its workflow, and more easily manage what is a very large community project. The developers within each SIG have autonomy and ownership over that SIG's part of Kubernetes. Understanding how to interact with SIGs is an important part of contributing to Kubernetes. Check out the [list of SIGs](/sig-list.md) for contact information.",
+        "SIG Structure": "### SIG structure<br />A SIG is an open, community effort. Anybody is welcome to jump into a SIG and begin fixing issues, critique design proposals, and review code. SIGs have regular [video meetings](https://kubernetes.io/community/) which everyone is welcome to attend. Each SIG has a Slack channel, meeting notes, and their own documentation that is useful to read and understand. There is an entire SIG ([sig-contributor-experience](/sig-contributor-experience/README.md)) devoted to improving your experience as a contributor. If you have an idea for improving the contributor experience, please consider attending one of the Contributor Experience SIG's [weekly meetings](https://docs.google.com/document/d/1qf-02B7EOrItQgwXFxgqZ5qjW0mtfu5qkYIF1Hl4ZLI/edit).",
+        "Find a SIG": "### Find a SIG that is related to your contribution<br />Finding the appropriate SIG for your contribution and adding a SIG label will help you ask questions in the correct place and give your contribution higher visibility and a faster community response. For Pull Requests, the automatically assigned reviewer will add a SIG label if you haven't already done so. For Issues, please note that the community is working on a more automated workflow. Since SIGs do not directly map onto Kubernetes subrepositories, it may be difficult to find which SIG your contribution belongs in. Review the [list of SIGs](/sig-list.md) to determine which SIG is most likely related to your contribution. Example: if you are filing a CNI issue (that's [Container Networking Interface](https://github.com/containernetworking/cni)) you'd choose the [Network SIG](https://git.k8s.io/community/sig-network). Add the SIG label in a new comment on GitHub by typing the following:<br />```<br />/sig network<br />```",
+        "SIG Guidelines": "### SIG-specific contributing guidelines<br />Some SIGs have their own `CONTRIBUTING.md` files, which may contain extra information or guidelines in addition to these general ones. These are located in the SIG-specific community directories:<br />- [/sig-apps/CONTRIBUTING.md](/sig-apps/CONTRIBUTING.md)<br />- [/sig-cli/CONTRIBUTING.md](/sig-cli/CONTRIBUTING.md)<br />- [/sig-multicluster/CONTRIBUTING.md](/sig-multicluster/CONTRIBUTING.md)<br />- [/sig-node/CONTRIBUTING.md](/sig-node/CONTRIBUTING.md)<br />- [/sig-storage/CONTRIBUTING.md](/sig-storage/CONTRIBUTING.md)<br />- [/sig-windows/CONTRIBUTING.md](/sig-windows/CONTRIBUTING.md)",
+        "File an Issue": "### File an Issue<br />Not ready to contribute code, but see something that needs work? While the community encourages everyone to contribute code, it is also appreciated when someone reports an issue. Issues should be filed under the appropriate Kubernetes subrepository. For example, a documentation issue should be opened in [kubernetes/website](https://github.com/kubernetes/website/issues). Make sure to adhere to the prompted submission guidelines while opening an issue. Check the [issue triage guide](./issue-triage.md) for more information.",
+        "Communication#1": "The Kubernetes community abides by the [Kubernetes code of conduct](/code-of-conduct.md) on all of the communication platforms that we moderate listed below with noted exceptions. Here is an excerpt from the code of conduct: As contributors and maintainers of this project, and in the interest of fostering an open and welcoming community, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.<br />",
+        "Purpose of This Doc": "A detailed list of upstream communication platforms and resources for contributors. Since upstream contributors are generally consumers, many of our channels intertwine. See for more end user/troubleshooting targeted paths.<br />",
+        "Community Groups": "Kubernetes encompasses many projects, organized into [community groups](/governance.md#community-groups). Upstream communication flows through those channels, most notably in the Special Interest Groups [SIGs](/sig-list.md) that own the docs and codebases. Their communication channels may include mailing lists, slack channels, zoom meetings, meeting agenda/notes, and can be found on their READMEs and on the community groups/[SIGs](/sig-list.md) page. You can actively or passively participate in one of the following ways:<br />- The community group's public meeting(s) listed on the above community groups page<br />- Every Third Thursday at our [monthly community meeting](https://docs.google.com/document/d/1VQDIAB0OqiSjIHI8AWMvSdceWhnz56jNpZrLs6o7NJY/edit#) over [zoom](https://zoom.us/my/kubernetescommunity) at [10am US Pacific Time](https://www.thetimezoneconverter.com/?t=10:00&tz=PT%20%28Pacific%20Time%29)<br />- Intro sessions at KubeCon/CloudNativeCon live or [recordings on YouTube](https://www.youtube.com/channel/UCvqbFHwN-nwalWPjPUKpvTA)<br />Nevertheless, below find a list of many general channels, groups, and meetings devoted to the Kubernetes project. Please check the guidelines and any relevant chat/conversation history before posting. Spam and sales pitches are not tolerated on these platforms.<br />",
+        "Appropriate Content for Community Resources": "All communications properties are under the [Kubernetes code of conduct](/code-of-conduct.md). Additionally, these resources are for the contributors and users of Kubernetes; commercial usage of these properties is heavily moderated. Note that commercial content is allowed, unsolicited commercial content mostly is NOT:<br />Examples of inappropriate content:<br />- Posting unsolicited content of a commercial nature on Slack or other community forums<br />- Messaging people individually on a platform with content of an unsolicited commercial nature<br />- Unsolicited pitching of commercial products during a Kubernetes meeting<br />Examples of appropriate content:<br />- Asking about commercial products in an appropriate channel. For example most clouds have a channel in Slack, asking how to use GKE on the GKE channel or AKS on the Azure channels is fine.<br />- \"Does anyone have experience with project foo?\" is fine<br />- Some OSS projects are also hosted on the Kubernetes Slack that also have a commercial offering, these are allowed.<br />",
+        "Decisions Are Made Here": "The project is very large with a robust community group ecosystem and bubbling up information is important. Transparency is necessary and these channels are key:<br />- [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) mailing list - all upstream Kubernetes news and discussion. Many community groups have charters that state they have to post here for certain topics like project wide changes. Joining this mailing list is required [k-dev moderators](./moderators.md#kubernetes-dev) for GitHub [org membership](/community-membership.md) and will get you access to all community docs that are not in GitHub.<br />- GitHub Issues and PRs in an [associated repository](/github-management#actively-used-github-organizations) and<br />- KEPs[(Kubernetes Enhancement Proposals)](https://git.k8s.io/enhancements/keps)<br />We don't recommend following or watching any repository unless you are using [heavy email filters](./best-practices.md). Getting involved with the community group(s) directly is the best way to find out how to best watch what you need on GitHub.<br />",
+        "Discussions Happen Here": "We talk a lot, too. Slack Our real-time platform with Kubernetes enthusiasts spread across 250+ channels. Owned and operated by sig-contributor-experience. [Join](http://slack.k8s.io) | [Slack Guidelines](/communication/slack-guidelines.md) | [slack moderators](./moderators.md#slack) | [#kubernetes-contributors](https://app.slack.com/client/T09NY5SBT/C09R23FHP)<br />Pro-tip: If you want to add a new channel, simply file a request following [these instructions](/communication/slack-guidelines.md#requesting-a-channel).<br />",
+        "Mailing lists and forums": "Most of the Kubernetes mailing lists are hosted through Google Groups or [Discuss Kubernetes](https://discuss.kubernetes.io). These also power most of the access to our documentation and calendar items like SIG meetings. [mailing list guidelines](./mailing-list-guidelines.md) | [email filtering tips](./best-practices.md)<br />- [kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce) broadcasts major project announcements such as releases and security issues<br />- [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) hosts contributor announcements and discussions for upstream<br />- [Discuss Kubernetes](https://discuss.kubernetes.io) is a forum where Kubernetes users trade notes with sections for contributors and all kinds of ecosystem related content<br />- Additional Google groups exist and can be joined for discussion related to each community group as noted above. These are linked from the [SIG list](/sig-list.md).<br />",
+        "Calendar & Meetings": "We use Zoom for all of our community group meetings and contributor programs.<br />- [Zoom Guidelines](./zoom-guidelines.md)<br />We keep a [shared calendar](https://calendar.google.com/calendar/embed?src=calendar%40kubernetes.io) with all of our community group meetings. If you'd like a contributor event published, please reach out to [#sig-contribex](https://app.slack.com/client/T09NY5SBT/C1TU9EB9S) on slack.<br />Website Documentation is published at [https://kubernetes.io](https://kubernetes.io) - [website guidelines](./website-guidelines.md)<br />",
+        "Social Media & Blogs": "Twitter - [@kubernetesio](https://twitter.com/kubernetesio) - owned and operated by CNCF. Contact: [social@cncf.io](mailto:social@cncf.io)<br />- [Last Week in Kubernetes Development](http://lwkd.info/) - owned and operated by [Josh Berkus](https://github.com/jberkus)<br />YouTube Owned and operated by sig-contribex [community management](/sig-contributor-experience#community-management) subproject. [Kubernetes Community channel](https://www.youtube.com/c/kubernetescommunity) - recordings of community group meetings, Thursday community call, and more [YouTube Guidelines](./youtube/youtube-guidelines.md).<br />Kubernetes Blog The [Kubernetes Blog](https://kubernetes.io/blog/) is owned by SIG Docs and operated by the [blog team](/sig-docs/blog-subproject). [submit a blog post](https://kubernetes.io/docs/contribute/start/#write-a-blog-post)<br />",
+        "Misc Community Resources": "Issues & Troubleshooting For questions about installing, running, or troubleshooting Kubernetes, please start with the [troubleshooting guide](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/). If that doesn't answer your question(s), try to post on discuss.kubernetes.io or if you think you found a bug, please [file an issue](https://github.com/kubernetes/kubernetes/issues/new).<br />Other<br />- [r/kubernetes](https://www.reddit.com/r/kubernetes/) - reddit channel owned and operated by community members and not an official channel for the project.<br />- [awesome kubernetes list](https://github.com/ramitsurana/awesome-kubernetes) - not an official repo; maintained by a community member. a repo with a huge collection of links to books, talks, and other Kubernetes learning resources.<br />- [kubeweekly](https://kubeweekly.io/) - owned by cncf and curated by community members listed on the site. Collection of news, blogs, talks, and events for all things Kubernetes. send submissions to [kubeweekly@cncf.io](mailto:kubeweekly@cncf.io)<br />- [LWKD](https://lwkd.info) - a weekly newsletter that summarizes changes to Kubernetes code, development, and release schedules. Written by two members of SIG-Contribex.<br />Conferences, Meetups, Summits, and Face to Face Meetings CNCF is the main driver for all KubeCon + CloudNativeCons, Kubernetes Forums, and the [Kubernetes Meetup Pro](https://github.com/cncf/meetups) program on meetup.com. KubeCon + CloudNativeCon, is held every spring in Europe, summer in China, and winter in North America. Information about these and other community events is available on the CNCF [events](https://www.cncf.io/events/) pages. The project also has several face to face meetings and contributor summits throughout the year. To stay updated, check the calendar, your community group of interest, and/or the #contributor-summit slack channel for more information.<br />",
+        "Thank You": "A special thanks to all of our volunteer [moderators](./moderators.md) who work in different time zones all over the world to make all of our communication platforms an enjoyable place!<br />",
+        "Pull Request Process": "### Pull Request Process<br />Explains the process and best practices for submitting a pull request to the Kubernetes project and its associated sub-repositories.<br />It should serve as a reference for all contributors, and be useful especially to new or infrequent submitters.",
+        "Before You Submit a Pull Request": "### Before You Submit a Pull Request<br />This guide is for contributors who already have a pull request to submit. If you're looking for information on setting up your developer environment and creating code to contribute to Kubernetes, see the [development guide](/contributors/devel/development.md).<br />First-time contributors should head to the [Contributor Guide](/contributors/guide/README.md) to get started.<br />Make sure your pull request adheres to our best practices. These include following project conventions, making small pull requests, and commenting thoroughly.<br />Run Local Verifications<br />- Run and pass `make verify`<br />- Run and pass `make test`<br />- Run and pass `make test-integration`",
+        "Pull Request Submit Process": "### Pull Request Submit Process<br />Merging a pull request requires the following steps to be completed before the pull request will be merged automatically.<br />- [Open a pull request](https://help.github.com/articles/about-pull-requests/)<br />- For kubernetes/kubernetes repository only: Add [release notes](/contributors/guide/release-notes.md) if needed.<br />- Follow the EasyCLA steps to [sign the CLA](https://git.k8s.io/community/CLA.md) (prerequisite)<br />- Pass all e2e tests<br />- Get all necessary approvals from reviewers and code owners",
+        "Marking Unfinished Pull Requests": "### Marking Unfinished Pull Requests<br />If you want to solicit reviews before the implementation of your pull request is complete, you should hold your pull request to ensure that Tide does not pick it up and attempt to merge it.<br />There are two methods to achieve this:<br />- You may add the `/hold` or `/hold cancel` comment commands<br />- You may add or remove a `WIP` or `[WIP]` prefix to your pull request title",
+        "Pull Requests and the Release Cycle": "### Pull Requests and the Release Cycle<br />If a pull request has been reviewed but held or not approved, it might be due to the current phase in the [Release Cycle](/contributors/devel/sig-release/release.md).<br />Occasionally, a SIG may freeze their own code base when working towards a specific feature or goal that could impact other development.",
+        "Comment Commands Reference": "### Comment Commands Reference<br />[The commands doc](https://go.k8s.io/bot-commands) contains a reference for all comment commands.",
+        "Automation": "### Automation<br />The Kubernetes developer community uses a variety of automation to manage pull requests. This automation is described in detail [in the automation doc](/contributors/devel/automation.md).",
+        "How the e2e Tests Work": "### How the e2e Tests Work<br />The end-to-end tests will post the status results to the pull request. If an e2e test fails, `@k8s-ci-robot` will comment on the pull request with the test history and the comment-command to re-run that test.",
+        "Why was my pull request closed?": "### Why was my pull request closed?<br />Pull requests older than 90 days will be closed. Exceptions can be made for pull requests that have active review comments, or that are awaiting other dependent pull requests.",
+        "Why is my pull request not getting reviewed?": "### Why is my pull request not getting reviewed?<br />A few factors affect how long your pull request might wait for review. If it's the last few weeks of a milestone, we need to reduce churn and stabilize. Or, it could be related to best practices.",
+        "Best Practices for Faster Reviews": "### Best Practices for Faster Reviews<br />Familiarize yourself with project conventions<br />- [Development guide](/contributors/devel/development.md)<br />- [Coding conventions](../guide/coding-conventions.md)<br />- [API conventions](/contributors/devel/sig-architecture/api-conventions.md)<br />- [Kubectl conventions](/contributors/devel/sig-cli/kubectl-conventions.md)",
+        "Is the feature wanted?": "### Is the feature wanted?<br />File a Kubernetes Enhancement Proposal<br />Are you sure Feature-X is something the Kubernetes team wants or will accept? Is it implemented to fit with other changes in flight?",
+        "KISS, YAGNI, MVP, etc.": "### KISS, YAGNI, MVP, etc.<br />Sometimes we need to remind each other of core tenets of software design - Keep It Simple, You Aren't Gonna Need It, Minimum Viable Product, and so on.",
+        "Smaller Is Better": "### Smaller Is Better<br />Small Commits, Small Pull Requests<br />Small commits and small pull requests get reviewed faster and are more likely to be correct than big ones.",
+        "Breaking up commits": "### Breaking up commits<br />Break up your pull request into multiple commits, at logical break points. Making a series of discrete commits is a powerful way to express the evolution of an idea or the different ideas that make up a single feature.",
+        "Breaking up Pull Requests": "### Breaking up Pull Requests<br />Or, going back to our prefactoring example, you could also fork a new branch, do the prefactoring there and send a pull request for that.",
+        "Open a Different Pull Request for Fixes and Generic Features": "### Open a Different Pull Request for Fixes and Generic Features<br />Put changes that are unrelated to your feature into a different pull request.",
+        "Don't Open Pull Requests That Span the Whole Repository": "### Don't Open Pull Requests That Span the Whole Repository<br />Often a new contributor will find some problem that exists in many places across the main `kubernetes/kubernetes` repository, and file a PR to fix it everywhere at once.",
+        "Comments Matter": "### Comments Matter<br />In your code, if someone might not understand why you did something (or you won't remember why later), comment it.",
+        "Test": "### Test<br />Nothing is more frustrating than starting a review, only to find that the tests are inadequate or absent.",
+        "Squashing": "### Squashing<br />Your reviewer has finally sent you feedback on Feature-X. Make the fixups, and don't squash yet.",
+        "Commit Message Guidelines": "### Commit Message Guidelines<br />PR comments are not represented in the commit history. Commits and their commit messages are the \"permanent record\" of the changes being done in your PR and their commit messages should accurately describe both what and why it is being done.",
+        "It's OK to Push Back": "### It's OK to Push Back<br />Sometimes reviewers make mistakes. It's OK to push back on changes your reviewer requested.",
+        "Common Sense and Courtesy": "### Common Sense and Courtesy<br />No document can take the place of common sense and good taste. Use your best judgment, while you put a bit of thought into how your work can be made easier to review.",
+        "Trivial Edits": "### Trivial Edits<br />Each incoming Pull Request needs to be reviewed, checked, and then merged. While automation helps with this, each contribution also has an engineering cost.",
+        "Fixing linter issues": "### Fixing linter issues<br />Kubernetes has a set of linter checks. Some of those must pass in the entire code base, some must pass in new or modified code, and some are merely hints to developers how to improve their code.",
+        "The Testing and Merge Workflow": "### The Testing and Merge Workflow<br />The Kubernetes merge workflow uses labels, applied by [commands](https://prow.k8s.io/command-help) via comments. These will trigger actions on your pull request.",
+        "More About `Ok-To-Test`": "### More About `Ok-To-Test`<br />The ok-to-test label is applied by org members to PRs from external contributors, it signals that the PR can be tested.",
+        "GitHub Workflow#1": "### GitHub Workflow<br />This document is an overview of the GitHub workflow used by the Kubernetes project. It includes tips and suggestions on keeping your local environment in sync with upstream and how to maintain good commit hygiene.",
+        "Fork in the Cloud": "### Fork in the Cloud<br />1. Visit [https://github.com/kubernetes/kubernetes](https://github.com/kubernetes/kubernetes)<br />2. Click `Fork` button (top right) to establish a cloud-based fork.",
+        "Clone Fork to Local Storage": "### Clone Fork to Local Storage<br />In your shell, define a local working directory as `working_dir`.<br />```<br />export working_dir=\"${HOME}/src/k8s.io\"<br /># Change to your preferred location for source code<br />```<br />Set `user` to match your github profile name:<br />```<br />export user=<your github profile name><br />```<br />Create your clone:<br />```<br />mkdir -p $working_dir<br />cd $working_dir<br />git clone https://github.com/$user/kubernetes.git<br /># or:<br />git clone git@github.com:$user/kubernetes.git<br />cd $working_dir/kubernetes<br />git remote add upstream https://github.com/kubernetes/kubernetes.git<br /># or:<br />git remote add upstream git@github.com:kubernetes/kubernetes.git<br /># Never push to upstream master<br />git remote set-url --push upstream no_push<br /># Confirm that your remotes make sense:<br />git remote -v<br />```",
+        "Create a Working Branch": "### Create a Working Branch<br />Get your local master up to date.<br />```<br />cd $working_dir/kubernetes<br />git fetch upstream<br />git checkout master<br />git rebase upstream/master<br />```<br />Create your new branch.<br />```<br />git checkout -b myfeature<br />```<br />You may now edit files on the `myfeature` branch.",
+        "Keep Your Branch in Sync": "### Keep Your Branch in Sync<br />You will need to periodically fetch changes from the `upstream` repository to keep your working branch in sync.<br />```<br />git fetch upstream<br />git rebase upstream/master<br />```<br />Please don\u2019t use `git pull` instead of the above `fetch` and `rebase`.",
+        "Commit Your Changes": "### Commit Your Changes<br />You will probably want to regularly commit your changes.<br />```<br />git commit<br />```",
+        "Push to GitHub": "### Push to GitHub<br />When your changes are ready for review, push your working branch to your fork on GitHub.<br />```<br />git push -f <your_remote_name> myfeature<br />```",
+        "Create a Pull Request": "### Create a Pull Request<br />- Visit your fork at `https://github.com/<user>/kubernetes`<br />- Click the Compare & Pull Request button next to your `myfeature` branch.<br />- Check out the pull request [process](/contributors/guide/pull-requests.md) for more details and advice.",
+        "Get a Code Review": "### Get a Code Review<br />Once your pull request has been opened it will be assigned to one or more reviewers. Those reviewers will do a thorough code review.",
+        "Squash Commits": "### Squash Commits<br />After a review, prepare your PR for merging by squashing your commits.<br />Use an [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History):<br />```<br />git rebase -i HEAD~3<br />```",
+        "Merging a Commit": "### Merging a Commit<br />Once you've received review and approval, your commits are squashed, your PR is ready for merging.",
+        "Reverting a Commit": "### Reverting a Commit<br />In case you wish to revert a commit, use the following instructions.<br />```<br />git checkout -b myrevert<br />git fetch upstream<br />git rebase upstream/master<br />```",
+        "Contributor License Agreement": "The Contributor License Agreement<br />The [Cloud Native Computing Foundation](https://www.cncf.io) (CNCF) defines the legal status of the contributed code in two different types of Contributor License Agreements (CLAs), [individual contributors](https://github.com/cncf/cla/blob/master/individual-cla.pdf) and [corporations](https://github.com/cncf/cla/blob/master/corporate-cla.pdf). Kubernetes can only accept original source code from CLA signatories. This policy does not apply to [third_party](https://git.k8s.io/kubernetes/third_party) and [vendor](https://git.k8s.io/kubernetes/vendor). It is important to read and understand this legal agreement.<br />How do I sign?<br />After creating your first Pull Request, the linux-foundation-easycla bot will respond with information regarding your CLA status along with a link to sign the CLA.<br />1. If you are signing up as a corporate contributor, ensure that you have linked your corporate email address to your GitHub profile (it doesn't have to be your primary email address for GitHub) or else it can lead to issues with the CLA system. For more information, please see [Adding an email address to your GitHub account](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account).<br />2. Authorize EasyCLA to read some of your GitHub information<br />- Click on the Please click here to be authorized link to navigate to the GitHub Authorize Linux Foundation: EasyCLA page.<br />- Then click Authorize LF-Engineering to give the Linux Foundation read-only access to list the email addresses associated with your GitHub account.<br />3. Select from the two types of contributor<br />After authorizing EasyCLA, you will be redirected to a page to identify which type of contributor you are. Select the most appropriate option:<br />- Individual Contributor: You are contributing as yourself, and not as part of another organization.<br />- Corporate Contributor: You are contributing on behalf of your employer or other organization.<br />4. Sign the CLA<br />Once you select the type of contributor, proceed to Sign the CLA and follow the instructions to complete the signing process through DocuSign. After you have filled out the information, Click \"Finish\" and you will be redirected back to your Pull Request.<br />5. Look for an email indicating successful signup.<br />Hello, This is a notification email from EasyCLA regarding the project Cloud Native Computing Foundation (CNCF). The CLA has now been signed. You can download the signed CLA as a PDF here. If you need help or have questions about EasyCLA, you can read the documentation or reach out to us for support.<br />Thanks, EasyCLA Support Team<br />6. Validate your CLA<br />Once you are redirected back to your GitHub Pull Request, reply with a comment `/easycla` to update the CLA status of your PR.",
+        "Changing Affiliation": "Changing your Affiliation<br />If you've changed employers and still contribute to Kubernetes, your affiliation needs to be updated. The Cloud Native Computing Foundation uses [gitdm](https://github.com/cncf/gitdm) to track who is contributing and from where. Create a pull request on the [gitdm](https://github.com/cncf/gitdm) repository with a change to the corresponding developer affiliation text file. Your entry should look similar to this:<br />```<br />Jorge O. Castro*: jorge!heptio.com, jorge!ubuntu.com, jorge.castro!gmail.com Heptio Canonical until 2017-03-31<br />```",
+        "Troubleshooting": "Troubleshooting<br />If you encounter any problems signing the CLA and need further assistance, log a ticket by clicking on the link [please submit a support request ticket](https://jira.linuxfoundation.org/plugins/servlet/theme/portal/4) from the EasyCLA bot's response. Someone from the CNCF will respond to your ticket to help. Should you have any issues using the LF Support Site, send a message to the backup email support address [login-issues@jira.linuxfoundation.org](mailto:login-issues@jira.linuxfoundation.org)<br />Setting up the CNCF CLA check<br />If you are a Kubernetes GitHub organization or repo owner and would like to setup the Linux Foundation CNCF CLA check for your repositories, [read the docs on setting up the CNCF CLA check](/github-management/setting-up-cla-check.md)",
+        "First Contribution#1": "### Making your First Contribution<br />Not sure where to make your first contribution?<br />This doc has some tips and ideas to help get you started.<br />Your First Contribution - - - - - -<br />- Find something to work on<br />The first step to getting started contributing to Kubernetes is to find something to work on. Help is always welcome, and no contribution is too small (but see below)! Here are some things you can do today to get started contributing:<br />- Help improve the Kubernetes documentation<br />- Clarify code, variables, or functions that can be renamed or commented on<br />- Write test coverage<br />- Help triage issues<br />If the above suggestions don't appeal to you, you can browse the [issues labeled as a good first issue](https://go.k8s.io/good-first-issue) to see who is looking for help. Those interested in contributing without writing code can also find ideas in the [Non-Code Contributions Guide](./non-code-contributions.md).<br />Note: although contributions are welcome, beware that every pull request creates work for maintainers and costs for testing it. Fixing linter warnings is often not worth it because the existing code is fine. Always discuss with maintainers first before creating such PRs.",
+        "Find a Topic#1": "### Find a good first topic<br />There are [multiple repositories](https://github.com/kubernetes/) within the Kubernetes organization. Each repository has beginner-friendly issues that are a great place to get started on your contributor journey. For example, [kubernetes/kubernetes](https://git.k8s.io/kubernetes) has [help wanted](https://go.k8s.io/help-wanted) and [good first issue](https://go.k8s.io/good-first-issue) labels for issues that don't need high-level Kubernetes knowledge to contribute to. The `good first issue` label also indicates that Kubernetes Members have committed to providing [extra assistance](./help-wanted.md) for new contributors. Another way to get started is to find a documentation improvement, such as a missing/broken link, which will give you exposure to the code submission/review process without the added complication of technical depth.",
+        "Issue Assignment#1": "### Issue Assignment in Github<br />When you've found an issue to work on, you can assign it to yourself.<br />- Reply with `/assign` or `/assign @yourself` on the issue you'd like to work on<br />- The [K8s-ci-robot](https://github.com/k8s-ci-robot) will automatically assign the issue to you.<br />- Your name will then be listed under, `Assignees`.",
+        "Learn about SIGs#1": "### Learn about SIGs<br />Some repositories in the Kubernetes Organization are owned by [Special Interest Groups], or SIGs. The Kubernetes community is broken out into SIGs in order to improve its workflow, and more easily manage what is a very large community project. The developers within each SIG have autonomy and ownership over that SIG's part of Kubernetes. Understanding how to interact with SIGs is an important part of contributing to Kubernetes. Check out the [list of SIGs](/sig-list.md) for contact information.",
+        "SIG Structure#1": "### SIG structure<br />A SIG is an open, community effort. Anybody is welcome to jump into a SIG and begin fixing issues, critique design proposals, and review code. SIGs have regular [video meetings](https://kubernetes.io/community/) which everyone is welcome to attend. Each SIG has a Slack channel, meeting notes, and their own documentation that is useful to read and understand. There is an entire SIG ([sig-contributor-experience](/sig-contributor-experience/README.md)) devoted to improving your experience as a contributor. If you have an idea for improving the contributor experience, please consider attending one of the Contributor Experience SIG's [weekly meetings](https://docs.google.com/document/d/1qf-02B7EOrItQgwXFxgqZ5qjW0mtfu5qkYIF1Hl4ZLI/edit).",
+        "Find a SIG#1": "### Find a SIG that is related to your contribution<br />Finding the appropriate SIG for your contribution and adding a SIG label will help you ask questions in the correct place and give your contribution higher visibility and a faster community response. For Pull Requests, the automatically assigned reviewer will add a SIG label if you haven't already done so. For Issues, please note that the community is working on a more automated workflow. Since SIGs do not directly map onto Kubernetes subrepositories, it may be difficult to find which SIG your contribution belongs in. Review the [list of SIGs](/sig-list.md) to determine which SIG is most likely related to your contribution. Example: if you are filing a CNI issue (that's [Container Networking Interface](https://github.com/containernetworking/cni)) you'd choose the [Network SIG](https://git.k8s.io/community/sig-network). Add the SIG label in a new comment on GitHub by typing the following:<br />```<br />/sig network<br />```",
+        "SIG Guidelines#1": "### SIG-specific contributing guidelines<br />Some SIGs have their own `CONTRIBUTING.md` files, which may contain extra information or guidelines in addition to these general ones. These are located in the SIG-specific community directories:<br />- [/sig-apps/CONTRIBUTING.md](/sig-apps/CONTRIBUTING.md)<br />- [/sig-cli/CONTRIBUTING.md](/sig-cli/CONTRIBUTING.md)<br />- [/sig-multicluster/CONTRIBUTING.md](/sig-multicluster/CONTRIBUTING.md)<br />- [/sig-node/CONTRIBUTING.md](/sig-node/CONTRIBUTING.md)<br />- [/sig-storage/CONTRIBUTING.md](/sig-storage/CONTRIBUTING.md)<br />- [/sig-windows/CONTRIBUTING.md](/sig-windows/CONTRIBUTING.md)",
+        "File an Issue#1": "### File an Issue<br />Not ready to contribute code, but see something that needs work? While the community encourages everyone to contribute code, it is also appreciated when someone reports an issue. Issues should be filed under the appropriate Kubernetes subrepository. For example, a documentation issue should be opened in [kubernetes/website](https://github.com/kubernetes/website/issues). Make sure to adhere to the prompted submission guidelines while opening an issue. Check the [issue triage guide](./issue-triage.md) for more information.",
+        "Introduction#1": "This document is written for contributors who would like to avoid their code being reverted for performance reasons.<br />**Who should read this document and what is in it?**<br />This document is targeted at developers of \"vanilla Kubernetes\" who do not want their changes rolled-back or blocked because they cause performance regressions. It contains some of the knowledge and experience gathered by the scalability team over more than two years. It is presented as a set of examples from the past which broke scalability tests, followed by some explanations and general suggestions on how to avoid causing similar problems.<br />**What does it mean to \"break scalability\"?**<br />\"Breaking scalability\" means causing performance SLO violations in one of our performance tests. Performance SLOs for Kubernetes are:<br />- 99th percentile of API call latencies <= 1s<br />- 99th percentile of e2e Pod startup, excluding image pulling, latencies <= 5s<br />We run density and load tests, and we invite anyone interested in the details to read the code. We run those tests on large clusters (100+ Nodes). This means tests are somewhat resistant to limited concurrency in Kubelet (e.g. they are routinely failing on very small clusters, when the Scheduler cannot spread Pod creations broadly enough).",
+        "Memory Management": "Inefficient use of memory<br />Consider the following sample code snippet:<br />```<br />func (s Scheduler) ScheduleOne(pod v1.Pod, nodes []v1.Nodes) v1. Node {<br />  for _, node := range nodes {<br />    if s.FitsNode(pod, node) {<br />      \u2026<br />    }<br />  }<br />}<br />func (s Scheduler) DoSchedule(podsChan chan v1.Pod) {<br />  for {<br />    \u2026<br />    node := s.ScheduleOne(pod, s.nodes)<br />    \u2026<br />  }<br />}<br />```<br />This snippet contains a number of problems that were always present in the Kubernetes codebase, and continue to appear. We try to address them in the most important places, but the work never ends. The first problem is that `func (s Scheduler) ScheduleOne\u2026` means each call of `ScheduleOne` will run on a new copy of the Scheduler object. This in turn means Golang will need to copy the entire `Scheduler` struct every time the `ScheduleOne` function is called. The copy will then be discarded when the function returns. Clearly, this is a waste of resources, and in some cases may be incorrect. Next, `(pod v1. Pod, nodes []v1.Nodes)` has much in common with the first problem. By default, Golang passes arguments as values, i.e. copies them when they are passed to the function. Note that this is very different from Java or Python. Of course, some things are fine to pass directly. Slices, maps, strings and interfaces are actually pointers (in general interfaces might not be pointers, but in our code they are - see first point), so only a pointer value is copied when they are passed as an argument. For flat structures, copying is sometimes necessary (e.g. when doing asynchronous modifications), but most often it is not. In such cases, use pointers. As there are no constant references in Golang, this is the only option for passing objects without copying them (except creating read-only interfaces for all types, but that is not feasible). Note that it is (and should be) scary to pass a pointer to your object to strangers. Before you do so, make sure the code to which you are passing the pointer will not modify the object. Races are bad as well. Note that all `Informers` (see next paragraph) caches are expected to be immutable. We could go on and on, but the point is clear -- when writing code that will be executed often, you need to think about memory management. From time to time we all occasionally forget to keep this in mind, but we are reminded of it when we look at performance. General rules are:<br />- Using heap is very expensive (garbage collection)<br />- Avoid unnecessary heap operations altogether<br />- Repeatedly copying objects is noticeable and should be minimized.<br />- Learn how Golang manages memory. This is especially important in components running on the control plane. Otherwise we may end up in the situation where the API server is starved on CPU and cannot respond quickly to requests.",
+        "API Calls": "Explicit lists from the API server<br />Some time ago most of our controllers looked like this:<br />```<br />func (c *ControllerX) Reconcile() {<br />  items, err := c.kubeClient.X(v1.NamespaceAll). List(&v1.ListOptions{})<br />  if err != nil {<br />    ...<br />  }<br />  for _, item := range items {<br />    ...<br />  }<br />}<br />func (c *ControllerX) Run() {<br />  wait. Until(c.Reconcile, c.Period, wait. NeverStop)<br />  ...<br />}<br />```<br />This may look OK, but List() calls are expensive. Objects can have sizes of a few kilobytes, and there can be 150,000 of those. This means List() would need to send hundreds of megabytes through the network, not to mention the API server would need to do conversions of all this data along the way. It is not the end of the world, but it needs to be minimized. The solution is simple (quoting Clayton): As a rule, use Informer. If using Informer, use shared Informers. If your use case does not look like an Informer, look harder. If at the very end of that it still does not look like an Informer, consider using something else after talking to someone. But probably use Informer. `Informer` is our library which provides a read interface to the store - it is a read-only cache that provides you with a local copy of the store that contains only the object you are interested in (matching given selector). From it you can Get(), List() or whatever read operations you desire. `Informer` also allows you to register functions that will be called when an object is created, modified or deleted. The magic behind `Informers` is that they are populated by the WATCH, so they create minimal stress on the API server. Code for Informer is [here](https://git.k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/cache/shared_informer.go). In general: use `Informers` - if we were able to rewrite most vanilla controllers to use them, you should be able to do so as well. Otherwise, you may dramatically increase the CPU requirements of the API server which will starve it and make it too slow to meet our SLOs.",
+        "Superfluous API Calls": "Superfluous API calls<br />One past regression was caused by `Secret` refreshing logic in Kubelet. By contract we want to update values of `Secrets` (update env variables, contents of `Secret` volume) when the contents of `Secret` are updated in the API server. Normally we would use `Informer` (see above), but there is an additional security constraint; Kubelet should know only `Secrets` that are attached to `Pods` scheduled on the corresponding `Node`, so there should be no watching of all `Secret` updates (which is how `Informers` work). We already know that List() calls are also bad (not to mention that they have the same security problem as WATCH), so the only way we can read `Secrets` is through GET. For each `Secret` we were periodically GETting its value and updating underlying variables/volumes as necessary. We have the same logic for `ConfigMaps`. Everything was great until we turned on the `ServiceAccount` admission controller in our performance tests. Then everything went wrong for a very simple reason; the `ServiceAccount` admission controller creates a `Secret` that it attaches to every `Pod` (a different one in every Namespace, but this does not change anything). Multiply this behavior by 150,000 and, given a refresh period of 60 seconds, an additional 2.5k QPS were being sent to the API server, which of course caused it to fail. To mitigate this issue we had to reimplement Informers using GETs instead of WATCHes. The current solution consists of a `Secret` cache shared between all `Pod`s. When a `Pod` wants to check if the `Secret` has changed it looks in the cache. If the `Secret` stored in the cache is too old, the cache issues a GET request to the API server to refresh the value. As `Pods` within a single `Namespace` share the `Secret` for `ServiceAccount`, it means Kubelet will need to refresh the `Secret` only once in a while per `Namespace`, not per `Pod`, as it was before. This of course is a stopgap and not a final solution, which is currently (as of early May 2017) being designed as a [\"Bulk Watch\"](https://github.com/kubernetes/community/pull/443). This example demonstrates why you need to treat API calls as a rather expensive shared resource. This is especially important on the Node side, as every change is multiplied by 5,000. In controllers, especially when writing some disaster recovery logic, it is perfectly fine to add a new call. There are not a lot of controllers, and disaster recovery should not happen too often. That being said, whenever you add a new API server request you should do quick estimation of QPS that will be added to the API server, and if the result is a noticeable number you probably should think about a way to reduce it. One obvious consequence of not reducing API calls is that you will starve the API server on CPU. This particular pattern can also drain `max-inflight-request` in the API server, which will make it respond with 429's (Too Many Requests) and thus slow down the system. At best it will only cause draining of the local client rate limiter for API calls in your component (default value is 5 QPS, controllers normally have 20). This will result in your component being very, very slow.",
+        "Complex Computations": "Complex and expensive computations on a critical path<br />Let us use the `PodAntiAffinity` scheduling feature as an example. The goal of this feature is to allow users to prevent co-scheduling of `Pods` (using a very broad definition of co-scheduling). When defining `PodAntiAffinity` you pass two things: `Node` grouping and `Pod` selector. The semantics is that for each group of `Nodes` you check if any `Node` in the group runs a `Pod` matching the selector. If it does, all `Nodes` from the group are discarded. This of course needs to be symmetric, as if you prevent pods from set A to be co-scheduled with `Pods` from set B, but not the other way around. When adding new `Pod` to set B, you'll end up with `Pods` from A and B running in the same group, which you wanted to avoid. This means that even when scheduling `Pods` that do not explicitly use the `PodAntiAffinity` feature you need to check `PodAntiAffinities` of all `Pods` running in the cluster. It also means that scheduling of every `Pod` gets an additional check of `O(#Pods * #Nodes)` complexity, if naively implemented. Given the fact that we can have 150.000 `Pods` in the cluster, it becomes obvious it is not a good idea to have quadratic algorithms on a critical path for Pods - even for ones that do not use the PodAntiAffinity feature! This was initially implemented in a very simple way, rapidly making the scheduler unusable, and `Pod` startup times went through the roof. We were forced to block this feature, and it did not make into the target release. Later, we slightly improved the algorithm to `O(#(scheduled Pods with PodAntiAffinity) * #Nodes)`, which was enough to allow the feature to get in as beta, with a huge asterisk next to it.",
+        "Dependency Changes": "Big dependency changes<br />Kubernetes depends on pretty much the whole universe. From time to time we need to update some dependencies (Godeps, etcd, go version). This can break us in many ways, as has already happened a couple of times. We skipped one version of Golang (1.5) precisely because it broke our performance. As this is being written, we are working with the Golang team to try to understand why Golang version 1.8 negatively affects Kubernetes performance. If you are changing a large and important dependency, the only way to know what performance impact it will have is to run test and check. Where to look to get data? If you want to check the impact of your changes there are a number of places to look.<br />- Density and load tests output quite a lot of data either to test logs, or files inside 'ReportDir' - both of them include API call latencies, and density tests also include pod e2e startup latency information.<br />- For resource usage you can either use monitoring tools (heapster + Grafana, but note that at the time of writing, this stops working at around 100 Nodes), or just plain 'top' on the control plane (which scales as much as you want),<br />- More data is available on the `/metrics` endpoint of all our components (e.g. the one for the API server contains API call latencies), to profile a component create an ssh tunnel to the machine running it, and run `go tool pprof localhost:<your_tunnel_port>` locally",
+        "Summary": "Summary<br />To summarize, when writing code you should:<br />- understand how Golang manages memory and use it wisely,<br />- not List() from the API server,<br />- run performance tests when making large systemwide changes (e.g. updating big dependencies),<br />When designing new features or thinking about refactoring you should:<br />- Estimate the number of additional QPS you will be sending to the API server when adding new API calls<br />- Make sure to not add any complex logic on a critical path of any basic workflow<br />Closing remarks<br />We know that thinking about the performance impact of changes is hard. This is exactly why we want you to help us cater for it, by keeping all the knowledge we have given you here in the back of your mind as you write your code. In return, we will answer all your question and doubts about possible impact of your changes if you post them either to #sig-scalability Slack channel, or cc @kubernetes/sig-scalability-pr-reviews in your PR/proposal.",
+        "Flaky Tests": "Any test that fails occasionally is \"flaky\". Since our merges only proceed when all tests are green, and we have a number of different CI systems running the tests in various combinations, even a small percentage of flakes results in a lot of pain for people waiting for their PRs to merge. Therefore, it's important we take flakes seriously. We should avoid flakes by writing our tests defensively. When flakes are identified, we should prioritize addressing them, either by fixing them or quarantining them off the critical path. The project has a \"zero-flake\" policy. Test jobs must not automatically retry on test failures. This was announced and implemented in effect from 2019: [No more ginkgo.flakeAttempts=2 for e2e tests as of 2019-12-13](https://groups.google.com/g/kubernetes-dev/c/NNmEGUsJObg/m/dmI2mVc_AAAJ) (and then confirmed as policy in 2023). For more information about deflaking Kubernetes tests, you can watch:<br />- @liggitt's [presentation from Kubernetes SIG Testing - 2020-08-25](https://www.youtube.com/watch?v=Ewp8LNY_qTg).<br />- @aojea's [presentation from Kubernetes SIG Testing - 2022-11-15](https://www.youtube.com/watch?v=x2Lj-ldR0AA&t=2660s).<br />- @aojea's [Contributor Summit: \"The art of deflaking Kubernetes tests\"](https://www.youtube.com/watch?v=wyMyQdvg1Qw).",
+        "Avoiding Flakes": "Write tests defensively. Remember that \"almost never\" happens all the time when tests are run thousands of times in a CI environment. Tests need to be tolerant of other tests running concurrently, resource contention, and things taking longer than expected. There is a balance to be had here. Don't log too much, but don't log too little. Don't assume things will succeed after a fixed delay, but don't wait forever.<br />- Ensure the test functions in parallel with other tests<br />- Be specific enough to ensure a test isn't thrown off by other tests' assets<br />- [https://github.com/kubernetes/kubernetes/pull/85849](https://github.com/kubernetes/kubernetes/pull/85849) - eg: ensure resource name and namespace match<br />- [https://github.com/kubernetes/kubernetes/pull/85967](https://github.com/kubernetes/kubernetes/pull/85967) - eg: tolerate errors for non k8s.io APIs<br />- [https://github.com/kubernetes/kubernetes/pull/85619](https://github.com/kubernetes/kubernetes/pull/85619) - eg: tolerate multiple storage plugins<br />- Ensure the test functions in a resource constrained environment<br />- Only ask for the resources you need<br />- [https://github.com/kubernetes/kubernetes/pull/84975](https://github.com/kubernetes/kubernetes/pull/84975) - eg: drop memory constraints for test cases that only need cpu<br />- Don't use overly tight deadlines (but not overly broad either, non-[Slow] tests timeout after 5min)<br />- [https://github.com/kubernetes/kubernetes/pull/85847](https://github.com/kubernetes/kubernetes/pull/85847) - eg: poll for `wait.ForeverTestTimeout` instead of 10s<br />- [https://github.com/kubernetes/kubernetes/pull/84238](https://github.com/kubernetes/kubernetes/pull/84238) - eg: poll for 2min instead of 1min<br />- mark tests as [Slow] if they are unable to pass within 5min<br />- Do not expect actions to happen instantaneously or after a fixed delay<br />- Prefer informers and wait loops<br />- Ensure the test provides sufficient context in logs for forensic debugging<br />- Explain what the test is doing, eg:<br />- \"creating a foo with invalid configuration\"<br />- \"patching the foo to have a bar\"<br />- Explain what specific check failed, and how, eg:<br />- \"failed to create resource foo in namespace bar because of err\"<br />- \"expected all items to be deleted, but items foo, bar, and baz remain\"<br />- Explain why a polling loop is failing, eg:<br />- \"expected 3 widgets, found 2, will retry\"<br />- \"expected pod to be in state foo, currently in state bar, will retry\"",
+        "Quarantining Flakes": "When quarantining a presubmit test, ensure an issue exists in the current release milestone assigned to the owning SIG. The issue should be labeled `priority/critical-urgent`, `lifecycle/frozen`, and `kind/flake`. The expectation is for the owning SIG to resolve the flakes and reintroduce the test, or determine the tested functionality is covered via another method and delete the test in question.<br />- Quarantine a single test case by adding `[Flaky]` to the test name in question, most CI jobs exclude these tests. This makes the most sense for flakes that are merge-blocking and taking too long to troubleshoot, or occurring across multiple jobs.<br />- eg: [https://github.com/kubernetes/kubernetes/pull/83792](https://github.com/kubernetes/kubernetes/pull/83792)<br />- eg: [https://github.com/kubernetes/kubernetes/pull/86327](https://github.com/kubernetes/kubernetes/pull/86327)<br />- Quarantine an entire set of tests by adding `[Feature:Foo]` to the test(s) in question. This will require creating jobs that focus specifically on this feature. The majority of release-blocking and merge-blocking suites avoid these jobs unless they're proven to be non-flaky.",
+        "Hunting Flakes": "We offer the following tools to aid in finding or troubleshooting flakes<br />- [flakes-latest.json](http://storage.googleapis.com/k8s-metrics/flakes-latest.json) - shows the top 10 flakes over the past week for all PR jobs<br />- [go.k8s.io/triage](https://go.k8s.io/triage) - an interactive test failure report providing filtering and drill-down by job name, test name, failure text for failures in the last two weeks<br />- [https://storage.googleapis.com/k8s-gubernator/triage/index.html?pr=1&job=pull-kubernetes-e2e-gce%24](https://storage.googleapis.com/k8s-gubernator/triage/index.html?pr=1&job=pull-kubernetes-e2e-gce%24) - all failures that happened in the `pull-kubernetes-e2e-gce` job<br />- [https://storage.googleapis.com/k8s-gubernator/triage/index.html?text=timed%20out](https://storage.googleapis.com/k8s-gubernator/triage/index.html?text=timed%20out) - all failures containing the text `timed out`<br />- [https://storage.googleapis.com/k8s-gubernator/triage/index.html?test=%5C%5Bsig-apps%5C%5D](https://storage.googleapis.com/k8s-gubernator/triage/index.html?test=%5C%5Bsig-apps%5C%5D) - all failures that happened in tests with `[sig-apps]` in their name<br />- [testgrid.k8s.io](https://testgrid.k8s.io) - display test results in a grid for visual identification of flakes<br />- [https://testgrid.k8s.io/presubmits-kubernetes-blocking](https://testgrid.k8s.io/presubmits-kubernetes-blocking) - all merge-blocking jobs<br />- [https://testgrid.k8s.io/presubmits-kubernetes-blocking#pull-kubernetes-e2e-gce&exclude-filter-by-regex=BeforeSuite&sort-by-flakiness=](https://testgrid.k8s.io/presubmits-kubernetes-blocking#pull-kubernetes-e2e-gce&exclude-filter-by-regex=BeforeSuite&sort-by-flakiness=) - results for the pull-kubernetes-e2e-gce job sorted by flakiness<br />- [https://testgrid.k8s.io/sig-release-master-informing#gce-cos-master-default&sort-by-flakiness=&width=10](https://testgrid.k8s.io/sig-release-master-informing#gce-cos-master-default&sort-by-flakiness=&width=10) - results for the equivalent CI job<br />- [kind/flake github query](https://github.com/kubernetes/kubernetes/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fflake) - open issues or PRs related to flaky jobs or tests for kubernetes/kubernetes",
+        "GitHub Issues for Known Flakes": "Because flakes may be rare, it's very important that all relevant logs be discoverable from the issue.<br />- Search for the test name. If you find an open issue and you're 90% sure the flake is exactly the same, add a comment instead of making a new issue.<br />- If you make a new issue, you should title it with the test name, prefixed by \"[Flaky test]\"<br />- Reference any old issues you found in step one. Also, make a comment in the old issue referencing your new issue, because people monitoring only their email do not see the backlinks github adds. Alternatively, tag the person or people who most recently worked on it.<br />- Paste, in block quotes, the entire log of the individual failing test, not just the failure line.<br />- Link to spyglass to provide access to all durable artifacts and logs (eg: [https://prow.k8s.io/view/gcs/kubernetes-jenkins/logs/ci-kubernetes-e2e-gci-gce-flaky/1204178407886163970](https://prow.k8s.io/view/gcs/kubernetes-jenkins/logs/ci-kubernetes-e2e-gci-gce-flaky/1204178407886163970))<br />Find flaky tests issues on GitHub under the [kind/flake issue label](https://github.com/kubernetes/kubernetes/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fflake). There are significant numbers of flaky tests reported on a regular basis. Fixing flakes is a quick way to gain expertise and community goodwill. Expectations when a flaky test is assigned to you Note that we won't randomly assign these issues to you unless you've opted in or you're part of a group that has opted in. We are more than happy to accept help from anyone in fixing these, but due to the severity of the problem when merges are blocked, we need reasonably quick turn-around time on merge-blocking or release-blocking flakes. Therefore we have the following guidelines:<br />- If a flaky test is assigned to you, it's more important than anything else you're doing unless you can get a special dispensation (in which case it will be reassigned). If you have too many flaky tests assigned to you, or you have such a dispensation, then it's still your responsibility to find new owners (this may just mean giving stuff back to the relevant Team or SIG Lead).",
+        "Reproducing and Fixing Flakes": "- You should make a reasonable effort to reproduce it. Somewhere between an hour and half a day of concentrated effort is \"reasonable\". It is perfectly reasonable to ask for help!<br />- If you can reproduce it (or it's obvious from the logs what happened), you should then be able to fix it, or in the case where someone is clearly more qualified to fix it, reassign it with very clear instructions.<br />- Once you have made a change that you believe fixes a flake, it is conservative to keep the issue for the flake open and see if it manifests again after the change is merged.<br />- If you can't reproduce a flake: don't just close it! Every time a flake comes back, at least 2 hours of merge time is wasted. So we need to make monotonic progress towards narrowing it down every time a flake occurs. If you can't figure it out from the logs, add log messages that would have help you figure it out. If you make changes to make a flake more reproducible, please link your pull request to the flake you're working on.<br />- If a flake has been open, could not be reproduced, and has not manifested in 3 months, it is reasonable to close the flake issue with a note saying why.<br />- If you are unable to deflake the test, consider adding `[Flaky]` to the test name, which will result in the test being quarantined to only those jobs that explicitly run flakes (eg: [https://testgrid.k8s.io/google-gce#gci-gce-flaky](https://testgrid.k8s.io/google-gce#gci-gce-flaky))",
+        "Writing a Good Flake Report": "If you are reporting a flake, it is important to include enough information for others to reproduce the issue. When filing the issue, use the [flaking test template](https://github.com/kubernetes/kubernetes/issues/new?labels=kind%2Fflake&template=flaking-test.yaml). In your issue, answer these following questions:<br />- Is this flaking in multiple jobs? You can search for the flaking test or error messages using the [Kubernetes Aggregated Test Results](http://go.k8s.io/triage) tool.<br />- Are there multiple tests in the same package or suite failing with the same apparent error?<br />In addition, be sure to include the following information:<br />- A link to [testgrid](https://testgrid.k8s.io/) history for the flaking test's jobs, filtered to the relevant tests<br />- The failed test output \u2014 this is essential because it makes the issue searchable<br />- A link to the triage query<br />- A link to specific failures<br />- Be sure to tag the relevant SIG, if you know what it is. For a good example of a flaking test issue, [check here](https://github.com/kubernetes/kubernetes/issues/93358).",
+        "Deflaking Unit Tests": "To get started with deflaking unit tests, you will need to first reproduce the flaky behavior. Start with a simple attempt to just run the flaky unit test. For example:<br />```<br />go test ./pkg/kubelet/config -run TestInvalidPodFiltered<br />```<br />Also make sure that you bypass the `go test` cache by using an uncachable command line option:<br />```<br />go test ./pkg/kubelet/config -count=1 -run TestInvalidPodFiltered<br />```<br />If even this is not revealing issues with the flaky test, try running with [race detection](https://golang.org/doc/articles/race_detector.html) enabled:<br />```<br />go test ./pkg/kubelet/config -race -count=1 -run TestInvalidPodFiltered<br />```<br />Finally, you can stress test the unit test using the [stress command](https://godoc.org/golang.org/x/tools/cmd/stress). Install it with this command:<br />```<br /># go version 1.17 and later<br />go install golang.org/x/tools/cmd/stress@latest<br /># go version prior to 1.17<br />go get golang.org/x/tools/cmd/stress<br />```<br />Then build your test binary:<br />```<br />go test ./pkg/kubelet/config -race -c<br />```<br />Then run it under stress:<br />```<br />stress ./config.test -test.run TestInvalidPodFiltered<br />```<br />The stress command runs the test binary repeatedly, reporting when it fails. It will periodically report how many times it has run and how many failures have occurred. You should see output like this:<br />```<br />411 runs so far, 0 failures<br />/var/folders/7f/9xt_73f12xlby0w362rgk0s400kjgb/T/go-stress-20200825T115041-341977266<br />--- FAIL: TestInvalidPodFiltered (0.00s)<br />config_test.go:126: Expected no update in channel, Got types. PodUpdate{Pods:[]*v1.Pod{(*v1.Pod)(0xc00059e400)}, Op:1, Source:\"test\"}<br />FAIL<br />ERROR: exit status 1<br />815 runs so far, 1 failures<br />```<br />Be careful with tests that use the `net/http/httptest` package; they could exhaust the available ports on your system!",
+        "Deflaking Integration Tests": "Integration tests run similarly to unit tests, but they almost always expect a running `etcd` instance. You should already have `etcd` installed if you have followed the instructions in the [Development Guide](../development.md). Run `etcd` in another shell window or tab. Compile your integration test using a command like this:<br />```<br />go test -c -race ./test/integration/endpointslice<br />```<br />And then stress test the flaky test using the `stress` command:<br />```<br />stress ./endpointslice.test -test.run TestEndpointSliceMirroring<br />```<br />For an example of a failing or flaky integration test, [read this issue](https://github.com/kubernetes/kubernetes/issues/93496#issuecomment-678375312). Sometimes, but not often, a test will fail due to timeouts caused by deadlocks. This can be tracked down by stress testing an entire package. The way to track this down is to stress test individual tests in a package. This process can take extra effort. Try following these steps:<br />- Run each test in the package individually to figure out the average runtime.<br />- Stress each test individually, bounding the timeout to 100 times the average run time.<br />- Isolate the particular test that is deadlocking.<br />- Add debug output to figure out what is causing the deadlock. Hopefully this can help narrow down exactly where the deadlock is occurring, revealing a simple fix!",
+        "Deflaking e2e Tests": "A flaky [end-to-end (e2e) test](e2e-tests.md) offers its own set of challenges. In particular, these tests are difficult because they test the entire Kubernetes system. This can be both good and bad. It can be good because we want the entire system to work when testing, but an e2e test can also fail because of something completely unrelated, such as failing infrastructure or misconfigured volumes. Be aware that you can't simply look at the title of an e2e test to understand exactly what is being tested. If possible, look for unit and integration tests related to the problem you are trying to solve. Gathering information The first step in deflaking an e2e test is to gather information. We capture a lot of information from e2e test runs, and you can use these artifacts to gather information as to why a test is failing. Use the [Prow Status](https://prow.k8s.io/) tool to collect information on specific test jobs. Drill down into a job and use the Artifacts tab to collect information. For example, with [this particular test job](https://prow.k8s.io/view/gcs/kubernetes-jenkins/pr-logs/directory/pull-kubernetes-e2e-gce/1296558932902285312), we can collect the following:<br />- `build-log.txt`<br />- In the control plane directory: `artifacts/e2e-171671cb3f-674b9-master/`<br />- `kube-apiserver-audit.log` (and rotated files)<br />- `kube-apiserver.log`<br />- `kube-controller-manager.log`<br />- `kube-scheduler.log`<br />- And more!<br />The `artifacts/` directory will contain much more information. From inside the directories for each node:<br />- `e2e-171671cb3f-674b9-minion-group-drkr`<br />- `e2e-171671cb3f-674b9-minion-group-lr2z`<br />- `e2e-171671cb3f-674b9-minion-group-qkkz`<br />Look for these files:<br />- `kubelet.log`<br />- `docker.log`<br />- `kube-proxy.log`<br />- And so forth.",
+        "Filtering and Correlating Information": "Once you have gathered your information, the next step is to filter and correlate the information. This can require some familiarity with the issue you are tracking down, but look first at the relevant components, such as the test log, logs for the API server, controller manager, and `kubelet`. Filter the logs to find events that happened around the time of the failure and events that occurred in related namespaces and objects. The goal is to collate log entries from all of these different files so you can get a picture of what was happening in the distributed system. This will help you figure out exactly where the e2e test is failing. One tool that may help you with this is [k8s-e2e-log-combiner](https://github.com/brianpursley/k8s-e2e-log-combiner) Kubernetes has a lot of nested systems, so sometimes log entries can refer to events happening three levels deep. This means that line numbers in logs might not refer to where problems and messages originate. Do not make any assumptions about where messages are initiated! If you have trouble finding relevant logging information or events, don't be afraid to add debugging output to the test. For an example of this approach, [see this issue](https://github.com/kubernetes/kubernetes/pull/88297#issuecomment-588607417). What to look for One of the first things to look for is if the test is assuming that something is running synchronously when it actually runs asynchronously. For example, if the test is kicking off a goroutine, you might need to add delays to simulate slow operations and reproduce issues. Examples of the types of changes you could make to try to force a failure:<br />- `time.Sleep(time.Second)` at the top of a goroutine<br />- `time.Sleep(time.Second)` at the beginning of a watch event handler<br />- `time.Sleep(time.Second)` at the end of a watch event handler<br />- `time.Sleep(time.Second)` at the beginning of a sync loop worker<br />- `time.Sleep(time.Second)` at the end of a sync loop worker<br />Sometimes, [such as in this example](https://github.com/kubernetes/kubernetes/issues/93496#issuecomment-675631856), a test might be causing a race condition with the system it is trying to test. Investigate if the test is conflicting with an asynchronous background process. To verify the issue, simulate the test losing the race by putting a `time.Sleep(time.Second)` between test steps. If a test is assuming that an operation will happen quickly, it might not be taking into account the configuration of a CI environment. A CI environment will generally be more resource-constrained and will run multiple tests in parallel. If it runs in less than a second locally, it could take a few seconds in a CI environment. Unless your test is specifically testing performance/timing, don't set tight timing tolerances. Use `wait.ForeverTestTimeout`, which is a reasonable stand-in for operations that should not take very long. This is a better approach than polling for 1 to 10 seconds. Is the test incorrectly assuming deterministic output? Remember that map iteration in go is non-deterministic. If there is a list being compiled or a set of steps are being performed by iterating over a map, they will not be completed in a predictable order. Make sure the test is able to tolerate any order in a map. Be aware that if a test is mixing random allocation with static allocation, that there will be intermittent conflicts. Finally, if you are using a fake client with a watcher, it can relist/rewatch at any point. It is better to look for specific actions in the fake client rather than asserting exact content of the full set.",
+        "Introduction#2": "## Introduction<br />Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers. It aims to provide a \"platform for automating deployment, scaling, and operations of application containers across clusters of hosts\".",
+        "Getting Started": "## Getting Started<br />To get started with Kubernetes, you need to install the Kubernetes CLI, kubectl. You can install it using the following command:<br />```bash<br />curl -LO \"https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl\"<br />chmod +x ./kubectl<br />sudo mv ./kubectl /usr/local/bin/kubectl<br />```",
+        "Setting Up a Cluster": "## Setting Up a Cluster<br />To set up a Kubernetes cluster, you can use Minikube, which is a tool that makes it easy to run Kubernetes locally. Install Minikube using the following command:<br />```bash<br />curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64<br />chmod +x minikube<br />sudo mv minikube /usr/local/bin/<br />```<br />Start your cluster with:<br />```bash<br />minikube start<br />```",
+        "Deploying Applications": "## Deploying Applications<br />Once your cluster is up and running, you can deploy applications using Kubernetes. Create a deployment using the following command:<br />```bash<br />kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4<br />```<br />Expose your deployment:<br />```bash<br />kubectl expose deployment hello-node --type=LoadBalancer --port=8080<br />```",
+        "Monitoring and Logging": "## Monitoring and Logging<br />Kubernetes provides built-in tools for monitoring and logging. You can use Prometheus and Grafana for monitoring, and Elasticsearch, Fluentd, and Kibana (EFK) for logging. To install Prometheus, use the following command:<br />```bash<br />kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/bundle.yaml<br />```",
+        "Conclusion": "## Conclusion<br />Kubernetes is a powerful tool for managing containerized applications in a clustered environment. By following the steps outlined in this document, you can set up a Kubernetes cluster and deploy applications efficiently.",
+        "Community Expectations#1": "**Community Expectations**<br />Expectations of conduct and code review that govern all members of the community.<br />Kubernetes is a community project. Consequently, it is wholly dependent on its community to provide a productive, friendly and collaborative environment. The first and foremost goal of the Kubernetes community is to develop orchestration technology that radically simplifies the process of creating reliable distributed systems. However, a second, equally important goal is the creation of a community that fosters easy, agile development of such orchestration systems. We therefore describe the expectations for members of the Kubernetes community. This document is intended to be a living one that evolves as the community evolves via the same PR and code review process that shapes the rest of the project. It currently covers the expectations of conduct that govern all members of the community as well as the expectations around code review that govern all active contributors to Kubernetes.",
+        "Code Review#1#1": "**Code Review**<br />As a community, we believe in the value of code review for all contributions. Code review increases both the quality and readability of our codebase, which in turn produces high-quality software. See the [pull request documentation](/contributors/guide/pull-requests.md) for more information on code review. Consequently, as a community, we expect that all active participants in the community will also be active reviewers. The [community membership](/community-membership.md) outlines the responsibilities of the different contributor roles. Expect reviewers to request that you avoid [common go style mistakes](https://github.com/golang/go/wiki/CodeReviewComments) in your PRs.",
+        "Expectations of Reviewers#1": "**Expectations of Reviewers**<br />Review comments: Because reviewers are often the first points of contact between new members of the community and can significantly impact the first impression of the Kubernetes community, reviewers are especially important in shaping the Kubernetes community. Reviewers are highly encouraged to not only abide by the [code of conduct](/governance.md#code-of-conduct) but are strongly encouraged to go above and beyond the code of conduct to promote a collaborative, respectful Kubernetes community.<br />Review latency: Reviewers are expected to respond in a timely fashion to PRs that are assigned to them. Reviewers are expected to respond to active PRs with reasonable latency, and if reviewers fail to respond, those PRs may be assigned to other reviewers. If reviewers are unavailable to review for some time, they are expected to set their [user status](https://help.github.com/en/articles/personalizing-your-profile#setting-a-status) to \"busy\" so that the bot will not request reviews from them on new PRs automatically. If they are unavailable for a longer period of time, they are expected to remove themselves from the OWNERS file and potentially nominate someone else. Active PRs are considered those which have a proper CLA (`cla:yes`) label and do not need rebase to be merged. PRs that do not have a proper CLA, or require a rebase are not considered active PRs.",
+        "Acknowledgements#1": "**Acknowledgements**<br />Many thanks in advance to everyone who contributes their time and effort to making Kubernetes both a successful system as well as a successful community. The strength of our software shines in the strengths of each individual community member. Thanks!",
+        "Community Expectations#2": "**Community Expectations**<br />Expectations of conduct and code review that govern all members of the community.<br />Kubernetes is a community project. Consequently, it is wholly dependent on its community to provide a productive, friendly and collaborative environment. The first and foremost goal of the Kubernetes community is to develop orchestration technology that radically simplifies the process of creating reliable distributed systems. However, a second, equally important goal is the creation of a community that fosters easy, agile development of such orchestration systems. We therefore describe the expectations for members of the Kubernetes community. This document is intended to be a living one that evolves as the community evolves via the same PR and code review process that shapes the rest of the project. It currently covers the expectations of conduct that govern all members of the community as well as the expectations around code review that govern all active contributors to Kubernetes.",
+        "Code Review#2": "**Code Review**<br />As a community, we believe in the value of code review for all contributions. Code review increases both the quality and readability of our codebase, which in turn produces high-quality software. See the [pull request documentation](/contributors/guide/pull-requests.md) for more information on code review. Consequently, as a community, we expect that all active participants in the community will also be active reviewers. The [community membership](/community-membership.md) outlines the responsibilities of the different contributor roles. Expect reviewers to request that you avoid [common go style mistakes](https://github.com/golang/go/wiki/CodeReviewComments) in your PRs.",
+        "Expectations of Reviewers#2": "**Expectations of Reviewers**<br />Review comments: Because reviewers are often the first points of contact between new members of the community and can significantly impact the first impression of the Kubernetes community, reviewers are especially important in shaping the Kubernetes community. Reviewers are highly encouraged to not only abide by the [code of conduct](/governance.md#code-of-conduct) but are strongly encouraged to go above and beyond the code of conduct to promote a collaborative, respectful Kubernetes community.<br />Review latency: Reviewers are expected to respond in a timely fashion to PRs that are assigned to them. Reviewers are expected to respond to active PRs with reasonable latency, and if reviewers fail to respond, those PRs may be assigned to other reviewers. If reviewers are unavailable to review for some time, they are expected to set their [user status](https://help.github.com/en/articles/personalizing-your-profile#setting-a-status) to \"busy\" so that the bot will not request reviews from them on new PRs automatically. If they are unavailable for a longer period of time, they are expected to remove themselves from the OWNERS file and potentially nominate someone else. Active PRs are considered those which have a proper CLA (`cla:yes`) label and do not need rebase to be merged. PRs that do not have a proper CLA, or require a rebase are not considered active PRs.",
+        "Acknowledgements#2": "**Acknowledgements**<br />Many thanks in advance to everyone who contributes their time and effort to making Kubernetes both a successful system as well as a successful community. The strength of our software shines in the strengths of each individual community member. Thanks!",
+        "Coding Conventions": "### Coding Conventions<br />This document outlines a collection of guidelines, style suggestions, and tips for writing code in the different programming languages used throughout the Kubernetes project.<br />- **Bash**<br />  - [Shell Style Guide](https://google.github.io/styleguide/shellguide.html)<br />  - Ensure that build, release, test, and cluster-management scripts run on macOS<br />- **Go**<br />  - [Go Code Review Comments](https://go.dev/wiki/CodeReviewComments)<br />  - [Effective Go](https://golang.org/doc/effective_go.html)<br />  - Know and avoid [Go landmines](https://gist.github.com/lavalamp/4bd23295a9f32706a48f)<br />  - Comment your code.<br />  - [Go's commenting conventions](https://go.dev/doc/comment)<br />  - If reviewers ask questions about why the code is the way it is, that's a sign that comments might be helpful.<br />  - Command-line flags should use dashes, not underscores<br />- **Naming**<br />  - Please consider package name when selecting an interface name, and avoid redundancy. For example, `storage.Interface` is better than `storage.StorageInterface`.<br />  - Do not use uppercase characters, underscores, or dashes in package names.<br />  - Please consider parent directory name when choosing a package name. For example, `pkg/controllers/autoscaler/foo.go` should say `package autoscaler` not `package autoscalercontroller`.<br />  - Unless there's a good reason, the `package foo` line should match the name of the directory in which the `.go` file exists.<br />  - Importers can use a different name if they need to disambiguate.<br />  - Locks should be called `lock` and should never be embedded (always `lock sync.Mutex`). When multiple locks are present, give each lock a distinct name following Go conventions: `stateLock`, `mapLock` etc.",
+        "API and Logging Conventions": "### API and Logging Conventions<br />- [API changes](/contributors/devel/sig-architecture/api_changes.md)<br />- [API conventions](/contributors/devel/sig-architecture/api-conventions.md)<br />- [Kubectl conventions](/contributors/devel/sig-cli/kubectl-conventions.md)<br />- [Logging conventions](/contributors/devel/sig-instrumentation/logging.md)",
+        "Testing Conventions": "### Testing Conventions<br />- All new packages and most new significant functionality must come with unit tests.<br />- Table-driven tests are preferred for testing multiple scenarios/inputs. For an example, see [TestNamespaceAuthorization](https://github.com/kubernetes/kubernetes/blob/4b8e819355d791d96b7e9d9efe4cbafae2311c88/test/integration/auth/auth_test.go#L1201).<br />- Significant features should come with integration (test/integration) and/or [end-to-end (test/e2e) tests](/contributors/devel/sig-testing/e2e-tests.md).<br />- Including new `kubectl` commands and major features of existing commands.<br />- Unit tests must pass on macOS and Windows platforms - if you use Linux specific features, your test case must either be skipped on windows or compiled out (skipped is better when running Linux specific commands, compiled out is required when your code does not compile on Windows).<br />- Avoid relying on Docker Hub. Use the [Google Cloud Artifact Registry](https://cloud.google.com/artifact-registry/) instead.<br />- Do not expect an asynchronous thing to happen immediately---do not wait for one second and expect a pod to be running. Wait and retry instead.<br />- See the [testing guide](/contributors/devel/sig-testing/testing.md) for additional testing advice.",
+        "Directory and File Conventions": "### Directory and File Conventions<br />- Avoid package sprawl. Find an appropriate subdirectory for new packages. [See issue #4851](http://issues.k8s.io/4851) for discussion.<br />- Libraries with no appropriate home belong in new package subdirectories of `pkg/util`.<br />- Avoid general utility packages. Packages called \"util\" are suspect. Instead, derive a name that describes your desired function. For example, the utility functions dealing with waiting for operations are in the `wait` package and include functionality like `Poll`. The full name is `wait.Poll`.<br />- All filenames should be lowercase.<br />- Go source files and directories use underscores, not dashes.<br />- Package directories should generally avoid using separators as much as possible. When package names are multiple words, they usually should be in nested subdirectories.<br />- Document directories and filenames should use dashes rather than underscores.<br />- Examples should also illustrate [best practices for configuration and using the system](https://kubernetes.io/docs/concepts/configuration/overview/).",
+        "Third-Party Code Conventions": "### Third-Party Code Conventions<br />- Follow these conventions for third-party code:<br />  - Go code for normal third-party dependencies is managed using [go modules](https://go.dev/wiki/Modules) and is described in the kubernetes [vendoring guide](/contributors/devel/sig-architecture/vendor.md).<br />  - Other third-party code belongs in `third_party`.<br />  - forked third party Go code goes in `third_party/forked`.<br />  - forked golang stdlib code goes in `third_party/forked/golang`.<br />  - Third-party code must include licenses.<br />  - This includes modified third-party code and excerpts, as well.",
+        "Conformance Testing in Kubernetes": "The Kubernetes Conformance test suite is a subset of e2e tests that SIG Architecture has approved to define the core set of interoperable features that all conformant Kubernetes clusters must support. The tests verify that the expected behavior works as a user might encounter it in the wild. The process to add new conformance tests is intended to decouple the development of useful tests from their promotion to conformance:<br />- Contributors write and submit e2e tests, to be approved by owning SIGs<br />- Tests are proven to meet the by review and by accumulation of data on flakiness and reliability<br />- A follow up PR is submitted to NB: This should be viewed as a living document in a few key areas:<br />- The desired set of conformant behaviors is not adequately expressed by the current set of e2e tests, as such this document is currently intended to guide us in the addition of new e2e tests than can fill this gap<br />- This document currently focuses solely on the requirements for GA, non-optional features or APIs. The list of requirements will be refined over time to the point where it as concrete and complete as possible.<br />- There are currently conformance tests that violate some of the requirements (e.g., require privileged access), we will be categorizing these tests and deciding what to do once we have a better understanding of the situation<br />- Once we resolve the above issues, we plan on identifying the appropriate areas to relax requirements to allow for the concept of conformance Profiles that cover optional or additional behaviors",
+        "Conformance Test Requirements": "Conformance tests currently test only GA, non-optional features or APIs. More specifically, a test is eligible for promotion to conformance if:<br />- it tests only GA, non-optional features or APIs (e.g., no alpha or beta endpoints, no feature flags required, no deprecated features)<br />- it does not require direct access to kubelet's API to pass (nor does it require indirect access via the API server node proxy endpoint); it MAY use the kubelet API for debugging purposes upon failure<br />- it works for all providers (e.g., no `SkipIfProviderIs`/`SkipUnlessProviderIs` calls)<br />- it limits itself to capabilities exposed via APIs (e.g., does not require root on nodes, access to raw network interfaces) and does not require write access to system namespaces (like kube-system)<br />- it works without access to the public internet (short of whatever is required to pre-pull images for conformance tests)<br />- it works without non-standard filesystem permissions granted to pods<br />- it does not rely on any binaries that would not be required for the linux kernel or kubelet to run (e.g., can't rely on git)<br />- where possible, it does not depend on outputs that change based on OS (nslookup, ping, chmod, ls)<br />- any container images used within the test support all architectures for which kubernetes releases are built<br />- it passes against the appropriate versions of kubernetes as spelled out in the<br />- it is stable and runs consistently (e.g., no flakes), and has been running for at least two weeks<br />- new conformance tests or updates to conformance tests for additional scenarios are only allowed before code freeze dates set by the release team to allow enough soak time of the changes and gives folks a chance to kick the tires either in the community CI or their own infrastructure to make sure the tests are robust<br />- it has a name that is a literal string",
+        "Windows & Linux Considerations": "Windows node support is an optional but stable feature as of Kubernetes 1.14. This means that it is not required by conformance testing. Nonetheless, it's important to verify that the behavior of Windows nodes match the behaviors tested in the conformance suite as much as possible. To that end, a large number of conformance tests are already included in Windows testing. You can see what tests are already passing by looking at TestGrid for results of Windows tests running on [Azure](https://testgrid.k8s.io/sig-windows#aks-engine-azure-windows-master) and [GCE](https://testgrid.k8s.io/sig-windows#gce-windows-master)). Tests may be scheduled for any PR with the bot command `/test pull-kubernetes-e2e-aks-engine-azure-windows`.",
+        "Running Conformance Tests": "Conformance tests are designed to be run even when there is no cloud provider configured. Conformance tests must be able to be run against clusters that have not been created with `test-infra/kubetest`, just provide a kubeconfig with the appropriate endpoint and credentials.<br />Running Conformance Tests With [KinD](https://kind.sigs.k8s.io/)<br />- Work in your kubernetes branch, preferably in the default go src location: `$GOPATH/src/k8s.io/kubernetes`<br />- Create your kind node image:<br />```<br />kind build node-image<br />```<br />- Create your kind e2e cluster config kind-config.yaml:<br />```<br /># necessary for conformance<br />kind: Cluster<br />apiVersion: kind.x-k8s.io/v1alpha4<br />networking:<br />ipFamily: ipv4<br />nodes:<br /># the control plane node<br />- role: control-plane<br />- role: worker<br />- role: worker<br />```<br />- Set your KUBECONFIG env variable (KIND generates the conf based on it):<br />```<br />export KUBECONFIG=\"${HOME}/.kube/kind-test-config\"<br />```<br />- Use the previous config to create your cluster:<br />```<br />kind create cluster --config kind-config.yaml --image kindest/node:latest -v4<br />```<br />- Create your e2e Kubernetes binary (from your Kubernetes src code):<br />```<br />make WHAT=\"test/e2e/e2e.test\"<br />```<br />- Execute your tests:<br />```<br />./_output/bin/e2e.test -context kind-kind -ginkgo.focus=\"\\[sig-network\\].*Conformance\" -num-nodes 2<br />```",
+        "Kubernetes Conformance Document": "For each Kubernetes release, a Conformance Document will be generated that lists all of the tests that comprise the conformance test suite, along with the formal specification of each test. For an example, see the [v1.9 conformance doc](https://github.com/cncf/k8s-conformance/blob/master/docs/KubeConformance-1.9.md). This document will help people understand what features are being tested without having to look through the testcase's code directly.",
+        "Testing Guide": "### Testing Guide<br />This assumes you already read the [development guide](../development.md) to install go and configure your git client. All command examples are relative to the `kubernetes` root directory. Before sending pull requests you should at least make sure your changes have passed both unit and integration tests. Kubernetes only merges pull requests when unit, integration, and e2e tests are passing, so it is often a good idea to make sure the e2e tests work as well.",
+        "Unit Tests": "### Unit Tests<br />- Unit tests should be fully hermetic<br />- Only access resources in the test binary.<br />- All packages and any significant files require unit tests.<br />- The preferred method of testing multiple scenarios or input is [table driven testing](https://github.com/golang/go/wiki/TableDrivenTests)<br />- Example: [TestNamespaceAuthorization](https://git.k8s.io/kubernetes/test/integration/auth/auth_test.go)<br />- Unit tests must pass on macOS and Windows platforms.<br />- Tests using linux-specific features must be skipped or compiled out.<br />- Skipped is better, compiled out is required when it won't compile.<br />- Concurrent unit test runs must pass.<br />- See [coding conventions](../../guide/coding-conventions.md).<br />Run all unit tests `make test` is the entrypoint for running the unit tests that ensures that `GOPATH` is set up correctly.<br />```<br />cd kubernetes<br />make test  # Run all unit tests.<br />```<br />If any unit test fails with a timeout panic (see [#1594](https://github.com/kubernetes/community/issues/1594)) on the testing package, you can increase the `KUBE_TIMEOUT` value as shown below.<br />```<br />make test KUBE_TIMEOUT=\"-timeout=300s\"<br />```<br />Set go flags during unit tests You can set [go flags](https://golang.org/cmd/go/) by setting the `GOFLAGS` environment variable.<br />Run unit tests from certain packages `make test` accepts packages as arguments; the `k8s.io/kubernetes` prefix is added automatically to these:<br />```<br />make test WHAT=./pkg/kubelet                # run tests for pkg/kubelet<br />```<br />To run tests for a package and all of its subpackages, you need to append `...` to the package path:<br />```<br />make test WHAT=./pkg/api/...  # run tests for pkg/api and all its subpackages<br />```<br />To run multiple targets you need quotes:<br />```<br />make test WHAT=\"./pkg/kubelet ./pkg/scheduler\"  # run tests for pkg/kubelet and pkg/scheduler<br />```<br />In a shell, it's often handy to use brace expansion:<br />```<br />make test WHAT=./pkg/{kubelet,scheduler} # run tests for pkg/kubelet and pkg/scheduler<br />```<br />Run specific unit test cases in a package You can set the test args using the `KUBE_TEST_ARGS` environment variable. You can use this to pass the `-run` argument to `go test`, which accepts a regular expression for the name of the test that should be run.<br />```<br /># Runs TestValidatePod in pkg/api/validation with the verbose flag set<br />make test WHAT=./pkg/apis/core/validation GOFLAGS=\"-v\" KUBE_TEST_ARGS='-run ^TestValidatePod$'<br /># Runs tests that match the regex ValidatePod|ValidateConfigMap in pkg/api/validation<br />make test WHAT=./pkg/apis/core/validation GOFLAGS=\"-v\" KUBE_TEST_ARGS=\"-run ValidatePod\\|ValidateConfigMap$\"<br />```<br />For other supported test flags, see the [golang documentation](https://golang.org/cmd/go/#hdr-Testing_flags).",
+        "Stress Testing": "### Stress Testing<br />Running the same tests repeatedly is one way to root out flakes. You can do this efficiently.<br />```<br /># Have 2 workers run all tests 5 times each (10 total iterations).<br />make test PARALLEL=2 ITERATION=5<br />```<br />For more advanced ideas please see [flaky-tests.md](flaky-tests.md).",
+        "Unit Test Coverage": "### Unit Test Coverage<br />Currently, collecting coverage is only supported for the Go unit tests. To run all unit tests and generate an HTML coverage report, run the following:<br />```<br />make test KUBE_COVER=y<br />```<br />At the end of the run, an HTML report will be generated with the path printed to stdout. To run tests and collect coverage in only one package, pass its relative path under the `kubernetes` directory as an argument, for example:<br />```<br />make test WHAT=./pkg/kubectl KUBE_COVER=y<br />```<br />Multiple arguments can be passed, in which case the coverage results will be combined for all tests run.",
+        "Benchmark Tests": "### Benchmark Tests<br />To run benchmark tests, you'll typically use something like:<br />```<br />make test WHAT=./pkg/scheduler/internal/cache KUBE_TEST_ARGS='-benchmem -run=XXX -bench=BenchmarkExpirePods'<br />```<br />This will do the following:<br />- `-run=XXX` is a regular expression filter on the name of test cases to run. Go will execute both the tests matching the `-bench` regex and the `-run` regex. Since we only want to execute benchmark tests, we set the `-run` regex to XXX, which will not match any tests.<br />- `-bench=Benchmark` will run test methods with Benchmark in the name<br />- See `grep -nr Benchmark .` for examples<br />- `-benchmem` enables memory allocation stats<br />See `go help test` and `go help testflag` for additional info.",
+        "Run Unit Tests Using Go Test": "### Run Unit Tests Using Go Test<br />You can optionally use `go test` to run unit tests. For example:<br />```<br />cd kubernetes<br /># Run unit tests in the kubelet package<br />go test ./pkg/kubelet<br /># Run all unit tests found within ./pkg/api and its subdirectories<br />go test ./pkg/api/...<br /># Run a specific unit test within a package<br />go test ./pkg/apis/core/validation -v -run ^TestValidatePods$<br /># Run benchmark tests<br />go test ./pkg/scheduler/internal/cache -benchmem -run=XXX -bench=Benchmark<br />```<br />When running tests contained within a staging module, you first need to change to the staging module's subdirectory and then run the tests, like this:<br />```<br />cd kubernetes/staging/src/k8s.io/kubectl<br /># Run all unit tests within the kubectl staging module<br />go test ./...<br />```",
+        "Integration Tests": "### Integration Tests<br />Please refer to [Integration Testing in Kubernetes](integration-tests.md).",
+        "End-to-End Tests": "### End-to-End Tests<br />Please refer to [End-to-End Testing in Kubernetes](e2e-tests.md).",
+        "Testing Strategy": "### Testing Strategy<br />Either if you are a feature owner or subsystem or area maintainer, you have to define a testing strategy for your area, please refer to [Defining a Robust Testing Strategy in Kubernetes](testing-strategy.md).",
+        "Running Contribution Through Kubernetes CI": "### Running Contribution Through Kubernetes CI<br />Once you open a PR, [prow](https://prow.k8s.io) runs pre-submit tests in CI. You can find more about `prow` in [kubernetes/test-infra](https://sigs.k8s.io/prow/pkg) and in [this blog post](https://kubernetes.io/blog/2018/08/29/the-machines-can-do-the-work-a-story-of-kubernetes-testing-ci-and-automating-the-contributor-experience/#enter-prow) on automation involved in testing PRs to Kubernetes. If you are not a [Kubernetes org member](https://github.com/kubernetes/community/blob/master/community-membership.md#member), another org member will need to run [/ok-to-test](https://prow.k8s.io/command-help#ok_to_test) on your PR. Find out more about [other commands](https://prow.k8s.io/command-help) you can use to interact with prow through GitHub comments.",
+        "Troubleshooting a Failure": "### Troubleshooting a Failure<br />Click on `Details` to look at artifacts produced by the test and the cluster under test, to help you debug the failure. These artifacts include:<br />- test results<br />- metadata on the test run (including versions of binaries used, test duration)<br />- output from tests that have failed<br />- build log showing the full test run<br />- logs from the cluster under test (k8s components such as kubelet and apiserver, possibly other logs such as etcd and kernel)<br />- junit xml files<br />- test coverage files<br />If the failure seems unrelated to the change you're submitting:<br />- Is it a flake?<br />- Check if a GitHub issue is already open for that flake<br />- If not, open a new one (like [this example](https://github.com/kubernetes/kubernetes/issues/71430)) and [label it kind/flake](https://prow.k8s.io/command-help#kind)<br />- If yes, any help troubleshooting and resolving it is very appreciated. Look at  for how to do it.<br />- Run [/retest](https://prow.k8s.io/command-help#retest) on your PR to re-trigger the tests<br />- Is it a failure that shouldn't be happening (in other words; is the test expectation now wrong)?<br />- Get in touch with the SIG that your PR is labeled after - preferably as a comment on your PR, by tagging the [GitHub team](https://github.com/orgs/kubernetes/teams) (for example a [reviewers team for the SIG](https://github.com/orgs/kubernetes/teams?utf8=%E2%9C%93&query=review))<br />- write your reasoning as to why you think the test is now outdated and should be changed<br />- if you don't get a response in 24 hours, engage with the SIG on their channel on the [Kubernetes slack](http://slack.k8s.io/) and/or attend one of the [SIG meetings](https://github.com/kubernetes/community/blob/master/sig-list.md) to ask for input.",
+        "Helping with Known Flakes": "### Helping with Known Flakes<br />For known flakes (i.e. with open GitHub issues against them), the community deeply values help in troubleshooting and resolving them. Starting points could be:<br />- add logs from the failed run you experienced, and any other context to the existing discussion<br />- if you spot a pattern or identify a root cause, notify or collaborate with the SIG that owns that area to resolve them",
+        "Escalating Failures to a SIG": "### Escalating Failures to a SIG<br />- Figure out corresponding SIG from test name/description<br />- Mention the SIG's GitHub handle on the issue, optionally `cc` the SIG's chair(s) (locate them under kubernetes/community/sig-<name>)<br />- Optionally (or if you haven't heard back on the issue after 24h) reach out to the SIG on slack",
+        "Testgrid": "### Testgrid<br />[testgrid](https://testgrid.k8s.io/) is a visualization of the Kubernetes CI status. It is useful as a way to:<br />- see the run history of a test you are debugging (access it starting from a gubernator report for that test)<br />- get an overview of the project's general health<br />- You can learn more about Testgrid from the [Kubecon NA San Diego Contributor Summit](https://youtu.be/8xS6mmGhbIQ)<br />`testgrid` is organised in:<br />- tests<br />- collection of assertions in a test file<br />- each test is typically owned by a single SIG<br />- each test is represented as a row on the grid<br />- jobs<br />- collection of tests<br />- each job is typically owned by a single SIG<br />- each job is represented as a tab<br />- dashboards<br />- collection of jobs<br />- each dashboard is represented as a button<br />- some dashboards collect jobs/tests in the domain of a specific SIG (named after and owned by those SIGs), and dashboards to monitor project wide health (owned by SIG-release)",
+        "PR Process": "### PR Process<br />All new PRs for tests should attempt to follow these steps in order to help enable a smooth review process:<br />- The problem statement should clearly describe the intended purpose of the test and why it is needed.<br />- Get some agreement on how to design your test from the relevant SIG.<br />- Create the PR.<br />- Raise awareness of your PR to respective communities (eg. via mailing lists, Slack channels, Github mentions).",
+        "Overview": "### Overview<br />End-to-end (e2e) tests for Kubernetes provide a mechanism to test end-to-end behavior of the system, and is the last signal to ensure end user operations match developer specifications. Although unit and integration tests provide a good signal, in a distributed system like Kubernetes it is not uncommon that a minor change may pass all unit and integration tests, but cause unforeseen changes at the system level. The primary objectives of the e2e tests are to ensure a consistent and reliable behavior of the Kubernetes code base, and to catch hard-to-test bugs before users do, when unit and integration tests are insufficient. NOTE: If you want test against a cluster, you can use `test/e2e` framework. This page is written about `test/e2e`. If you want to test the `kubelet` code, you can use `test/e2e_node` framework. If you want to know `test/e2e_node`, please see the [e2e-node-tests](../sig-node/e2e-node-tests.md). The e2e tests in Kubernetes are built atop of [Ginkgo](http://onsi.github.io/ginkgo/) and [Gomega](http://onsi.github.io/gomega/). There are a host of features that this Behavior-Driven Development (BDD) testing framework provides, and it is recommended that the developer read the documentation prior to diving into the tests. The purpose of this document is to serve as a primer for developers who are looking to execute or add tests using a local development environment. Before writing new tests or making substantive changes to existing tests, you should also read [Writing Good e2e Tests](writing-good-e2e-tests.md).",
+        "Building and Running Tests": "### Building Kubernetes and Running the Tests<br />There are a variety of ways to run e2e tests, but we aim to decrease the number of ways to run e2e tests to a canonical way: `kubetest`. For information on installing `kubetest`, please see the [installation section](https://github.com/kubernetes/test-infra/tree/master/kubetest#installation) of the [Kubetest project documentation](https://github.com/kubernetes/test-infra/tree/master/kubetest). You can run an end-to-end test which will bring up a master and nodes, perform some tests, and then tear everything down. Make sure you have followed the getting started steps for your chosen cloud platform (which might involve changing the --provider flag value to something other than \"gce\"). You can quickly recompile the e2e testing framework via `go install ./test/e2e`. This will not do anything besides allow you to verify that the go code compiles. If you want to run your e2e testing framework without re-provisioning the e2e setup, you can do so via `make WHAT=test/e2e/e2e.test`, and then re-running the ginkgo tests. To build Kubernetes, up a cluster, run tests, and tear everything down, use:<br />```<br />kubetest --build --up --test --down<br />```<br />If you'd like to just perform one of these steps, here are some examples:<br />```<br /># Build binaries for testing<br />kubetest --build<br /># Create a fresh cluster. Deletes a cluster first, if it exists<br />kubetest --up<br /># Run all tests<br />kubetest --test<br /># Run tests which have been labeled with \"Feature:Performance\" against a local cluster<br /># Specify \"--provider=local\" flag when running the tests locally<br />kubetest --test --test_args='--ginkgo.label-filter=Feature:Performance' --provider=local<br /># Conversely, exclude tests that match the regex \"Pods.*env\"<br />kubetest --test --test_args='--ginkgo.skip=Pods.*env'<br /># Exclude tests that require a certain minimum version of the kubelet<br />kubetest --test --test_args='--ginkgo.label-filter=!MinimumKubeletVersion:1.20'<br /># Run tests in parallel, skip any that must be run serially<br />GINKGO_PARALLEL=y kubetest --test --test_args='--ginkgo.label-filter=!Serial'<br /># Run tests in parallel, skip any that must be run serially and keep the test namespace if test failed<br />GINKGO_PARALLEL=y kubetest --test --test_args='--ginkgo.label-filter=!Serial --delete-namespace-on-failure=false'<br /># Flags can be combined, and their actions will take place in this order:<br /># --build, --up, --test, --down<br />#<br /># You can also specify an alternative provider, such as 'aws'<br />#<br /># e.g.: kubetest --provider=aws --build --up --test --down<br />```<br />The tests are built into a single binary which can be used to deploy a Kubernetes system or run tests against an already-deployed Kubernetes system. See `kubetest --help` for more options, such as reusing an existing cluster.",
+        "Cleaning Up": "### Cleaning up<br />During a run, pressing `control-C` should result in an orderly shutdown, but if something goes wrong and you still have some VMs running you can force a cleanup with this command:<br />```<br />kubetest --down<br />```",
+        "Advanced Testing": "### Advanced testing<br />Extracting a specific version of Kubernetes<br />The `kubetest` binary can download and extract a specific version of Kubernetes, both the server, client and test binaries. The `--extract=E` flag enables this functionality. There are a variety of values to pass this flag:<br />```<br /># Official builds: <ci|release>/<latest|stable>[-N.N]<br />kubetest --extract=ci/latest --up  # Deploy the latest ci build.<br />kubetest --extract=ci/latest-1.5 --up  # Deploy the latest 1.5 CI build.<br />kubetest --extract=release/latest --up  # Deploy the latest RC.<br />kubetest --extract=release/stable-1.5 --up  # Deploy the 1.5 release.<br /># A specific version:<br />kubetest --extract=v1.5.1 --up  # Deploy 1.5.1<br />kubetest --extract=v1.5.2-beta.0  --up  # Deploy 1.5.2-beta.0<br />kubetest --extract=gs://foo/bar  --up  # --stage=gs://foo/bar<br /># Whatever GKE is using (gke, gke-staging, gke-test):<br />kubetest --extract=gke  --up  # Deploy whatever GKE prod uses<br /># Using a GCI version:<br />kubetest --extract=gci/gci-canary --up  # Deploy the version for next gci release<br />kubetest --extract=gci/gci-57  # Deploy the version bound to gci m57<br />kubetest --extract=gci/gci-57/ci/latest  # Deploy the latest CI build using gci m57 for the VM image<br /># Reuse whatever is already built<br />kubetest --up  # Most common. Note, no extract flag<br />kubetest --build --up  # Most common. Note, no extract flag<br />kubetest --build --stage=gs://foo/bar --extract=local --up  # Extract the staged version<br />```",
+        "Bringing Up a Cluster": "### Bringing up a cluster for testing<br />If you want, you may bring up a cluster in some other manner and run tests against it. To do so, or to do other non-standard test things, you can pass arguments into Ginkgo using `--test_args` (e.g. see above). For the purposes of brevity, we will look at a subset of the options, which are listed below:<br />```<br />--ginkgo.dryRun=false: If set, ginkgo will walk the test hierarchy without actually running anything.<br />--ginkgo.fail Fast=false: If set, ginkgo will stop running a test suite after a failure occurs.<br />--ginkgo.failOnPending=false: If set, ginkgo will mark the test suite as failed if any specs are pending.<br />--ginkgo.focus=\"\": If set, ginkgo will only run specs that match this regular expression.<br />--ginkgo.skip=\"\": If set, ginkgo will only run specs that do not match this regular expression.<br />--ginkgo.label-filter=\"\": If set, select tests based on their labels as described under \"Spec Labels\" in https://onsi.github.io/ginkgo/#filtering-specs. This can focus on tests and exclude others in a single parameter without using regular expressions.<br />--ginkgo.noColor=\"n\": If set to \"y\", ginkgo will not use color in the output<br />--ginkgo.trace=false: If set, default reporter prints out the full stack trace when a failure occurs<br />--ginkgo.v=false: If set, default reporter print out all specs as they begin.<br />--host=\"\": The host, or api-server, to connect to<br />--kubeconfig=\"\": Path to kubeconfig containing embedded authinfo.<br />--provider=\"\": The name of the Kubernetes provider (gce, gke, local, vagrant, etc.)<br />--repo-root=\"../../\": Root directory of Kubernetes repository, for finding test files.<br />```<br />Prior to running the tests, you may want to first create a simple auth file in your home directory, e.g. `$HOME/.kube/config`, with the following:<br />```<br />{ \"User\": \"root\", \"Password\": \"\" }<br />```<br />As mentioned earlier there are a host of other options that are available, but they are left to the developer. NOTE: If you are running tests on a local cluster repeatedly, you may need to periodically perform some manual cleanup:<br />- `rm -rf /var/run/kubernetes`, clear kube generated credentials, sometimes stale permissions can cause problems.<br />- `sudo iptables -F`, clear ip tables rules left by the kube-proxy.",
+        "Reproducing Failures": "### Reproducing failures in flaky tests<br />You can run a test repeatedly until it fails. This is useful when debugging flaky tests. In order to do so, you need to set the following environment variable:<br />```<br />$ export GINKGO_UNTIL_IT_FAILS=true<br />```<br />After setting the environment variable, you can run the tests as before. The e2e script adds `--untilItFails=true` to ginkgo args if the environment variable is set. The flags asks ginkgo to run the test repeatedly until it fails.",
+        "Debugging Clusters": "### Debugging clusters<br />If a cluster fails to initialize, or you'd like to better understand cluster state to debug a failed e2e test, you can use the `cluster/log-dump.sh` script to gather logs. This script requires that the cluster provider supports ssh. Assuming it does, running:<br />```<br />$ cluster/log-dump.sh <directory><br />```<br />will ssh to the master and all nodes and download a variety of useful logs to the provided directory (which should already exist). The Google-run Jenkins builds automatically collected these logs for every build, saving them in the `artifacts` directory uploaded to GCS.",
+        "Debugging with Delve": "### Debugging an E2E test with a debugger (delve)<br />When debugging E2E tests it's sometimes useful to pause in the middle of an E2E test to check the value of a variable or to check something in the cluster, instead of adding `time.Sleep(...)` we can run the E2E test with `delve`<br />Requirements:<br />- delve ([https://github.com/go-delve/delve/tree/master/Documentation/installation](https://github.com/go-delve/delve/tree/master/Documentation/installation))<br />For this example we'll debug a [sig-storage test that will provision storage from a snapshot](https://github.com/kubernetes/kubernetes/blob/3ed71cf190a3d6a6dcb965cf73224538059e8e5e/test/e2e/storage/testsuites/provisioning.go#L200-L236)<br />First, compile the E2E test suite with additional compiler flags<br />```<br /># -N Disable optimizations.<br /># -l Disable inlining.<br />make WHAT=test/e2e/e2e.test GOGCFLAGS=\"all=-N -l\" GOLDFLAGS=\"\"<br />```<br />Then set the env var `E2E_TEST_DEBUG_TOOL=delve` and then run the test with `./hack/ginkgo.sh` instead of `kubetest`, you should see the delve command line prompt<br />```<br />E2E_TEST_DEBUG_TOOL=delve ./hack/ginkgo-e2e.sh --ginkgo.focus=\"sig-storage.*csi-hostpath.*Dynamic.PV.*default.fs.*provisioning.should.provision.storage.with.snapshot.data.source\"<br />--allowed-not-ready-nodes=10<br />--- Setting up for KUBERNETES_PROVIDER=\"gce\". Project: ... Network Project: ... Zone: ... Trying to find master named '...' Looking for address '...' Using master: ... (external IP: XX.XXX.XXX.XX; internal IP: (not set)) Type 'help' for list of commands. (dlv)<br />```<br />Use the commands described in the [delve command lists](https://github.com/go-delve/delve/blob/master/Documentation/cli/README.md), for our example we'll set a breakpoint at the start of the method<br />```<br />(dlv) break test/e2e/storage/testsuites/provisioning.go:201 Breakpoint 1 set at 0x72856f2 for k8s.io/kubernetes/test/e2e/storage/testsuites.(*provisioningTestSuite).DefineTests.func4() _output/local/go/src/k8s.io/kubernetes/test/e2e/storage/testsuites/provisioning.go:201<br />```<br />When you're done setting breakpoints execute `continue` to continue the test, once the breakpoint hits you have the chance to explore variables in the test<br />```<br />(dlv) continue Apr 16 20:29:18.724: INFO: Fetching cloud provider for \"gce\" I0416 20:29:18.725327 3669683 gce.go:909<br />```",
+        "Local Clusters": "### Local clusters<br />It can be much faster to iterate on a local cluster instead of a cloud-based one. To start a local cluster, you can run:<br />```<br /># The PATH construction is needed because PATH is one of the special-cased<br /># environment variables not passed by sudo -E<br />sudo PATH=$PATH hack/local-up-cluster.sh<br />```<br />This will start a single-node Kubernetes cluster than runs pods using the local docker daemon. Press Control-C to stop the cluster. You can generate a valid kubeconfig file by following instructions printed at the end of aforementioned script.",
+        "Testing Against Local Clusters": "### Testing against local clusters<br />In order to run an E2E test against a locally running cluster, first make sure to have a local build of the tests:<br />```<br />kubetest --build<br />```<br />Then point the tests at a custom host directly:<br />```<br />export KUBECONFIG=/path/to/kubeconfig<br />kubetest --provider=local --test<br />```<br />To control the tests that are run:<br />```<br />kubetest --provider=local --test --test_args=\"--ginkgo.focus=Secrets\"<br />```<br />You will also likely need to specify `minStartupPods` to match the number of nodes in your cluster. If you're testing against a cluster set up by `local-up-cluster.sh`, you will need to do the following:<br />```<br />kubetest --provider=local --test --test_args=\"--minStartupPods=1 --ginkgo.focus=Secrets\"<br />```",
+        "Version-Skewed and Upgrade Testing": "### Version-skewed and upgrade testing<br />We run version-skewed tests to check that newer versions of Kubernetes work similarly enough to older versions. The general strategy is to cover the following cases:<br />- One version of `kubectl` with another version of the cluster and tests (e.g. that v1.2 and v1.4 `kubectl` doesn't break v1.3 tests running against a v1.3 cluster).<br />- A newer version of the Kubernetes master with older nodes and tests (e.g. that upgrading a master to v1.3 with nodes at v1.2 still passes v1.2 tests).<br />- A newer version of the whole cluster with older tests (e.g. that a cluster upgraded---master and nodes---to v1.3 still passes v1.2 tests).<br />- That an upgraded cluster functions the same as a brand-new cluster of the same version (e.g. a cluster upgraded to v1.3 passes the same v1.3 tests as a newly-created v1.3 cluster).<br />[kubetest](https://git.k8s.io/test-infra/kubetest) is the authoritative source on how to run version-skewed tests, but below is a quick-and-dirty tutorial.<br />```<br /># Assume you have two copies of the Kubernetes repository checked out, at<br /># ./kubernetes and ./kubernetes_old<br /># If using GKE:<br />export CLUSTER_API_VERSION=${OLD_VERSION}<br /># Deploy a cluster at the old version; see above for more details<br />cd ./kubernetes_old<br />kubetest --up<br /># Upgrade the cluster to the new version<br />#<br /># If using GKE, add --upgrade-target=${NEW_VERSION}<br />#<br /># You can target Feature:MasterUpgrade or Feature:ClusterUpgrade<br />cd ../kubernetes<br />kubetest --provider=gke --test --check-version-skew=false --test_args=\"--ginkgo.label-filter=Feature:MasterUpgrade\"<br /># Run old tests with new kubectl<br />cd ../kubernetes_old<br />kubetest --provider=gke --test --test_args=\"--kubectl-path=$(pwd)/../kubernetes/cluster/kubectl.sh\"<br />```<br />If you are just testing version-skew, you may want to just deploy at one version and then test at another version, instead of going through the whole upgrade process:<br />```<br /># With the same setup as above<br /># Deploy a cluster at the new version<br />cd ./kubernetes<br />kubetest --up<br /># Run new tests with old kubectl<br />kubetest --test --test_args=\"--kubectl-path=$(pwd)/../kubernetes_old/cluster/kubectl.sh\"<br /># Run old tests with new kubectl<br />cd ../kubernetes_old<br />kubetest --test --test_args=\"--kubectl-path=$(pwd)/../kubernetes/cluster/kubectl.sh\"<br />```",
+        "Test Jobs Naming Convention": "### Test jobs naming convention<br />Version skew tests are named as `<cloud-provider>-<master&node-version>-<kubectl-version>-<image-name>-kubectl-skew` e.g: `gke-1.5-1.6-cvm-kubectl-skew` means cloud provider is GKE; master and nodes are built from `release-1.5` branch; `kubectl` is built from `release-1.6` branch; image name is cvm (container_vm). The test suite is always the older one in version skew tests.<br />e.g. from release-1.5 in this case.<br />Upgrade tests:<br />If a test job name ends with `upgrade-cluster`, it means we first upgrade the cluster (i.e. master and nodes) and then run the old test suite with new kubectl.<br />If a test job name ends with `upgrade-cluster-new`, it means we first upgrade the cluster (i.e. master and nodes) and then run the new test suite with new kubectl.<br />If a test job name ends with `upgrade-master`, it means we first upgrade the master and keep the nodes in old version and then run the old test suite with new kubectl.<br />There are some examples in the table, where `->` means upgrading; container_vm (cvm) and gci are image names.<br />test name test suite master version (image) node version (image) kubectl gce-1.5-1.6-upgrade-cluster 1.5 1.5->1.6 1.5->1.6 1.6 gce-1.5-1.6-upgrade-cluster-new 1.6 1.5->1.6 1.5->1.6 1.6 gce-1.5-1.6-upgrade-master 1.5 1.5->1.6 1.5 1.6 gke-container_vm-1.5-container_vm-1.6-upgrade-cluster 1.5 1.5->1.6 (cvm) 1.5->1.6 (cvm) 1.6 gke-gci-1.5-container_vm-1.6-upgrade-cluster-new THIS IS END BLOCK MARKER. 1.6 1.5->1.6 (gci) 1.5->1.6 (cvm) 1.6 gke-gci-1.5-container_vm-1.6-upgrade-master THIS IS END BLOCK MARKER.",
+        "Kinds of Tests": "### Kinds of tests<br />Tests can be labeled. Labels appear with square brackets inside the test names (the traditional approach) and are Ginkgo v2 labels (since Kubernetes v1.29). Available labels in order of increasing precedence (that is, each label listed below supersedes the previous ones):<br />- If a test has no labels, it is expected to run fast (under five minutes), be able to be run in parallel, and be consistent.<br />- `[Slow]`: If a test takes more than five minutes to run (by itself or in parallel with many other tests), it is labeled `[Slow]`. This partition allows us to run almost all of our tests quickly in parallel, without waiting for the stragglers to finish.<br />- `[Serial]`: If a test cannot be run in parallel with other tests (e.g. it takes too many resources or restarts nodes), it is labeled `[Serial]`, and should be run in serial as part of a separate suite.<br />- `[Disruptive]`: If a test may impact workloads that it didn't create, it should be marked as `[Disruptive]`. Examples of disruptive behavior include, but are not limited to, restarting components or tainting nodes. Any `[Disruptive]` test is also assumed to qualify for the `[Serial]` label, but need not be labeled as both.<br />These tests are not run against soak clusters to avoid restarting components.<br />- `[Flaky]`: If a test is found to be flaky and we have decided that it's too hard to fix in the short term (e.g. it's going to take a full engineer-week), it receives the `[Flaky]` label until it is fixed. The `[Flaky]` label should be used very sparingly, and should be accompanied with a reference to the issue for de-flaking the test, because while a test remains labeled `[Flaky]`, it is not monitored closely in CI. `[Flaky]` tests are by default not run, unless a `focus` or `skip` argument is explicitly given.<br />- `[Feature:.+]`: If a test has non-default requirements to run or targets some non-core functionality, and thus should not be run as part of the standard suite, it receives a `[Feature:.+]` label. This non-default requirement could be some special cluster setup (e.g. `Feature:IPv6DualStack` indicates that the cluster must support dual-stack pod and service networks) or that the test has special behavior that makes it unsuitable for a normal test run (e.g. `Feature:PerformanceDNS` marks a test that stresses cluster DNS performance with many services). `[Feature:.+]` tests are not run in our core suites, instead running in custom suites. If a feature is experimental or alpha and is not enabled by default due to being incomplete or potentially subject to breaking changes, it does not block PR merges, and thus should run in some separate test suites owned by the feature owner(s) (see below).<br />- `[MinimumKubeletVersion:.+]`: This label must be set on tests that require a minimum version of the kubelet. Invocations of the test suite can then decide to `skip` the same tests if kubelets in the cluster do not satisfy the requirement. For example, `[MinimumKubeletVersion:(1.20|1.21)]` would `skip` tests with minimum kubelet versions `1.20` and `1.21`.<br />- `[Conformance]`: Designate that this test is included in the Conformance test suite for [Conformance Testing](../sig-architecture/conformance-tests.md). This test must meet a number of [requirements](../sig-architecture/conformance-tests.md#conformance-test-requirements) to be eligible for this tag. This tag does not supersed any other labels.<br />- `[LinuxOnly]`: If a test is known to be using Linux-specific features (e.g.: seLinuxOptions) or is unable to run on Windows nodes, it is labeled `[LinuxOnly]`. When using Windows nodes, this tag should be added to the `skip` argument. This is not using `[Feature:LinuxOnly]` because that would have implied changing all CI jobs which skip tests with unknown requirements.<br />- The following tags are not considered to be exhaustively applied, but are intended to further categorize existing `[Conformance]` tests, or tests that are being considered as candidate for promotion to `[Conformance]` as we work to refine requirements:<br />- `[Privileged]`: This is a test that requires privileged access<br />- `[Deprecated]`: This is a test that exercises a deprecated feature<br />- For tests that depend on feature gates, the following are set automatically:<br />- `[Alpha]`: This is a test that exercises an alpha feature<br />- `[Beta]`: This is a test that exercises a beta feature<br />Conceptually, these are non-default requirements as defined above under `[Feature:.+]`, but for historic reasons and the sake of brevity they don't have that prefix when embedded in test names. They do have that prefix in the Ginkgo v2 label, so use e.g. `--filter-label=Feature: containsAny Alpha` to run them. The normal `--filter-label=Feature: isEmpty` excludes them. Note that at the moment, not all jobs filter out tests with `Alpha` or `Beta` requirements like that. Therefore all tests with such a requirement also have to be annotated with a `[Feature]` tag. This restriction will be lifted once migration of jobs to `--filter-label` is completed. Every test should be owned by a [SIG](/sig-list.md), and have a corresponding `[sig-<name>]` label.",
+        "Selecting Tests to Run": "### Selecting tests to run<br />See [https://onsi.github.io/ginkgo/#filtering-specs](https://onsi.github.io/ginkgo/#filtering-specs) for a general introduction. Focusing on a specific test by its name is useful when interactively running just one or a few related tests. The test name is a concatenation of multiple strings. To get a list of all full test names, run:<br />```<br />$ e2e.test -list-tests<br />The following spec names can be used with 'ginkgo run --focus/skip':<br />test/e2e/apimachinery/watchlist.go:41: [sig-api-machinery] API Streaming (aka. WatchList) [Serial] [Feature:WatchList] should be requested when ENABLE_CLIENT_GO_WATCH_LIST_ALPHA is set<br />test/e2e/apimachinery/flowcontrol.go:65: [sig-api-machinery] API priority and fairness should ensure that requests can be classified by adding FlowSchema and PriorityLevelConfiguration<br />test/e2e/apimachinery/flowcontrol.go:190: [sig-api-machinery] API priority and fairness should ensure that requests can't be drowned out (fairness)<br />...<br />```<br />Or within the Kubernetes repo:<br />```<br />$ go test -v ./test/e2e -args -list-tests<br />The following spec names can be used with 'ginkgo run --focus/skip':<br />test/e2e/apimachinery/watchlist.go:41: [sig-api-machinery] API Streaming (aka. WatchList) [Serial] [Feature:WatchList] should be requested when ENABLE_CLIENT_GO_WATCH_LIST_ALPHA is set<br />...<br />```<br />The same works for other Kubernetes E2E suites, like `e2e_node`. In Prow jobs, selection by labels is often simpler. See [below]((#kinds-of-tests) for documentation of the different labels that are in use. A full list of labels used by a specific E2E suite can be obtained with `--list-labels`. A common pattern is to run only tests which have no special cluster setup requirements and are not flaky:<br />```<br />--filter-label='Feature: isEmpty && ! Flaky'<br />```<br />Feature owners have to ensure that tests excluded that way from shared CI jobs are executed in dedicated jobs (more on CI below):<br />```<br />--filter-label='Feature: containsAny MyAwesomeFeature'<br />```<br />In jobs that support certain well-known features it is possible to run tests which have no special requirements or at least only depend on the supported features:<br />```<br /># Alpha APIs and features enabled, allow tests depending on that as<br /># long as they have no other special requirements.<br />--filter-label='Feature: isSubsetOf Alpha'<br />```",
+        "Viper Configuration": "### Viper configuration and hierarchical test parameters<br />The future of e2e test configuration idioms will be increasingly defined using viper, and decreasingly via flags. Flags in general fall apart once tests become sufficiently complicated. So, even if we could use another flag library, it wouldn't be ideal. To use viper, rather than flags, to configure your tests:<br />- Just add \"e2e.json\" to the current directory you are in, and define parameters in it... i.e. \"kubeconfig\":\"/tmp/x\". Note that advanced testing parameters, and hierarchically defined parameters, are only defined in viper, to see what they are, you can dive into [TestContextType](https://git.k8s.io/kubernetes/test/e2e/framework/test_context.go). In time, it is our intent to add or autogenerate a sample viper configuration that includes all e2e parameters, to ship with Kubernetes.",
+        "Pod Security Admission": "### Pod Security Admission<br />With introducing Pod Security admission in Kubernetes by default, it is desired to execute e2e tests within bounded pod security policy levels. The default pod security policy in e2e tests is [restricted](https://kubernetes.io/docs/concepts/security/pod-security-admission/#pod-security-levels). This is set in [https://github.com/kubernetes/kubernetes/blob/master/test/e2e/framework/framework.go](https://github.com/kubernetes/kubernetes/blob/master/test/e2e/framework/framework.go). This ensures that e2e tests follow best practices for hardening pods by default. Two helper functions are available for returning a minimal [restricted pod security context](https://github.com/kubernetes/kubernetes/blob/c876b30c2b30c0355045d7548c22b6cd42ab58da/test/e2e/framework/pod/utils.go#L156) and a [restricted container security context](https://github.com/kubernetes/kubernetes/blob/c876b30c2b30c0355045d7548c22b6cd42ab58da/test/e2e/framework/pod/utils.go#L172). These can be used to initialize pod or container specs to ensure adherence for the most restricted pod security policy. If pods need to elevate privileges to either `baseline` or `privileged` a new field - `NamespacePodSecurityEnforceLevel` - was introduced to the e2e framework to specify the necessary namespace enforcement level. Note that namespaces get created in the `BeforeEach()` phase of ginkgo tests.<br />```<br />import (<br />...<br />admissionapi \"k8s.io/pod-security-admission/api\"<br />...<br />)<br />var _ = SIGDescribe(\"Test\", func() {<br />...<br />f := framework.NewDefaultFramework(\"test\")<br />f.NamespacePodSecurityEnforceLevel = admissionapi.LevelPrivileged<br />...<br />}<br />```<br />This ensures that the namespace returned by `f.Namespace.Name` includes the configured pod security policy level. Note that creating custom namespace names is not encouraged and will not include the configured settings.",
+        "Conformance Tests": "### Conformance tests<br />For more information on Conformance tests please see the [Conformance Testing](../sig-architecture/conformance-tests.md).",
+        "Continuous Integration#1": "### Continuous Integration<br />A quick overview of how we run e2e CI on Kubernetes.<br />What is CI?<br />We run a battery of [release-blocking jobs](https://testgrid.k8s.io/sig-release-master-blocking) against `HEAD` of the master branch on a continuous basis, and block merges via [Tide](https://sigs.k8s.io/prow/cmd/tide) on a subset of those tests if they fail. CI results can be found at [ci-test.k8s.io](http://ci-test.k8s.io), e.g. [ci-test.k8s.io/kubernetes-e2e-gce/10594](http://ci-test.k8s.io/kubernetes-e2e-gce/10594).<br />What runs in CI?<br />We run all default tests (those that aren't marked `[Flaky]` or `[Feature:.+]`) against GCE and GKE. To minimize the time from regression-to-green-run, we partition tests across different jobs:<br />- `kubernetes-e2e-<provider>` runs all non-`[Slow]`, non-`[Serial]`, non-`[Disruptive]`, non-`[Flaky]`, non-`[Feature:.+]` tests in parallel.<br />- `kubernetes-e2e-<provider>-slow` runs all `[Slow]`, non-`[Serial]`, non-`[Disruptive]`, non-`[Flaky]`, non-`[Feature:.+]` tests in parallel.<br />- `kubernetes-e2e-<provider>-serial` runs all `[Serial]` and `[Disruptive]`, non-`[Flaky]`, non-`[Feature:.+]` tests in serial.<br />- `ci-kubernetes-e2e-kind-alpha-features` runs all tests without any special requirements and tests that only have alpha feature gates and API groups as requirement.<br />- `ci-kubernetes-e2e-kind-beta-features` runs all tests without any special requirements and tests that only have beta feature gates and API groups as requirement.<br />We also run non-default tests if the tests exercise general-availability (\"GA\") features that require a special environment to run in, e.g. `kubernetes-e2e-gce-scalability` and `kubernetes-kubemark-gce`, which test for Kubernetes performance.",
+        "Non-Default Tests": "### Non-default tests<br />Many `[Feature:.+]` tests we don't run in CI. These tests are for features that are experimental (often in the `experimental` API), and aren't enabled by default.",
+        "The PR-Builder": "### The PR-builder<br />We also run a battery of tests against every PR before we merge it. These tests are equivalent to `kubernetes-gce`: it runs all non-`[Slow]`, non-`[Serial]`, non-`[Disruptive]`, non-`[Flaky]`, non-`[Feature:.+]` tests in parallel. These tests are considered \"smoke tests\" to give a decent signal that the PR doesn't break most functionality. Results for your PR can be found at [pr-test.k8s.io](http://pr-test.k8s.io), e.g. [pr-test.k8s.io/20354](http://pr-test.k8s.io/20354) for #20354.",
+        "Adding a Test to CI": "### Adding a test to CI<br />As mentioned above, prior to adding a new test, it is a good idea to perform a `-ginkgo.dryRun=true` on the system, in order to see if a behavior is already being tested, or to determine if it may be possible to augment an existing set of tests for a specific use case. If a behavior does not currently have coverage and a developer wishes to add a new e2e test, navigate to the ./test/e2e directory and create a new test using the existing suite as a guide. NOTE: To build/run with tests in a new directory within ./test/e2e, add the directory to import list in ./test/e2e/e2e_test.go When writing a test, consult #kinds-of-tests above to determine how your test should be marked, (e.g. `[Slow]`, `[Serial]`; remember, by default we assume a test can run in parallel with other tests!). When first adding a test it should not go straight into CI, because failures block ordinary development. A test should only be added to CI after is has been running in some non-CI suite long enough to establish a track record showing that the test does not fail when run against working software. Note also that tests running in CI are generally running on a well-loaded cluster, so must contend for resources; see above about . Generally, a feature starts as `experimental`, and will be run in some suite owned by the team developing the feature. If a feature is in beta or GA, it should block PR merges and releases. In moving from experimental to beta or GA, tests that are expected to pass by default should simply remove the `[Feature:.+]` label, and will be incorporated into our core suites. If tests are not expected to pass by default, (e.g. they require a special environment such as added quota,) they should remain with the `[Feature:.+]` label. Occasionally, we'll want to add tests to better exercise features that are already GA. These tests also shouldn't go straight to CI. They should begin by being marked as `[Flaky]` to be run outside of CI, and once a track-record for them is established, they may be promoted out of `[Flaky]`.",
+        "Moving a Test Out of CI": "### Moving a test out of CI<br />If we have determined that a test is known-flaky and cannot be fixed in the short-term, we may move it out of CI indefinitely. This move should be used sparingly, as it effectively means that we have no coverage of that test. When a test is demoted, it should be marked `[Flaky]` with a comment accompanying the label with a reference to an issue opened to fix the test.",
+        "Performance Evaluation": "### Performance Evaluation<br />Another benefit of the e2e tests is the ability to create reproducible loads on the system, which can then be used to determine the responsiveness, or analyze other characteristics of the system. For example, the density tests load the system to 30,50,100 pods per/node and measures the different characteristics of the system, such as throughput, api-latency, etc. For a good overview of how we analyze performance data, please read the following [post](https://kubernetes.io/blog/2015/09/kubernetes-performance-measurements-and/). For developers who are interested in doing their own performance analysis, we recommend setting up [prometheus](http://prometheus.io/) for data collection, and using [grafana](https://prometheus.io/docs/visualization/grafana/) to visualize the data. There also exists the option of pushing your own metrics in from the tests using a [prom-push-gateway](http://prometheus.io/docs/instrumenting/pushing/). Containers for all of these components can be found [here](https://hub.docker.com/u/prom/). For more accurate measurements, you may wish to set up prometheus external to Kubernetes in an environment where it can access the major system components (api-server, controller-manager, scheduler). This is especially useful when attempting to gather metrics in a load-balanced api-server environment, because all api-servers can be analyzed independently as well as collectively. On startup, configuration file is passed to prometheus that specifies the endpoints that prometheus will scrape, as well as the sampling interval.<br />```<br />#prometheus.conf<br />job: {<br />name: \"kubernetes\"<br />scrape_interval: \"1s\"<br />target_group: {<br /># apiserver(s)<br />target: \"http://localhost:8080/metrics\"<br /># scheduler<br />target: \"http://localhost:10251/metrics\"<br /># controller-manager<br />target: \"http://localhost:10252/metrics\"<br />}<br />}<br />```<br />Once prometheus is scraping the Kubernetes endpoints, that data can then be plotted using [grafana](https://prometheus.io/docs/visualization/grafana/), and alerts can be created against the assortment of metrics that Kubernetes provides.",
+        "One More Thing": "### One More Thing<br />You should also know the [testing conventions](../../guide/coding-conventions.md#testing-conventions).<br />HAPPY TESTING!"
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Introduction"
+                },
+                {
+                    "source": "Introduction",
+                    "target": "Community Expectations",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Community Expectations",
+                    "target": "Code Review#1",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Code Review#1",
+                    "target": "Expectations of Reviewers",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Expectations of Reviewers",
+                    "target": "Acknowledgements",
+                    "edge_label": "/contributors/guide/expectations.md"
+                }
+            ],
+            "sequence": "Introduction"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Communication"
+                },
+                {
+                    "source": "Communication",
+                    "target": "First Contribution",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "First Contribution",
+                    "target": "Find a Topic",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Find a Topic",
+                    "target": "Issue Assignment",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Issue Assignment",
+                    "target": "Learn about SIGs",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Learn about SIGs",
+                    "target": "SIG Structure",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "SIG Structure",
+                    "target": "Find a SIG",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Find a SIG",
+                    "target": "SIG Guidelines",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "SIG Guidelines",
+                    "target": "File an Issue",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Communication",
+                    "target": "Communication#1",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Communication#1",
+                    "target": "Purpose of This Doc",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Purpose of This Doc",
+                    "target": "Community Groups",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Community Groups",
+                    "target": "Appropriate Content for Community Resources",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Appropriate Content for Community Resources",
+                    "target": "Decisions Are Made Here",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Decisions Are Made Here",
+                    "target": "Discussions Happen Here",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Discussions Happen Here",
+                    "target": "Mailing lists and forums",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Mailing lists and forums",
+                    "target": "Calendar & Meetings",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Calendar & Meetings",
+                    "target": "Social Media & Blogs",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Social Media & Blogs",
+                    "target": "Misc Community Resources",
+                    "edge_label": "/communication/README.md"
+                },
+                {
+                    "source": "Misc Community Resources",
+                    "target": "Thank You",
+                    "edge_label": "/communication/README.md"
+                }
+            ],
+            "sequence": "Communication"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "GitHub Workflow"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "Pull Request Process",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Pull Request Process",
+                    "target": "Before You Submit a Pull Request",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Before You Submit a Pull Request",
+                    "target": "Pull Request Submit Process",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Pull Request Submit Process",
+                    "target": "Marking Unfinished Pull Requests",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Marking Unfinished Pull Requests",
+                    "target": "Pull Requests and the Release Cycle",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Pull Requests and the Release Cycle",
+                    "target": "Comment Commands Reference",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Comment Commands Reference",
+                    "target": "Automation",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Automation",
+                    "target": "How the e2e Tests Work",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "How the e2e Tests Work",
+                    "target": "Why was my pull request closed?",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Why was my pull request closed?",
+                    "target": "Why is my pull request not getting reviewed?",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Why is my pull request not getting reviewed?",
+                    "target": "Best Practices for Faster Reviews",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Best Practices for Faster Reviews",
+                    "target": "Is the feature wanted?",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Is the feature wanted?",
+                    "target": "KISS, YAGNI, MVP, etc.",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "KISS, YAGNI, MVP, etc.",
+                    "target": "Smaller Is Better",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Smaller Is Better",
+                    "target": "Breaking up commits",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Breaking up commits",
+                    "target": "Breaking up Pull Requests",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Breaking up Pull Requests",
+                    "target": "Open a Different Pull Request for Fixes and Generic Features",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Open a Different Pull Request for Fixes and Generic Features",
+                    "target": "Don't Open Pull Requests That Span the Whole Repository",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Don't Open Pull Requests That Span the Whole Repository",
+                    "target": "Comments Matter",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Comments Matter",
+                    "target": "Test",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Test",
+                    "target": "Squashing",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Squashing",
+                    "target": "Commit Message Guidelines",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Commit Message Guidelines",
+                    "target": "It's OK to Push Back",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "It's OK to Push Back",
+                    "target": "Common Sense and Courtesy",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Common Sense and Courtesy",
+                    "target": "Trivial Edits",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Trivial Edits",
+                    "target": "Fixing linter issues",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Fixing linter issues",
+                    "target": "The Testing and Merge Workflow",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "The Testing and Merge Workflow",
+                    "target": "More About `Ok-To-Test`",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "GitHub Workflow#1",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "GitHub Workflow#1",
+                    "target": "Fork in the Cloud",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Fork in the Cloud",
+                    "target": "Clone Fork to Local Storage",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Clone Fork to Local Storage",
+                    "target": "Create a Working Branch",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Create a Working Branch",
+                    "target": "Keep Your Branch in Sync",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Keep Your Branch in Sync",
+                    "target": "Commit Your Changes",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Commit Your Changes",
+                    "target": "Push to GitHub",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Push to GitHub",
+                    "target": "Create a Pull Request",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Create a Pull Request",
+                    "target": "Get a Code Review",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Get a Code Review",
+                    "target": "Squash Commits",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Squash Commits",
+                    "target": "Merging a Commit",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Merging a Commit",
+                    "target": "Reverting a Commit",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "Contributor License Agreement",
+                    "edge_label": "/CLA.md"
+                },
+                {
+                    "source": "Contributor License Agreement",
+                    "target": "Changing Affiliation",
+                    "edge_label": "/CLA.md"
+                },
+                {
+                    "source": "Changing Affiliation",
+                    "target": "Troubleshooting",
+                    "edge_label": "/CLA.md"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "First Contribution#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "First Contribution#1",
+                    "target": "Find a Topic#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Find a Topic#1",
+                    "target": "Issue Assignment#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Issue Assignment#1",
+                    "target": "Learn about SIGs#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Learn about SIGs#1",
+                    "target": "SIG Structure#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "SIG Structure#1",
+                    "target": "Find a SIG#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "Find a SIG#1",
+                    "target": "SIG Guidelines#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "SIG Guidelines#1",
+                    "target": "File an Issue#1",
+                    "edge_label": "first-contribution.md"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "Introduction#1",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "Introduction#1",
+                    "target": "Memory Management",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "Memory Management",
+                    "target": "API Calls",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "API Calls",
+                    "target": "Superfluous API Calls",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "Superfluous API Calls",
+                    "target": "Complex Computations",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "Complex Computations",
+                    "target": "Dependency Changes",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "Dependency Changes",
+                    "target": "Summary",
+                    "edge_label": "scalability-good-practices.md"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "Flaky Tests",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Flaky Tests",
+                    "target": "Avoiding Flakes",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Avoiding Flakes",
+                    "target": "Quarantining Flakes",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Quarantining Flakes",
+                    "target": "Hunting Flakes",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Hunting Flakes",
+                    "target": "GitHub Issues for Known Flakes",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "GitHub Issues for Known Flakes",
+                    "target": "Reproducing and Fixing Flakes",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Reproducing and Fixing Flakes",
+                    "target": "Writing a Good Flake Report",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Writing a Good Flake Report",
+                    "target": "Deflaking Unit Tests",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Deflaking Unit Tests",
+                    "target": "Deflaking Integration Tests",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Deflaking Integration Tests",
+                    "target": "Deflaking e2e Tests",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                },
+                {
+                    "source": "Deflaking e2e Tests",
+                    "target": "Filtering and Correlating Information",
+                    "edge_label": "/contributors/devel/sig-testing/flaky-tests.md"
+                }
+            ],
+            "sequence": "GitHub Workflow"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Code Review"
+                },
+                {
+                    "source": "Code Review",
+                    "target": "Introduction#2",
+                    "edge_label": "/code-of-conduct.md"
+                },
+                {
+                    "source": "Introduction#2",
+                    "target": "Getting Started",
+                    "edge_label": "/code-of-conduct.md"
+                },
+                {
+                    "source": "Getting Started",
+                    "target": "Setting Up a Cluster",
+                    "edge_label": "/code-of-conduct.md"
+                },
+                {
+                    "source": "Setting Up a Cluster",
+                    "target": "Deploying Applications",
+                    "edge_label": "/code-of-conduct.md"
+                },
+                {
+                    "source": "Deploying Applications",
+                    "target": "Monitoring and Logging",
+                    "edge_label": "/code-of-conduct.md"
+                },
+                {
+                    "source": "Monitoring and Logging",
+                    "target": "Conclusion",
+                    "edge_label": "/code-of-conduct.md"
+                },
+                {
+                    "source": "Code Review",
+                    "target": "Community Expectations#1",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Community Expectations#1",
+                    "target": "Code Review#1#1",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Code Review#1#1",
+                    "target": "Expectations of Reviewers#1",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Expectations of Reviewers#1",
+                    "target": "Acknowledgements#1",
+                    "edge_label": "/contributors/guide/expectations.md"
+                },
+                {
+                    "source": "Code Review",
+                    "target": "Community Expectations#2",
+                    "edge_label": "./expectations.md"
+                },
+                {
+                    "source": "Community Expectations#2",
+                    "target": "Code Review#2",
+                    "edge_label": "./expectations.md"
+                },
+                {
+                    "source": "Code Review#2",
+                    "target": "Expectations of Reviewers#2",
+                    "edge_label": "./expectations.md"
+                },
+                {
+                    "source": "Expectations of Reviewers#2",
+                    "target": "Acknowledgements#2",
+                    "edge_label": "./expectations.md"
+                },
+                {
+                    "source": "Code Review",
+                    "target": "Coding Conventions",
+                    "edge_label": "coding-conventions.md"
+                },
+                {
+                    "source": "Coding Conventions",
+                    "target": "API and Logging Conventions",
+                    "edge_label": "coding-conventions.md"
+                },
+                {
+                    "source": "API and Logging Conventions",
+                    "target": "Testing Conventions",
+                    "edge_label": "coding-conventions.md"
+                },
+                {
+                    "source": "Testing Conventions",
+                    "target": "Directory and File Conventions",
+                    "edge_label": "coding-conventions.md"
+                },
+                {
+                    "source": "Directory and File Conventions",
+                    "target": "Third-Party Code Conventions",
+                    "edge_label": "coding-conventions.md"
+                }
+            ],
+            "sequence": "Code Review"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Best Practices"
+                }
+            ],
+            "sequence": "Best Practices"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Testing"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Conformance Testing in Kubernetes",
+                    "edge_label": "/contributors/devel/sig-architecture/conformance-tests.md"
+                },
+                {
+                    "source": "Conformance Testing in Kubernetes",
+                    "target": "Conformance Test Requirements",
+                    "edge_label": "/contributors/devel/sig-architecture/conformance-tests.md"
+                },
+                {
+                    "source": "Conformance Test Requirements",
+                    "target": "Windows & Linux Considerations",
+                    "edge_label": "/contributors/devel/sig-architecture/conformance-tests.md"
+                },
+                {
+                    "source": "Windows & Linux Considerations",
+                    "target": "Running Conformance Tests",
+                    "edge_label": "/contributors/devel/sig-architecture/conformance-tests.md"
+                },
+                {
+                    "source": "Running Conformance Tests",
+                    "target": "Kubernetes Conformance Document",
+                    "edge_label": "/contributors/devel/sig-architecture/conformance-tests.md"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Testing Guide",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Testing Guide",
+                    "target": "Unit Tests",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Unit Tests",
+                    "target": "Stress Testing",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Stress Testing",
+                    "target": "Unit Test Coverage",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Unit Test Coverage",
+                    "target": "Benchmark Tests",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Benchmark Tests",
+                    "target": "Run Unit Tests Using Go Test",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Run Unit Tests Using Go Test",
+                    "target": "Integration Tests",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Integration Tests",
+                    "target": "End-to-End Tests",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "End-to-End Tests",
+                    "target": "Testing Strategy",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Testing Strategy",
+                    "target": "Running Contribution Through Kubernetes CI",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Running Contribution Through Kubernetes CI",
+                    "target": "Troubleshooting a Failure",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Troubleshooting a Failure",
+                    "target": "Helping with Known Flakes",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Helping with Known Flakes",
+                    "target": "Escalating Failures to a SIG",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Escalating Failures to a SIG",
+                    "target": "Testgrid",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Testgrid",
+                    "target": "PR Process",
+                    "edge_label": "/contributors/devel/sig-testing/testing.md"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Overview",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Overview",
+                    "target": "Building and Running Tests",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Building and Running Tests",
+                    "target": "Cleaning Up",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Cleaning Up",
+                    "target": "Advanced Testing",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Advanced Testing",
+                    "target": "Bringing Up a Cluster",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Bringing Up a Cluster",
+                    "target": "Reproducing Failures",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Reproducing Failures",
+                    "target": "Debugging Clusters",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Debugging Clusters",
+                    "target": "Debugging with Delve",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Debugging with Delve",
+                    "target": "Local Clusters",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Local Clusters",
+                    "target": "Testing Against Local Clusters",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Testing Against Local Clusters",
+                    "target": "Version-Skewed and Upgrade Testing",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Version-Skewed and Upgrade Testing",
+                    "target": "Test Jobs Naming Convention",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Test Jobs Naming Convention",
+                    "target": "Kinds of Tests",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Kinds of Tests",
+                    "target": "Selecting Tests to Run",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Selecting Tests to Run",
+                    "target": "Viper Configuration",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Viper Configuration",
+                    "target": "Pod Security Admission",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Pod Security Admission",
+                    "target": "Conformance Tests",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Conformance Tests",
+                    "target": "Continuous Integration#1",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Continuous Integration#1",
+                    "target": "Non-Default Tests",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Non-Default Tests",
+                    "target": "The PR-Builder",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "The PR-Builder",
+                    "target": "Adding a Test to CI",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Adding a Test to CI",
+                    "target": "Moving a Test Out of CI",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Moving a Test Out of CI",
+                    "target": "Performance Evaluation",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                },
+                {
+                    "source": "Performance Evaluation",
+                    "target": "One More Thing",
+                    "edge_label": "/contributors/devel/sig-testing/e2e-tests.md"
+                }
+            ],
+            "sequence": "Testing"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Continuous Integration"
+                }
+            ],
+            "sequence": "Continuous Integration"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Security"
+                }
+            ],
+            "sequence": "Security"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Documentation"
+                }
+            ],
+            "sequence": "Documentation"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to community",
+                    "target": "Issues Management"
+                }
+            ],
+            "sequence": "Issues Management"
+        }
+    ]
+}
