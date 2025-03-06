@@ -1,0 +1,35 @@
+{
+    "content": {
+        "How to Contribute": "Thank you for considering contributing to Hypothetical Repo!<br />Contributions help us grow and improve, and we appreciate your interest.<br />Please go through [Readme](./README.md) to get the project overview.<br /><br />**Report Bugs:**<br />Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.<br /><br />**Submit Enhancements:**<br />Have a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project.<br /><br />**Pull Requests:**<br />Review the guidelines for submitting your changes. Ensure your code is well-documented and adheres to our style guidelines.<br /><br />**Doc changes:**<br />You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).",
+        "Setup Guide": "To set up the project locally:<br />- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "How to Contribute"
+                }
+            ],
+            "sequence": "How to Contribute"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Setup Guide"
+                }
+            ],
+            "sequence": "Setup Guide"
+        }
+    ],
+    "links": {
+        "How to Contribute": [
+            "./README.md",
+            "https://github.com/Prashant528/ideal_documented_repo/tree/main/docs"
+        ],
+        "Setup Guide": [
+            "./INSTALLATION_GUIDE.md"
+        ]
+    }
+}

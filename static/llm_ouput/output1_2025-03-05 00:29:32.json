@@ -1,0 +1,61 @@
+{
+    "No categories identified.": {
+        "content": {
+            "Introduction": "### How to Contribute<br />Thank you for considering contributing to Hypothetical Repo!<br />Contributions help us grow and improve, and we appreciate your interest.<br />Please go through [Readme](./README.md) to get the project overview.",
+            "Bug Reporting": "### Report Bugs<br />Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.",
+            "Feature Proposals": "### Submit Enhancements<br />Have a feature idea? Propose it in an issue.<br />Be sure to explain the problem it solves and how it improves the project.",
+            "Pull Requests": "### Pull Requests<br />Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes.<br />Ensure your code is well-documented and adheres to our style guidelines.",
+            "Documentation Changes": "### Doc changes<br />You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs)."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Introduction"
+                },
+                {
+                    "source": "Introduction",
+                    "target": "Bug Reporting"
+                },
+                {
+                    "source": "Bug Reporting",
+                    "target": "Feature Proposals"
+                },
+                {
+                    "source": "Feature Proposals",
+                    "target": "Pull Requests"
+                },
+                {
+                    "source": "Pull Requests",
+                    "target": "Documentation Changes"
+                }
+            ]
+        }
+    },
+    "SC \u2013 Submit the changes": {
+        "content": {
+            "Setup Guide": "### Setup Guide<br />To set up the project locally:<br />- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes."
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Setup Guide"
+                }
+            ]
+        }
+    },
+    "TC \u2013 Talk to the community": {
+        "content": {
+            "Community Guidelines": "### Community Guidelines\n\nPlease adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone. You can also go through [Readme](./README.md) to get the project overview and how to communicate.<br />"
+        },
+        "flow": {
+            "edges": [
+                {
+                    "source": "Parent Node",
+                    "target": "Community Guidelines"
+                }
+            ]
+        }
+    }
+}

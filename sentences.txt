@@ -5561,3 +5561,428 @@ build action rather than performing the build locally.Remote Build Execution req
 
 --------------------------------
 
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.Community Guidelines
+Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community.This ensures a respectful and collaborative environment for everyone.You can also go through [Readme](./README.md) to get the project overview and how to communicate.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+Pull Request Checklist-The title is descriptive and provides context about the changes.- Tests have been added for new features or fixes, and they pass successfully.- Documentation has been updated where necessary to reflect the changes.Description
+Please describe your changes and their purpose here.Include any context or background that will help reviewers understand your contribution.Related Issues
+Link any relevant issues or feature requests here.For example:- Resolves #123- Related to #456
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.Community Guidelines
+Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community.This ensures a respectful and collaborative environment for everyone.You can also go through [Readme](./README.md) to get the project overview and how to communicate.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+Pull Request Checklist-The title is descriptive and provides context about the changes.- Tests have been added for new features or fixes, and they pass successfully.- Documentation has been updated where necessary to reflect the changes.Description
+Please describe your changes and their purpose here.Include any context or background that will help reviewers understand your contribution.Related Issues
+Link any relevant issues or feature requests here.For example:- Resolves #123- Related to #456
+
+--------------------------------
+
+This is my documentation readme file.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.Community Guidelines
+Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community.This ensures a respectful and collaborative environment for everyone.You can also go through [Readme](./README.md) to get the project overview and how to communicate.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+Pull Request Checklist-The title is descriptive and provides context about the changes.- Tests have been added for new features or fixes, and they pass successfully.- Documentation has been updated where necessary to reflect the changes.Description
+Please describe your changes and their purpose here.Include any context or background that will help reviewers understand your contribution.Related Issues
+Link any relevant issues or feature requests here.For example:- Resolves #123- Related to #456
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.Community Guidelines
+Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community.This ensures a respectful and collaborative environment for everyone.You can also go through [Readme](./README.md) to get the project overview and how to communicate.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview.- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.- Doc changes:You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.Also, don't forget to look at the [template](https://github.com/Prashant528/ideal_documented_repo/blob/main/templates/template_1/readme.md) for a feature request.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.Also, don't forget to look at the [template](https://github.com/Prashant528/ideal_documented_repo/blob/main/templates/template_1/readme.md) for a feature request.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.Also, don't forget to look at the [templates](https://github.com/huggingface/transformers/tree/main/templates) for a feature request.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.
+
+--------------------------------
+
+Usage
+Using the `cookiecutter` utility requires to have all the `dev` dependencies installed.Let's first [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the `transformers` repo on github.Once it's done you can clone your fork and install `transformers` in our environment:```
+git clone https://github.com/YOUR-USERNAME/transformers
+cd transformers
+pip install -e ".[dev]"```Once the installation is done, you can generate the template by running the following command.Be careful, the template will be generated inside a new folder in your current working directory.```
+cookiecutter path-to-the folder/adding_a_missing_tokenization_test/```You will then have to answer some questions about the tokenizer for which you want to add tests.The `modelname` should be cased according to the plain text casing, i.e., BERT, RoBERTa, DeBERTa.Once the command has finished, you should have a one new file inside the newly created folder named `test_tokenization_Xxx.py`.At this point the template is finished and you can move it to the sub-folder of the corresponding model in the test folder.
+
+--------------------------------
+
+Adding a new modelThis page has been updated in light of the removal of the `add_new_model` script in favor of the more complete`add_new_model_like` script.We recommend you checkout the documentation of [How to add a model](https://huggingface.co/docs/transformers/main/en/add_new_model)
+in the Hugging Face Transformers documentation for complete and up-to-date instructions.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+

@@ -19,7 +19,7 @@ CORS(app)
 
 # Initialize services
 github_service = GitHubService(Config.GITHUB_TOKEN)
-TURN_CLASSIFIER_ON = True
+TURN_CLASSIFIER_ON = False
 turn_second_layer_on = True
 save_llm_output_to_files = True
 

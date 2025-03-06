@@ -318,6 +318,8 @@ class Prompts:
                     I want a JSON that gives me a source node and the target node for each edge in the graph. 
                     The format of the JSON should look like { "edges": [ {"source": "Topic 1", "target": "Topic 2"}, {"source": "Topic 2", "target": "Topic 3"} ] }. 
                     Finally, merge the two JSONs into a single one that looks like: {"content": "...", "flow":"..."}. Please provide a valid JSON output with double quotes around keys and values.
+                    If there is only one node, add a single edge with both source and target as the same node.
+
                     This is the list of action steps:
 
                     '''

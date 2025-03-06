@@ -11,9 +11,10 @@ from segmenter.transformers_call import SentenceFeatureExtractor
 import json
 import copy
 from datetime import datetime
-import os
+import os, requests
+from utils import save_llm_output
 
-def process_md_and_wiki(topic, link, data, github_service, github_url_components):
+def process_md_and_wiki(topic, link, data, github_service, github_url_components, custom_file_path=None):
     """
     Dummy function to process .md or .wiki links.
     """
@@ -24,24 +25,32 @@ def process_md_and_wiki(topic, link, data, github_service, github_url_components
     content_from_link = None
     if clean_link.endswith(".md"):
         print(f"Processing MD filepath: {github_url_components.filepath}")
-        content_from_link = get_new_nodes_from_md(link, github_service, github_url_components)
+        content_from_link = get_new_nodes_from_md(link, github_service, github_url_components, custom_file_path=custom_file_path)
         print("Fetching content_from_link successful.")
 
     elif clean_link.endswith(".wiki"):
         print(f"Processing wiki link: {link}")
         content_from_link =  get_new_nodes_from_wiki(link, github_service, github_url_components)
+
+    elif '/tree/' in clean_link and 'github.com' in clean_link:
+        print(f"Processing file inside another folder: {link}")
+        content_from_link =  get_new_nodes_from_md(link, github_service, github_url_components, custom_file_path=custom_file_path)
+
     else:
         print("Link is outbound to other pages than current repository.")
     
     return content_from_link
 
-def get_new_nodes_from_md(link, github_service, github_url_components):
+def get_new_nodes_from_md(link, github_service, github_url_components, custom_file_path=None):
     '''
     Get all the segments from the file like in app.py.
     '''
     owner = github_url_components.owner
     repo = github_url_components.name
-    file_path = github_url_components.filepath
+    if custom_file_path:
+        file_path = custom_file_path
+    else:
+        file_path = github_url_components.filepath
     print(owner, repo, file_path)
     if not owner or not repo or not file_path:
         return jsonify({"error": "The link doesn't contain one or many of these (owner, repo, file)."}), 400
@@ -113,7 +122,7 @@ def add_second_layer_from_links(data, file_path, github_url_components):
             # to see if it ends with .md or .wiki
             clean_link = link.split('#')[0].split('?')[0]
 
-            if clean_link.endswith(".md") or clean_link.endswith(".wiki"):
+            if clean_link.endswith(".md") or clean_link.endswith(".wiki") or ('/tree/' in clean_link and 'github.com' in clean_link):
                 topic_links.append(clean_link)
 
             else:
@@ -132,6 +141,9 @@ def add_second_layer_from_links(data, file_path, github_url_components):
             if clean_link in processed_links:  # If the link has already been processed
                 print(f"Reusing cached content for {clean_link}")
                 content_from_link = processed_links[clean_link]
+                print(content_from_link)
+                attach_second_layer(data, content_from_link, topic, clean_link)
+
             else:
                 if clean_link.startswith(('http://', 'https://')):
                     # If the link is an absolute URL, add it directly
@@ -143,8 +155,38 @@ def add_second_layer_from_links(data, file_path, github_url_components):
                     
                     #If the link takes us to a github tree, get the md files from the tree
                     if '/tree/' in clean_link and 'github.com' in clean_link:
-                        directory = clean_link.split('/')[-1]
-                        file_url = get_directory_file_url(directory, github_url_components)
+                        #handle templates differently
+                        if 'templates' in clean_link:
+                            print("Processing templates")
+                            template_directory = clean_link.split('/')[-1]
+                            template_dir_url = get_directory_url(template_directory, github_url_components)
+                            dir_paths = get_child_dirs(template_dir_url)
+                            for dir in dir_paths:
+                                directory_url  = get_directory_url(dir, github_url_components)
+                                file_paths = get_file_urls_from_dir(directory_url)
+                                for file_pathe in file_paths:
+                                    if file_pathe.endswith(".md"):
+                                        print("Found a md file inside templates folder:", file_pathe)
+                                        # github_url_components.filepath = file_path
+                                        content_from_link = process_md_and_wiki(topic, clean_link, data, github_service, github_url_components, custom_file_path = file_pathe)    
+                                        # print(content_from_link)
+                                        attach_second_layer(data, content_from_link, topic, file_pathe)
+
+
+
+                        #handle docs (non-templates) differently
+                        else:
+                            print("Processing other docs")
+                            directory = clean_link.split('/')[-1]
+                            dir_url = get_directory_url(directory, github_url_components)
+                            file_paths = get_file_urls_from_dir(dir_url)
+                            for file_pathe in file_paths:
+                                if file_pathe.endswith(".md"):
+                                    # github_url_components.filepath = file_path
+                                    content_from_link = process_md_and_wiki(topic, clean_link, data, github_service, github_url_components, custom_file_path = file_pathe)    
+                                    # print(content_from_link)
+                                    attach_second_layer(data, content_from_link, topic, file_pathe)
+                    
 
 
                 else:
@@ -155,13 +197,13 @@ def add_second_layer_from_links(data, file_path, github_url_components):
                     print(new_link)
                     # print(github_url_components)
                     content_from_link = process_md_and_wiki(topic, new_link, data, github_service, github_url_components)                       
+                    print(content_from_link)
                     # Store processed content in cache
                     processed_links[clean_link] = content_from_link
-            if content_from_link:
-                merged_json = attach_second_layer(data, content_from_link, topic, clean_link)
+                    attach_second_layer(data, content_from_link, topic, clean_link)
             
 
-    return merged_json
+    return data
 
 
 def rename_duplicate_topics(data, second_layer_nodes):
@@ -255,12 +297,16 @@ def attach_second_layer(data, second_layer_nodes, topic, link):
 
     if not flow_items:
         # No flow to attach
+        print("Found no flow to attach.")
         return data
 
+    print("Attaching flow from second layer")
+    # print("Flow from the file (second layer): ", flow_items)
     # Identify the 'first node' in second_layer_nodes (assume it's the source of the first edge)
     first_flow_item = flow_items[0]
     first_edges = first_flow_item.get("edges", [])
     if not first_edges:
+        print("Found no edges")
         return data  # No edges, nothing to attach
 
     first_node = first_edges[0]["source"]
@@ -302,14 +348,40 @@ def attach_second_layer(data, second_layer_nodes, topic, link):
             parent_flow_item["edges"].append(edge_with_label)  # **Fix: Append the updated edge**
 
     # H) Save the updated data to a file (optional)
-    with open("second_layer_merged_data.json", "w") as f:
-        json.dump(data, f, indent=4)
+    # saved_filename = "second_layer_merged_data" + link + ".json"
+    # with open("second_layer_merged_data.json", "w") as f:
+    #     json.dump(data, f, indent=4)
+    file_prefix = "second_layer_merged_data" + topic
+    save_llm_output(data, file_prefix)
 
     return data
 
 
-def get_directory_file_url(dir, github_url_components):
+def get_directory_url(dir, github_url_components):
     base_url = 'https://api.github.com/repos/'
-    base_url = base_url + github_url_components.owner + '/' + github_url_components.repo + '/contents/'
+    base_url = base_url + github_url_components.owner + '/' + github_url_components.name + '/contents/'
     file_url = base_url + dir
     return file_url
+
+
+def get_file_urls_from_dir(dir_url):
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    response = requests.get(dir_url, headers=headers)
+
+    if response.status_code == 200:
+        files = [file["path"] for file in response.json() if file["type"]=="file"]
+        print("Files in the folder:", files)
+    else:
+        print("Failed to retrieve files. Status Code:", response.status_code, response.json())
+    return files
+
+def get_child_dirs(dir_url):
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    response = requests.get(dir_url, headers=headers)
+
+    if response.status_code == 200:
+        dirs = [file["path"] for file in response.json() if file["type"]=="dir"]
+        print("Children directories in the templates folder:", dirs)
+    else:
+        print("Failed to retrieve files. Status Code:", response.status_code, response.json())
+    return dirs

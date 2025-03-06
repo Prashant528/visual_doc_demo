@@ -1,0 +1,87 @@
+{
+    "content": {
+        "How to Contribute": "Thank you for considering contributing to Hypothetical Repo! Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).",
+        "Reporting Bugs": "- **Report Bugs**: Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.",
+        "Submitting Enhancements": "- **Submit Enhancements**: Have a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project. Also, don't forget to look at the [template](https://github.com/Prashant528/ideal_documented_repo/blob/main/templates/template_1/readme.md) for a feature request.",
+        "Pull Requests": "- **Pull Requests**: Review the guidelines for submitting your changes. Ensure your code is well-documented and adheres to our style guidelines.",
+        "Setup Guide": "To set up the project locally:<br />- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes.",
+        "Project Overview": "Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience. This project aims to empower users with tools that are both easy to use and highly customizable. Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).<br />",
+        "Features": "- **Feature 1**: A robust functionality that enhances productivity by automating repetitive tasks.<br />- **Feature 2**: An intuitive interface designed for ease of use and accessibility.<br />- **Feature 3**: Seamless integration with popular tools and platforms for a smoother workflow.<br />",
+        "Getting Started": "To get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions. The guide will walk you through prerequisites, installation steps, and how to run the project. For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md). We encourage all users to participate in making this project even better!<br />"
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "How to Contribute"
+                },
+                {
+                    "source": "How to Contribute",
+                    "target": "Project Overview",
+                    "edge_label": "./README.md"
+                },
+                {
+                    "source": "Project Overview",
+                    "target": "Features",
+                    "edge_label": "./README.md"
+                },
+                {
+                    "source": "Features",
+                    "target": "Getting Started"
+                }
+            ],
+            "sequence": "How to Contribute"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Reporting Bugs"
+                }
+            ],
+            "sequence": "Reporting Bugs"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Submitting Enhancements"
+                }
+            ],
+            "sequence": "Submitting Enhancements"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Pull Requests"
+                }
+            ],
+            "sequence": "Pull Requests"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Setup Guide"
+                }
+            ],
+            "sequence": "Setup Guide"
+        }
+    ],
+    "links": {
+        "How to Contribute": [
+            "./README.md",
+            "https://github.com/Prashant528/ideal_documented_repo/tree/main/docs"
+        ],
+        "Reporting Bugs": [],
+        "Submitting Enhancements": [
+            "https://github.com/Prashant528/ideal_documented_repo/blob/main/templates/template_1/readme.md"
+        ],
+        "Pull Requests": [],
+        "Setup Guide": [
+            "./INSTALLATION_GUIDE.md"
+        ]
+    }
+}
