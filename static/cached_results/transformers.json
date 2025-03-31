@@ -1,0 +1,407 @@
+{
+    "content": {
+        "Introduction to Contribution": "### Contribute to \ud83e\udd17 Transformers<br />Everyone is welcome to contribute, and we value everybody's contribution.<br />Code contributions are not the only way to help the community. Answering questions, helping others, and improving the documentation are also immensely valuable. It also helps us if you spread the word! Reference the library in blog posts about the awesome projects it made possible, shout out on Twitter every time it has helped you, or simply \u2b50\ufe0f the repository to say thank you. However you choose to contribute, please be mindful and respect our [code of conduct](https://github.com/huggingface/transformers/blob/main/CODE_OF_CONDUCT.md). This guide was heavily inspired by the awesome [scikit-learn guide to contributing](https://github.com/scikit-learn/scikit-learn/blob/main/CONTRIBUTING.md).",
+        "Ways to Contribute": "### Ways to contribute<br />There are several ways you can contribute to \ud83e\udd17 Transformers:<br />- Fix outstanding issues with the existing code.<br />- Submit issues related to bugs or desired new features.<br />- Implement new models.<br />- Contribute to the examples or to the documentation.<br />If you don't know where to start, there is a special [Good First Issue](https://github.com/huggingface/transformers/contribute) listing. It will give you a list of open issues that are beginner-friendly and help you start contributing to open-source. The best way to do that is to open a Pull Request and link it to the issue that you'd like to work on. We try to give priority to opened PRs as we can easily track the progress of the fix, and if the contributor does not have time anymore, someone else can take the PR over. For something slightly more challenging, you can also take a look at the [Good Second Issue](https://github.com/huggingface/transformers/labels/Good%20Second%20Issue) list. In general though, if you feel like you know what you're doing, go for it and we'll help you get there! \ud83d\ude80 All contributions are equally valuable to the community. \ud83e\udd70",
+        "Fixing Issues": "### Fixing outstanding issues<br />If you notice an issue with the existing code and have a fix in mind, feel free to open a Pull Request!",
+        "Requesting New Features": "### Do you want a new feature?<br />If there is a new feature you'd like to see in \ud83e\udd17 Transformers, please open an issue and describe:<br />- What is the motivation behind this feature?<br />- Is it related to a problem or frustration with the library? Is it a feature related to something you need for a project? Is it something you worked on and think it could benefit the community? Whatever it is, we'd love to hear about it!<br />- Describe your requested feature in as much detail as possible. The more you can tell us about it, the better we'll be able to help you.<br />- Provide a code snippet that demonstrates the features usage.<br />- If the feature is related to a paper, please include a link.<br />If your issue is well written we're already 80% of the way there by the time you create it. We have added [templates](https://github.com/huggingface/transformers/tree/main/templates) to help you get started with your issue.",
+        "Implementing New Models": "### Do you want to implement a new model?<br />New models are constantly released and if you want to implement a new model, please provide the following information:<br />- A short description of the model and a link to the paper.<br />- Link to the implementation if it is open-sourced.<br />- Link to the model weights if they are available.<br />If you are willing to contribute the model yourself, let us know so we can help you add it to \ud83e\udd17 Transformers! We have a technical guide for [how to add a model to \ud83e\udd17 Transformers](https://huggingface.co/docs/transformers/add_new_model).",
+        "Improving Documentation": "### Do you want to add documentation?<br />We're always looking for improvements to the documentation that make it more clear and accurate. Please let us know how the documentation can be improved such as typos and any content that is missing, unclear or inaccurate. We'll be happy to make the changes or help you make a contribution if you're interested! For more details about how to generate, build, and write the documentation, take a look at the documentation [README](https://github.com/huggingface/transformers/tree/main/docs).",
+        "Creating a Pull Request": "### Create a Pull Request<br />Before writing any code, we strongly advise you to search through the existing PRs or issues to make sure nobody is already working on the same thing. If you are unsure, it is always a good idea to open an issue to get some feedback. You will need basic `git` proficiency to contribute to \ud83e\udd17 Transformers. While `git` is not the easiest tool to use, it has the greatest manual. Type `git --help` in a shell and enjoy! If you prefer books, [Pro Git](https://git-scm.com/book/en/v2) is a very good reference. You'll need [Python 3.9](https://github.com/huggingface/transformers/blob/main/setup.py#L449) or above to contribute to \ud83e\udd17 Transformers.",
+        "Set up development environment" : "Follow the steps below to start contributing:<br />- Fork the [repository](https://github.com/huggingface/transformers) by clicking on the [Fork](https://github.com/huggingface/transformers/fork) button on the repository's page. This creates a copy of the code under your GitHub user account.<br />- Clone your fork to your local disk, and add the base repository as a remote:<br />```<br />git clone git@github.com:<your Github handle>/transformers.git<br />cd transformers<br />git remote add upstream https://github.com/huggingface/transformers.git<br />```<br />- Create a new branch to hold your development changes:<br />```<br />git checkout -b a-descriptive-name-for-my-changes<br />```<br />\ud83d\udea8 Do not work on the `main` branch!<br />- Set up a development environment by running the following command in a virtual environment:<br />```<br />pip install -e \".[dev]\"<br />```<br />If \ud83e\udd17 Transformers was already installed in the virtual environment, remove it with <br />`pip uninstall transformers` before reinstalling it in editable mode with the `-e` flag. Depending on your OS, and since the number of optional dependencies of Transformers is growing, you might get a failure with this command. If that's the case make sure to install the Deep Learning framework you are working with (PyTorch, TensorFlow and/or Flax) then do:<br />```<br />pip install -e \".[quality]\"<br /><br />which should be enough for most use cases.<br />- ",
+        "Automated tests": "Develop the features in your branch. As you work on your code, you should make sure the test suite passes. Run the tests impacted by your changes like this:<br />```<br />pytest tests/<TEST_TO_RUN>.py<br />```<br />For more information about tests, check out the [Testing](https://huggingface.co/docs/transformers/testing) guide. \ud83e\udd17 Transformers relies on `black` and `ruff` to format its source code consistently. After you make changes, apply automatic style corrections and code verifications that can't be automated in one go with:<br />```<br />make fixup<br />```<br />This target is also optimized to only work with files modified by the PR you're working on.",
+        "Run individual tests": "Develop the features in your branch. If you prefer to run the checks one after the other, the following command applies the style corrections:<br />```<br />make style<br />```<br /> \ud83e\udd17 Transformers also uses `ruff` and a few custom scripts to check for coding mistakes. Quality controls are run by the CI, but you can run the same checks with:<br />```<br />make quality<br />```<br />Finally, we have a lot of scripts to make sure we don't forget to update some files when adding a new model. You can run these scripts with:<br />```<br />make repo-consistency<br />```<br />To learn more about those checks and how to fix any issues with them, check out the [Checks on a Pull Request](https://huggingface.co/docs/transformers/pr_checks) guide. If you're modifying documents under the `docs/source` directory, make sure the documentation can still be built. This check will also run in the CI when you open a pull request.",
+        "Install documentation builder": "To run a local check make sure you install the documentation builder:<br />```<br />pip install \".[docs]\"<br />```<br />Run the following command from the root of the repository:<br />```<br />doc-builder build transformers docs/source/en --build_dir ~/tmp/test-build<br />```<br />This will build the documentation in the `~/tmp/test-build` folder where you can inspect the generated Markdown files with your favorite editor. You can also preview the docs on GitHub when you open a pull request. ",
+        "Commit and push changes":"Once you're happy with your changes, add the changed files with `git add` and record your changes locally with `git commit`:<br />```<br />git add modified_file.py<br />git commit<br />```<br />Please remember to write [good commit messages](https://chris.beams.io/posts/git-commit/) to clearly communicate the changes you made! To keep your copy of the code up to date with the original repository, rebase your branch on `upstream/branch` before you open a pull request or if requested by a maintainer:<br />```<br />git fetch upstream<br />git rebase upstream/main<br />```<br />Push your changes to your branch:<br />```<br />git push -u origin a-descriptive-name-for-my-changes<br />```<br />",
+        "Open pull request": "If you've already opened a pull request, you'll need to force push with the `--force` flag. Otherwise, if the pull request hasn't been opened yet, you can just push your changes normally.<br />- Now you can go to your fork of the repository on GitHub and click on Pull Request to open a pull request. Make sure you tick off all the boxes on our checklist below. When you're ready, you can send your changes to the project maintainers for review.<br />- It's ok if maintainers request changes, it happens to our core contributors too! So everyone can see the changes in the pull request, work in your local branch and push the changes to your fork. They will automatically appear in the pull request.",
+        "Pull Request Checklist": "### Pull request checklist<br />\u2610 The pull request title should summarize your contribution.<br />\u2610 If your pull request addresses an issue, please mention the issue number in the pull request description to make sure they are linked (and people viewing the issue know you are working on it).<br />\u2610 To indicate a work in progress please prefix the title with `[WIP]`. These are useful to avoid duplicated work, and to differentiate it from PRs ready to be merged.<br />\u2610 Make sure existing tests pass.<br />\u2610 If adding a new feature, also add tests for it.<br />- If you are adding a new model, make sure you use `ModelTester.all_model_classes = (MyModel, MyModelWithLMHead,...)` to trigger the common tests.<br />- If you are adding new `@slow` tests, make sure they pass using `RUN_SLOW=1 python -m pytest tests/models/my_new_model/test_my_new_model.py`.<br />- If you are adding a new tokenizer, write tests and make sure `RUN_SLOW=1 python -m pytest tests/models/{your_model_name}/test_tokenization_{your_model_name}.py` passes.<br />- CircleCI does not run the slow tests, but GitHub Actions does every night!",
+        "Testing": "### Tests<br />An extensive test suite is included to test the library behavior and several examples. Library tests can be found in the [tests](https://github.com/huggingface/transformers/tree/main/tests) folder and examples tests in the [examples](https://github.com/huggingface/transformers/tree/main/examples) folder. We like `pytest` and `pytest-xdist` because it's faster. From the root of the repository, specify a path to a subfolder or a test file to run the test:<br />```<br />python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_new_model<br />```<br />Similarly, for the `examples` directory, specify a path to a subfolder or test file to run the test. For example, the following command tests the text classification subfolder in the PyTorch `examples` directory:<br />```<br />pip install -r examples/xxx/requirements.txt # only needed the first time<br />python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification<br />```<br />In fact, this is actually how our `make test` and `make test-examples` commands are implemented (not including the `pip install`)! You can also specify a smaller set of tests in order to test only the feature you're working on. By default, slow tests are skipped but you can set the `RUN_SLOW` environment variable to `yes` to run them. This will download many gigabytes of models so make sure you have enough disk space, a good internet connection or a lot of patience! Remember to specify a path to a subfolder or a test file to run the test. Otherwise, you'll run all the tests in the `tests` or `examples` folder, which will take a very long time!<br />```<br />RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_new_model<br />RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification<br />```<br />Like the slow tests, there are other environment variables available which are not enabled by default during testing:<br />- `RUN_CUSTOM_TOKENIZERS`: Enables tests for custom tokenizers. More environment variables and additional information can be found in the [testing_utils.py](https://github.com/huggingface/transformers/blob/main/src/transformers/testing_utils.py). \ud83e\udd17 Transformers uses `pytest` as a test runner only. It doesn't use any `pytest`-specific features in the test suite itself. This means `unittest` is fully supported. Here's how to run tests with `unittest`:<br />```<br />python -m unittest discover -s tests -t . -v<br />python -m unittest discover -s examples -t examples -v<br />```",
+        "Style Guide": "### Style guide<br />For documentation strings, \ud83e\udd17 Transformers follows the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html). Check our [documentation writing guide](https://github.com/huggingface/transformers/tree/main/docs#writing-documentation---specification) for more information.",
+        "Develop on Windows": "### Develop on Windows<br />On Windows (unless you're working in [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/) or WSL), you need to configure git to transform Windows `CRLF` line endings to Linux `LF` line endings:<br />```<br />git config core.autocrlf input<br />```<br />One way to run the `make` command on Windows is with MSYS2:<br />- [Download MSYS2](https://www.msys2.org/), and we assume it's installed in `C:\\msys64`.<br />- Open the command line `C:\\msys64\\msys2.exe` (it should be available from the Start menu).<br />- Run in the shell: `pacman -Syu` and install `make` with `pacman -S make`.<br />- Add `C:\\msys64\\usr\\bin` to your PATH environment variable. You can now use `make` from any terminal (PowerShell, cmd.exe, etc.)! \ud83c\udf89",
+        "Syncing a Forked Repository": "### Sync a forked repository with upstream main (the Hugging Face repository)<br />When updating the main branch of a forked repository, please follow these steps to avoid pinging the upstream repository which adds reference notes to each upstream PR, and sends unnecessary notifications to the developers involved in these PRs.<br />- When possible, avoid syncing with the upstream using a branch and PR on the forked repository. Instead, merge directly into the forked main.<br />- If a PR is absolutely necessary, use the following steps after checking out your branch:<br />```<br />git checkout -b your-branch-for-syncing<br />git pull --squash --no-commit upstream main<br />git commit -m '<your message without GitHub references>'<br />git push --set-upstream origin your-branch-for-syncing<br />```",
+        "Setup Environment": "Usage Using the `cookiecutter` utility requires to have all the `dev` dependencies installed. Let's first [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the `transformers` repo on github. Once it's done you can clone your fork and install `transformers` in our environment: <br /> ``` <br /> git clone https://github.com/YOUR-USERNAME/transformers <br /> cd transformers <br /> pip install -e \"[dev]\" <br /> ```",
+        "Generate Template": "Once the installation is done, you can generate the template by running the following command. Be careful, the template will be generated inside a new folder in your current working directory. <br /> ``` <br /> cookiecutter path-to-the folder/adding_a_missing_tokenization_test/ <br /> ``` <br /> You will then have to answer some questions about the tokenizer for which you want to add tests. The `modelname` should be cased according to the plain text casing, i.e., BERT, RoBERTa, DeBERTa. Once the command has finished, you should have a one new file inside the newly created folder named `test_tokenization_Xxx.py`. At this point the template is finished and you can move it to the sub-folder of the corresponding model in the test folder.",
+        "Adding a New Example Script": "This folder provides a template for adding a new example script implementing a training or inference task with the models in the \ud83e\udd17 Transformers library.<br />To use it, you will need to install cookiecutter: <br /><br />``` pip install cookiecutter ``` <br /><br />or refer to the installation page of the [cookiecutter documentation](https://cookiecutter.readthedocs.io/).<br />You can then run the following command inside the `examples` folder of the transformers repo: <br /><br />``` cookiecutter ../templates/adding_a_new_example_script/ ```<br /><br />Answer the questions asked, which will generate a new folder where you will find a pre-filled template for your example following the best practices we recommend for them.<br />Adjust the way the data is preprocessed, the model is loaded, or the Trainer is instantiated.<br />When you're happy, add a `README.md` in the folder (or complete the existing one if you added a script to an existing folder) telling a user how to run your script.<br /><br />Make a PR to the \ud83e\udd17 Transformers repo.<br />Don't forget to tweet about your new example with a carbon screenshot of how to run it and tag @huggingface!",
+        "Template Setup": "### TEMPLATE Setup<br />Search & replace the following keywords, e.g.: `:%s/\\[name of model\\]/brand_new_bert/g`<br />- [lowercase name of model]  # e.g. brand_new_bert<br />- [camelcase name of model]  # e.g. BrandNewBert<br />- [name of mentor]  # e.g. [Peter](https://github.com/peter)<br />- [link to original repo]<br />- [start date]<br />- [end date]<br />How to add [camelcase name of model] to \ud83e\udd17 Transformers?<br />Mentor: [name of mentor]<br />Begin: [start date]<br />Estimated End: [end date]<br />Adding a new model is often difficult and requires an in-depth knowledge of the \ud83e\udd17 Transformers library and ideally also of the model's original repository. At Hugging Face, we are trying to empower the community more and more to add models independently. The following sections explain in detail how to add [camelcase name of model] to Transformers. You will work closely with [name of mentor] to integrate [camelcase name of model] into Transformers. By doing so, you will both gain a theoretical and deep practical understanding of [camelcase name of model]. But more importantly, you will have made a major open-source contribution to Transformers. Along the way, you will:<br />- get insights into open-source best practices<br />- understand the design principles of one of the most popular NLP libraries<br />- learn how to do efficiently test large NLP models<br />- learn how to integrate Python utilities like `black`, `ruff`, `make fix-copies` into a library to always ensure clean and readable code",
+        "General Overview": "### General Overview of \ud83e\udd17 Transformers<br />First, you should get a general overview of \ud83e\udd17 Transformers. Transformers is a very opinionated library, so there is a chance that you don't agree with some of the library's philosophies or design choices. From our experience, however, we found that the fundamental design choices and philosophies of the library are crucial to efficiently scale Transformers while keeping maintenance costs at a reasonable level. A good first starting point to better understand the library is to read the [documentation of our philosophy](https://huggingface.co/transformers/philosophy.html). As a result of our way of working, there are some choices that we try to apply to all models:<br />- Composition is generally favored over abstraction<br />- Duplicating code is not always bad if it strongly improves the readability or accessibility of a model<br />- Model files are as self-contained as possible so that when you read the code of a specific model, you ideally only have to look into the respective `modeling_....py` file. In our opinion, the library's code is not just a means to provide a product, e.g., the ability to use BERT for inference, but also as the very product that we want to improve. Hence, when adding a model, the user is not only the person that will use your model, but also everybody that will read, try to understand, and possibly tweak your code. With this in mind, let's go a bit deeper into the general library design.",
+        "Model Overview": "### Overview of Models<br />To successfully add a model, it is important to understand the interaction between your model and its config, `PreTrainedModel`, and `PretrainedConfig`. For exemplary purposes, we will call the PyTorch model to be added to \ud83e\udd17 Transformers `BrandNewBert`. Let's take a look: As you can see, we do make use of inheritance in \ud83e\udd17 Transformers, but we keep the level of abstraction to an absolute minimum. There are never more than two levels of abstraction for any model in the library. `BrandNewBertModel` inherits from `BrandNewBertPreTrainedModel` which in turn inherits from `PreTrainedModel` and that's it. As a general rule, we want to make sure that a new model only depends on `PreTrainedModel`. The important functionalities that are automatically provided to every new model are `PreTrainedModel.from_pretrained` and `PreTrainedModel.save_pretrained`, which are used for serialization and deserialization. All of the other important functionalities, such as `BrandNewBertModel.forward` should be completely defined in the new `modeling_brand_new_bert.py` module. Next, we want to make sure that a model with a specific head layer, such as `BrandNewBertForMaskedLM` does not inherit from `BrandNewBertModel`, but rather uses `BrandNewBertModel` as a component that can be called in its forward pass to keep the level of abstraction low. Every new model requires a configuration class, called `BrandNewBertConfig`. This configuration is always stored as an attribute in `PreTrainedModel`, and thus can be accessed via the `config` attribute for all classes inheriting from `BrandNewBertPreTrainedModel`<br />```<br /># assuming that `brand_new_bert` belongs to the organization `brandy`<br />model = BrandNewBertModel.from_pretrained(\"brandy/brand_new_bert\")<br />model.config  # model has access to its config<br />```<br />Similar to the model, the configuration inherits basic serialization and deserialization functionalities from `PretrainedConfig`. Note that the configuration and the model are always serialized into two different formats - the model to a `pytorch_model.bin` file and the configuration to a `config.json` file. Calling `PreTrainedModel.save_pretrained` will automatically call `PretrainedConfig.save_pretrained`, so that both model and configuration are saved.",
+        "Step-by-Step Recipe": "### Step-by-step Recipe to Add a Model to \ud83e\udd17 Transformers<br />Everyone has different preferences of how to port a model so it can be very helpful for you to take a look at summaries of how other contributors ported models to Hugging Face. Here is a list of community blog posts on how to port a model:<br />- [Porting GPT2 Model](https://medium.com/huggingface/from-tensorflow-to-pytorch-265f40ef2a28) by [Thomas](https://huggingface.co/thomwolf)<br />- [Porting WMT19 MT Model](https://huggingface.co/blog/porting-fsmt) by [Stas](https://huggingface.co/stas)<br />From experience, we can tell you that the most important things to keep in mind when adding a model are:<br />- Don't reinvent the wheel! Most parts of the code you will add for the new \ud83e\udd17 Transformers model already exist somewhere in \ud83e\udd17 Transformers. Take some time to find similar, already existing models and tokenizers you can copy from. [grep](https://www.gnu.org/software/grep/) and [rg](https://github.com/BurntSushi/ripgrep) are your friends. Note that it might very well happen that your model's tokenizer is based on one model implementation, and your model's modeling code on another one. E.g., FSMT's modeling code is based on BART, while FSMT's tokenizer code is based on XLM.<br />- It's more of an engineering challenge than a scientific challenge. You should spend more time on creating an efficient debugging environment than trying to understand all theoretical aspects of the model in the paper.<br />- Ask for help when you're stuck! Models are the core component of \ud83e\udd17 Transformers so we, at Hugging Face, are more than happy to help you at every step to add your model. Don't hesitate to ask if you notice you are not making progress. In the following, we try to give you a general recipe that we found most useful when porting a model to \ud83e\udd17 Transformers. The following list is a summary of everything that has to be done to add a model and can be used by you as a To-Do List:<br />- (Optional) Understood theoretical aspects<br />- Prepared transformers dev environment<br />- Set up debugging environment of the original repository<br />- Created script that successfully runs forward pass using original repository and checkpoint<br />- Successfully opened a PR and added the model skeleton to Transformers<br />- Successfully converted original checkpoint to Transformers checkpoint<br />- Successfully ran forward pass in Transformers that gives identical output to original checkpoint<br />- Finished model tests in Transformers<br />- Successfully added Tokenizer in Transformers<br />- Run end-to-end integration tests<br />- Finished docs<br />- Uploaded model weights to the hub<br />- Submitted the pull request for review<br />- (Optional) Added a demo notebook",
+        "Adding a new model": "This page has been updated in light of the removal of the `add_new_model` script in favor of the more complete `add_new_model_like` script.<br />We recommend you checkout the documentation of [How to add a model](https://huggingface.co/docs/transformers/main/en/add_new_model) in the Hugging Face Transformers documentation for complete and up-to-date instructions.",
+        "Generating Documentation": "To generate the documentation, you first have to build it. Several packages are necessary to build the doc, you can install them with the following command, at the root of the code repository:<br /> <br />``` pip install -e \".[docs]\" ```<br /><br />Then you need to install our special tool that builds the documentation: <br /><br />``` pip install git+https://github.com/huggingface/doc-builder ```<br /><br />Once you have setup the `doc-builder` and additional packages, you can generate the documentation by typing the following command: <br /><br />``` doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build ```<br /><br />You can adapt the `--build_dir` to set any temporary folder that you prefer. This command will create it and generate the MDX files that will be rendered as the documentation on the main website.",
+        "Previewing Documentation": "To preview the docs, first install the `watchdog` module with: <br /><br />``` pip install watchdog ```<br /><br />Then run the following command: <br /><br />``` doc-builder preview {package_name} {path_to_docs} ```<br /><br />For example: <br /><br />``` doc-builder preview transformers docs/source/en/ ```<br /><br />The docs will be viewable at [http://localhost:3000](http://localhost:3000).<br />You can also preview the docs once you have opened a PR. You will see a bot add a comment to a link where the documentation with your changes lives.",
+        "Adding to Navigation": "Accepted files are Markdown (.md). Create a file with its extension and put it in the source directory. You can then link it to the toc-tree by putting the filename without the extension in the [_toctree.yml](https://github.com/huggingface/transformers/blob/main/docs/source/en/_toctree.yml) file.",
+        "Renaming and Moving Sections": "It helps to keep the old links working when renaming the section header and/or moving sections from one document to another. This is because the old links are likely to be used in Issues, Forums, and Social media and it'd make for a much more superior user experience if users reading those months later could still easily navigate to the originally intended information. Therefore, we simply keep a little map of moved sections at the end of the document where the original section was. The key is to preserve the original anchor.",
+        "Writing Documentation": "The `huggingface/transformers` documentation follows the [Google documentation](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) style for docstrings, although we can write them directly in Markdown.",
+        "Adding a New Tutorial": "Adding a new tutorial or section is done in two steps:<br />- Add a new file under `./source`. This file can either be ReStructuredText (.rst) or Markdown (.md).<br />- Link that file in `./source/_toctree.yml` on the correct toc-tree. Make sure to put your new file under the proper section.",
+        "Translating": "When translating, refer to the guide at [./TRANSLATING.md](https://github.com/huggingface/transformers/blob/main/docs/TRANSLATING.md).",
+        "Adding a New Model": "When adding a new model:<br />- Create a file `xxx.md` or under `./source/model_doc` (don't hesitate to copy an existing file as template).<br />- Link that file in `./source/_toctree.yml`.<br />- Write a short overview of the model:<br />  - Overview with paper & authors<br />  - Paper abstract<br />  - Tips and tricks and how to use it best<br />- Add the classes that should be linked in the model. This generally includes the configuration, the tokenizer, and every model of that class (the base model, alongside models with additional heads), both in PyTorch and TensorFlow.",
+        "Writing Source Documentation": "Values that should be put in `code` should either be surrounded by backticks: `like so`. Note that argument names and objects like True, None, or any strings should usually be put in `code`. When mentioning a class, function, or method, it is recommended to use our syntax for internal links so that our tool adds a link to its documentation with this syntax: [`XXXClass`] or [`function`].",
+        "Defining Arguments": "Arguments should be defined with the `Args:` (or `Arguments:` or `Parameters:`) prefix, followed by a line return and an indentation. The argument should be followed by its type, with its shape if it is a tensor, a colon, and its description.",
+        "Writing a Return Block": "The return block should be introduced with the `Returns:` prefix, followed by a line return and an indentation. The first line should be the type of the return, followed by a line return. No need to indent further for the elements building the return.",
+        "Adding an Image": "Due to the rapidly growing repository, it is important to make sure that no files that would significantly weigh down the repository are added. This includes images, videos, and other non-text files. We prefer to leverage a hf.co hosted `dataset` like the ones hosted on [hf-internal-testing](https://huggingface.co/hf-internal-testing) in which to place these files and reference them by URL.",
+        "Styling the Docstring": "We have an automatic script running with the `make style` comment that will make sure that:<br />- the docstrings fully take advantage of the line width<br />- all code examples are formatted using black, like the code of the Transformers library",
+        "Testing Documentation Examples": "Good documentation often comes with an example of how a specific function or class should be used. Each model class should contain at least one example showcasing how to use this model class in inference.",
+        "Writing Documentation Examples": "The syntax for Example docstrings can look as follows:<br />``` Example: >>> from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC >>> from datasets import load_dataset >>> import torch >>> dataset = load_dataset(\"hf-internal-testing/librispeech_asr_demo\", \"clean\", split=\"validation\") >>> dataset = dataset.sort(\"id\") >>> sampling_rate = dataset.features[\"audio\"].sampling_rate >>> processor = Wav2Vec2Processor.from_pretrained(\"facebook/wav2vec2-base-960h\") >>> model = Wav2Vec2ForCTC.from_pretrained(\"facebook/wav2vec2-base-960h\") >>> # audio file is decoded on the fly >>> inputs = processor(dataset[0][\"audio\"][\"array\"], sampling_rate=sampling_rate, return_tensors=\"pt\") >>> with torch.no_grad(): ...     logits = model(**inputs).logits >>> predicted_ids = torch.argmax(logits, dim=-1) >>> # transcribe speech >>> transcription = processor.batch_decode(predicted_ids) >>> transcription[0] 'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL' ```",
+        "Docstring Testing": "To do so each example should be included in the doctests. We use pytests' [doctest integration](https://docs.pytest.org/doctest.html) to verify that all of our examples run correctly. For Transformers, the doctests are run on a daily basis via GitHub Actions.",
+        "Open an Issue": "As part of our mission to democratize machine learning, we aim to make the Transformers library available in many more languages! Follow the steps below to help translate the documentation into your language.<br />- Navigate to the Issues page of this repository.<br />- Check if anyone has already opened an issue for your language.<br />- If not, create a new issue by selecting the \"Translation template\" from the \"New issue\" button.<br />- Post a comment indicating which chapters you\u2019d like to work on, and we\u2019ll add your name to the list.",
+        "Fork the Repository": "- First, fork the Transformers repo by clicking the Fork button in the top-right corner.<br />- Clone your fork to your local machine for editing with the following command:<br />```bash<br />git clone https://github.com/YOUR-USERNAME/transformers.git<br />```<br />Replace `YOUR-USERNAME` with your GitHub username.",
+        "Copy-paste the English version": "The documentation files are organized in the following directory:<br />- docs/source: This contains all documentation materials organized by language.<br />To copy the English version to your new language directory:<br />- Navigate to your fork of the repository:<br />```bash<br />cd ~/path/to/transformers/docs<br />```<br />Replace `~/path/to` with your actual path.<br />- Run the following command:<br />```bash<br />cp -r source/en source/LANG-ID<br />```<br />Replace `LANG-ID` with the appropriate ISO 639-1 or ISO 639-2 language code (see [this table](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for reference).",
+        "Start translating": "Begin translating the text!<br />- Start with the `_toctree.yml` file that corresponds to your documentation chapter. This file is essential for rendering the table of contents on the website.<br />- If the `_toctree.yml` file doesn\u2019t exist for your language, create one by copying the English version and removing unrelated sections.<br />- Ensure it is placed in the `docs/source/LANG-ID/` directory.<br />Here\u2019s an example structure for the `_toctree.yml` file:<br />```yaml<br />- sections:<br />  - local: pipeline_tutorial # Keep this name for your .md file<br />    title: Pipelines for Inference # Translate this<br />  - title: Tutorials # Translate this<br />```<br />- Once you\u2019ve translated the `_toctree.yml`, move on to translating the associated MDX files.",
+        "Collaborate and share": "If you'd like assistance with your translation, open an issue and tag `@stevhliu`. Feel free to share resources or glossaries to ensure consistent terminology.",
+        "Examples": "We host a wide range of example scripts for multiple learning frameworks. Simply choose your favorite: [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow), [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch) or [JAX/Flax](https://github.com/huggingface/transformers/tree/main/examples/flax). We also have some [research projects](https://github.com/huggingface/transformers/tree/main/examples/research_projects), as well as some [legacy examples](https://github.com/huggingface/transformers/tree/main/examples/legacy). Note that unlike the main examples these are not actively maintained, and may require specific older versions of dependencies in order to run. While we strive to present as many use cases as possible, the example scripts are just that - examples. It is expected that they won't work out-of-the-box on your specific problem and that you will be required to change a few lines of code to adapt them to your needs. To help you with that, most of the examples fully expose the preprocessing of the data, allowing you to tweak and edit them as required. Please discuss on the [forum](https://discuss.huggingface.co/) or in an [issue](https://github.com/huggingface/transformers/issues) a feature you would like to implement in an example before submitting a PR; we welcome bug fixes, but since we want to keep the examples as simple as possible it's unlikely that we will merge a pull request adding more functionality at the cost of readability.<br />",
+        "Installation": "To make sure you can successfully run the latest versions of the example scripts, you have to install the library from source and install some example-specific requirements. To do this, execute the following steps in a new virtual environment:<br />```<br />git clone https://github.com/huggingface/transformers<br />cd transformers<br />pip install .<br />```<br />Then cd in the example folder of your choice and run<br />```<br />pip install -r requirements.txt<br />```<br />To browse the examples corresponding to released versions of \ud83e\udd17 Transformers, click on the line below and then on your desired version of the library: Alternatively, you can switch your cloned \ud83e\udd17 Transformers to a specific version (for instance with v3.5.1) with<br />```<br />git checkout tags/v3.5.1<br />```<br />and run the example command as usual afterward.<br />",
+        "Remote Execution": "[run_on_remote.py](./run_on_remote.py) is a script that launches any example on remote self-hosted hardware, with automatic hardware and environment setup. It uses [Runhouse](https://github.com/run-house/runhouse) to launch on self-hosted hardware (e.g. in your own cloud account or on-premise cluster) but there are other options for running remotely as well. You can easily customize the example used, command line arguments, dependencies, and type of compute hardware, and then run the script to automatically launch the example. You can refer to [hardware setup](https://www.run.house/docs/tutorials/quick-start-cloud) for more information about hardware and dependency setup with Runhouse, or this [Colab tutorial](https://colab.research.google.com/drive/1sh_aNQzJX5BKAdNeXthTNGxKz7sM9VPc) for a more in-depth walkthrough. You can run the script with the following commands:<br />```<br /># First install runhouse:<br />pip install runhouse<br /># For an on-demand V100 with whichever cloud provider you have configured:<br />python run_on_remote.py \\<br />--example pytorch/text-generation/run_generation.py \\<br />--model_type=gpt2 \\<br />--model_name_or_path=openai-community/gpt2 \\<br />--prompt \"I am a language model and\"<br /># For byo (bring your own) cluster:<br />python run_on_remote.py --host <cluster_ip> --user <ssh_user> --key_path <ssh_key_path> \\<br />--example <example> <args><br /># For on-demand instances<br />python run_on_remote.py --instance <instance> --provider <provider> \\<br />--example <example> <args><br />```<br />",
+        "Customization": "You can also adapt the script to your own needs.<br />",
+        "Generating Documentation#1": "To generate the documentation, you first have to build it. Several packages are necessary to build the doc, you can install them with the following command, at the root of the code repository: <br />``` pip install -e \".[docs]\" ``` <br />Then you need to install our special tool that builds the documentation: <br />``` pip install git+https://github.com/huggingface/doc-builder ``` <br /> NOTE: You only need to generate the documentation to inspect it locally (if you're planning changes and want to check how they look before committing for instance). You don't have to commit the built documentation. <br /> Once you have setup the `doc-builder` and additional packages, you can generate the documentation by typing the following command: ``` doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build ``` <br /> You can adapt the `--build_dir` to set any temporary folder that you prefer. This command will create it and generate the MDX files that will be rendered as the documentation on the main website.",
+        "Previewing Documentation#1": "To preview the docs, first install the `watchdog` module with: <br />``` pip install watchdog ``` <br /> Then run the following command: ``` doc-builder preview {package_name} {path_to_docs} ``` <br /> For example: ``` doc-builder preview transformers docs/source/en/ ``` <br /> The docs will be viewable at [http://localhost:3000](http://localhost:3000). You can also preview the docs once you have opened a PR. You will see a bot add a comment to a link where the documentation with your changes lives. <br /> NOTE: The `preview` command only works with existing doc files. When you add a completely new file, you need to update `_toctree.yml` & restart `preview` command (`ctrl-c` to stop it & call `doc-builder preview ...` again).",
+        "Adding to Navigation Bar": "Accepted files are Markdown (.md). Create a file with its extension and put it in the source directory. You can then link it to the toc-tree by putting the filename without the extension in the [_toctree.yml](https://github.com/huggingface/transformers/blob/main/docs/source/en/_toctree.yml) file. <br /> Renaming section headers and moving sections helps to keep the old links working when renaming the section header and/or moving sections from one document to another. This is because the old links are likely to be used in Issues, Forums, and Social media and it'd make for a much more superior user experience if users reading those months later could still easily navigate to the originally intended information. Therefore, we simply keep a little map of moved sections at the end of the document where the original section was. The key is to preserve the original anchor. <br /> So if you renamed a section from: \"Section A\" to \"Section B\", then you can add at the end of the file: ``` Sections that were moved: [ <a href=\"#section-b\"> Section A</a><a id=\"section-a\"></a> ] ``` and of course, if you moved it to another file, then: ``` Sections that were moved: [ <a href=\"../new-file#section-b\"> Section A</a><a id=\"section-a\"></a> ] ``` Use the relative style to link to the new file so that the versioned docs continue to work. For an example of a rich moved section set please see the very end of [the Trainer doc](https://github.com/huggingface/transformers/blob/main/docs/source/en/main_classes/trainer.md).",
+        "Writing Documentation#1": "The `huggingface/transformers` documentation follows the [Google documentation](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) style for docstrings, although we can write them directly in Markdown. <br /> Adding a new tutorial or section is done in two steps: <br /> - Add a new file under `./source`. This file can either be ReStructuredText (.rst) or Markdown (.md). <br /> - Link that file in `./source/_toctree.yml` on the correct toc-tree. Make sure to put your new file under the proper section. It's unlikely to go in the first section (Get Started), so depending on the intended targets (beginners, more advanced users, or researchers) it should go in sections two, three, or four. <br /> When translating, refer to the guide at [./TRANSLATING.md](https://github.com/huggingface/transformers/blob/main/docs/TRANSLATING.md).",
+        "Adding a New Model#1": "When adding a new model: <br /> - Create a file `xxx.md` or under `./source/model_doc` (don't hesitate to copy an existing file as template). <br /> - Link that file in `./source/_toctree.yml`. <br /> - Write a short overview of the model: <br /> - Overview with paper & authors <br /> - Paper abstract <br /> - Tips and tricks and how to use it best <br /> - Add the classes that should be linked in the model. This generally includes the configuration, the tokenizer, and every model of that class (the base model, alongside models with additional heads), both in PyTorch and TensorFlow. <br /> The order is generally: <br /> - Configuration <br /> - Tokenizer <br /> - PyTorch base model <br /> - PyTorch head models <br /> - TensorFlow base model <br /> - TensorFlow head models <br /> - Flax base model <br /> - Flax head models <br /> These classes should be added using our Markdown syntax. Usually as follows: ``` ## XXXConfig [[autodoc]] XXXConfig ``` This will include every public method of the configuration that is documented. If for some reason you wish for a method not to be displayed in the documentation, you can do so by specifying which methods should be in the docs: ``` ## XXXTokenizer [[autodoc]] XXXTokenizer - build_inputs_with_special_tokens - get_special_tokens_mask - create_token_type_ids_from_sequences - save_vocabulary ``` If you just want to add a method that is not documented (for instance magic methods like `__call__` are not documented by default) you can put the list of methods to add in a list that contains `all`: ``` ## XXXTokenizer [[autodoc]] XXXTokenizer - all - __call__ ```",
+        "Writing Source Documentation#1": "Values that should be put in `code` should either be surrounded by backticks: `like so`. Note that argument names and objects like True, None, or any strings should usually be put in `code`. When mentioning a class, function, or method, it is recommended to use our syntax for internal links so that our tool adds a link to its documentation with this syntax: [`XXXClass`] or [`function`]. This requires the class or function to be in the main package. If you want to create a link to some internal class or function, you need to provide its path. For instance: [`utils.ModelOutput`]. This will be converted into a link with `utils. ModelOutput` in the description. To get rid of the path and only keep the name of the object you are linking to in the description, add a ~: [`~utils. ModelOutput`] will generate a link with `ModelOutput` in the description. The same works for methods so you can either use [`XXXClass.method`] or [`~XXXClass.method`]. <br /> Arguments should be defined with the `Args:` (or `Arguments:` or `Parameters:`) prefix, followed by a line return and an indentation. The argument should be followed by its type, with its shape if it is a tensor, a colon, and its description: ``` Args: n_layers (`int`): The number of layers of the model. ``` If the description is too long to fit in one line, another indentation is necessary before writing the description after the argument. Here's an example showcasing everything so far: ``` Args: input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`): Indices of input sequence tokens in the vocabulary. Indices can be obtained using [`AlbertTokenizer`]. See [`~PreTrainedTokenizer.encode`] and [`~PreTrainedTokenizer.__call__`] for details. [What are input IDs?](../glossary#input-ids) ``` For optional arguments or arguments with defaults we follow the following syntax: imagine we have a function with the following signature: ``` def my_function(x: str = None, a: float = 1): ``` then its documentation should look like this: ``` Args: x (`str`, *optional*): This argument controls ... a (`float`, *optional*, defaults to 1): This argument is used to ... ``` Note that we always omit the \"defaults to `None`\" when None is the default for any argument. Also note that even if the first line describing your argument type and its default gets long, you can't break it on several lines. You can however, write as many lines as you want in the indented description (see the example above with `input_ids`). <br /> Multi-line code blocks can be useful for displaying examples. They are done between two lines of three backticks as usual in Markdown: ``` ``` # first line of code # second line # etc ``` ``` We follow the [doctest](https://docs.python.org/3/library/doctest.html) syntax for the examples to automatically test the results to stay consistent with the library. <br /> The return block should be introduced with the `Returns:` prefix, followed by a line return and an indentation. The first line should be the type of the return, followed by a line return. No need to indent further for the elements building the return. Here's an example of a single value return: ``` Returns: `List[int]`: A list of integers in the range [0, 1] --- 1 for a special token, 0 for a sequence token. ``` Here's an example of a tuple return, comprising several objects: ``` Returns: `tuple(torch.FloatTensor)` comprising various elements depending on the configuration ([`BertConfig`]) and inputs: - ** loss** (*optional*, returned when `masked_lm_labels` is provided) `torch. FloatTensor` of shape `(1,)` -- Total loss is the sum of the masked language modeling loss and the next sequence prediction (classification) loss. - **prediction_scores** (`torch.FloatTensor` of shape `(batch_size, sequence_length, config.vocab_size)`) -- Prediction scores of the language modeling head (scores for each vocabulary token before SoftMax). ``` <br /> Due to the rapidly growing repository, it is important to make sure that no files that would significantly weigh down the repository are added. This includes images, videos, and other non-text files. We prefer to leverage a hf.co hosted `dataset` like the ones hosted on [hf-internal-testing](https://huggingface.co/hf-internal-testing) in which to place these files and reference them by URL. We recommend putting them in the following dataset: [huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images). If an external contribution, feel free to add the images to your PR and ask a Hugging Face member to migrate your images to this dataset. <br /> We have an automatic script running with the `make style` comment that will make sure that: <br /> - the docstrings fully take advantage of the line width <br /> - all code examples are formatted using black, like the code of the Transformers library <br /> This script may have some weird failures if you made a syntax mistake or if you uncover a bug. Therefore, it's recommended to commit your changes before running `make style`, so you can revert the changes done by that script easily.",
+        "Testing Documentation": "Good documentation often comes with an example of how a specific function or class should be used. Each model class should contain at least one example showcasing how to use this model class in inference. E.g. the class [Wav2Vec2ForCTC](https://huggingface.co/docs/transformers/model_doc/wav2vec2#transformers.Wav2Vec2ForCTC) includes an example of how to transcribe speech to text in the [docstring of its forward function](https://huggingface.co/docs/transformers/model_doc/wav2vec2#transformers.Wav2Vec2ForCTC.forward). <br /> The syntax for Example docstrings can look as follows: ``` Example: >>> from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC >>> from datasets import load_dataset >>> import torch >>> dataset = load_dataset(\"hf-internal-testing/librispeech_asr_demo\", \"clean\", split=\"validation\") >>> dataset = dataset.sort(\"id\") >>> sampling_rate = dataset.features[\"audio\"].sampling_rate >>> processor = Wav2Vec2Processor.from_pretrained(\"facebook/wav2vec2-base-960h\") >>> model = Wav2Vec2ForCTC.from_pretrained(\"facebook/wav2vec2-base-960h\") >>> # audio file is decoded on the fly >>> inputs = processor(dataset[0][\"audio\"][\"array\"], sampling_rate=sampling_rate, return_tensors=\"pt\") >>> with torch.no_grad(): ...     logits = model(**inputs).logits >>> predicted_ids = torch.argmax(logits, dim=-1) >>> # transcribe speech >>> transcription = processor.batch_decode(predicted_ids) >>> transcription[0] 'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL' ``` The docstring should give a minimal, clear example of how the respective model is to be used in inference and also include the expected (ideally sensible) output. Often, readers will try out the example before even going through the function or class definitions. Therefore, it is of utmost importance that the example works as expected. <br /> To do so each example should be included in the doctests. We use pytests' [doctest integration](https://docs.pytest.org/doctest.html) to verify that all of our examples run correctly. For Transformers, the doctests are run on a daily basis via GitHub Actions as can be seen [here](https://github.com/huggingface/transformers/actions/workflows/doctests.yml). <br /> For Python files Run all the tests in the docstrings of a given file with the following command, here is how we test the modeling file of Wav2Vec2 for instance: ``` pytest --doctest-modules src/transformers/models/wav2vec2/modeling_wav2vec2.py -sv --doctest-continue-on-failure ``` If you want to isolate a specific docstring, just add `::` after the file name then type the whole path of the function/class/method whose docstring you want to test. For instance, here is how to just test the forward method of `Wav2Vec2ForCTC`: ``` pytest --doctest-modules src/transformers/models/wav2vec2/modeling_wav2vec2.py::transformers.models.wav2vec2.modeling_wav2vec2.Wav2Vec2ForCTC.forward -sv --doctest-continue-on-failure ``` <br /> For Markdown files You can test locally a given file with this command (here testing the quicktour): ``` pytest --doctest-modules docs/source/quicktour.md -sv --doctest-continue-on-failure --doctest-glob=\"*.md\" ``` <br /> Here are a few tips to help you debug the doctests and make them pass: <br /> - The outputs of the code need to match the expected output exactly, so make sure you have the same outputs. In particular doctest will see a difference between single quotes and double quotes, or a missing parenthesis. The only exceptions to that rule are: <br /> - whitespace: one give whitespace (space, tabulation, new line) is equivalent to any number of whitespace, so you can add new lines where there are spaces to make your output more readable. <br /> - numerical values: you should never put more than 4 or 5 digits to expected results as different setups or library versions might get you slightly different results. `doctest` is configured to ignore any difference lower than the precision to which you wrote (so 1e-4 if you write 4 digits). <br /> - Don't leave a block of code that is very long to execute. If you can't make it fast, you can either not use the doctest syntax on it (so that it's ignored), or if you want to use the doctest syntax to show the results, you can add a comment `# doctest: +SKIP` at the end of the lines of code too long to execute <br /> - Each line of code that produces a result needs to have that result written below. You can ignore an output if you don't want to show it in your code example by adding a comment ` # doctest: +IGNORE_RESULT` at the end of the line of code producing it.",
+        "Open an Issue#1": "### Open an Issue<br />- Navigate to the Issues page of this repository.<br />- Check if anyone has already opened an issue for your language.<br />- If not, create a new issue by selecting the \"Translation template\" from the \"New issue\" button.<br />- Post a comment indicating which chapters you\u2019d like to work on, and we\u2019ll add your name to the list.",
+        "Fork the Repository#1": "### Fork the Repository<br />- First, fork the Transformers repo by clicking the Fork button in the top-right corner.<br />- Clone your fork to your local machine for editing with the following command:<br />```bash<br />git clone https://github.com/YOUR-USERNAME/transformers.git<br />```<br />Replace `YOUR-USERNAME` with your GitHub username.",
+        "Copy-paste the English version#1": "### Copy-paste the English version with a new language code<br />The documentation files are organized in the following directory:<br />- docs/source: This contains all documentation materials organized by language.<br />To copy the English version to your new language directory:<br />- Navigate to your fork of the repository:<br />```bash<br />cd ~/path/to/transformers/docs<br />```<br />Replace `~/path/to` with your actual path.<br />- Run the following command:<br />```bash<br />cp -r source/en source/LANG-ID<br />```<br />Replace `LANG-ID` with the appropriate ISO 639-1 or ISO 639-2 language code (see [this table](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for reference).",
+        "Start translating#1": "### Start translating<br />Begin translating the text!<br />- Start with the `_toctree.yml` file that corresponds to your documentation chapter. This file is essential for rendering the table of contents on the website.<br />- If the `_toctree.yml` file doesn\u2019t exist for your language, create one by copying the English version and removing unrelated sections.<br />- Ensure it is placed in the `docs/source/LANG-ID/` directory.",
+        "Collaborate and share#1": "### Collaborate and share<br />If you'd like assistance with your translation, open an issue and tag `@stevhliu`.<br />Feel free to share resources or glossaries to ensure consistent terminology."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Introduction to Contribution"
+                }
+            ],
+            "sequence": "Introduction to Contribution"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Ways to Contribute"
+                }
+            ],
+            "sequence": "Ways to Contribute"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Fixing Issues"
+                }
+            ],
+            "sequence": "Fixing Issues"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Requesting New Features"
+                },
+                {
+                    "source": "Requesting New Features",
+                    "target": "Setup Environment",
+                    "edge_label": "templates/adding_a_missing_tokenization_test/README.md"
+                },
+                {
+                    "source": "Setup Environment",
+                    "target": "Generate Template",
+                    "edge_label": "templates/adding_a_missing_tokenization_test/README.md"
+                },
+                {
+                    "source": "Requesting New Features",
+                    "target": "Adding a New Example Script",
+                    "edge_label": "templates/adding_a_new_example_script/README.md"
+                },
+                {
+                    "source": "Adding a New Example Script",
+                    "target": "Adding a New Example Script",
+                    "edge_label": "templates/adding_a_new_example_script/README.md"
+                },
+                {
+                    "source": "Requesting New Features",
+                    "target": "Template Setup",
+                    "edge_label": "templates/adding_a_new_model/ADD_NEW_MODEL_PROPOSAL_TEMPLATE.md"
+                },
+                {
+                    "source": "Template Setup",
+                    "target": "General Overview",
+                    "edge_label": "templates/adding_a_new_model/ADD_NEW_MODEL_PROPOSAL_TEMPLATE.md"
+                },
+                {
+                    "source": "General Overview",
+                    "target": "Model Overview"
+                },
+                {
+                    "source": "Model Overview",
+                    "target": "Step-by-Step Recipe"
+                },
+                {
+                    "source": "Requesting New Features",
+                    "target": "Adding a new model",
+                    "edge_label": "templates/adding_a_new_model/README.md"
+                },
+                {
+                    "source": "Adding a new model",
+                    "target": "Adding a new model",
+                    "edge_label": "templates/adding_a_new_model/README.md"
+                }
+            ],
+            "sequence": "Requesting New Features"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Implementing New Models"
+                }
+            ],
+            "sequence": "Implementing New Models"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Improving Documentation"
+                },
+                {
+                    "source": "Improving Documentation",
+                    "target": "Generating Documentation",
+                    "edge_label": "docs/README.md"
+                },
+                {
+                    "source": "Generating Documentation",
+                    "target": "Previewing Documentation",
+                    "edge_label": "docs/README.md"
+                },
+                {
+                    "source": "Previewing Documentation",
+                    "target": "Adding to Navigation"
+                },
+                {
+                    "source": "Adding to Navigation",
+                    "target": "Renaming and Moving Sections"
+                },
+                {
+                    "source": "Renaming and Moving Sections",
+                    "target": "Writing Documentation"
+                },
+                {
+                    "source": "Writing Documentation",
+                    "target": "Adding a New Tutorial"
+                },
+                {
+                    "source": "Adding a New Tutorial",
+                    "target": "Translating"
+                },
+                {
+                    "source": "Translating",
+                    "target": "Adding a New Model"
+                },
+                {
+                    "source": "Adding a New Model",
+                    "target": "Writing Source Documentation"
+                },
+                {
+                    "source": "Writing Source Documentation",
+                    "target": "Defining Arguments"
+                },
+                {
+                    "source": "Defining Arguments",
+                    "target": "Writing a Return Block"
+                },
+                {
+                    "source": "Writing a Return Block",
+                    "target": "Adding an Image"
+                },
+                {
+                    "source": "Adding an Image",
+                    "target": "Styling the Docstring"
+                },
+                {
+                    "source": "Styling the Docstring",
+                    "target": "Testing Documentation Examples"
+                },
+                {
+                    "source": "Testing Documentation Examples",
+                    "target": "Writing Documentation Examples"
+                },
+                {
+                    "source": "Writing Documentation Examples",
+                    "target": "Docstring Testing"
+                },
+                {
+                    "source": "Improving Documentation",
+                    "target": "Open an Issue",
+                    "edge_label": "docs/TRANSLATING.md"
+                },
+                {
+                    "source": "Open an Issue",
+                    "target": "Fork the Repository",
+                    "edge_label": "docs/TRANSLATING.md"
+                },
+                {
+                    "source": "Fork the Repository",
+                    "target": "Copy-paste the English version"
+                },
+                {
+                    "source": "Copy-paste the English version",
+                    "target": "Start translating"
+                },
+                {
+                    "source": "Start translating",
+                    "target": "Collaborate and share"
+                }
+            ],
+            "sequence": "Improving Documentation"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Creating a Pull Request"
+                },
+                {
+                    "source": "Creating a Pull Request",
+                    "target": "Set up development environment"
+                },
+                {
+                    "source": "Set up development environment",
+                    "target": "Automated tests"
+                },
+                {
+                    "source": "Set up development environment",
+                    "target": "Run individual tests"
+                },
+                {
+                    "source": "Run individual tests",
+                    "target": "Install documentation builder"
+                },
+                {
+                    "source": "Run individual tests",
+                    "target": "Commit and push changes"
+                },
+                {
+                    "source": "Commit and push changes",
+                    "target": "Open pull request"
+                }
+            ],
+            "sequence": "Creating a Pull Request"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Pull Request Checklist"
+                }
+            ],
+            "sequence": "Pull Request Checklist"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Testing"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Examples",
+                    "edge_label": "examples/README.md"
+                },
+                {
+                    "source": "Examples",
+                    "target": "Installation",
+                    "edge_label": "examples/README.md"
+                },
+                {
+                    "source": "Installation",
+                    "target": "Remote Execution"
+                },
+                {
+                    "source": "Remote Execution",
+                    "target": "Customization"
+                }
+            ],
+            "sequence": "Testing"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Style Guide"
+                },
+                {
+                    "source": "Style Guide",
+                    "target": "Generating Documentation#1",
+                    "edge_label": "docs/README.md"
+                },
+                {
+                    "source": "Generating Documentation#1",
+                    "target": "Previewing Documentation#1",
+                    "edge_label": "docs/README.md"
+                },
+                {
+                    "source": "Previewing Documentation#1",
+                    "target": "Adding to Navigation Bar"
+                },
+                {
+                    "source": "Adding to Navigation Bar",
+                    "target": "Writing Documentation#1"
+                },
+                {
+                    "source": "Writing Documentation#1",
+                    "target": "Adding a New Model#1"
+                },
+                {
+                    "source": "Adding a New Model#1",
+                    "target": "Writing Source Documentation#1"
+                },
+                {
+                    "source": "Writing Source Documentation#1",
+                    "target": "Testing Documentation"
+                },
+                {
+                    "source": "Style Guide",
+                    "target": "Open an Issue#1",
+                    "edge_label": "docs/TRANSLATING.md"
+                },
+                {
+                    "source": "Open an Issue#1",
+                    "target": "Fork the Repository#1",
+                    "edge_label": "docs/TRANSLATING.md"
+                },
+                {
+                    "source": "Fork the Repository#1",
+                    "target": "Copy-paste the English version#1"
+                },
+                {
+                    "source": "Copy-paste the English version#1",
+                    "target": "Start translating#1"
+                },
+                {
+                    "source": "Start translating#1",
+                    "target": "Collaborate and share#1"
+                }
+            ],
+            "sequence": "Style Guide"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Develop on Windows"
+                }
+            ],
+            "sequence": "Develop on Windows"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to transformers",
+                    "target": "Syncing a Forked Repository"
+                }
+            ],
+            "sequence": "Syncing a Forked Repository"
+        }
+    ]
+}

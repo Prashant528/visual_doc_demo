@@ -138,9 +138,9 @@ def flutter_cached():
         return jsonify({'error': 'Invalid JSON format'}), 500
     
 
-@app.route('/node_cached', methods=['GET'])
+@app.route('/transformers_cached', methods=['GET'])
 def node_cached():
-    file_path = os.path.join('static', 'cached_results', 'node.json')
+    file_path = os.path.join('static', 'cached_results', 'transformers.json')
 
     try:
         with open(file_path, 'r', encoding='utf-8') as f:

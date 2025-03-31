@@ -13,8 +13,11 @@ Thank you for considering contributing to Hypothetical Repo! Contributions help 
 
 Setup Guide
 To set up the project locally:
+
 - Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.
+
 - Make your changes and test locally to ensure they work as intended.
+
 - Submit your pull request with a detailed description of your changes.
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------

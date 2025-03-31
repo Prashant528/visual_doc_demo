@@ -66,7 +66,7 @@ help, questions, and discussions.
 [#nodejs-core](https://openjs-foundation.slack.com/archives/C019Y2T6STH) for
 development of Node.js core specifically.
 Node.js also has an unofficial IRC channel:
-[#Node.js](https://web.libera.chat/?channels=node.js).
+[#Node.js](https://web.libera.chat/#node.js).
 Setting up your local environment
 To get started, you will need to have `git` installed locally. Depending on
 your operating system, there are also a number of other dependencies required.

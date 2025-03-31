@@ -6,4 +6,4 @@ This page has been updated in light of the removal of the `add_new_model` script
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-The segmentation appears to be correct as it stands. The first segment introduces the topic of adding a new model, and the second segment provides specific information about the updated process and where to find more detailed instructions. No additional boundaries are needed, and the existing boundaries are appropriately placed to separate the introduction from the detailed instructions.
+The segmentation appears to be correct as it separates the introductory statement from the detailed explanation and recommendation. No additional boundaries are needed, and the existing ones are appropriately placed to distinguish between the sections of the document.

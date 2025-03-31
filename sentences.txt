@@ -5986,3 +5986,1383 @@ After installation, check the [User Guide](./USER_GUIDE.md) to start using the p
 
 --------------------------------
 
+raw HTML omitted 
+Contribute to 🤗 Transformers
+Everyone is welcome to contribute, and we value everybody's contribution.Code
+contributions are not the only way to help the community.Answering questions, helping
+others, and improving the documentation are also immensely valuable.It also helps us if you spread the word!Reference the library in blog posts
+about the awesome projects it made possible, shout out on Twitter every time it has
+helped you, or simply ⭐️ the repository to say thank you.However you choose to contribute, please be mindful and respect our
+[code of conduct](https://github.com/huggingface/transformers/blob/main/CODE_OF_CONDUCT.md).This guide was heavily inspired by the awesome [scikit-learn guide to contributing](https://github.com/scikit-learn/scikit-learn/blob/main/CONTRIBUTING.md).Ways to contributeThere are several ways you can contribute to 🤗 Transformers:- Fix outstanding issues with the existing code.- Submit issues related to bugs or desired new features.- Implement new models.- Contribute to the examples or to the documentation.If you don't know where to start, there is a special [Good First
+Issue](https://github.com/huggingface/transformers/contribute) listing.It will give you a list of
+open issues that are beginner-friendly and help you start contributing to open-source.The best way to do that is to open a Pull Request and link it to the issue that you'd like to work on.We try to give priority to opened PRs as we can easily track the progress of the fix, and if the contributor does not have time anymore, someone else can take the PR over.For something slightly more challenging, you can also take a look at the [Good Second Issue](https://github.com/huggingface/transformers/labels/Good%20Second%20Issue) list.In general though, if you feel like you know what you're doing, go for it and we'll help you get there!🚀All contributions are equally valuable to the community.🥰
+Fixing outstanding issuesIf you notice an issue with the existing code and have a fix in mind, feel free to  and open a Pull Request!Submitting a bug-related issue or feature requestDo your best to follow these guidelines when submitting a bug-related issue or a feature
+request.It will make it easier for us to come back to you quickly and with good
+feedback.Did you find a bug?The 🤗 Transformers library is robust and reliable thanks to users who report the problems they encounter.Before you report an issue, we would really appreciate it if you could make sure the bug was not
+already reported (use the search bar on GitHub under Issues).Your issue should also be related to bugs in the library itself, and not your code.If you're unsure whether the bug is in your code or the library, please ask in the [forum](https://discuss.huggingface.co/) or on our [discord](https://discord.com/invite/hugging-face-879548962464493619) first.This helps us respond quicker to fixing issues related to the library versus general questions.[!TIP]We have a [docs bot](https://huggingface.co/spaces/huggingchat/hf-docs-chat), and we highly encourage you to ask all your questions there.There is always a chance your bug can be fixed with a simple flag 👾🔫Once you've confirmed the bug hasn't already been reported, please include the following information in your issue so we can quickly resolve it:- Your OS type and version and Python, PyTorch andTensorFlow versions when applicable.-A short, self-contained, code snippet that allows us to reproduce the bug inless than 30s.-The full traceback if an exception is raised.- Attach any other additional information, like screenshots, you think may help.To get the OS and software versions automatically, run the following command:```
+transformers-cli env```You can also run the same command from the root of the repository:```
+python src/transformers/commands/transformers_cli.py env```Do you want a new feature?If there is a new feature you'd like to see in 🤗 Transformers, please open an issue and describe:
+- What is the motivation behind this feature?Is it related to a problem or frustration with the library?Is it a feature related to something you need for a project?Is it something you worked on and think it could benefit the community?Whatever it is, we'd love to hear about it!- Describe your requested feature in as much detail as possible.The more you can tell us about it, the better we'll be able to help you.- Provide a code snippet that demonstrates the features usage.- If the feature is related to a paper, please include a link.If your issue is well written we're already 80% of the way there by the time you create it.We have added [templates](https://github.com/huggingface/transformers/tree/main/templates) to help you get started with your issue.Do you want to implement a new model?New models are constantly released and if you want to implement a new model, please provide the following information:
+- A short description of the model and a link to the paper.- Link to the implementation if it is open-sourced.- Link to the model weights if they are available.If you are willing to contribute the model yourself, let us know so we can help you add it to 🤗 Transformers!We have a technical guide for [how to add a model to 🤗 Transformers](https://huggingface.co/docs/transformers/add_new_model).Do you want to add documentation?We're always looking for improvements to the documentation that make it more clear and accurate.Please let us know how the documentation can be improved such as typos and any content that is missing, unclear or inaccurate.We'll be happy to make the changes or help you make a contribution if you're interested!For more details about how to generate, build, and write the documentation, take a look at the documentation [README](https://github.com/huggingface/transformers/tree/main/docs).Create a Pull Request
+Before writing any code, we strongly advise you to search through the existing PRs or
+issues to make sure nobody is already working on the same thing.If you are
+unsure, it is always a good idea to open an issue to get some feedback.You will need basic `git` proficiency to contribute to
+🤗 Transformers.While `git` is not the easiest tool to use, it has the greatest
+manual.Type `git --help` in a shell and enjoy!If you prefer books, [Pro
+Git](https://git-scm.com/book/en/v2) is a very good reference.You'll need [Python 3.9](https://github.com/huggingface/transformers/blob/main/setup.py#L449) or above to contribute to 🤗 Transformers.Follow the steps below to start contributing:
+- Fork the [repository](https://github.com/huggingface/transformers) byclicking on the [Fork](https://github.com/huggingface/transformers/fork) button on the repository's page.This creates a copy of the codeunder your GitHub user account.- Clone your fork to your local disk, and add the base repository as a remote:```git clone git@github.com:<your Github handle>/transformers.git
+cd transformers
+git remote add upstream https://github.com/huggingface/transformers.git```- Create a new branch to hold your development changes:```git checkout -b a-descriptive-name-for-my-changes```🚨 Do not work on the `main` branch!- Set up a development environment by running the following command in a virtual environment:```pip install -e ".[dev]"```If 🤗 Transformers was already installed in the virtual environment, remove
+it with `pip uninstall transformers` before reinstalling it in editable
+mode with the `-e` flag.Depending on your OS, and since the number of optional dependencies of Transformers is growing, you might get a
+failure with this command.If that's the case make sure to install the Deep Learning framework you are working with
+(PyTorch, TensorFlow and/or Flax) then do:```
+pip install -e ".[quality]"```which should be enough for most use cases.- Develop the features in your branch.As you work on your code, you should make sure the test suitepasses.Run the tests impacted by your changes like this:```
+pytest tests/<TEST_TO_RUN>.py```For more information about tests, check out the
+[Testing](https://huggingface.co/docs/transformers/testing) guide.🤗 Transformers relies on `black` and `ruff` to format its source code
+consistently.After you make changes, apply automatic style corrections and code verifications
+that can't be automated in one go with:```
+make fixup```This target is also optimized to only work with files modified by the PR you're working on.If you prefer to run the checks one after the other, the following command applies the
+style corrections:```
+make style```🤗 Transformers also uses `ruff` and a few custom scripts to check for coding mistakes.Quality
+controls are run by the CI, but you can run the same checks with:```
+make quality```Finally, we have a lot of scripts to make sure we don't forget to update
+some files when adding a new model.You can run these scripts with:```
+make repo-consistency```To learn more about those checks and how to fix any issues with them, check out the
+[Checks on a Pull Request](https://huggingface.co/docs/transformers/pr_checks) guide.If you're modifying documents under the `docs/source` directory, make sure the documentation can still be built.This check will also run in the CI when you open a pull request.To run a local check
+make sure you install the documentation builder:```
+pip install ".[docs]"```Run the following command from the root of the repository:```
+doc-builder build transformers docs/source/en --build_dir ~/tmp/test-build```This will build the documentation in the `~/tmp/test-build` folder where you can inspect the generated
+Markdown files with your favorite editor.You can also preview the docs on GitHub when you open a pull request.Once you're happy with your changes, add the changed files with `git add` and
+record your changes locally with `git commit`:```
+git add modified_file.py
+git commit```Please remember to write [good commit
+messages](https://chris.beams.io/posts/git-commit/) to clearly communicate the changes you made!To keep your copy of the code up to date with the original
+repository, rebase your branch on `upstream/branch` before you open a pull request or if requested by a maintainer:```
+git fetch upstream
+git rebase upstream/main```Push your changes to your branch:```
+git push -u origin a-descriptive-name-for-my-changes```If you've already opened a pull request, you'll need to force push with the `--force` flag.Otherwise, if the pull request hasn't been opened yet, you can just push your changes normally.- Now you can go to your fork of the repository on GitHub and click on Pull Request to open a pull request.Make sure you tick off all the boxes on our  below.When you're ready, you can send your changes to the project maintainers for review.- It's ok if maintainers request changes, it happens to our core contributors
+too!So everyone can see the changes in the pull request, work in your localbranch and push the changes to your fork.They will automatically appear in
+the pull request.Pull request checklist
+☐The pull request title should summarize your contribution.raw HTML omitted 
+
+☐If your pull request addresses an issue, please mention the issue number in the pull
+request description to make sure they are linked (and people viewing the issue know youare working on it).raw HTML omitted 
+☐To indicate a work in progress please prefix the title with `[WIP]`.These areuseful to avoid duplicated work, and to differentiate it from PRs ready to be merged.raw HTML omitted☐Make sure existing tests pass.raw HTML omitted 
+
+☐If adding a new feature, also add tests for it.raw HTML omitted
+-If you are adding a new model, make sure you use
+`ModelTester.all_model_classes = (MyModel, MyModelWithLMHead,...)` to trigger the common tests.- If you are adding new `@slow` tests, make sure they pass using`RUN_SLOW=1 python -m pytest tests/models/my_new_model/test_my_new_model.py`.- If you are adding a new tokenizer, write tests and make sure`RUN_SLOW=1 python -m pytest tests/models/{your_model_name}/test_tokenization_{your_model_name}.py` passes.- CircleCI does not run the slow tests, but GitHub Actions does every night!raw HTML omitted☐All public methods must have informative docstrings (see
+[modeling_bert.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/bert/modeling_bert.py)for an example).raw HTML omitted 
+☐Due to the rapidly growing repository, don't add any images, videos and othernon-text files that'll significantly weigh down the repository.Instead, use a Hubrepository such as [hf-internal-testing](https://huggingface.co/hf-internal-testing)
+to host these files and reference them by URL.We recommend placing documentation
+related images in the following repository:
+[huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images).You can open a PR on this dataset repository and ask a Hugging Face member to merge it.For more information about the checks run on a pull request, take a look at our [Checks on a Pull Request](https://huggingface.co/docs/transformers/pr_checks) guide.TestsAn extensive test suite is included to test the library behavior and several examples.Library tests can be found in
+the [tests](https://github.com/huggingface/transformers/tree/main/tests) folder and examples tests in the
+[examples](https://github.com/huggingface/transformers/tree/main/examples) folder.We like `pytest` and `pytest-xdist` because it's faster.From the root of the
+repository, specify a path to a subfolder or a test file to run the test:```
+python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_new_model```Similarly, for the `examples` directory, specify a path to a subfolder or test file to run the test.For example, the following command tests the text classification subfolder in the PyTorch `examples` directory:```
+pip install -r examples/xxx/requirements.txt# only needed the first time
+python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification```In fact, this is actually how our `make test` and `make test-examples` commands are implemented (not including the `pip install`)!You can also specify a smaller set of tests in order to test only the feature
+you're working on.By default, slow tests are skipped but you can set the `RUN_SLOW` environment variable to
+`yes` to run them.This will download many gigabytes of models so make sure you
+have enough disk space, a good internet connection or a lot of patience!raw HTML omitted 
+Remember to specify a path to a subfolder or a test file to run the test.Otherwise, you'll run all the tests in the `tests` or `examples` folder, which will take a very long time!raw HTML omitted```
+RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./tests/models/my_new_model
+RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/text-classification```Like the slow tests, there are other environment variables available which are not enabled by default during testing:
+- `RUN_CUSTOM_TOKENIZERS`: Enables tests for custom tokenizers.More environment variables and additional information can be found in the [testing_utils.py](https://github.com/huggingface/transformers/blob/main/src/transformers/testing_utils.py).🤗 Transformers uses `pytest` as a test runner only.It doesn't use any
+`pytest`-specific features in the test suite itself.This means `unittest` is fully supported.Here's how to run tests with
+`unittest`:```
+python -m unittest discover -s tests -t . -v
+python -m unittest discover -s examples -t examples -v```Style guide
+For documentation strings, 🤗 Transformers follows the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html).Check our [documentation writing guide](https://github.com/huggingface/transformers/tree/main/docs#writing-documentation---specification)
+for more information.Develop on Windows
+On Windows (unless you're working in [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/) or WSL), you need to configure git to transform Windows `CRLF` line endings to Linux `LF` line endings:```
+git config core.autocrlf input```One way to run the `make` command on Windows is with MSYS2:
+- [Download MSYS2](https://www.msys2.org/), and we assume it's installed in `C:\msys64`.- Open the command line `C:\msys64\msys2.exe` (it should be available from the Start menu).- Run in the shell: `pacman -Syu` and install `make` with `pacman -S make`.- Add `C:\msys64\usr\bin` to your PATH environment variable.You can now use `make` from any terminal (PowerShell, cmd.exe, etc.)!🎉Sync a forked repository with upstream main (the Hugging Face repository)When updating the main branch of a forked repository, please follow these steps to avoid pinging the upstream repository which adds reference notes to each upstream PR, and sends unnecessary notifications to the developers involved in these PRs.-When possible, avoid syncing with the upstream using a branch and PR on the forked repository.Instead, merge directly into the forked main.- If a PR is absolutely necessary, use the following steps after checking out your branch:```git checkout -b your-branch-for-syncing
+git pull --squash --no-commit upstream main
+git commit -m '<your message without GitHub references>'
+git push --set-upstream origin your-branch-for-syncing```
+
+--------------------------------
+
+raw HTML omittedThis folder contains a template to add a tokenization test.Usage
+Using the `cookiecutter` utility requires to have all the `dev` dependencies installed.Let's first [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the `transformers` repo on github.Once it's done you can clone your fork and install `transformers` in our environment:```
+git clone https://github.com/YOUR-USERNAME/transformers
+cd transformers
+pip install -e ".[dev]"```Once the installation is done, you can generate the template by running the following command.Be careful, the template will be generated inside a new folder in your current working directory.```
+cookiecutter path-to-the folder/adding_a_missing_tokenization_test/```You will then have to answer some questions about the tokenizer for which you want to add tests.The `modelname` should be cased according to the plain text casing, i.e., BERT, RoBERTa, DeBERTa.Once the command has finished, you should have a one new file inside the newly created folder named `test_tokenization_Xxx.py`.At this point the template is finished and you can move it to the sub-folder of the corresponding model in the test folder.
+
+--------------------------------
+
+raw HTML omitted 
+How to add a new example script in 🤗 TransformersThis folder provide a template for adding a new example script implementing a training or inference task with the
+models in the 🤗 Transformers library.To use it, you will need to install cookiecutter:```
+pip install cookiecutter```or refer to the installation page of the [cookiecutter documentation](https://cookiecutter.readthedocs.io/).You can then run the following command inside the `examples` folder of the transformers repo:```
+cookiecutter ../templates/adding_a_new_example_script/```and answer the questions asked, which will generate a new folder where you will find a pre-filled template for your
+example following the best practices we recommend for them.Adjust the way the data is preprocessed, the model is loaded or the Trainer is instantiated then when you're happy, add
+a `README.md` in the folder (or complete the existing one if you added a script to an existing folder) telling a user
+how to run your script.Make a PR to the 🤗 Transformers repo.Don't forget to tweet about your new example with a carbon screenshot of how to
+run it and tag @huggingface!
+
+--------------------------------
+
+TEMPLATE
+search & replace the following keywords, e.g.:`:%s/\[name of model\]/brand_new_bert/g`
+-[lowercase name of model]  # e.g. brand_new_bert
+-[camelcase name of model]  # e.g. BrandNewBert
+-[name of mentor]  # e.g. [Peter](https://github.com/peter)
+-[link to original repo]
+-[start date]
+-[end date]How to add [camelcase name of model] to 🤗 Transformers?Mentor: [name of mentor]
+Begin: [start date]
+Estimated End: [end date]Adding a new model is often difficult and requires an in-depth knowledge
+of the 🤗 Transformers library and ideally also of the model's original
+repository.At Hugging Face, we are trying to empower the community more
+and more to add models independently.The following sections explain in detail how to add [camelcase name of model]
+to Transformers.You will work closely with [name of mentor] to
+integrate [camelcase name of model] into Transformers.By doing so, you will both gain a
+theoretical and deep practical understanding of [camelcase name of model].But more importantly, you will have made a major
+open-source contribution to Transformers.Along the way, you will:
+- get insights into open-source best practices- understand the design principles of one of the most popular NLP
+libraries- learn how to do efficiently test large NLP models- learn how to integrate Python utilities like `black`, `ruff`,
+`make fix-copies` into a library to always ensure clean and readablecodeTo start, let's try to get a general overview of the Transformers
+library.General overview of 🤗 Transformers
+First, you should get a general overview of 🤗 Transformers.Transformers
+is a very opinionated library, so there is a chance that
+you don't agree with some of the library's philosophies or design
+choices.From our experience, however, we found that the fundamental
+design choices and philosophies of the library are crucial to
+efficiently scale Transformers while keeping maintenance costs at a
+reasonable level.A good first starting point to better understand the library is to read
+the [documentation of our philosophy](https://huggingface.co/transformers/philosophy.html).As a result of our way of working, there are some choices that we try to apply to all models:
+- Composition is generally favored over abstraction- Duplicating code is not always bad if it strongly improves the
+readability or accessibility of a model- Model files are as self-contained as possible so that when you readthe code of a specific model, you ideally only have to look into therespective `modeling_....py` file.In our opinion, the library's code is not just a means to provide a
+product, e.g., the ability to use BERT for inference, but also as the
+very product that we want to improve.Hence, when adding a model, the
+user is not only the person that will use your model, but also everybody
+that will read, try to understand, and possibly tweak your code.With this in mind, let's go a bit deeper into the general library
+design.Overview of modelsTo successfully add a model, it is important to understand the
+interaction between your model and its config,
+`PreTrainedModel`, and `PretrainedConfig`.For
+exemplary purposes, we will call the PyTorch model to be added to 🤗 Transformers
+`BrandNewBert`.Let's take a look:As you can see, we do make use of inheritance in 🤗 Transformers, but we
+keep the level of abstraction to an absolute minimum.There are never
+more than two levels of abstraction for any model in the library.`BrandNewBertModel` inherits from
+`BrandNewBertPreTrainedModel` which in
+turn inherits from `PreTrainedModel` and that's it.As a general rule, we want to make sure
+that a new model only depends on `PreTrainedModel`.The
+important functionalities that are automatically provided to every new
+model are
+`PreTrainedModel.from_pretrained` and `PreTrainedModel.save_pretrained`, which are
+used for serialization and deserialization.All
+of the other important functionalities, such as
+`BrandNewBertModel.forward` should be
+completely defined in the new `modeling_brand_new_bert.py` module.Next,
+we want to make sure that a model with a specific head layer, such as
+`BrandNewBertForMaskedLM` does not inherit
+from `BrandNewBertModel`, but rather uses
+`BrandNewBertModel` as a component that
+can be called in its forward pass to keep the level of abstraction low.Every new model requires a configuration class, called
+`BrandNewBertConfig`.This configuration
+is always stored as an attribute in
+`PreTrainedModel`, and
+thus can be accessed via the `config` attribute for all classes
+inheriting from `BrandNewBertPreTrainedModel````
+# assuming that `brand_new_bert` belongs to the organization `brandy`
+model = BrandNewBertModel.from_pretrained("brandy/brand_new_bert")
+model.config  # model has access to its config```Similar to the model, the configuration inherits basic serialization and
+deserialization functionalities from
+`PretrainedConfig`.Note
+that the configuration and the model are always serialized into two
+different formats - the model to a `pytorch_model.bin` file
+and the configuration to a `config.json` file.Calling
+`PreTrainedModel.save_pretrained` will automatically call
+`PretrainedConfig.save_pretrained`, so that both model and configuration are saved.Overview of tokenizersNot quite ready yet :-(This section will be added soon!Step-by-step recipe to add a model to 🤗 Transformers
+Everyone has different preferences of how to port a model so it can be
+very helpful for you to take a look at summaries of how other
+contributors ported models to Hugging Face.Here is a list of community
+blog posts on how to port a model:
+- [Porting GPT2Model](https://medium.com/huggingface/from-tensorflow-to-pytorch-265f40ef2a28)by [Thomas](https://huggingface.co/thomwolf)- [Porting WMT19 MT Model](https://huggingface.co/blog/porting-fsmt)by [Stas](https://huggingface.co/stas)From experience, we can tell you that the most important things to keep
+in mind when adding a model are:
+- Don't reinvent the wheel!Most parts of the code you will add forthe new 🤗 Transformers model already exist somewhere in 🤗Transformers.Take some time to find similar, already existing
+models and tokenizers you can copy from.[grep](https://www.gnu.org/software/grep/) and
+[rg](https://github.com/BurntSushi/ripgrep) are your friends.Note
+that it might very well happen that your model's tokenizer is based
+on one model implementation, and your model's modeling code on
+another one.E.g., FSMT's modeling code is based on BART, while
+FSMT's tokenizer code is based on XLM.- It's more of an engineering challenge than a scientific challenge.You should spend more time on creating an efficient debuggingenvironment than trying to understand all theoretical aspects of the
+model in the paper.- Ask for help when you're stuck!Models are the core component of 🤗Transformers so we, at Hugging Face, are more than happy to helpyou at every step to add your model.Don't hesitate to ask if you
+notice you are not making progress.In the following, we try to give you a general recipe that we found most
+useful when porting a model to 🤗 Transformers.The following list is a summary of everything that has to be done to add
+a model and can be used by you as a To-Do List:
+- (Optional) Understood theoretical aspects- Prepared transformers dev environment- Set up debugging environment of the original repository- Created script that successfully runs forward pass using
+original repository and checkpoint- Successfully opened a PR and added the model skeleton to Transformers- Successfully converted original checkpoint to Transformers
+checkpoint- Successfully ran forward pass in Transformers that givesidentical output to original checkpoint- Finished model tests in Transformers- Successfully added Tokenizer in Transformers- Run end-to-end integration tests- Finished docs- Uploaded model weights to the hub- Submitted the pull request for review- (Optional) Added a demo notebook
+To begin with, we usually recommend to start by getting a goodtheoretical understanding of `[camelcase name of model]`.However, if you prefer to
+understand the theoretical aspects of the model on-the-job, then it is
+totally fine to directly dive into the `[camelcase name of model]`'s code-base.This
+option might suit you better, if your engineering skills are better than
+your theoretical skill, if you have trouble understanding
+`[camelcase name of model]`'s paper, or if you just enjoy programming much more than
+reading scientific papers.1. (Optional) Theoretical aspects of [camelcase name of model]You should take some time to read [camelcase name of model]'s paper, if suchdescriptive work exists.There might be large sections of the paper that
+are difficult to understand.If this is the case, this is fine - don't
+worry!The goal is not to get a deep theoretical understanding of the
+paper, but to extract the necessary information required to effectively
+re-implement the model in 🤗 Transformers.That being said, you don't
+have to spend too much time on the theoretical aspects, but rather focus
+on the practical ones, namely:
+- What type of model is [camelcase name of model]?BERT-like encoder-onlymodel?GPT2-like decoder-only model?BART-like encoder-decodermodel?Look at the `model_summary` if
+you're not familiar with the differences between those.- What are the applications of [camelcase name of model]?Textclassification?Text generation?Seq2Seq tasks, e.g.,summarization?- What is the novel feature of the model making it different fromBERT/GPT-2/BART?- Which of the already existing [🤗 Transformersmodels](https://huggingface.co/transformers/#contents) is mostsimilar to [camelcase name of model]?- What type of tokenizer is used?A sentencepiece tokenizer?Wordpiece tokenizer?Is it the same tokenizer as used for BERT or BART?After you feel like you have gotten a good overview of the architecture
+of the model, you might want to write to [name of mentor] with any
+questions you might have.This might include questions regarding the
+model's architecture, its attention layer, etc.We will be more than
+happy to help you.Additional resources
+Before diving into the code, here are some additional resources that might be worth taking a look at:
+- [link 1]- [link 2]- [link 3]- ...Make sure you've understood the fundamental aspects of [camelcase name of model]Alright, now you should be ready to take a closer look into the actual code of [camelcase name of model].You should have understood the following aspects of [camelcase name of model] by now:
+- [characteristic 1 of [camelcase name of model]]- [characteristic 2 of [camelcase name of model]]- ...If any of the mentioned aspects above are not clear to you, now is a great time to talk to [name of mentor].2. Next prepare your environment- Fork the [repository](https://github.com/huggingface/transformers)
+by clicking on the 'Fork' button on the repository's page.Thiscreates a copy of the code under your GitHub user account.- Clone your `transformers` fork to your local disk, and add the baserepository as a remote:```
+git clone https://github.com/[your Github handle]/transformers.git
+cd transformers
+git remote add upstream https://github.com/huggingface/transformers.git```- Set up a development environment, for instance by running thefollowing command:```
+python -m venv .env
+source .env/bin/activate
+pip install -e ".[dev]"```
+and return to the parent directory```
+cd ..```- We recommend adding the PyTorch version of [camelcase name of model] toTransformers.To install PyTorch, please follow the instructions [here](https://pytorch.org/get-started/locally/).Note: You don't need to have CUDA installed.Making the new model
+work on CPU is sufficient.-To port [camelcase name of model], you will also need access to itsoriginal repository:```
+git clone [link to original repo].git 
+cd [lowercase name of model]
+pip install -e .```Now you have set up a development environment to port [camelcase name of model]
+to 🤗 Transformers.Run a pretrained checkpoint using the original repository
+3.Set up debugging environmentAt first, you will work on the original [camelcase name of model] repository.Often, the original implementation is very "researchy".Meaning that
+documentation might be lacking and the code can be difficult to
+understand.But this should be exactly your motivation to reimplement
+[camelcase name of model].At Hugging Face, one of our main goals is to make
+people stand on the shoulders of giants which translates here very well
+into taking a working model and rewriting it to make it as accessible,
+user-friendly, and beautiful as possible.This is the number-one
+motivation to re-implement models into 🤗 Transformers - trying to make
+complex new NLP technology accessible to everybody.You should start thereby by diving into the [original repository]([link to original repo]).Successfully running the official pretrained model in the original
+repository is often the most difficult step.From our experience, it
+is very important to spend some time getting familiar with the original
+code-base.You need to figure out the following:
+- Where to find the pretrained weights?- How to load the pretrained weights into the corresponding model?- How to run the tokenizer independently from the model?- Trace one forward pass so that you know which classes and functions
+are required for a simple forward pass.Usually, you only have toreimplement those functions.- Be able to locate the important components of the model:Where isthe model's class?Are there model sub-classes, e.g.,EncoderModel, DecoderModel?Where is the self-attention layer?Are
+there multiple different attention layers, e.g., self-attention,
+cross-attention...?- How can you debug the model in the original environment of the repo?Do you have to add `print` statements, can you work withan interactive debugger like [ipdb](https://pypi.org/project/ipdb/), or should you use
+an efficient IDE to debug the model, like PyCharm?It is very important that before you start the porting process, that you
+can efficiently debug code in the original repository!Also,
+remember that you are working with an open-source library, so do not
+hesitate to open an issue, or even a pull request in the original
+repository.The maintainers of this repository are most likely very
+happy about someone looking into their code!At this point, it is really up to you which debugging environment and
+strategy you prefer to use to debug the original model.We strongly
+advise against setting up a costly GPU environment, but simply work on a
+CPU both when starting to dive into the original repository and also
+when starting to write the 🤗 Transformers implementation of the model.Only at the very end, when the model has already been successfully
+ported to 🤗 Transformers, one should verify that the model also works as
+expected on GPU.In general, there are two possible debugging environments for running
+the original model
+- [Jupyter notebooks](https://jupyter.org/) / [google colab](https://colab.research.google.com/notebooks/intro.ipynb)- Local python scripts.Jupyter notebooks have the advantage that they allow for cell-by-cellexecution which can be helpful to better split logical components from
+one another and to have faster debugging cycles as intermediate results
+can be stored.Also, notebooks are often easier to share with other
+contributors, which might be very helpful if you want to ask the Hugging
+Face team for help.If you are familiar with Jupyter notebooks, we
+strongly recommend you to work with them.The obvious disadvantage of Jupyter notebooks is that if you are not
+used to working with them you will have to spend some time adjusting to
+the new programming environment and that you might not be able to use
+your known debugging tools anymore, like `ipdb`.4. Successfully run forward passFor each code-base, a good first step is always to load a smallpretrained checkpoint and to be able to reproduce a single forward pass
+using a dummy integer vector of input IDs as an input.Such a script
+could look like this (in pseudocode):```
+model = [camelcase name of model]Model.load_pretrained_checkpoint("/path/to/checkpoint/")
+input_ids = [0, 4, 5, 2, 3, 7, 9]  # vector of input ids
+original_output = model.predict(input_ids)```Next, regarding the debugging strategy, there are generally a few from
+which to choose from:
+- Decompose the original model into many small testable components andrun a forward pass on each of those for verification- Decompose the original model only into the original tokenizer andthe original model, run a forward pass on those, and useintermediate print statements or breakpoints for verification
+Again, it is up to you which strategy to choose.Often, one or the other
+is advantageous depending on the original code base.If the original code-base allows you to decompose the model into smaller
+sub-components, e.g., if the original code-base can easily be run in
+eager mode, it is usually worth the effort to do so.There are some
+important advantages to taking the more difficult road in the beginning:
+- at a later stage when comparing the original model to the HuggingFace implementation, you can verify automatically for each componentindividually that the corresponding component of the 🤗 Transformers
+implementation matches instead of relying on visual comparison via
+print statements- it can give you some rope to decompose the big problem of porting amodel into smaller problems of just porting individual componentsand thus structure your work better- separating the model into logical meaningful components will helpyou to get a better overview of the model's design and thus tobetter understand the model- at a later stage those component-by-component tests help you toensure that no regression occurs as you continue changing your code[Lysandre's](https://gist.github.com/LysandreJik/db4c948f6b4483960de5cbac598ad4ed)
+integration checks for ELECTRA gives a nice example of how this can be
+done.However, if the original code-base is very complex or only allows
+intermediate components to be run in a compiled mode, it might be too
+time-consuming or even impossible to separate the model into smaller
+testable sub-components.A good example is [T5's
+MeshTensorFlow](https://github.com/tensorflow/mesh/tree/master/mesh_tensorflow)
+library which is very complex and does not offer a simple way to
+decompose the model into its sub-components.For such libraries, one
+often relies on verifying print statements.No matter which strategy you choose, the recommended procedure is often
+the same in that you should start to debug the starting layers first and
+the ending layers last.It is recommended that you retrieve the output, either by print
+statements or sub-component functions, of the following layers in the
+following order:
+- Retrieve the input IDs passed to the model- Retrieve the word embeddings- Retrieve the input of the first Transformer layer- Retrieve the output of the first Transformer layer- Retrieve the output of the following n - 1 Transformer layers- Retrieve the output of the whole [camelcase name of model] Model
+Input IDs should thereby consists of an array of integers, e.g.,`input_ids = [0, 4, 4, 3, 2, 4, 1, 7, 19]`The outputs of the following layers often consist of multi-dimensional
+float arrays and can look like this:```
+[[
+ [-0.1465, -0.6501,  0.1993,  ...,  0.1451,  0.3430,  0.6024],
+ [-0.4417, -0.5920,  0.3450,  ..., -0.3062,  0.6182,  0.7132],
+ [-0.5009, -0.7122,  0.4548,  ..., -0.3662,  0.6091,  0.7648],
+ ...,[-0.5613, -0.6332,  0.4324,  ..., -0.3792,  0.7372,  0.9288],
+ [-0.5416, -0.6345,  0.4180,  ..., -0.3564,  0.6992,  0.9191],
+ [-0.5334, -0.6403,  0.4271,  ..., -0.3339,  0.6533,  0.8694]]],```We expect that every model added to 🤗 Transformers passes a couple of
+integration tests, meaning that the original model and the reimplemented
+version in 🤗 Transformers have to give the exact same output up to a
+precision of 0.001!Since it is normal that the exact same model written
+in different libraries can give a slightly different output depending on
+the library framework, we accept an error tolerance of 1e-3 (0.001).It
+is not enough if the model gives nearly the same output, they have to be
+the almost identical.Therefore, you will certainly compare the
+intermediate outputs of the 🤗 Transformers version multiple times
+against the intermediate outputs of the original implementation of
+[camelcase name of model] in which case an efficient debugging environment
+of the original repository is absolutely important.Here is some advice
+to make your debugging environment as efficient as possible.- Find the best way of debugging intermediate results.Is the originalrepository written in PyTorch?Then you should probably take thetime to write a longer script that decomposes the original model
+into smaller sub-components to retrieve intermediate values.Is the
+original repository written in Tensorflow 1?Then you might have to
+rely on TensorFlow print operations like
+[tf.print](https://www.tensorflow.org/api_docs/python/tf/print) to
+output intermediate values.Is the original repository written in
+Jax?Then make sure that the model is not jitted when running
+the forward pass, e.g., check-out [this
+link](https://github.com/google/jax/issues/196).- Use the smallest pretrained checkpoint you can find.The smaller thecheckpoint, the faster your debug cycle becomes.It is not efficientif your pretrained model is so big that your forward pass takes more
+than 10 seconds.In case only very large checkpoints are available,
+it might make more sense to create a dummy model in the new
+environment with randomly initialized weights and save those weights
+for comparison with the 🤗 Transformers version of your model- Make sure you are using the easiest way of calling a forward pass inthe original repository.Ideally, you want to find the function inthe original repository that only calls a single forward pass,
+i.e. that is often called `predict`, `evaluate`, `forward` or
+`__call__`.You don't want to debug a function that calls `forward`
+multiple times, e.g., to generate text, like
+`autoregressive_sample`, `generate`.- Try to separate the tokenization from the model'sforward pass.If the original repository showsexamples where you have to input a string, then try to find out
+where in the forward call the string input is changed to input ids
+and start from this point.This might mean that you have to possibly
+write a small script yourself or change the original code so that
+you can directly input the ids instead of an input string.- Make sure that the model in your debugging setup is not intraining mode, which often causes the model to yield random outputsdue to multiple dropout layers in the model.Make sure that the
+forward pass in your debugging environment is deterministic so
+that the dropout layers are not used.Or use
+`transformers.utils.set_seed` if the old and new
+implementations are in the same framework.More details on how to create a debugging environment for [camelcase name of model]
+[TODO FILL:Here the mentor should add very specific information on what the student should do]
+[to set up an efficient environment for the special requirements of this model]Port [camelcase name of model] to 🤗 TransformersNext, you can finally start adding new code to 🤗 Transformers.Go into
+the clone of your 🤗 Transformers' fork:```
+cd transformers```In the special case that you are adding a model whose architecture
+exactly matches the model architecture of an existing model you only
+have to add a conversion script as described in .In this case, you can just re-use
+the whole model architecture of the already existing model.Otherwise, let's start generating a new model with the amazing
+Cookiecutter!Use the Cookiecutter to automatically generate the model's code
+To begin with head over to the [🤗 Transformers
+templates](https://github.com/huggingface/transformers/tree/main/templates/adding_a_new_model)
+to make use of our `cookiecutter` implementation to automatically
+generate all the relevant files for your model.Again, we recommend only
+adding the PyTorch version of the model at first.Make sure you follow
+the instructions of the `README.md` on the [🤗 Transformers
+templates](https://github.com/huggingface/transformers/tree/main/templates/adding_a_new_model)
+carefully.Open a Pull Request on the main huggingface/transformers repo
+Before starting to adapt the automatically generated code, now is the
+time to open a "Work in progress (WIP)" pull request, e.g., "[WIP]Add [camelcase name of model]", in 🤗 Transformers so that you and the Hugging
+Face team can work side-by-side on integrating the model into 🤗
+Transformers.You should do the following:
+- Create a branch with a descriptive name from your main branch```git checkout -b add_[lowercase name of model]```- Commit the automatically generated code:```git add .
+    git commit```- Fetch and rebase to current main```git fetch upstream
+    git rebase upstream/main```- Push the changes to your account using:```git push -u origin a-descriptive-name-for-my-changes```- Once you are satisfied, go to the webpage of your fork on GitHub.Click on "Pull request".Make sure to add the GitHub handle of[name of mentor] as a reviewer, so that the Hugging
+Face team gets notified for future changes.- Change the PR into a draft by clicking on "Convert to draft" on theright of the GitHub pull request web page.In the following, whenever you have done some progress, don't forget to
+commit your work and push it to your account so that it shows in the
+pull request.Additionally, you should make sure to update your work
+with the current main from time to time by doing:```
+git fetch upstream
+git merge upstream/main```In general, all questions you might have regarding the model or your
+implementation should be asked in your PR and discussed/solved in the
+PR.This way, [name of mentor] will always be notified when you are
+committing new code or if you have a question.It is often very helpful
+to point [name of mentor] to your added code so that the Hugging
+Face team can efficiently understand your problem or question.To do so, you can go to the "Files changed" tab where you see all of
+your changes, go to a line regarding which you want to ask a question,
+and click on the "+" symbol to add a comment.Whenever a question or
+problem has been solved, you can click on the "Resolve" button of the
+created comment.In the same way, [name of mentor] will open comments when reviewing
+your code.We recommend asking most questions on GitHub on your PR.For
+some very general questions that are not very useful for the public,
+feel free to ping [name of mentor] by Slack or email.5. Adapt the generated models code for [camelcase name of model]At first, we will focus only on the model itself and not care about thetokenizer.All the relevant code should be found in the generated files
+`src/transformers/models/[lowercase name of model]/modeling_[lowercase name of model].py` and
+`src/transformers/models/[lowercase name of model]/configuration_[lowercase name of model].py`.Now you can finally start coding :).The generated code in
+`src/transformers/models/[lowercase name of model]/modeling_[lowercase name of model].py` will
+either have the same architecture as BERT if it's an encoder-only model
+or BART if it's an encoder-decoder model.At this point, you should
+remind yourself what you've learned in the beginning about the
+theoretical aspects of the model: How is the model different from BERT
+or BART?".Implement those changes which often means to change the
+self-attention layer, the order of the normalization layer, etc...Again, it is often useful to look at the similar architecture of already
+existing models in Transformers to get a better feeling of how your
+model should be implemented.Note that at this point, you don't have to be very sure that your
+code is fully correct or clean.Rather, it is advised to add a first
+unclean, copy-pasted version of the original code to
+`src/transformers/models/[lowercase name of model]/modeling_[lowercase name of model].py`
+until you feel like all the necessary code is added.From our
+experience, it is much more efficient to quickly add a first version of
+the required code and improve/correct the code iteratively with the
+conversion script as described in the next section.The only thing that
+has to work at this point is that you can instantiate the 🤗 Transformers
+implementation of [camelcase name of model], i.e. the following command
+should work:```
+from transformers import [camelcase name of model]Model, [camelcase name of model]Config
+model = [camelcase name of model]Model([camelcase name of model]Config())```The above command will create a model according to the default
+parameters as defined in `[camelcase name of model]Config()` with random weights,
+thus making sure that the `init()` methods of all components works.[TODO FILL: Here the mentor should add very specific information on what exactly has to be changed for this model]
+[...]
+[...]6. Write a conversion scriptNext, you should write a conversion script that lets you convert thecheckpoint you used to debug [camelcase name of model] in the original
+repository to a checkpoint compatible with your just created 🤗
+Transformers implementation of [camelcase name of model].It is not advised to
+write the conversion script from scratch, but rather to look through
+already existing conversion scripts in 🤗 Transformers for one that has
+been used to convert a similar model that was written in the same
+framework as [camelcase name of model].Usually, it is enough to copy an
+already existing conversion script and slightly adapt it for your use
+case.Don't hesitate to ask [name of mentor] to point you to a
+similar already existing conversion script for your model.-If you are porting a model from TensorFlow to PyTorch, a goodstarting point might be BERT's conversion script[here](https://github.com/huggingface/transformers/blob/7acfa95afb8194f8f9c1f4d2c6028224dbed35a2/src/transformers/models/bert/modeling_bert.py#L91)- If you are porting a model from PyTorch to PyTorch, a good startingpoint might be BART's conversion script[here](https://github.com/huggingface/transformers/blob/main/src/transformers/models/bart/convert_bart_original_pytorch_checkpoint_to_pytorch.py)In the following, we'll quickly explain how PyTorch models store layer
+weights and define layer names.In PyTorch, the name of a layer is
+defined by the name of the class attribute you give the layer.Let's
+define a dummy model in PyTorch, called `SimpleModel` as follows:```
+from torch import nnclass SimpleModel(nn.Module):
+    def __init__(self):
+            super().__init__()
+            self.dense = nn.Linear(10, 10)
+            self.intermediate = nn.Linear(10, 10)
+            self.layer_norm = nn.LayerNorm(10)```Now we can create an instance of this model definition which will fill
+all weights: `dense`, `intermediate`, `layer_norm` with random weights.We can print the model to see its architecture```
+model = SimpleModel()print(model)```This will print out the following:```
+SimpleModel(
+  (dense): Linear(in_features=10, out_features=10, bias=True)
+  (intermediate): Linear(in_features=10, out_features=10, bias=True)
+  (layer_norm): LayerNorm((10,), eps=1e-05, elementwise_affine=True)
+)```We can see that the layer names are defined by the name of the class
+attribute in PyTorch.You can print out the weight values of a specific
+layer:```
+print(model.dense.weight.data)```to see that the weights were randomly initialized```
+tensor([[-0.0818,  0.2207, -0.0749, -0.0030,  0.0045, -0.1569, -0.1598,  0.0212,
+         -0.2077,  0.2157],
+
+        [ 0.1044,  0.0201,  0.0990,  0.2482,  0.3116,  0.2509,  0.2866, -0.2190,
+          0.2166, -0.0212],
+        [-0.2000,  0.1107, -0.1999, -0.3119,  0.1559,  0.0993,  0.1776, -0.1950,
+         -0.1023, -0.0447],
+        [-0.0888, -0.1092,  0.2281,  0.0336,  0.1817, -0.0115,  0.2096,  0.1415,
+         -0.1876, -0.2467],
+        [ 0.2208, -0.2352, -0.1426, -0.2636, -0.2889, -0.2061, -0.2849, -0.0465,
+          0.2577,  0.0402],
+        [ 0.1502,  0.2465,  0.2566,  0.0693,  0.2352, -0.0530,  0.1859, -0.0604,
+          0.2132,  0.1680],
+        [ 0.1733, -0.2407, -0.1721,  0.1484,  0.0358, -0.0633, -0.0721, -0.0090,
+          0.2707, -0.2509],
+        [-0.1173,  0.1561,  0.2945,  0.0595, -0.1996,  0.2988, -0.0802,  0.0407,
+          0.1829, -0.1568],
+        [-0.1164, -0.2228, -0.0403,  0.0428,  0.1339,  0.0047,  0.1967,  0.2923,
+          0.0333, -0.0536],
+        [-0.1492, -0.1616,  0.1057,  0.1950, -0.2807, -0.2710, -0.1586,  0.0739,
+          0.2220,  0.2358]]).```In the conversion script, you should fill those randomly initialized
+weights with the exact weights of the corresponding layer in the
+checkpoint.E.g.,```
+# retrieve matching layer weights, e.g. by 
+# recursive algorithm
+layer_name = "dense"
+pretrained_weight = array_of_dense_layermodel_pointer = getattr(model, "dense")model_pointer.weight.data = torch.from_numpy(pretrained_weight)```While doing so, you must verify that each randomly initialized weight of
+your PyTorch model and its corresponding pretrained checkpoint weight
+exactly match in both shape and name.To do so, it is necessary
+to add assert statements for the shape and print out the names of the
+checkpoints weights.E.g., you should add statements like:```
+assert (
+     model_pointer.weight.shape == pretrained_weight.shape
+), f"Pointer shape of random weight {model_pointer.shape} and array shape of checkpoint weight {pretrained_weight.shape} mismatched"```Besides, you should also print out the names of both weights to make
+sure they match, e.g.,```
+logger.info(f"Initialize PyTorch weight {layer_name} from {pretrained_weight.name}")```If either the shape or the name doesn't match, you probably assigned
+the wrong checkpoint weight to a randomly initialized layer of the 🤗
+Transformers implementation.An incorrect shape is most likely due to an incorrect setting of the
+config parameters in `[camelcase name of model]Config()` that do not exactly match
+those that were used for the checkpoint you want to convert.However, it
+could also be that PyTorch's implementation of a layer requires the
+weight to be transposed beforehand.Finally, you should also check that all required weights are
+initialized and print out all checkpoint weights that were not used for
+initialization to make sure the model is correctly converted.It is
+completely normal, that the conversion trials fail with either a wrong
+shape statement or wrong name assignment.This is most likely because
+either you used incorrect parameters in `[camelcase name of model]Config()`, have a
+wrong architecture in the 🤗 Transformers implementation, you have a bug
+in the `init()` functions of one of the components of the 🤗 Transformers
+implementation or you need to transpose one of the checkpoint weights.This step should be iterated with the previous step until all weights of
+the checkpoint are correctly loaded in the Transformers model.Having
+correctly loaded the checkpoint into the 🤗 Transformers implementation,
+you can then save the model under a folder of your choice
+`/path/to/converted/checkpoint/folder` that should then contain both a
+`pytorch_model.bin` file and a `config.json` file:```
+model.save_pretrained("/path/to/converted/checkpoint/folder")```[TODO FILL: Here the mentor should add very specific information on what exactly has to be done for the conversion of this model]
+[...]
+[...]7. Implement the forward passHaving managed to correctly load the pretrained weights into the 🤗Transformers implementation, you should now make sure that the forward
+pass is correctly implemented.In ,
+you have already created a script that runs a forward pass of the model
+using the original repository.Now you should write an analogous script
+using the 🤗 Transformers implementation instead of the original one.It
+should look as follows:
+[TODO FILL: Here the model name might have to be adapted, e.g., maybe [camelcase name of model]ForConditionalGeneration instead of [camelcase name of model]Model]```
+model = [camelcase name of model]Model.from_pretrained("/path/to/converted/checkpoint/folder")
+input_ids = [0, 4, 4, 3, 2, 4, 1, 7, 19]
+output = model(input_ids).last_hidden_states```It is very likely that the 🤗 Transformers implementation and the
+original model implementation don't give the exact same output the very
+first time or that the forward pass throws an error.Don't be
+disappointed - it's expected!First, you should make sure that the
+forward pass doesn't throw any errors.It often happens that the wrong
+dimensions are used leading to a `"Dimensionality mismatch"`
+error or that the wrong data type object is used, e.g., `torch.long`
+instead of `torch.float32`.Don't hesitate to ask [name of mentor]
+for help, if you don't manage to solve certain errors.The final part to make sure the 🤗 Transformers implementation works
+correctly is to ensure that the outputs are equivalent to a precision of
+`1e-3`.First, you should ensure that the output shapes are identical,
+i.e. `outputs.shape` should yield the same value for the script of the
+🤗 Transformers implementation and the original implementation.Next, you
+should make sure that the output values are identical as well.This one
+of the most difficult parts of adding a new model.Common mistakes why
+the outputs are not identical are:
+- Some layers were not added, i.e. an activation layerwas not added, or the residual connection was forgotten- The word embedding matrix was not tied- The wrong positional embeddings are used because the original
+implementation uses on offset- Dropout is applied during the forward pass.To fix this make sure`model.training is False` and that no dropout layer isfalsely activated during the forward pass, i.e. pass
+`self.training` to [PyTorch's functional
+dropout](https://pytorch.org/docs/stable/nn.functional.html?highlight=dropout#torch.nn.functional.dropout)The best way to fix the problem is usually to look at the forward pass
+of the original implementation and the 🤗 Transformers implementation
+side-by-side and check if there are any differences.Ideally, you should
+debug/print out intermediate outputs of both implementations of the
+forward pass to find the exact position in the network where the 🤗
+Transformers implementation shows a different output than the original
+implementation.First, make sure that the hard-coded `input_ids` in both
+scripts are identical.Next, verify that the outputs of the first
+transformation of the `input_ids` (usually the word embeddings) are
+identical.And then work your way up to the very last layer of the
+network.At some point, you will notice a difference between the two
+implementations, which should point you to the bug in the 🤗 Transformers
+implementation.From our experience, a simple and efficient way is to
+add many print statements in both the original implementation and 🤗
+Transformers implementation, at the same positions in the network
+respectively, and to successively remove print statements showing the
+same values for intermediate presentions.When you're confident that both implementations yield the same output,
+verifying the outputs with
+`torch.allclose(original_output, output, atol=1e-3)`, you're done with
+the most difficult part!Congratulations - the work left to be done
+should be a cakewalk 😊.8. Adding all necessary model testsAt this point, you have successfully added a new model.However, it isvery much possible that the model does not yet fully comply with the
+required design.To make sure, the implementation is fully compatible
+with 🤗 Transformers, all common tests should pass.The Cookiecutter
+should have automatically added a test file for your model, probably
+under the same `tests/test_modeling_[lowercase name of model].py`.Run this test
+file to verify that all common tests pass:```
+pytest tests/test_modeling_[lowercase name of model].py```[TODO FILL: Here the mentor should add very specific information on what tests are likely to fail after having implemented the model
+, e.g. given the model, it might be very likely that `test_attention_output` fails]
+[...]
+[...]Having fixed all common tests, it is now crucial to ensure that all the
+nice work you have done is well tested, so that
+- a)The community can easily understand your work by looking atspecific tests of [camelcase name of model]- b)  Future changes to your model will not break any importantfeature of the model.At first, integration tests should be added.Those integration tests
+essentially do the same as the debugging scripts you used earlier to
+implement the model to 🤗 Transformers.A template of those model tests
+is already added by the Cookiecutter, called
+`[camelcase name of model]ModelIntegrationTests` and only has to be filled out by
+you.To ensure that those tests are passing, run```
+RUN_SLOW=1 pytest -sv tests/test_modeling_[lowercase name of model].py::[camelcase name of model]ModelIntegrationTests```Note: In case you are using Windows, you should replace `RUN_SLOW=1` with `SET RUN_SLOW=1`
+Second, all features that are special to [camelcase name of model] should be
+tested additionally in a separate test under
+`[camelcase name of model]ModelTester`/`[camelcase name of model]ModelTest`.This part is often
+forgotten but is extremely useful in two ways:
+-It helps to transfer the knowledge you have acquired during themodel addition to the community by showing how the special featuresof [camelcase name of model] should work.- Future contributors can quickly test changes to the model by runningthose special tests.[TODO FILL: Here the mentor should add very specific information on what special features of the model should be tested additionally]
+[...]
+[...]9. Implement the tokenizerNext, we should add the tokenizer of [camelcase name of model].Usually, thetokenizer is equivalent or very similar to an already existing tokenizer
+of 🤗 Transformers.[TODO FILL: Here the mentor should add a comment whether a new tokenizer is required or if this is not the case which existing tokenizer closest resembles
+[camelcase name of model]'s tokenizer and how the tokenizer should be implemented]
+[...]
+[...]It is very important to find/extract the original tokenizer file and to
+manage to load this file into the 🤗 Transformers' implementation of the
+tokenizer.For [camelcase name of model], the tokenizer files can be found here:
+- [To be filled out by mentor]and having implemented the 🤗 Transformers' version of the tokenizer can be loaded as follows:[To be filled out by mentor]To ensure that the tokenizer works correctly, it is recommended to first
+create a script in the original repository that inputs a string and
+returns the `input_ids`.It could look similar to this (in pseudo-code):```
+input_str = "This is a long example input string containing special characters .$?-, numbers 2872 234 12 and words."
+model = [camelcase name of model]Model.load_pretrained_checkpoint("/path/to/checkpoint/")
+input_ids = model.tokenize(input_str)```You might have to take a deeper look again into the original repository
+to find the correct tokenizer function or you might even have to do
+changes to your clone of the original repository to only output the
+`input_ids`.Having written a functional tokenization script that uses
+the original repository, an analogous script for 🤗 Transformers should
+be created.It should look similar to this:```
+from transformers import [camelcase name of model]Tokenizer
+input_str = "This is a long example input string containing special characters .$?-, numbers 2872 234 12 and words."tokenizer = [camelcase name of model]Tokenizer.from_pretrained("/path/to/tokenizer/folder/")input_ids = tokenizer(input_str).input_ids```When both `input_ids` yield the same values, as a final step a tokenizer
+test file should also be added.[TODO FILL: Here mentor should point the student to test files of similar tokenizers]Analogous to the modeling test files of [camelcase name of model], the
+tokenization test files of [camelcase name of model] should contain a couple of
+hard-coded integration tests.[TODO FILL: Here mentor should again point to an existing similar test of another model that the student can copy & adapt]10.Run End-to-end integration testsHaving added the tokenizer, you should also add a couple of end-to-endintegration tests using both the model and the tokenizer to
+`tests/test_modeling_[lowercase name of model].py` in 🤗 Transformers.Such a test
+should show on a meaningful text-to-text sample that the 🤗 Transformers
+implementation works as expected.A meaningful text-to-text sample can
+include e.g. a source-to-target-translation pair, an
+article-to-summary pair, a question-to-answer pair, etc...If none of
+the ported checkpoints has been fine-tuned on a downstream task it is
+enough to simply rely on the model tests.In a final step to ensure that
+the model is fully functional, it is advised that you also run all tests
+on GPU.It can happen that you forgot to add some `.to(self.device)`
+statements to internal tensors of the model, which in such a test would
+show in an error.In case you have no access to a GPU, the Hugging Face
+team can take care of running those tests for you.11. Add DocstringNow, all the necessary functionality for [camelcase name of model] is added -you're almost done!The only thing left to add is a nice docstring and
+a doc page.The Cookiecutter should have added a template file called
+`docs/source/model_doc/[lowercase name of model].rst` that you should fill out.Users of your model will usually first look at this page before using
+your model.Hence, the documentation must be understandable and concise.It is very useful for the community to add some Tips to show how the
+model should be used.Don't hesitate to ping [name of mentor]
+regarding the docstrings.Next, make sure that the docstring added to
+`src/transformers/models/[lowercase name of model]/modeling_[lowercase name of model].py` is
+correct and included all necessary inputs and outputs.It is always to
+good to remind oneself that documentation should be treated at least as
+carefully as the code in 🤗 Transformers since the documentation is
+usually the first contact point of the community with the model.Code refactor
+Great, now you have added all the necessary code for [camelcase name of model].At this point, you should correct some potential incorrect code style by
+running:```
+make style```and verify that your coding style passes the quality check:```
+make quality```There are a couple of other very strict design tests in 🤗 Transformers
+that might still be failing, which shows up in the tests of your pull
+request.This is often because of some missing information in the
+docstring or some incorrect naming.[name of mentor] will surely
+help you if you're stuck here.Lastly, it is always a good idea to refactor one's code after having
+ensured that the code works correctly.With all tests passing, now it's
+a good time to go over the added code again and do some refactoring.You have now finished the coding part, congratulation!🎉You are
+Awesome!😎
+12.Upload the models to the model hubIn this final part, you should convert and upload all checkpoints to themodel hub and add a model card for each uploaded model checkpoint.You
+should work alongside [name of mentor] here to decide on a fitting
+name for each checkpoint and to get the required access rights to be
+able to upload the model under the author's organization of
+[camelcase name of model].It is worth spending some time to create fitting model cards for each
+checkpoint.The model cards should highlight the specific
+characteristics of this particular checkpoint, e.g.,On which dataset
+was the checkpoint pretrained/fine-tuned on?On what down-stream task
+should the model be used?And also include some code on how to correctly
+use the model.13. (Optional)Add notebookIt is very helpful to add a notebook that showcases in-detail how[camelcase name of model] can be used for inference and/or fine-tuned on a
+downstream task.This is not mandatory to merge your PR, but very useful
+for the community.14. Submit your finished PRYou're done programming now and can move to the last step, which isgetting your PR merged into main.Usually, [name of mentor]
+should have helped you already at this point, but it is worth taking
+some time to give your finished PR a nice description and eventually add
+comments to your code, if you want to point out certain design choices
+to your reviewer.Share your work!!Now, it's time to get some credit from the community for your work!Having completed a model addition is a major contribution to
+Transformers and the whole NLP community.Your code and the ported
+pre-trained models will certainly be used by hundreds and possibly even
+thousands of developers and researchers.You should be proud of your
+work and share your achievement with the community.You have made another model that is super easy to access for everyone
+in the community!🤯
+
+--------------------------------
+
+raw HTML omitted 
+Adding a new modelThis page has been updated in light of the removal of the `add_new_model` script in favor of the more complete`add_new_model_like` script.We recommend you checkout the documentation of [How to add a model](https://huggingface.co/docs/transformers/main/en/add_new_model)
+in the Hugging Face Transformers documentation for complete and up-to-date instructions.
+
+--------------------------------
+
+raw HTML omitted 
+Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```NOTEYou only need to generate the documentation to inspect it locally (if you're planning changes and want to
+check how they look before committing for instance).You don't have to commit the built documentation.Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.Previewing the documentationTo preview the docs, first install the `watchdog` module with:```
+pip install watchdog```Then run the following command:```
+doc-builder preview {package_name}{path_to_docs}```For example:```
+doc-builder preview transformers docs/source/en/```The docs will be viewable at [http://localhost:3000](http://localhost:3000).You can also preview the docs once you have opened a PR.You will see a bot add a comment to a link where the documentation with your changes lives.NOTEThe `preview` command only works with existing doc files.When you add a completely new file, you need to update `_toctree.yml` & restart `preview` command (`ctrl-c` to stop it & call `doc-builder preview ...` again).Adding a new element to the navigation bar
+Accepted files are Markdown (.md).Create a file with its extension and put it in the source directory.You can then link it to the toc-tree by putting
+the filename without the extension in the [_toctree.yml](https://github.com/huggingface/transformers/blob/main/docs/source/en/_toctree.yml) file.Renaming section headers and moving sectionsIt helps to keep the old links working when renaming the section header and/or moving sections from one document to another.This is because the old links are likely to be used in Issues, Forums, and Social media and it'd make for a much more superior user experience if users reading those months later could still easily navigate to the originally intended information.Therefore, we simply keep a little map of moved sections at the end of the document where the original section was.The key is to preserve the original anchor.So if you renamed a section from: "Section A" to "Section B", then you can add at the end of the file:```
+Sections that were moved:[ <a href="#section-b">Section A</a><a id="section-a"></a> ]```and of course, if you moved it to another file, then:```
+Sections that were moved:[ <a href="../new-file#section-b">Section A</a><a id="section-a"></a> ]```Use the relative style to link to the new file so that the versioned docs continue to work.For an example of a rich moved section set please see the very end of [the Trainer doc](https://github.com/huggingface/transformers/blob/main/docs/source/en/main_classes/trainer.md).Writing Documentation - SpecificationThe `huggingface/transformers` documentation follows the
+[Google documentation](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) style for docstrings,
+although we can write them directly in Markdown.Adding a new tutorial
+Adding a new tutorial or section is done in two steps:
+- Add a new file under `./source`.This file can either be ReStructuredText (.rst) or Markdown (.md).- Link that file in `./source/_toctree.yml` on the correct toc-tree.Make sure to put your new file under the proper section.It's unlikely to go in the first section (Get Started), so
+depending on the intended targets (beginners, more advanced users, or researchers) it should go in sections two, three, or
+four.TranslatingWhen translating, refer to the guide at [./TRANSLATING.md](https://github.com/huggingface/transformers/blob/main/docs/TRANSLATING.md).Adding a new modelWhen adding a new model:
+- Create a file `xxx.md` or under `./source/model_doc` (don't hesitate to copy an existing file as template).- Link that file in `./source/_toctree.yml`.- Write a short overview of the model:
+- Overview with paper & authors- Paper abstract- Tips and tricks and how to use it best- Add the classes that should be linked in the model.This generally includes the configuration, the tokenizer, and
+every model of that class (the base model, alongside models with additional heads), both in PyTorch and TensorFlow.The order is generally:
+- Configuration- Tokenizer- PyTorch base model- PyTorch head models- TensorFlow base model- TensorFlow head models- Flax base model- Flax head modelsThese classes should be added using our Markdown syntax.Usually as follows:```
+## XXXConfig[[autodoc]]XXXConfig```This will include every public method of the configuration that is documented.If for some reason you wish for a method
+not to be displayed in the documentation, you can do so by specifying which methods should be in the docs:```
+## XXXTokenizer[[autodoc]]XXXTokenizer
+    - build_inputs_with_special_tokens- get_special_tokens_mask
+    - create_token_type_ids_from_sequences
+    - save_vocabulary```If you just want to add a method that is not documented (for instance magic methods like `__call__` are not documented
+by default) you can put the list of methods to add in a list that contains `all`:```
+## XXXTokenizer[[autodoc]]XXXTokenizer
+    - all- __call__```Writing source documentation
+Values that should be put in `code` should either be surrounded by backticks: `like so`.Note that argument names
+and objects like True, None, or any strings should usually be put in `code`.When mentioning a class, function, or method, it is recommended to use our syntax for internal links so that our tool
+adds a link to its documentation with this syntax: [`XXXClass`] or [`function`].This requires the class or
+function to be in the main package.If you want to create a link to some internal class or function, you need to
+provide its path.For instance: [`utils.ModelOutput`].This will be converted into a link with
+`utils.ModelOutput` in the description.To get rid of the path and only keep the name of the object you are
+linking to in the description, add a ~: [`~utils.ModelOutput`] will generate a link with `ModelOutput` in the description.The same works for methods so you can either use [`XXXClass.method`] or [`~XXXClass.method`].Defining arguments in a method
+Arguments should be defined with the `Args:` (or `Arguments:` or `Parameters:`) prefix, followed by a line return and
+an indentation.The argument should be followed by its type, with its shape if it is a tensor, a colon, and its
+description:```
+    Args:
+        n_layers (`int`):The number of layers of the model.```If the description is too long to fit in one line, another indentation is necessary before writing the description
+after the argument.Here's an example showcasing everything so far:```
+    Args:
+        input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):Indices of input sequence tokens in the vocabulary.Indices can be obtained using [`AlbertTokenizer`].See [`~PreTrainedTokenizer.encode`] and
+            [`~PreTrainedTokenizer.__call__`] for details.[What are input IDs?](../glossary#input-ids)```For optional arguments or arguments with defaults we follow the following syntax: imagine we have a function with the
+following signature:```
+def my_function(x: str = None, a: float = 1):```then its documentation should look like this:```
+    Args:
+        x (`str`, *optional*):This argument controls ...
+        a (`float`, *optional*, defaults to 1):This argument is used to ...```Note that we always omit the "defaults to `None`" when None is the default for any argument.Also note that even
+if the first line describing your argument type and its default gets long, you can't break it on several lines.You can
+however, write as many lines as you want in the indented description (see the example above with `input_ids`).Writing a multi-line code block
+Multi-line code blocks can be useful for displaying examples.They are done between two lines of three backticks as usual in Markdown:```
+```
+# first line of code
+# second line
+# etc
+``````We follow the [doctest](https://docs.python.org/3/library/doctest.html) syntax for the examples to automatically test
+the results to stay consistent with the library.Writing a return blockThe return block should be introduced with the `Returns:` prefix, followed by a line return and an indentation.The first line should be the type of the return, followed by a line return.No need to indent further for the elements
+building the return.Here's an example of a single value return:```
+    Returns:
+        `List[int]`:A list of integers in the range [0, 1] --- 1 for a special token, 0 for a sequence token.```Here's an example of a tuple return, comprising several objects:```
+    Returns:
+        `tuple(torch.FloatTensor)` comprising various elements depending on the configuration ([`BertConfig`]) and inputs:
+        - ** loss** (*optional*, returned when `masked_lm_labels` is provided) `torch.FloatTensor` of shape `(1,)`--Total loss is the sum of the masked language modeling loss and the next sequence prediction (classification) loss.- **prediction_scores** (`torch.FloatTensor` of shape `(batch_size, sequence_length, config.vocab_size)`)--
+          Prediction scores of the language modeling head (scores for each vocabulary token before SoftMax).```Adding an image
+Due to the rapidly growing repository, it is important to make sure that no files that would significantly weigh down the repository are added.This includes images, videos, and other non-text files.We prefer to leverage a hf.co hosted `dataset` like
+the ones hosted on [hf-internal-testing](https://huggingface.co/hf-internal-testing) in which to place these files and reference
+them by URL.We recommend putting them in the following dataset: [huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images).If an external contribution, feel free to add the images to your PR and ask a Hugging Face member to migrate your images
+to this dataset.Styling the docstringWe have an automatic script running with the `make style` comment that will make sure that:
+- the docstrings fully take advantage of the line width- all code examples are formatted using black, like the code of the Transformers libraryThis script may have some weird failures if you made a syntax mistake or if you uncover a bug.Therefore, it'srecommended to commit your changes before running `make style`, so you can revert the changes done by that script
+easily.Testing documentation examples
+Good documentation often comes with an example of how a specific function or class should be used.Each model class should contain at least one example showcasing
+how to use this model class in inference.E.g. the class [Wav2Vec2ForCTC](https://huggingface.co/docs/transformers/model_doc/wav2vec2#transformers.Wav2Vec2ForCTC)
+includes an example of how to transcribe speech to text in the
+[docstring of its forward function](https://huggingface.co/docs/transformers/model_doc/wav2vec2#transformers.Wav2Vec2ForCTC.forward).Writing documentation examplesThe syntax for Example docstrings can look as follows:```
+    Example:>>> from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
+    >>> from datasets import load_dataset
+    >>>import torch>>> dataset = load_dataset("hf-internal-testing/librispeech_asr_demo", "clean", split="validation")
+    >>> dataset = dataset.sort("id")
+    >>> sampling_rate = dataset.features["audio"].sampling_rate>>> processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+    >>>model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")>>># audio file is decoded on the fly
+    >>> inputs = processor(dataset[0]["audio"]["array"], sampling_rate=sampling_rate, return_tensors="pt")
+    >>> with torch.no_grad():
+    ...     logits = model(**inputs).logits
+
+    >>>predicted_ids = torch.argmax(logits, dim=-1)>>> # transcribe speech
+    >>> transcription = processor.batch_decode(predicted_ids)
+    >>> transcription[0]'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL'```The docstring should give a minimal, clear example of how the respective model
+is to be used in inference and also include the expected (ideally sensible)
+output.Often, readers will try out the example before even going through the function
+or class definitions.Therefore, it is of utmost importance that the example
+works as expected.Docstring testingTo do so each example should be included in the doctests.We use pytests' [doctest integration](https://docs.pytest.org/doctest.html) to verify that all of our examples run correctly.For Transformers, the doctests are run on a daily basis via GitHub Actions as can be
+seen [here](https://github.com/huggingface/transformers/actions/workflows/doctests.yml).For Python files
+Run all the tests in the docstrings of a given file with the following command, here is how we test the modeling file of Wav2Vec2 for instance:```
+pytest --doctest-modules src/transformers/models/wav2vec2/modeling_wav2vec2.py -sv --doctest-continue-on-failure```If you want to isolate a specific docstring, just add `::` after the file name then type the whole path of the function/class/method whose docstring you want to test.For instance, here is how to just test the forward method of `Wav2Vec2ForCTC`:```
+pytest --doctest-modules src/transformers/models/wav2vec2/modeling_wav2vec2.py::transformers.models.wav2vec2.modeling_wav2vec2.Wav2Vec2ForCTC.forward -sv --doctest-continue-on-failure```For Markdown filesYou can test locally a given file with this command (here testing the quicktour):```
+pytest --doctest-modules docs/source/quicktour.md -sv --doctest-continue-on-failure --doctest-glob="*.md"```Writing doctestsHere are a few tips to help you debug the doctests and make them pass:
+-The outputs of the code need to match the expected output exactly, so make sure you have the same outputs.In particular doctest will see a difference between single quotes and double quotes, or a missing parenthesis.The only exceptions to that rule are:- whitespace: one give whitespace (space, tabulation, new line) is equivalent to any number of whitespace, so you can add new lines where there are spaces to make your output more readable.- numerical values: you should never put more than 4 or 5 digits to expected results as different setups or library versions might get you slightly different results.`doctest` is configured to ignore any difference lower than the precision to which you wrote (so 1e-4 if you write 4 digits).- Don't leave a block of code that is very long to execute.If you can't make it fast, you can either not use the doctest syntax on it (so that it's ignored), or if you want to use the doctest syntax to show the results, you can add a comment `# doctest: +SKIP` at the end of the lines of code too long to execute- Each line of code that produces a result needs to have that result written below.You can ignore an output if you don't want to show it in your code example by adding a comment ` # doctest: +IGNORE_RESULT` at the end of the line of code producing it.
+
+--------------------------------
+
+Translating the Transformers documentation into your languageAs part of our mission to democratize machine learning, we aim to make the Transformers library available in many more languages!Follow the steps below to help translate the documentation into your language.Open an Issue- Navigate to the Issues page of this repository.- Check if anyone has already opened an issue for your language.- If not, create a new issue by selecting the "Translation template" from the "New issue" button.- Post a comment indicating which chapters you’d like to work on, and we’ll add your name to the list.Fork the Repository- First, fork the Transformers repo by clicking the Fork button in the top-right corner.- Clone your fork to your local machine for editing with the following command:```
+git clone https://github.com/YOUR-USERNAME/transformers.git```Replace `YOUR-USERNAME` with your GitHub username.Copy-paste the English version with a new language codeThe documentation files are organized in the following directory:
+- docs/source:This contains all documentation materials organized by language.To copy the English version to your new language directory:- Navigate to your fork of the repository:```cd ~/path/to/transformers/docs```Replace `~/path/to` with your actual path.- Run the following command:```cp -r source/en source/LANG-ID```Replace `LANG-ID` with the appropriate ISO 639-1 or ISO 639-2 language code (see [this table](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for reference).Start translating
+Begin translating the text!- Start with the `_toctree.yml` file that corresponds to your documentation chapter.This file is essential for rendering the table of contents on the website.-If the `_toctree.yml` file doesn’t exist for your language, create one by copying the English version and removing unrelated sections.- Ensure it is placed in the `docs/source/LANG-ID/` directory.Here’s an example structure for the `_toctree.yml` file:```
+- sections:- local: pipeline_tutorial # Keep this name for your .md file
+    title: Pipelines for Inference # Translate this
+    ...
+  title: Tutorials # Translate this```- Once you’ve translated the `_toctree.yml`, move on to translating the associated MDX files.Collaborate and shareIf you'd like assistance with your translation, open an issue and tag `@stevhliu`.Feel free to share resources or glossaries to ensure consistent terminology.
+
+--------------------------------
+
+raw HTML omitted 
+ExamplesWe host a wide range of example scripts for multiple learning frameworks.Simply choose your favorite: [TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow), [PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch) or [JAX/Flax](https://github.com/huggingface/transformers/tree/main/examples/flax).We also have some [research projects](https://github.com/huggingface/transformers/tree/main/examples/research_projects), as well as some [legacy examples](https://github.com/huggingface/transformers/tree/main/examples/legacy).Note that unlike the main examples these are not actively maintained, and may require specific older versions of dependencies in order to run.While we strive to present as many use cases as possible, the example scripts are just that - examples.It is expected that they won't work out-of-the-box on your specific problem and that you will be required to change a few lines of code to adapt them to your needs.To help you with that, most of the examples fully expose the preprocessing of the data, allowing you to tweak and edit them as required.Please discuss on the [forum](https://discuss.huggingface.co/) or in an [issue](https://github.com/huggingface/transformers/issues) a feature you would like to implement in an example before submitting a PR; we welcome bug fixes, but since we want to keep the examples as simple as possible it's unlikely that we will merge a pull request adding more functionality at the cost of readability.Important note
+ImportantTo make sure you can successfully run the latest versions of the example scripts, you have to install the library from source and install some example-specific requirements.To do this, execute the following steps in a new virtual environment:```
+git clone https://github.com/huggingface/transformers
+cd transformers
+pip install .```Then cd in the example folder of your choice and run```
+pip install -r requirements.txt```To browse the examples corresponding to released versions of 🤗 Transformers, click on the line below and then on your desired version of the library:
+ raw HTML omitted 
+Alternatively, you can switch your cloned 🤗 Transformers to a specific version (for instance with v3.5.1) with```
+git checkout tags/v3.5.1```and run the example command as usual afterward.Running the Examples on Remote Hardware with Auto-Setup
+[run_on_remote.py](./run_on_remote.py) is a script that launches any example on remote self-hosted hardware,
+with automatic hardware and environment setup.It uses [Runhouse](https://github.com/run-house/runhouse) to launch
+on self-hosted hardware (e.g. in your own cloud account or on-premise cluster) but there are other options
+for running remotely as well.You can easily customize the example used, command line arguments, dependencies,
+and type of compute hardware, and then run the script to automatically launch the example.You can refer to
+[hardware setup](https://www.run.house/docs/tutorials/quick-start-cloud)
+for more information about hardware and dependency setup with Runhouse, or this
+[Colab tutorial](https://colab.research.google.com/drive/1sh_aNQzJX5BKAdNeXthTNGxKz7sM9VPc) for a more in-depth
+walkthrough.You can run the script with the following commands:```
+# First install runhouse:
+pip install runhouse# For an on-demand V100 with whichever cloud provider you have configured:
+python run_on_remote.py \
+    --example pytorch/text-generation/run_generation.py \
+    --model_type=gpt2 \
+    --model_name_or_path=openai-community/gpt2\
+    --prompt "I am a language model and"# For byo (bring your own) cluster:
+python run_on_remote.py --host <cluster_ip>--user <ssh_user> --key_path <ssh_key_path> \
+  --example <example> <args># For on-demand instancespython run_on_remote.py --instance <instance> --provider <provider> \
+  --example <example> <args>```You can also adapt the script to your own needs.
+
+--------------------------------
+
+raw HTML omitted 
+Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```NOTEYou only need to generate the documentation to inspect it locally (if you're planning changes and want to
+check how they look before committing for instance).You don't have to commit the built documentation.Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.Previewing the documentationTo preview the docs, first install the `watchdog` module with:```
+pip install watchdog```Then run the following command:```
+doc-builder preview {package_name}{path_to_docs}```For example:```
+doc-builder preview transformers docs/source/en/```The docs will be viewable at [http://localhost:3000](http://localhost:3000).You can also preview the docs once you have opened a PR.You will see a bot add a comment to a link where the documentation with your changes lives.NOTEThe `preview` command only works with existing doc files.When you add a completely new file, you need to update `_toctree.yml` & restart `preview` command (`ctrl-c` to stop it & call `doc-builder preview ...` again).Adding a new element to the navigation bar
+Accepted files are Markdown (.md).Create a file with its extension and put it in the source directory.You can then link it to the toc-tree by putting
+the filename without the extension in the [_toctree.yml](https://github.com/huggingface/transformers/blob/main/docs/source/en/_toctree.yml) file.Renaming section headers and moving sectionsIt helps to keep the old links working when renaming the section header and/or moving sections from one document to another.This is because the old links are likely to be used in Issues, Forums, and Social media and it'd make for a much more superior user experience if users reading those months later could still easily navigate to the originally intended information.Therefore, we simply keep a little map of moved sections at the end of the document where the original section was.The key is to preserve the original anchor.So if you renamed a section from: "Section A" to "Section B", then you can add at the end of the file:```
+Sections that were moved:[ <a href="#section-b">Section A</a><a id="section-a"></a> ]```and of course, if you moved it to another file, then:```
+Sections that were moved:[ <a href="../new-file#section-b">Section A</a><a id="section-a"></a> ]```Use the relative style to link to the new file so that the versioned docs continue to work.For an example of a rich moved section set please see the very end of [the Trainer doc](https://github.com/huggingface/transformers/blob/main/docs/source/en/main_classes/trainer.md).Writing Documentation - SpecificationThe `huggingface/transformers` documentation follows the
+[Google documentation](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) style for docstrings,
+although we can write them directly in Markdown.Adding a new tutorial
+Adding a new tutorial or section is done in two steps:
+- Add a new file under `./source`.This file can either be ReStructuredText (.rst) or Markdown (.md).- Link that file in `./source/_toctree.yml` on the correct toc-tree.Make sure to put your new file under the proper section.It's unlikely to go in the first section (Get Started), so
+depending on the intended targets (beginners, more advanced users, or researchers) it should go in sections two, three, or
+four.TranslatingWhen translating, refer to the guide at [./TRANSLATING.md](https://github.com/huggingface/transformers/blob/main/docs/TRANSLATING.md).Adding a new modelWhen adding a new model:
+- Create a file `xxx.md` or under `./source/model_doc` (don't hesitate to copy an existing file as template).- Link that file in `./source/_toctree.yml`.- Write a short overview of the model:
+- Overview with paper & authors- Paper abstract- Tips and tricks and how to use it best- Add the classes that should be linked in the model.This generally includes the configuration, the tokenizer, and
+every model of that class (the base model, alongside models with additional heads), both in PyTorch and TensorFlow.The order is generally:
+- Configuration- Tokenizer- PyTorch base model- PyTorch head models- TensorFlow base model- TensorFlow head models- Flax base model- Flax head modelsThese classes should be added using our Markdown syntax.Usually as follows:```
+## XXXConfig[[autodoc]]XXXConfig```This will include every public method of the configuration that is documented.If for some reason you wish for a method
+not to be displayed in the documentation, you can do so by specifying which methods should be in the docs:```
+## XXXTokenizer[[autodoc]]XXXTokenizer
+    - build_inputs_with_special_tokens- get_special_tokens_mask
+    - create_token_type_ids_from_sequences
+    - save_vocabulary```If you just want to add a method that is not documented (for instance magic methods like `__call__` are not documented
+by default) you can put the list of methods to add in a list that contains `all`:```
+## XXXTokenizer[[autodoc]]XXXTokenizer
+    - all- __call__```Writing source documentation
+Values that should be put in `code` should either be surrounded by backticks: `like so`.Note that argument names
+and objects like True, None, or any strings should usually be put in `code`.When mentioning a class, function, or method, it is recommended to use our syntax for internal links so that our tool
+adds a link to its documentation with this syntax: [`XXXClass`] or [`function`].This requires the class or
+function to be in the main package.If you want to create a link to some internal class or function, you need to
+provide its path.For instance: [`utils.ModelOutput`].This will be converted into a link with
+`utils.ModelOutput` in the description.To get rid of the path and only keep the name of the object you are
+linking to in the description, add a ~: [`~utils.ModelOutput`] will generate a link with `ModelOutput` in the description.The same works for methods so you can either use [`XXXClass.method`] or [`~XXXClass.method`].Defining arguments in a method
+Arguments should be defined with the `Args:` (or `Arguments:` or `Parameters:`) prefix, followed by a line return and
+an indentation.The argument should be followed by its type, with its shape if it is a tensor, a colon, and its
+description:```
+    Args:
+        n_layers (`int`):The number of layers of the model.```If the description is too long to fit in one line, another indentation is necessary before writing the description
+after the argument.Here's an example showcasing everything so far:```
+    Args:
+        input_ids (`torch.LongTensor` of shape `(batch_size, sequence_length)`):Indices of input sequence tokens in the vocabulary.Indices can be obtained using [`AlbertTokenizer`].See [`~PreTrainedTokenizer.encode`] and
+            [`~PreTrainedTokenizer.__call__`] for details.[What are input IDs?](../glossary#input-ids)```For optional arguments or arguments with defaults we follow the following syntax: imagine we have a function with the
+following signature:```
+def my_function(x: str = None, a: float = 1):```then its documentation should look like this:```
+    Args:
+        x (`str`, *optional*):This argument controls ...
+        a (`float`, *optional*, defaults to 1):This argument is used to ...```Note that we always omit the "defaults to `None`" when None is the default for any argument.Also note that even
+if the first line describing your argument type and its default gets long, you can't break it on several lines.You can
+however, write as many lines as you want in the indented description (see the example above with `input_ids`).Writing a multi-line code block
+Multi-line code blocks can be useful for displaying examples.They are done between two lines of three backticks as usual in Markdown:```
+```
+# first line of code
+# second line
+# etc
+``````We follow the [doctest](https://docs.python.org/3/library/doctest.html) syntax for the examples to automatically test
+the results to stay consistent with the library.Writing a return blockThe return block should be introduced with the `Returns:` prefix, followed by a line return and an indentation.The first line should be the type of the return, followed by a line return.No need to indent further for the elements
+building the return.Here's an example of a single value return:```
+    Returns:
+        `List[int]`:A list of integers in the range [0, 1] --- 1 for a special token, 0 for a sequence token.```Here's an example of a tuple return, comprising several objects:```
+    Returns:
+        `tuple(torch.FloatTensor)` comprising various elements depending on the configuration ([`BertConfig`]) and inputs:
+        - ** loss** (*optional*, returned when `masked_lm_labels` is provided) `torch.FloatTensor` of shape `(1,)`--Total loss is the sum of the masked language modeling loss and the next sequence prediction (classification) loss.- **prediction_scores** (`torch.FloatTensor` of shape `(batch_size, sequence_length, config.vocab_size)`)--
+          Prediction scores of the language modeling head (scores for each vocabulary token before SoftMax).```Adding an image
+Due to the rapidly growing repository, it is important to make sure that no files that would significantly weigh down the repository are added.This includes images, videos, and other non-text files.We prefer to leverage a hf.co hosted `dataset` like
+the ones hosted on [hf-internal-testing](https://huggingface.co/hf-internal-testing) in which to place these files and reference
+them by URL.We recommend putting them in the following dataset: [huggingface/documentation-images](https://huggingface.co/datasets/huggingface/documentation-images).If an external contribution, feel free to add the images to your PR and ask a Hugging Face member to migrate your images
+to this dataset.Styling the docstringWe have an automatic script running with the `make style` comment that will make sure that:
+- the docstrings fully take advantage of the line width- all code examples are formatted using black, like the code of the Transformers libraryThis script may have some weird failures if you made a syntax mistake or if you uncover a bug.Therefore, it'srecommended to commit your changes before running `make style`, so you can revert the changes done by that script
+easily.Testing documentation examples
+Good documentation often comes with an example of how a specific function or class should be used.Each model class should contain at least one example showcasing
+how to use this model class in inference.E.g. the class [Wav2Vec2ForCTC](https://huggingface.co/docs/transformers/model_doc/wav2vec2#transformers.Wav2Vec2ForCTC)
+includes an example of how to transcribe speech to text in the
+[docstring of its forward function](https://huggingface.co/docs/transformers/model_doc/wav2vec2#transformers.Wav2Vec2ForCTC.forward).Writing documentation examplesThe syntax for Example docstrings can look as follows:```
+    Example:>>> from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
+    >>> from datasets import load_dataset
+    >>>import torch>>> dataset = load_dataset("hf-internal-testing/librispeech_asr_demo", "clean", split="validation")
+    >>> dataset = dataset.sort("id")
+    >>> sampling_rate = dataset.features["audio"].sampling_rate>>> processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+    >>>model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")>>># audio file is decoded on the fly
+    >>> inputs = processor(dataset[0]["audio"]["array"], sampling_rate=sampling_rate, return_tensors="pt")
+    >>> with torch.no_grad():
+    ...     logits = model(**inputs).logits
+
+    >>>predicted_ids = torch.argmax(logits, dim=-1)>>> # transcribe speech
+    >>> transcription = processor.batch_decode(predicted_ids)
+    >>> transcription[0]'MISTER QUILTER IS THE APOSTLE OF THE MIDDLE CLASSES AND WE ARE GLAD TO WELCOME HIS GOSPEL'```The docstring should give a minimal, clear example of how the respective model
+is to be used in inference and also include the expected (ideally sensible)
+output.Often, readers will try out the example before even going through the function
+or class definitions.Therefore, it is of utmost importance that the example
+works as expected.Docstring testingTo do so each example should be included in the doctests.We use pytests' [doctest integration](https://docs.pytest.org/doctest.html) to verify that all of our examples run correctly.For Transformers, the doctests are run on a daily basis via GitHub Actions as can be
+seen [here](https://github.com/huggingface/transformers/actions/workflows/doctests.yml).For Python files
+Run all the tests in the docstrings of a given file with the following command, here is how we test the modeling file of Wav2Vec2 for instance:```
+pytest --doctest-modules src/transformers/models/wav2vec2/modeling_wav2vec2.py -sv --doctest-continue-on-failure```If you want to isolate a specific docstring, just add `::` after the file name then type the whole path of the function/class/method whose docstring you want to test.For instance, here is how to just test the forward method of `Wav2Vec2ForCTC`:```
+pytest --doctest-modules src/transformers/models/wav2vec2/modeling_wav2vec2.py::transformers.models.wav2vec2.modeling_wav2vec2.Wav2Vec2ForCTC.forward -sv --doctest-continue-on-failure```For Markdown filesYou can test locally a given file with this command (here testing the quicktour):```
+pytest --doctest-modules docs/source/quicktour.md -sv --doctest-continue-on-failure --doctest-glob="*.md"```Writing doctestsHere are a few tips to help you debug the doctests and make them pass:
+-The outputs of the code need to match the expected output exactly, so make sure you have the same outputs.In particular doctest will see a difference between single quotes and double quotes, or a missing parenthesis.The only exceptions to that rule are:- whitespace: one give whitespace (space, tabulation, new line) is equivalent to any number of whitespace, so you can add new lines where there are spaces to make your output more readable.- numerical values: you should never put more than 4 or 5 digits to expected results as different setups or library versions might get you slightly different results.`doctest` is configured to ignore any difference lower than the precision to which you wrote (so 1e-4 if you write 4 digits).- Don't leave a block of code that is very long to execute.If you can't make it fast, you can either not use the doctest syntax on it (so that it's ignored), or if you want to use the doctest syntax to show the results, you can add a comment `# doctest: +SKIP` at the end of the lines of code too long to execute- Each line of code that produces a result needs to have that result written below.You can ignore an output if you don't want to show it in your code example by adding a comment ` # doctest: +IGNORE_RESULT` at the end of the line of code producing it.
+
+--------------------------------
+
+Translating the Transformers documentation into your languageAs part of our mission to democratize machine learning, we aim to make the Transformers library available in many more languages!Follow the steps below to help translate the documentation into your language.Open an Issue- Navigate to the Issues page of this repository.- Check if anyone has already opened an issue for your language.- If not, create a new issue by selecting the "Translation template" from the "New issue" button.- Post a comment indicating which chapters you’d like to work on, and we’ll add your name to the list.Fork the Repository- First, fork the Transformers repo by clicking the Fork button in the top-right corner.- Clone your fork to your local machine for editing with the following command:```
+git clone https://github.com/YOUR-USERNAME/transformers.git```Replace `YOUR-USERNAME` with your GitHub username.Copy-paste the English version with a new language codeThe documentation files are organized in the following directory:
+- docs/source:This contains all documentation materials organized by language.To copy the English version to your new language directory:- Navigate to your fork of the repository:```cd ~/path/to/transformers/docs```Replace `~/path/to` with your actual path.- Run the following command:```cp -r source/en source/LANG-ID```Replace `LANG-ID` with the appropriate ISO 639-1 or ISO 639-2 language code (see [this table](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for reference).Start translating
+Begin translating the text!- Start with the `_toctree.yml` file that corresponds to your documentation chapter.This file is essential for rendering the table of contents on the website.-If the `_toctree.yml` file doesn’t exist for your language, create one by copying the English version and removing unrelated sections.- Ensure it is placed in the `docs/source/LANG-ID/` directory.Here’s an example structure for the `_toctree.yml` file:```
+- sections:- local: pipeline_tutorial # Keep this name for your .md file
+    title: Pipelines for Inference # Translate this
+    ...
+  title: Tutorials # Translate this```- Once you’ve translated the `_toctree.yml`, move on to translating the associated MDX files.Collaborate and shareIf you'd like assistance with your translation, open an issue and tag `@stevhliu`.Feel free to share resources or glossaries to ensure consistent terminology.
+
+--------------------------------
+
+Contributing to Node.js
+Contributions to Node.js include code, documentation, answering user questions,
+running the project's infrastructure, and advocating for all types of Node.js
+users.The Node.js project welcomes all contributions from anyone willing to work in
+good faith with other contributors and the community.No contribution is too
+small and all contributions are valued.The Node.js project has an open governance model.Individuals making significant and valuable contributions are made
+Collaborators and given commit-access to the project.See the
+[GOVERNANCE.md](./GOVERNANCE.md) document for more information about how this
+works.Contents
+
+----[Code of Conduct](./doc/contributing/code-of-conduct.md)The Node.js project has a
+[Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md)
+to which all contributors must adhere.See [details on our policy on Code of Conduct](./doc/contributing/code-of-conduct.md).[Issues](./doc/contributing/issues.md)- [Asking for General Help](./doc/contributing/issues.md#asking-for-general-help)- [Discussing non-technical topics](./doc/contributing/issues.md#discussing-non-technical-topics)- [Submitting a Bug Report](./doc/contributing/issues.md#submitting-a-bug-report)- [Triaging a Bug Report](./doc/contributing/issues.md#triaging-a-bug-report)[Pull Requests](./doc/contributing/pull-requests.md)Pull Requests are the way concrete changes are made to the code, documentation,
+dependencies, and tools contained in the `nodejs/node` repository.- [Dependencies](./doc/contributing/pull-requests.md#dependencies)- [Setting up your local environment](./doc/contributing/pull-requests.md#setting-up-your-local-environment)- [The Process of Making Changes](./doc/contributing/pull-requests.md#the-process-of-making-changes)- [Reviewing Pull Requests](./doc/contributing/pull-requests.md#reviewing-pull-requests)- [Notes](./doc/contributing/pull-requests.md#notes)Developer's Certificate of Origin 1.1```By making a contribution to this project, I certify that:(a) The contribution was created in whole or in part by me and I
+     have the right to submit it under the open source license
+     indicated in the file; or(b) The contribution is based upon previous work that, to the best
+     of my knowledge, is covered under an appropriate open source
+     license and I have the right under that license to submit that
+     work with modifications, whether created in whole or in part
+     by me, under the same open source license (unless I am
+     permitted to submit under a different license), as indicated
+     in the file; or(c) The contribution was provided directly to me by some other
+     person who certified (a), (b) or (c) and I have not modified
+     it.(d) I understand and agree that this project and the contribution
+     are public and that a record of the contribution (including all
+     personal information I submit with it, including my sign-off) is
+     maintained indefinitely and may be redistributed consistent with
+     this project or the open source license(s) involved.```
+
+--------------------------------
+
+How to Contribute
+Thank you for considering contributing to Hypothetical Repo!Contributions help us grow and improve, and we appreciate your interest.Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).- Report Bugs: Found a bug?Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.- Submit Enhancements: Have a feature idea?Propose it in an issue.Be sure to explain the problem it solves and how it improves the project.Also, don't forget to look at the [templates](https://github.com/huggingface/transformers/tree/main/templates) for a feature request.- Pull Requests: Review the for submitting your changes.Ensure your code is well-documented and adheres to our style guidelines.Setup GuideTo set up the project locally:- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.- Make your changes and test locally to ensure they work as intended.- Submit your pull request with a detailed description of your changes.
+
+--------------------------------
+
+This is my documentation readme file.Generating the documentationTo generate the documentation, you first have to build it.Several packages are necessary to build the doc,
+you can install them with the following command, at the root of the code repository:```
+pip install -e ".[docs]"```Then you need to install our special tool that builds the documentation:```
+pip install git+https://github.com/huggingface/doc-builder```Building the documentation
+Once you have setup the `doc-builder` and additional packages, you can generate the documentation by
+typing the following command:```
+doc-builder build transformers docs/source/en/ --build_dir ~/tmp/test-build```You can adapt the `--build_dir` to set any temporary folder that you prefer.This command will create it and generate
+the MDX files that will be rendered as the documentation on the main website.You can inspect them in your favorite
+Markdown editor.
+
+--------------------------------
+
+Node.js Project Governance
+ raw HTML omitted 
+
+-- -- -- -----
+ raw HTML omittedTriagers
+Triagers assess newly-opened issues in the [nodejs/node](https://github.com/nodejs/node) and [nodejs/help](https://github.com/nodejs/help)
+repositories.The GitHub team for Node.js triagers is @nodejs/issue-triage.Triagers are given the "Triage" GitHub role and have:- Ability to label issues and pull requests- Ability to comment, close, and reopen issues and pull requestsSee:- [List of triagers](./README.md#triagers)- [A guide for triagers](./doc/contributing/issues.md#triaging-a-bug-report)Collaborators
+Node.js core collaborators maintain the [nodejs/node](https://github.com/nodejs/node)GitHub repository.The GitHub team for Node.js core collaborators is @nodejs/collaborators.Collaborators have:- Commit access to the [nodejs/node](https://github.com/nodejs/node) repository- Access to the Node.js continuous integration (CI) jobsBoth collaborators and non-collaborators may propose changes to the Node.js
+source code.The mechanism to propose such a change is a GitHub pull request.Collaborators review and merge (land) pull requests.Two collaborators must approve a pull request before the pull request can land.(One collaborator approval is enough if the pull request has been open for more
+than 7 days.)Approving a pull request indicates that the collaborator accepts
+responsibility for the change.Approval must be from collaborators who are not
+authors of the change.If a collaborator opposes a proposed change, then the change cannot land.The
+exception is if the TSC votes to approve the change despite the opposition.Usually, involving the TSC is unnecessary.Often, discussions or further changes
+result in collaborators removing their opposition.See:- [List of collaborators](./README.md#current-project-team-members)- [A guide for collaborators](./doc/contributing/collaborator-guide.md)Collaborator activities- Helping users and novice contributors- Contributing code and documentation changes that improve the project- Reviewing and commenting on issues and pull requests- Participation in working groups- Merging pull requestsThe TSC can remove inactive collaborators or provide them with emeritus
+status.Emeriti may request that the TSC restore them to active status.A collaborator is automatically made emeritus (and removed from active
+collaborator status) if it has been more than 12 months since the collaborator
+has authored or approved a commit that has landed.Technical Steering Committee
+A subset of the collaborators forms the Technical Steering Committee (TSC).The TSC has final authority over this project, including:- Technical direction- Project governance and process (including this policy)- Contribution policy- GitHub repository hosting- Conduct guidelines- Maintaining the list of collaboratorsThe current list of TSC members is in
+[the project README](./README.md#current-project-team-members).The [TSC Charter](https://github.com/nodejs/TSC/blob/HEAD/TSC-Charter.md) governs the operations of the TSC.All changes to the
+Charter need approval by the OpenJS Foundation Cross-Project Council (CPC).TSC meetings
+The TSC meets in a video conference call.Each year, the TSC elects a chair to
+run the meetings.The TSC streams its meetings for public viewing on YouTube.The TSC agenda includes issues that are at an impasse.The intention of the
+agenda is not to review or approve all patches.Collaborators review and approve
+patches on GitHub.Any community member can create a GitHub issue asking that the TSC review
+something.If consensus-seeking fails for an issue, a collaborator may apply the`tsc-agenda` label.That will add it to the TSC meeting agenda.Before each TSC meeting, the meeting chair will share the agenda with members of
+the TSC.TSC members can also add items to the agenda at the beginning of each
+meeting.The meeting chair and the TSC cannot veto or remove items.The TSC may invite people to take part in a non-voting capacity.During the meeting, the TSC chair ensures that someone takes minutes.After the
+meeting, the TSC chair ensures that someone opens a pull request with the
+minutes.The TSC seeks to resolve as many issues as possible outside meetings using
+[the TSC issue tracker](https://github.com/nodejs/TSC/issues).The process in
+the issue tracker is:
+- A TSC member opens an issue explaining the proposal/issue and @-mentions@nodejs/tsc.- The proposal passes if, after 72 hours, there are two or more TSC votingmember approvals and no TSC voting member opposition.- If there is an extended impasse, a TSC member may make a motion for a vote.Collaborator nominationsWho can nominate Collaborators?Existing Collaborators can nominate someone to become a Collaborator.Ideal Nominees
+Nominees should have significant and valuable contributions across the Node.js
+organization.Contributions can be:
+- Opening pull requests.- Comments and reviews.- Opening new issues.- Participation in other projects, teams, and working groups of the Node.js
+organization.Nominating a new CollaboratorTo nominate a new Collaborator, open an issue in the [nodejs/node](https://github.com/nodejs/node) repository.Provide a summary of the nominee's contributions.For example:
+- Commits in the [nodejs/node](https://github.com/nodejs/node) repository.-Use the link `https://github.com/nodejs/node/commits?author=GITHUB_ID`- Pull requests and issues opened in the [nodejs/node](https://github.com/nodejs/node) repository.-Use the link `https://github.com/nodejs/node/issues?q=author:GITHUB_ID`- Comments on pull requests and issues in the [nodejs/node](https://github.com/nodejs/node) repository
+-Use the link `https://github.com/nodejs/node/issues?q=commenter:GITHUB_ID`- Reviews on pull requests in the [nodejs/node](https://github.com/nodejs/node) repository
+-Use the link `https://github.com/nodejs/node/pulls?q=reviewed-by:GITHUB_ID`- Help provided to end-users and novice contributors- Pull requests and issues opened throughout the Node.js organization
+- Use the link  `https://github.com/search?q=author:GITHUB_ID+org:nodejs`- Comments on pull requests and issues throughout the Node.js organization
+- Use the link `https://github.com/search?q=commenter:GITHUB_ID+org:nodejs`- Participation in other projects, teams, and working groups of the Node.js
+organization- Other participation in the wider Node.js communityMention @nodejs/collaborators in the issue to notify other collaborators aboutthe nomination.The nomination passes if no collaborators oppose it after one week.In the case
+of an objection, the TSC is responsible for working with the individuals
+involved and finding a resolution.There are steps a nominator can take in advance to make a nomination as
+frictionless as possible.To request feedback from other collaborators in
+private, use the [collaborators discussion page](https://github.com/nodejs/collaborators/discussions/categories/collaborator-nominations)
+(which only collaborators may view).A nominator may also work with the
+nominee to improve their contribution profile.Collaborators might overlook someone with valuable contributions.In that case,
+the contributor may open an issue or contact a collaborator to request a
+nomination.OnboardingAfter the nomination passes, a TSC member onboards the new collaborator.See
+[the onboarding guide](./onboarding.md) for details of the onboarding
+process.Consensus seeking processThe TSC follows a [Consensus Seeking](https://en.wikipedia.org/wiki/Consensus-seeking_decision-making) decision-making model per the
+[TSC Charter](https://github.com/nodejs/TSC/blob/HEAD/TSC-Charter.md).
+
+--------------------------------
+
+Project Overview
+Welcome to Hypothetical Repo, a project designed to simplify your tasks and provide a seamless experience.This project aims to empower users with tools that are both easy to use and highly customizable.Explore the features and capabilities of our tool through the [User Guide](./USER_GUIDE.md).Features- Feature 1: A robust functionality that enhances productivity by automating repetitive tasks.- Feature 2: An intuitive interface designed for ease of use and accessibility.- Feature 3: Seamless integration with popular tools and platforms for a smoother workflow.Getting StartedTo get started, follow the [Installation Guide](./INSTALLATION_GUIDE.md) for step-by-step setup instructions.The guide will walk you through prerequisites, installation steps, and how to run the project.For contributing or reporting issues, please check out our [Code of Conduct](./CODE_OF_CONDUCT.md).We encourage all users to participate in making this project even better!
+
+--------------------------------
+
+Usage
+Using the `cookiecutter` utility requires to have all the `dev` dependencies installed.Let's first [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the `transformers` repo on github.Once it's done you can clone your fork and install `transformers` in our environment:```
+git clone https://github.com/YOUR-USERNAME/transformers
+cd transformers
+pip install -e ".[dev]"```Once the installation is done, you can generate the template by running the following command.Be careful, the template will be generated inside a new folder in your current working directory.```
+cookiecutter path-to-the folder/adding_a_missing_tokenization_test/```You will then have to answer some questions about the tokenizer for which you want to add tests.The `modelname` should be cased according to the plain text casing, i.e., BERT, RoBERTa, DeBERTa.Once the command has finished, you should have a one new file inside the newly created folder named `test_tokenization_Xxx.py`.At this point the template is finished and you can move it to the sub-folder of the corresponding model in the test folder.
+
+--------------------------------
+
+Adding a new modelThis page has been updated in light of the removal of the `add_new_model` script in favor of the more complete`add_new_model_like` script.We recommend you checkout the documentation of [How to add a model](https://huggingface.co/docs/transformers/main/en/add_new_model)
+in the Hugging Face Transformers documentation for complete and up-to-date instructions.
+
+--------------------------------
+
+Prerequisites- Operating system: Windows/Linux/MacOS.- Tools: Git, Python 3.8+, Node.js (optional).- Additional libraries or dependencies specified in `requirements.txt`.Steps to Install- Clone the repository: `git clone https://github.com/example/hypothetical-repo.git`- Navigate to the project folder: `cd hypothetical-repo`- Install dependencies: `pip install -r requirements.txt`- Optionally, set up environment variables or configuration files for advanced usage.Next Steps
+After installation, check the [User Guide](./USER_GUIDE.md) to start using the project.Learn about additional configurations, integrations, and usage examples to make the most of the tool.
+
+--------------------------------
+
+Issues
+
+----Asking for general help
+Because the level of activity in the `nodejs/node` repository is so high,
+questions or requests for general help using Node.js should be directed at
+the [Node.js help repository](https://github.com/nodejs/help/issues).Discussing non-technical topics
+Discussion of non-technical topics (such as intellectual property and trademark)
+should be directed to the [Technical Steering Committee (TSC) repository](https://github.com/nodejs/TSC/issues).Submitting a bug reportWhen opening a new issue in the `nodejs/node` issue tracker, users will be
+presented with a choice of issue templates.If you believe that you have
+uncovered a bug in Node.js, please fill out the `Bug Report` template to the
+best of your ability.Do not worry if you cannot answer every detail; just fill
+in what you can.The two most important pieces of information we need in order to properly
+evaluate the report is a description of the behavior you are seeing and a simple
+test case we can use to recreate the problem on our own.If we cannot recreate
+the issue, it becomes impossible for us to fix.In order to rule out the possibility of bugs introduced by userland code, test
+cases should be limited, as much as possible, to using only Node.js APIs.If the bug occurs only when you're using a specific userland module, there is
+a very good chance that either (a) the module has a bug or (b) something in
+Node.js changed that broke the module.See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).Triaging a bug report
+Once an issue has been opened, it is common for there to be discussion
+around it.Some contributors may have differing opinions about the issue,
+including whether the behavior being seen is a bug or a feature.This discussion
+is part of the process and should be kept focused, helpful, and professional.The objective of helping with triaging issues (in core and help repos) is to
+help reduce the issue backlog and keep the issue tracker healthy, while enabling
+newcomers another meaningful way to get engaged and contribute.Anyone with a reasonable understanding of Node.js programming and the
+project's GitHub organization plus a few contributions to the project
+(commenting on issues or PRs) can apply for and become a triager.Open a PR
+on the README.md of this project with: i) a request to be added as a triager,
+ii) the motivation for becoming a triager, and iii) agreement on reading,
+understanding, and adhering to the project's [Code Of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md).The triage role enables the ability to carry out the most common triage
+activities, such as applying labels and closing/reopening/assigning issues.For more information on the roles and permissions, see ["Permission levels for
+repositories owned by an organization"](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization).When triagging issues and PRs:- Show patience and empathy, especially to first-time contributors.- Show no patience towards spam or troll, close the issue without interacting with it andreport the user to the moderation repository.-If you're not able to reproduce an issue, leave a comment asking for more info andadd the `needs more info` label.- Ideally issues should be closed only when they have been fixed or answered (andmerged for pull requests).Closing an issue (or PR) earlier can be seen as
+dismissive from the point of view of the reporter/author.Always try to communicate the reason for closing the issue/PR.
+
+--------------------------------
+
+Pull requests
+
+-- --- -- ------ --- --------- -----Dependencies
+Node.js has several bundled dependencies in the deps/ and the tools/
+directories that are not part of the project proper.These are detailed in the [maintaining dependencies](./maintaining/maintaining-dependencies.md) document.Changes to files in those directories should be sent
+to their respective projects.Do not send a patch to Node.js.We cannot accept such patches.In case of doubt, open an issue in the
+[issue tracker](https://github.com/nodejs/node/issues/) or contact one of the
+[project collaborators](https://github.com/nodejs/node/#current-project-team-members).Node.js has many channels on the
+[OpenJS Foundation Slack](https://slack-invite.openjsf.org/).Interesting
+channels are:
+[#nodejs](https://openjs-foundation.slack.com/archives/CK9Q4MB53) for general
+help, questions, and discussions.[#nodejs-core](https://openjs-foundation.slack.com/archives/C019Y2T6STH) for
+development of Node.js core specifically.Node.js also has an unofficial IRC channel:
+[#Node.js](https://web.libera.chat/#node.js).Setting up your local environmentTo get started, you will need to have `git` installed locally.Depending on
+your operating system, there are also a number of other dependencies required.These are detailed in the [Building guide](../../BUILDING.md).Depending on your environment you might want to grab IDE specific settings from
+[IDE configs](https://github.com/nodejs/node-code-ide-configs).Once you have `git` and are sure you have all of the necessary dependencies,
+it's time to create a fork.Step 1: Fork
+Fork the project [on GitHub](https://github.com/nodejs/node) and clone your fork
+locally.```
+git clone git@github.com:username/node.git
+cd node
+git remote add upstream https://github.com/nodejs/node.git
+git fetch upstream```Configure `git` so that it knows who you are:```
+git config user.name "J. Random User"
+git config user.email "j.random.user@example.com"```You can use any name/email address you prefer here.We only use the
+metadata generated by `git` using this configuration for properly attributing
+your changes to you in the `AUTHORS` file and the changelog.If you would like for the GitHub UI to link the commit to your account
+and award you the `Contributor` label after the changes have been merged,
+make sure this local email is also added to your
+[GitHub email list](https://github.com/settings/emails).Step 2: BranchAs a best practice to keep your development environment as organized as
+possible, create local branches to work within.These should also be created
+directly off of the upstream default branch.```
+git checkout -b my-branch -t upstream/HEAD```The process of making changes
+Step 3: Code
+Pull requests in Node.js typically involve changes to
+one or more of a few places in the repository.- C/C++ code contained in the `src` directory- JavaScript code contained in the `lib` directory- Documentation in `doc/api`- Tests within the `test` directoryIf you are modifying code, please be sure to run `make lint` (or`vcbuild.bat lint` on Windows) to ensure that the changes follow the Node.js
+code style guide.Any documentation you write (including code comments and API documentation)
+should follow the [Style Guide](../../doc/README.md).Code samples
+included in the API docs will also be checked when running `make lint` (or
+`vcbuild.bat lint` on Windows).If you are adding to or deprecating an API,
+add or change the appropriate YAML documentation.Use `REPLACEME` for the
+version number in the documentation YAML:```
+### `request.method`
+<!--YAML
+added: REPLACEME
+-->* {string}The request method.```For contributing C++ code, you may want to look at the
+[C++ Style Guide](cpp-style-guide.md), as well as the
+[README of src/](../../src/README.md) for an overview of Node.js
+C++ internals.Step 4: CommitIt is a best practice to keep your changes as logically grouped
+as possible within individual commits.There is no limit to the number of
+commits any single pull request may have, and many contributors find it easier
+to review changes that are split across multiple commits.```
+git add my/changed/files
+git commit```Multiple commits often get squashed when they are landed.See the
+notes about .Commit message guidelines
+A good commit message should describe what changed and why.-The first line should:- contain a short description of the change (preferably 50 characters or
+less, and no more than 72 characters)- be entirely in lowercase with the exception of proper nouns, acronyms, andthe words that refer to code, like function/variable names- be prefixed with the name of the changedand start with an imperative verb.Check the output of `git log --oneline files/you/changed` to find out what subsystems your changes touch.Examples:
+- `net: add localAddress and localPort to Socket`- `src: fix typos in async_wrap.h`- Keep the second line blank.- Wrap all other lines at 72 columns (except for long URLs).- If your patch fixes an open issue, you can add a reference to it at the end
+of the log.Use the `Fixes:` prefix and the full issue URL.For otherreferences use `Refs:`.`Fixes:` and `Refs:` trailers get automatically added to your commit message
+when the Pull Request lands as long as they are included in the
+Pull Request's description.If the Pull Request lands in several commits,
+by default the trailers found in the description are added to each commits.Examples:
+- `Fixes: https://github.com/nodejs/node/issues/1337`- `Refs: https://eslint.org/docs/rules/space-in-parens.html`- `Refs: https://github.com/nodejs/node/pull/3615`- If your commit introduces a breaking change (`semver-major`), it should
+contain an explanation about the reason of the breaking change, whichsituation would trigger the breaking change, and what is the exact change.Sample complete commit message:```
+subsystem: explain the commit in one lineThe body of the commit message should be one or more paragraphs, explaining
+things in more detail.Please word-wrap to keep columns to 72 characters or
+less.Fixes: https://github.com/nodejs/node/issues/1337Refs: https://eslint.org/docs/rules/space-in-parens.html```If you are new to contributing to Node.js, please try to do your best at
+conforming to these guidelines, but do not worry if you get something wrong.One of the existing contributors will help get things situated and the
+contributor landing the pull request will ensure that everything follows
+the project guidelines.Step 5: RebaseAs a best practice, once you have committed your changes, it is a good idea
+to use `git rebase` (not `git merge`) to synchronize your work with the main
+repository.```
+git fetch upstream HEAD
+git rebase FETCH_HEAD```This ensures that your working branch has the latest changes from `nodejs/node`.Step 6: Test
+Bug fixes and features should always come with tests.A
+[guide for writing tests in Node.js](writing-tests.md) has been
+provided to make the process easier.Looking at other tests to see how they
+should be structured can also help.The `test` directory within the `nodejs/node` repository is complex and it is
+often not clear where a new test file should go.When in doubt, add new tests
+to the `test/parallel/` directory and the right location will be sorted out
+later.Before submitting your changes in a pull request, always run the full Node.js
+test suite.To run the tests (including code linting) on Unix / macOS:```
+./configure && make -j4 test```We can speed up the builds by using [Ninja](https://ninja-build.org/).For more
+information, see
+[Building Node.js with Ninja](building-node-with-ninja.md).And on Windows:```
+vcbuild test```For some configurations, running all tests might take a long time (an hour or
+more).To run a subset of the test suite, see the [running tests](../../BUILDING.md#running-tests) section of
+the Building guide.Step 7: PushOnce you are sure your commits are ready to go, with passing tests and linting,
+begin the process of opening a pull request by pushing your working branch to
+your fork on GitHub.```
+git push origin my-branch```Step 8: Opening the pull request
+From within GitHub, opening a new pull request will present you with a
+[pull request template](https://raw.githubusercontent.com/nodejs/node/HEAD/.github/PULL_REQUEST_TEMPLATE.md).Please try to do your best at filling out the
+details, but feel free to skip parts if you're not sure what to put.Once opened, pull requests are usually reviewed within a few days.To get feedback on your proposed change even though it is not ready
+to land, use the `Convert to draft` option in the GitHub UI.Do not use the `wip` label as it might not prevent the PR
+from landing before you are ready.Step 9: Discuss and updateYou will probably get feedback or requests for changes to your pull request.This is a big part of the submission process so don't be discouraged!Some
+contributors may sign off on the pull request right away, others may have
+more detailed comments or feedback.This is a necessary part of the process
+in order to evaluate whether the changes are correct and necessary.To make changes to an existing pull request, make the changes to your local
+branch, add a new commit with those changes, and push those to your fork.GitHub will automatically update the pull request.```
+git add my/changed/files
+git commit
+git push origin my-branch```If a git conflict arises, it is necessary to synchronize your branch with other
+changes that have landed upstream by using `git rebase`:```
+git fetch upstream HEAD
+git rebase FETCH_HEAD
+git push --force-with-lease origin my-branch```Important: The `git push --force-with-lease` command is one of the few ways
+to delete history in `git`.It also complicates the review process, as it won't
+allow reviewers to get a quick glance on what changed.Before you use it, make
+sure you understand the risks.If in doubt, you can always ask for guidance in
+the pull request.There are a number of more advanced mechanisms for managing commits using
+`git rebase` that can be used, but are beyond the scope of this guide.Feel free to post a comment in the pull request to ping reviewers if you are
+awaiting an answer on something.If you encounter words or acronyms that
+seem unfamiliar, refer to this
+[glossary](https://github.com/nodejs/node/blob/HEAD/glossary.md).Approval and request changes workflow
+All pull requests require "sign off" in order to land.Whenever a contributor
+reviews a pull request they may find specific details that they would like to
+see changed or fixed.These may be as simple as fixing a typo, or may involve
+substantive changes to the code you have written.While such requests are
+intended to be helpful, they may come across as abrupt or unhelpful, especially
+requests to change things that do not include concrete suggestions on how to
+change them.Try not to be discouraged.If you feel that a particular review is unfair,
+say so, or contact one of the other contributors in the project and seek their
+input.Often such comments are the result of the reviewer having only taken a
+short amount of time to review and are not ill-intended.Such issues can often
+be resolved with a bit of patience.That said, reviewers should be expected to
+be helpful in their feedback, and feedback that is simply vague, dismissive, and
+unhelpful is likely safe to ignore.Step 10: LandingIn order to land, a pull request needs to be reviewed and  by
+at least two Node.js Collaborators (one collaborator approval is enough if the
+pull request has been open for more than 7 days) and pass a
+.After that, as long as there are noobjections from other contributors, the pull request can be merged.If you findyour pull request waiting longer than you expect, see the
+.When a collaborator lands your pull request, they will posta comment to the pull request page mentioning the commit(s) it
+landed as.GitHub might show the pull request as `Closed` at this
+point, but don't worry.If you look at the branch you raised your
+pull request against, you should see a commit with your name on it.Congratulations and thanks for your contribution!Reviewing pull requests
+All Node.js contributors who choose to review and provide feedback on Pull
+Requests have a responsibility to both the project and the individual making the
+contribution.Reviews and feedback must be helpful, insightful, and geared
+towards improving the contribution as opposed to simply blocking it.Do not
+expect to be able to block a pull request from advancing simply because you say
+"No" without giving an explanation.Be open to having your mind changed.Be open
+to working with the contributor to make the pull request better.Reviews that are dismissive or disrespectful of the contributor or any other
+reviewers are strictly counter to the [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md).When reviewing a pull request, the primary goals are for the codebase to improve
+and for the person submitting the request to succeed.Even if a pull request
+does not land, the submitters should come away from the experience feeling like
+their effort was not wasted or unappreciated.Every pull request from a new
+contributor is an opportunity to grow the community.Review a bit at a time
+Do not overwhelm new contributors.It is tempting to micro-optimize and make everything about relative performance,
+perfect grammar, or exact style matches.Do not succumb to that temptation.Focus first on the most significant aspects of the change:
+- Does this change make sense for Node.js?- Does this change make Node.js better, even if only incrementally?- Are there clear bugs or larger scale issues that need attending to?- Is the commit message readable and correct?If it contains a breaking change
+is it clear enough?When changes are necessary, request them, do not demand them, and do not
+assume that the submitter already knows how to add a test or run a benchmark.Specific performance optimization techniques, coding styles, and conventions
+change over time.The first impression you give to a new contributor never does.Nits (requests for small changes that are not essential) are fine, but try to
+avoid stalling the pull request.Most nits can typically be fixed by the
+Node.js collaborator landing the pull request but they can also be an
+opportunity for the contributor to learn a bit more about the project.It is always good to clearly indicate nits when you comment: e.g.
+`Nit: change foo() to bar().But this is not blocking.`If your comments were addressed but were not folded automatically after new
+commits or if they proved to be mistaken, please, [hide them](https://help.github.com/articles/managing-disruptive-comments/#hiding-a-comment)
+with the appropriate reason to keep the conversation flow concise and relevant.Be aware of the person behind the codeBe aware that how you communicate requests and reviews in your feedback can
+have a significant impact on the success of the pull request.Yes, we may land
+a particular change that makes Node.js better, but the individual might just
+not want to have anything to do with Node.js ever again.The goal is not just
+having good code.Respect the minimum wait time for commentsThere is a minimum waiting time which we try to respect for non-trivial
+changes, so that people who may have important input in such a distributed
+project are able to respond.For non-trivial changes, pull requests must be left open for at least 48 hours.Sometimes changes take far longer to review, or need more specialized review
+from subject-matter experts.When in doubt, do not rush.Trivial changes, typically limited to small formatting changes or fixes to
+documentation, may be landed within the minimum 48 hour window.Abandoned or stalled pull requestsIf a pull request appears to be abandoned or stalled, it is polite to first
+check with the contributor to see if they intend to continue the work before
+checking if they would mind if you took it over (especially if it just has
+nits left).When doing so, it is courteous to give the original contributor
+credit for the work they started (either by preserving their name and email
+address) in the commit log, or by using an `Author:` meta-data tag in the
+commit.Approving a change
+Any Node.js core collaborator (any GitHub user with commit rights in the
+`nodejs/node` repository) is authorized to approve any other contributor's
+work.Collaborators are not permitted to approve their own pull requests.Collaborators indicate that they have reviewed and approve of the changes in
+a pull request either by using GitHub's Approval Workflow, which is preferred,
+or by leaving an `LGTM` ("Looks Good To Me") comment.When explicitly using the "Changes requested" component of the GitHub Approval
+Workflow, show empathy.That is, do not be rude or abrupt with your feedback
+and offer concrete suggestions for improvement, if possible.If you're not
+sure how a particular change can be improved, say so.Most importantly, after leaving such requests, it is courteous to make yourself
+available later to check whether your comments have been addressed.If you see that requested changes have been made, you can clear another
+collaborator's `Changes requested` review.Change requests that are vague, dismissive, or unconstructive may also be
+dismissed if requests for greater clarification go unanswered within a
+reasonable period of time.Use `Changes requested` to block a pull request from landing.When doing so,
+explain why you believe the pull request should not land along with an
+explanation of what may be an acceptable alternative course, if any.Accept that there are different opinions about what belongs in Node.js
+Opinions on this vary, even among the members of the Technical Steering
+Committee.One general rule of thumb is that if Node.js itself needs it (due to historic
+or functional reasons), then it belongs in Node.js.For instance, `url`
+parsing is in Node.js because of HTTP protocol support.Also, functionality that either cannot be implemented outside of core in any
+reasonable way, or only with significant pain.It is not uncommon for contributors to suggest new features they feel would
+make Node.js better.These may or may not make sense to add, but as with all
+changes, be courteous in how you communicate your stance on these.Comments
+that make the contributor feel like they should have "known better" or
+ridiculed for even trying run counter to the [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md).Performance is not everything
+Node.js has always optimized for speed of execution.If a particular change
+can be shown to make some part of Node.js faster, it's quite likely to be
+accepted.Claims that a particular pull request will make things faster will
+almost always be met by requests for performance [benchmark results](writing-and-running-benchmarks.md) that
+demonstrate the improvement.That said, performance is not the only factor to consider.Node.js also
+optimizes in favor of not breaking existing code in the ecosystem, and not
+changing working functional code just for the sake of changing.If a particular pull request introduces a performance or functional
+regression, rather than simply rejecting the pull request, take the time to
+work with the contributor on improving the change.Offer feedback and
+advice on what would make the pull request acceptable, and do not assume that
+the contributor should already know how to do that.Be explicit in your
+feedback.Continuous integration testing
+All pull requests that contain changes to code must be run through
+continuous integration (CI) testing at [https://ci.nodejs.org/](https://ci.nodejs.org/).Only Node.js core collaborators and triagers can start a CI testing run.The
+specific details of how to do this are included in the new collaborator
+[Onboarding guide](../../onboarding.md).Usually, a collaborator or triager will start a CI
+test run for you as approvals for the pull request come in.If not, you can ask a collaborator or triager to start a CI run.Ideally, the code change will pass ("be green") on all platform configurations
+supported by Node.js.This means that all tests pass and there are no linting
+errors.In reality, however, it is not uncommon for the CI infrastructure itself
+to fail on specific platforms or for so-called "flaky" tests to fail ("be red").It is vital to visually inspect the results of all failed ("red") tests to
+determine whether the failure was caused by the changes in the pull request.Notes
+Commit squashingIn most cases, do not squash commits that you add to your pull request during
+the review process.When the commits in your pull request land, they may be
+squashed into one commit per logical change.Metadata will be added to the
+commit message (including links to the pull request, links to relevant issues,
+and the names of the reviewers).The commit history of your pull request,
+however, will stay intact on the pull request page.For the size of "one logical change",
+[0b5191f](https://github.com/nodejs/node/commit/0b5191f15d0f311c804d542b67e2e922d98834f8)
+can be a good example.It touches the implementation, the documentation,
+and the tests, but is still one logical change.All tests should always pass
+when each individual commit lands on one of the `nodejs/node` branches.Getting approvals for your pull request
+A pull request is approved either by saying LGTM, which stands for
+"Looks Good To Me", or by using GitHub's Approve button.GitHub's pull request review feature can be used during the process.For more information, check out
+[the official documentation](https://help.github.com/articles/reviewing-changes-in-pull-requests/).After you push new changes to your branch, you need to get
+approval for these new changes again, even if GitHub shows "Approved"
+because the reviewers have hit the buttons before.Waiting until the pull request gets landed
+A pull request needs to stay open for at least 48 hours from when it is
+submitted, even after it gets approved and passes the CI.This is to make sure
+that everyone has a chance to weigh in.If the changes are trivial,
+collaborators may decide it doesn't need to wait.A pull request may well take
+longer to be merged in.All these precautions are important because Node.js is
+widely used, so don't be discouraged!Check out the collaborator guideIf you want to know more about the code review and the landing process, see the
+[collaborator guide](collaborator-guide.md).Appendix: subsystems
+- `lib/*.js` (`assert`, `buffer`, etc.)- `build`- `doc`- `lib / src`- `test`- `tools`
+You can find the full list of supported subsystems in the[nodejs/core-validate-commit](https://github.com/nodejs/core-validate-commit/blob/main/lib/rules/subsystem.js) repository.More than one subsystem may be valid for any particular issue or pull request.
+
+--------------------------------
+
+Code of Conduct
+The Node.js project has a [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md) that all contributors are
+expected to follow.This code describes the minimum behavior expectations
+for all contributors.As a contributor to Node.js, how you choose to act and interact towards your
+fellow contributors, as well as to the community, will reflect back not only
+on yourself but on the project as a whole.The Code of Conduct is designed and
+intended, above all else, to help establish a culture within the project that
+allows anyone and everyone who wants to contribute to feel safe doing so.Should any individual act in any way that is considered in violation of the
+[Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md), corrective actions will be taken.It is possible, however,
+for any individual to act in such a manner that is not in violation of the
+strict letter of the Code of Conduct guidelines while still going completely
+against the spirit of what that Code is intended to accomplish.Open, diverse, and inclusive communities live and die on the basis of trust.Contributors can disagree with one another so long as they trust that those
+disagreements are in good faith and everyone is working towards a common goal.Bad actors
+All contributors to Node.js tacitly agree to abide by both the letter and
+spirit of the [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md).Failure, or unwillingness, to do so will
+result in contributions being respectfully declined.A bad actor is someone who repeatedly violates the spirit of the Code of
+Conduct through failure to regulate how they
+interact with others.In doing so, bad actors
+alienate other contributors, discourage collaboration, and generally reflect
+poorly on the project as a whole.Being a bad actor may be intentional or unintentional.Typically, unintentional
+bad behavior can be easily corrected by being quick to apologize and correct
+course even if you are not entirely convinced you need to.Giving other
+contributors the benefit of the doubt and having a sincere willingness to admit
+that you might be wrong is critical for any successful open collaboration.Don't be a bad actor.
+
+--------------------------------
+
