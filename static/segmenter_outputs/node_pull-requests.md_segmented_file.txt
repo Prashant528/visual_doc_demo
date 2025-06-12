@@ -1,5 +1,7 @@
 Pull requests
 
+-
+
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -126,8 +128,6 @@ Keep the second line blank.
 - Wrap all other lines at 72 columns (except for long URLs).
 - If your patch fixes an open issue, you can add a reference to it at the end
 of the log.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Use the `Fixes:` prefix and the full issue URL. For other references use `Refs:`. `Fixes:` and `Refs:` trailers get automatically added to your commit message
 when the Pull Request lands as long as they are included in the
@@ -259,7 +259,9 @@ Approval and request changes workflow
 All pull requests require "sign off" in order to land. Whenever a contributor
 reviews a pull request they may find specific details that they would like to
 see changed or fixed. These may be as simple as fixing a typo, or may involve
-substantive changes to the code you have written. While such requests are
+substantive changes to the code you have written.
+
+While such requests are
 intended to be helpful, they may come across as abrupt or unhelpful, especially
 requests to change things that do not include concrete suggestions on how to
 change them. Try not to be discouraged. If you feel that a particular review is unfair,
@@ -276,13 +278,13 @@ at least two Node.js Collaborators (one collaborator approval is enough if the
 pull request has been open for more than 7 days) and pass a
 .
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
 After that, as long as there are no objections from other contributors, the pull request can be merged. If you find your pull request waiting longer than you expect, see the
 . When a collaborator lands your pull request, they will post a comment to the pull request page mentioning the commit(s) it
 landed as. GitHub might show the pull request as `Closed` at this
 point, but don't worry. If you look at the branch you raised your
 pull request against, you should see a commit with your name on it. Congratulations and thanks for your contribution!
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Reviewing pull requests
 All Node.js contributors who choose to review and provide feedback on Pull
@@ -294,9 +296,7 @@ expect to be able to block a pull request from advancing simply because you say
 to working with the contributor to make the pull request better.
 
 Reviews that are dismissive or disrespectful of the contributor or any other
-reviewers are strictly counter to the [Code of Conduct] (https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md).
-
-When reviewing a pull request, the primary goals are for the codebase to improve
+reviewers are strictly counter to the [Code of Conduct] (https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md). When reviewing a pull request, the primary goals are for the codebase to improve
 and for the person submitting the request to succeed. Even if a pull request
 does not land, the submitters should come away from the experience feeling like
 their effort was not wasted or unappreciated. Every pull request from a new
@@ -356,6 +356,11 @@ credit for the work they started (either by preserving their name and email
 address) in the commit log, or by using an `Author:` meta-data tag in the
 commit.
 
+If a pull request has been inactive for more than six months, add the `stalled` label
+to it. That will trigger an automation that adds a comment explaining the pull request
+may be close for inactivity, giving a heads-up to the contributor before actually
+closing it if it remains inactive.
+
 Approving a change
 Any Node.js core collaborator (any GitHub user with commit rights in the
 `nodejs/node` repository) is authorized to approve any other contributor's
@@ -368,13 +373,11 @@ or by leaving an `LGTM` ("Looks Good To Me") comment.
 When explicitly using the "Changes requested" component of the GitHub Approval
 Workflow, show empathy. That is, do not be rude or abrupt with your feedback
 and offer concrete suggestions for improvement, if possible. If you're not
-sure how a particular change can be improved, say so.
+sure how a particular change can be improved, say so. Most importantly, after leaving such requests, it is courteous to make yourself
+available later to check whether your comments have been addressed.
 
-Most importantly, after leaving such requests, it is courteous to make yourself
-available later to check whether your comments have been addressed. If you see that requested changes have been made, you can clear another
-collaborator's `Changes requested` review.
-
-Change requests that are vague, dismissive, or unconstructive may also be
+If you see that requested changes have been made, you can clear another
+collaborator's `Changes requested` review. Change requests that are vague, dismissive, or unconstructive may also be
 dismissed if requests for greater clarification go unanswered within a
 reasonable period of time.
 
@@ -387,8 +390,6 @@ Opinions on this vary, even among the members of the Technical Steering
 Committee. One general rule of thumb is that if Node.js itself needs it (due to historic
 or functional reasons), then it belongs in Node.js. For instance, `url`
 parsing is in Node.js because of HTTP protocol support.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Also, functionality that either cannot be implemented outside of core in any
 reasonable way, or only with significant pain. It is not uncommon for contributors to suggest new features they feel would
@@ -458,19 +459,17 @@ Waiting until the pull request gets landed
 A pull request needs to stay open for at least 48 hours from when it is
 submitted, even after it gets approved and passes the CI.
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
 This is to make sure
 that everyone has a chance to weigh in. If the changes are trivial,
 collaborators may decide it doesn't need to wait. A pull request may well take
 longer to be merged in. All these precautions are important because Node.js is
 widely used, so don't be discouraged!
 
---------<PREDICTED_SEGMENT_BOUNDARY>--------
-
 Check out the collaborator guide
 If you want to know more about the code review and the landing process, see the
 [collaborator guide](collaborator-guide.md).
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Appendix: subsystems
 - `lib/*.js` (`assert`, `buffer`, etc.)
@@ -481,5 +480,3 @@ Appendix: subsystems
 - `tools`
 
 You can find the full list of supported subsystems in the [nodejs/core-validate-commit] (https://github.com/nodejs/core-validate-commit/blob/main/lib/rules/subsystem.js) repository. More than one subsystem may be valid for any particular issue or pull request.
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------

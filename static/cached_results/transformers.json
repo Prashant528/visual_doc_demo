@@ -114,11 +114,6 @@
                     "edge_label": "templates/adding_a_new_example_script/README.md"
                 },
                 {
-                    "source": "Adding a New Example Script",
-                    "target": "Adding a New Example Script",
-                    "edge_label": "templates/adding_a_new_example_script/README.md"
-                },
-                {
                     "source": "Requesting New Features",
                     "target": "Template Setup",
                     "edge_label": "templates/adding_a_new_model/ADD_NEW_MODEL_PROPOSAL_TEMPLATE.md"

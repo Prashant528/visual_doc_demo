@@ -1,0 +1,262 @@
+{
+    "content": {
+        "Contributing to Node.js": "### Contributing to Node.js<br />Contributions to Node.js include code, documentation, answering user questions, running the project's infrastructure, and advocating for all types of Node.js users.<br /><br />The Node.js project welcomes all contributions from anyone willing to work in good faith with other contributors and the community. No contribution is too small and all contributions are valued. The Node.js project has an open governance model. Individuals making significant and valuable contributions are made Collaborators and given commit-access to the project. See the [GOVERNANCE.md](./GOVERNANCE.md) document for more information about how this works.",
+        "Code of Conduct": "### Code of Conduct<br />The Node.js project has a [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md) to which all contributors must adhere. See [details on our policy on Code of Conduct](./doc/contributing/code-of-conduct.md).",
+        "Issues": "### Issues<br />- [Asking for General Help](./doc/contributing/issues.md#asking-for-general-help)<br />- [Discussing non-technical topics](./doc/contributing/issues.md#discussing-non-technical-topics)<br />- [Submitting a Bug Report](./doc/contributing/issues.md#submitting-a-bug-report)<br />- [Triaging a Bug Report](./doc/contributing/issues.md#triaging-a-bug-report)",
+        "Pull Requests": "### Pull Requests<br />Pull Requests are the way concrete changes are made to the code, documentation, dependencies, and tools contained in the `nodejs/node` repository.<br />- [Dependencies](./doc/contributing/pull-requests.md#dependencies)<br />- [Setting up your local environment](./doc/contributing/pull-requests.md#setting-up-your-local-environment)<br />- [The Process of Making Changes](./doc/contributing/pull-requests.md#the-process-of-making-changes)<br />- [Reviewing Pull Requests](./doc/contributing/pull-requests.md#reviewing-pull-requests)<br />- [Notes](./doc/contributing/pull-requests.md#notes)",
+        "Developer's Certificate of Origin": "### Developer's Certificate of Origin 1.1<br />```<br />By making a contribution to this project, I certify that:<br />(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or<br />(b) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate open source license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same open source license (unless I am permitted to submit under a different license), as indicated in the file; or<br />(c) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.<br />(d) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the open source license(s) involved.<br />```",
+        "Node.js Project Governance": "Node.js Project Governance",
+        "Triagers": "Triagers assess newly-opened issues in the [nodejs/node](https://github.com/nodejs/node) and [nodejs/help](https://github.com/nodejs/help) repositories. The GitHub team for Node.js triagers is @nodejs/issue-triage. Triagers are given the \"Triage\" GitHub role and have:<br />- Ability to label issues and pull requests<br />- Ability to comment, close, and reopen issues and pull requests<br />See:<br />- [List of triagers](./README.md#triagers)<br />- [A guide for triagers](./doc/contributing/issues.md#triaging-a-bug-report)",
+        "Collaborators": "Node.js core collaborators maintain the [nodejs/node](https://github.com/nodejs/node) GitHub repository. The GitHub team for Node.js core collaborators is @nodejs/collaborators. Collaborators have:<br />- Commit access to the [nodejs/node](https://github.com/nodejs/node) repository<br />- Access to the Node.js continuous integration (CI) jobs<br />Both collaborators and non-collaborators may propose changes to the Node.js source code. The mechanism to propose such a change is a GitHub pull request. Collaborators review and merge (land) pull requests. Two collaborators must approve a pull request before the pull request can land. (One collaborator approval is enough if the pull request has been open for more than 7 days.) Approving a pull request indicates that the collaborator accepts responsibility for the change. Approval must be from collaborators who are not authors of the change. If a collaborator opposes a proposed change, then the change cannot land. The exception is if the TSC votes to approve the change despite the opposition. Usually, involving the TSC is unnecessary. Often, discussions or further changes result in collaborators removing their opposition.<br />See:<br />- [List of collaborators](./README.md#current-project-team-members)<br />- [A guide for collaborators](./doc/contributing/collaborator-guide.md)<br />Collaborator activities:<br />- Helping users and novice contributors<br />- Contributing code and documentation changes that improve the project<br />- Reviewing and commenting on issues and pull requests<br />- Participation in working groups<br />- Merging pull requests<br />The TSC can remove inactive collaborators or provide them with emeritus status. Emeriti may request that the TSC restore them to active status. A collaborator is automatically made emeritus (and removed from active collaborator status) if it has been more than 12 months since the collaborator has authored or approved a commit that has landed.",
+        "Technical Steering Committee": "A subset of the collaborators forms the Technical Steering Committee (TSC). The TSC has final authority over this project, including:<br />- Technical direction<br />- Project governance and process (including this policy)<br />- Contribution policy<br />- GitHub repository hosting<br />- Conduct guidelines<br />- Maintaining the list of collaborators<br />The current list of TSC members is in [the project README](./README.md#current-project-team-members). The [TSC Charter](https://github.com/nodejs/TSC/blob/HEAD/TSC-Charter.md) governs the operations of the TSC. All changes to the Charter need approval by the OpenJS Foundation Cross-Project Council (CPC).",
+        "TSC meetings": "The TSC meets in a video conference call. Each year, the TSC elects a chair to run the meetings. The TSC streams its meetings for public viewing on YouTube. The TSC agenda includes issues that are at an impasse. The intention of the agenda is not to review or approve all patches. Collaborators review and approve patches on GitHub. Any community member can create a GitHub issue asking that the TSC review something. If consensus-seeking fails for an issue, a collaborator may apply the `tsc-agenda` label. That will add it to the TSC meeting agenda. Before each TSC meeting, the meeting chair will share the agenda with members of the TSC. TSC members can also add items to the agenda at the beginning of each meeting. The meeting chair and the TSC cannot veto or remove items. The TSC may invite people to take part in a non-voting capacity. During the meeting, the TSC chair ensures that someone takes minutes. After the meeting, the TSC chair ensures that someone opens a pull request with the minutes. The TSC seeks to resolve as many issues as possible outside meetings using [the TSC issue tracker](https://github.com/nodejs/TSC/issues). The process in the issue tracker is:<br />- A TSC member opens an issue explaining the proposal/issue and @-mentions @nodejs/tsc.<br />- The proposal passes if, after 72 hours, there are two or more TSC voting member approvals and no TSC voting member opposition.<br />- If there is an extended impasse, a TSC member may make a motion for a vote.",
+        "Collaborator nominations": "Who can nominate Collaborators? Existing Collaborators can nominate someone to become a Collaborator.<br />Ideal Nominees<br />Nominees should have significant and valuable contributions across the Node.js organization. Contributions can be:<br />- Opening pull requests.<br />- Comments and reviews.<br />- Opening new issues.<br />- Participation in other projects, teams, and working groups of the Node.js organization.<br />Collaborators should be people volunteering to do unglamorous work because it's the right thing to do, they find the work itself satisfying, and they care about Node.js and its users. People should get collaborator status because they're doing work and are likely to continue doing work where having the abilities that come with collaborator status are helpful (abilities like starting CI jobs, reviewing and approving PRs, etc.). That will usually--but, very importantly, not always--be work involving committing to the `nodejs/node` repository. For an example of an exception, someone working primarily on the website might benefit from being able to start Jenkins CI jobs to test changes to documentation tooling. That, along with signals indicating commitment to Node.js, personal integrity, etc., should be enough for a successful nomination. It is important to understand that potential collaborators may have vastly different areas and levels of expertise, interest, and skill. The Node.js project is large and complex, and it is not expected that every collaborator will have the same level of expertise in every area of the project. The complexity or \"sophistication\" of an individual\u2019s contributions, or even their relative engineering \"skill\" level, are not primary factors in determining whether they should be a collaborator. The primary factors do include the quality of their contributions (do the contributions make sense, do they add value, do they follow documented guidelines, are they authentic and well-intentioned, etc.), their commitment to the project, can their judgement be trusted, and do they have the ability to work well with others.",
+        "The Authenticity of Contributors": "The Node.js project does not require that contributors use their legal names or provide any personal information verifying their identity. It is not uncommon for malicious actors to attempt to gain commit access to open-source projects in order to inject malicious code or for other nefarious purposes. The Node.js project has a number of mechanisms in place to prevent this, but it is important to be vigilant. If you have concerns about the authenticity of a contributor, please raise them with the TSC. Anyone nominating a new collaborator should take reasonable steps to verify that the contributions of the nominee are authentic and made in good faith. This is not always easy, but it is important.",
+        "Nominating a new Collaborator": "To nominate a new Collaborator:<br />- Optional but strongly recommended: open a [discussion in the nodejs/collaborators](https://github.com/nodejs/collaborators/discussions/categories/collaborator-nominations) repository. Provide a summary of the nominee's contributions (see below for an example).<br />- Optional but strongly recommended: After sufficient wait time (e.g. 72 hours), if the nomination proposal has received some support and no explicit block, and any questions/concerns have been addressed, add a comment in the private discussion stating you're planning on opening a public issue, e.g. \"I see a number of approvals and no block, I'll be opening a public nomination issue if I don't hear any objections in the next 72 hours\".<br />- Optional but strongly recommended: Privately contact the nominee to make sure they're comfortable with the nomination.<br />- Open an issue in the [nodejs/node](https://github.com/nodejs/node) repository. Provide a summary of the nominee's contributions (see below for an example). Mention @nodejs/collaborators in the issue to notify other collaborators about the nomination.<br />The Optional but strongly recommended steps are optional in the sense that skipping them would not invalidate the nomination, but it could put the nominee in a very awkward situation if a nomination they didn't ask for pops out of nowhere only to be rejected. Do not skip those steps unless you're absolutely certain the nominee is fine with the public scrutiny.<br />Example of list of contributions:<br />- Commits in the [nodejs/node](https://github.com/nodejs/node) repository.<br />- Use the link `https://github.com/nodejs/node/commits?author=GITHUB_ID`<br />- Pull requests and issues opened in the [nodejs/node](https://github.com/nodejs/node) repository.<br />- Use the link `https://github.com/nodejs/node/issues?q=author:GITHUB_ID`<br />- Comments on pull requests and issues in the [nodejs/node](https://github.com/nodejs/node) repository<br />- Use the link `https://github.com/nodejs/node/issues?q=commenter:GITHUB_ID`<br />- Reviews on pull requests in the [nodejs/node](https://github.com/nodejs/node) repository<br />- Use the link `https://github.com/nodejs/node/pulls?q=reviewed-by:GITHUB_ID`<br />- Help provided to end-users and novice contributors<br />- Pull requests and issues opened throughout the Node.js organization<br />- Use the link  `https://github.com/search?q=author:GITHUB_ID+org:nodejs`<br />- Comments on pull requests and issues throughout the Node.js organization<br />- Use the link `https://github.com/search?q=commenter:GITHUB_ID+org:nodejs`",
+        "How to review a collaborator nomination": "A collaborator nomination can be reviewed in the same way one would review a PR adding a feature:<br />- If you see the nomination as something positive to the project, say so!<br />- If you are neutral, or feel you don't know enough to have an informed opinion, it's certainly OK to not interact with the nomination.<br />- If you think the nomination was made too soon, or can be detrimental to the project, share your concerns. See the section \"How to oppose a collaborator nomination\" below.<br />Our goal is to keep gate-keeping at a minimal, but it cannot be zero since being a collaborator requires trust (collaborators can start CI jobs, use their veto, push commits, etc.), so what's the minimal amount is subjective, and there will be cases where collaborators disagree on whether a nomination should move forward.",
+        "Refrain from discussing or debating aspects of the nomination process": "Refrain from discussing or debating aspects of the nomination process itself directly within a nomination private discussion or public issue. Such discussions can derail and frustrate the nomination causing unnecessary friction. Move such discussions to a separate issue or discussion thread.",
+        "How to oppose a collaborator nomination": "An important rule of thumb is that the nomination process is intended to be biased strongly towards implicit approval of the nomination. This means discussion and review around the proposal should be more geared towards \"I have reasons to say no...\" as opposed to \"Give me reasons to say yes...\". Given that there is no \"Request for changes\" feature in discussions and issues, try to be explicit when your comment is expressing a blocking concern. Similarly, once the blocking concern has been addressed, explicitly say so. Explicit opposition would typically be signaled as some form of clear and unambiguous comment like, \"I don't believe this nomination should pass\". Asking clarifying questions or expressing general concerns is not the same as explicit opposition; however, a best effort should be made to answer such questions or addressing those concerns before advancing the nomination. Opposition does not need to be public. Ideally, the comment showing opposition, and any discussion thereof, should be done in the private discussion before the public issue is opened. Opposition should be paired with clear suggestions for positive, concrete, and unambiguous next steps that the nominee can take to overcome the objection and allow it to move forward. While such suggestions are technically optional, they are strongly encouraged to prevent the nomination from stalling indefinitely or objections from being overridden by the TSC. Remember that all private discussions about a nomination will be visible to the nominee once they are onboarded.",
+        "Onboarding": "After the nomination passes, a TSC member onboards the new collaborator. See [the onboarding guide](./onboarding.md) for details of the onboarding process.",
+        "Consensus seeking process": "The TSC follows a [Consensus Seeking](https://en.wikipedia.org/wiki/Consensus-seeking_decision-making) decision-making model per the [TSC Charter](https://github.com/nodejs/TSC/blob/HEAD/TSC-Charter.md).",
+        "Code of Conduct#1": "The Node.js project has a [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md) that all contributors are expected to follow. This code describes the minimum behavior expectations for all contributors. As a contributor to Node.js, how you choose to act and interact towards your fellow contributors, as well as to the community, will reflect back not only on yourself but on the project as a whole. The Code of Conduct is designed and intended, above all else, to help establish a culture within the project that allows anyone and everyone who wants to contribute to feel safe doing so. Should any individual act in any way that is considered in violation of the [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md), corrective actions will be taken. It is possible, however, for any individual to act in such a manner that is not in violation of the strict letter of the Code of Conduct guidelines while still going completely against the spirit of what that Code is intended to accomplish. Open, diverse, and inclusive communities live and die on the basis of trust. Contributors can disagree with one another so long as they trust that those disagreements are in good faith and everyone is working towards a common goal.<br />",
+        "Bad Actors": "All contributors to Node.js tacitly agree to abide by both the letter and spirit of the [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md). Failure, or unwillingness, to do so will result in contributions being respectfully declined. A bad actor is someone who repeatedly violates the spirit of the Code of Conduct through failure to regulate how they interact with others. In doing so, bad actors alienate other contributors, discourage collaboration, and generally reflect poorly on the project as a whole. Being a bad actor may be intentional or unintentional. Typically, unintentional bad behavior can be easily corrected by being quick to apologize and correct course even if you are not entirely convinced you need to. Giving other contributors the benefit of the doubt and having a sincere willingness to admit that you might be wrong is critical for any successful open collaboration.<br />",
+        "Issues#1": "- **Issues**",
+        "General Help": "- **Asking for general help**<br />Because the level of activity in the `nodejs/node` repository is so high, questions or requests for general help using Node.js should be directed at the [Node.js help repository](https://github.com/nodejs/help/issues).",
+        "Non-Technical Discussions": "- **Discussing non-technical topics**<br />Discussion of non-technical topics (such as intellectual property and trademark) should be directed to the [Technical Steering Committee (TSC) repository](https://github.com/nodejs/TSC/issues).",
+        "Bug Report": "- **Submitting a bug report**<br />When opening a new issue in the `nodejs/node` issue tracker, users will be presented with a choice of issue templates. If you believe that you have uncovered a bug in Node.js, please fill out the `Bug Report` template to the best of your ability. Do not worry if you cannot answer every detail; just fill in what you can. The two most important pieces of information we need in order to properly evaluate the report is a description of the behavior you are seeing and a simple test case we can use to recreate the problem on our own. If we cannot recreate the issue, it becomes impossible for us to fix. In order to rule out the possibility of bugs introduced by userland code, test cases should be limited, as much as possible, to using only Node.js APIs. If the bug occurs only when you're using a specific userland module, there is a very good chance that either (a) the module has a bug or (b) something in Node.js changed that broke the module. See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).",
+        "Triaging": "- **Triaging a bug report**<br />Once an issue has been opened, it is common for there to be discussion around it. Some contributors may have differing opinions about the issue, including whether the behavior being seen is a bug or a feature. This discussion is part of the process and should be kept focused, helpful, and professional. The objective of helping with triaging issues (in core and help repos) is to help reduce the issue backlog and keep the issue tracker healthy, while enabling newcomers another meaningful way to get engaged and contribute. Anyone with a reasonable understanding of Node.js programming and the project's GitHub organization plus a few contributions to the project (commenting on issues or PRs) can apply for and become a triager. Open a PR on the README.md of this project with: i) a request to be added as a triager, ii) the motivation for becoming a triager, and iii) agreement on reading, understanding, and adhering to the project's [Code Of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md). The triage role enables the ability to carry out the most common triage activities, such as applying labels and closing/reopening/assigning issues. For more information on the roles and permissions, see [\"Permission levels for repositories owned by an organization\"](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization). When triaging issues and PRs:<br />- Show patience and empathy, especially to first-time contributors.<br />- Show no patience towards spam or troll, close the issue without interacting with it and report the user to the moderation repository.<br />- If you're not able to reproduce an issue, leave a comment asking for more info and add the `needs more info` label.<br />- Ideally issues should be closed only when they have been fixed or answered (and merged for pull requests). Closing an issue (or PR) earlier can be seen as dismissive from the point of view of the reporter/author. Always try to communicate the reason for closing the issue/PR.",
+        "Pull Requests#1": "### Pull Requests<br />- Node.js has several bundled dependencies in the deps/ and the tools/ directories that are not part of the project proper. These are detailed in the [maintaining dependencies](./maintaining/maintaining-dependencies.md) document. Changes to files in those directories should be sent to their respective projects. Do not send a patch to Node.js. We cannot accept such patches. In case of doubt, open an issue in the [issue tracker](https://github.com/nodejs/node/issues/) or contact one of the [project collaborators](https://github.com/nodejs/node/#current-project-team-members). Node.js has many channels on the [OpenJS Foundation Slack](https://slack-invite.openjsf.org/). Interesting channels are: [#nodejs](https://openjs-foundation.slack.com/archives/CK9Q4MB53) for general help, questions, and discussions. [#nodejs-core](https://openjs-foundation.slack.com/archives/C019Y2T6STH) for development of Node.js core specifically. Node.js also has an unofficial IRC channel: [#Node.js](https://web.libera.chat/#node.js).",
+        "Setting Up Local Environment": "### Setting Up Your Local Environment<br />To get started, you will need to have `git` installed locally. Depending on your operating system, there are also a number of other dependencies required. These are detailed in the [Building guide](../../BUILDING.md). Depending on your environment you might want to grab IDE specific settings from [IDE configs](https://github.com/nodejs/node-code-ide-configs). Once you have `git` and are sure you have all of the necessary dependencies, it's time to create a fork. Step 1: Fork the project [on GitHub](https://github.com/nodejs/node) and clone your fork locally.<br />```<br />git clone git@github.com:username/node.git<br />cd node<br />git remote add upstream https://github.com/nodejs/node.git<br />git fetch upstream<br />```",
+        "Configure Git": "### Configure Git<br />Configure `git` so that it knows who you are:<br />```<br />git config user.name \"J. Random User\"<br />git config user.email \"j.random.user@example.com\"<br />```<br />You can use any name/email address you prefer here. We only use the metadata generated by `git` using this configuration for properly attributing your changes to you in the `AUTHORS` file and the changelog. If you would like for the GitHub UI to link the commit to your account and award you the `Contributor` label after the changes have been merged, make sure this local email is also added to your [GitHub email list](https://github.com/settings/emails).",
+        "Branching": "### Branching<br />Step 2: Branch<br />As a best practice to keep your development environment as organized as possible, create local branches to work within. These should also be created directly off of the upstream default branch.<br />```<br />git checkout -b my-branch -t upstream/HEAD<br />```",
+        "Making Changes": "### Making Changes<br />Step 3: Code<br />Pull requests in Node.js typically involve changes to one or more of a few places in the repository.<br />- C/C++ code contained in the `src` directory<br />- JavaScript code contained in the `lib` directory<br />- Documentation in `doc/api`<br />- Tests within the `test` directory<br />If you are modifying code, please be sure to run `make lint` (or `vcbuild.bat lint` on Windows) to ensure that the changes follow the Node.js code style guide. Any documentation you write (including code comments and API documentation) should follow the [Style Guide](../../doc/README.md). Code samples included in the API docs will also be checked when running `make lint` (or `vcbuild.bat lint` on Windows). If you are adding to or deprecating an API, add or change the appropriate YAML documentation. Use `REPLACEME` for the version number in the documentation YAML:<br />```<br />### `request.method` <!-- YAML added: REPLACEME --> * {string} The request method.<br />```<br />For contributing C++ code, you may want to look at the [C++ Style Guide](cpp-style-guide.md), as well as the [README of src/](../../src/README.md) for an overview of Node.js C++ internals.",
+        "Committing Changes": "### Committing Changes<br />Step 4: Commit<br />It is a best practice to keep your changes as logically grouped as possible within individual commits. There is no limit to the number of commits any single pull request may have, and many contributors find it easier to review changes that are split across multiple commits.<br />```<br />git add my/changed/files<br />git commit<br />```<br />Multiple commits often get squashed when they are landed. See the notes about commit message guidelines.",
+        "Commit Message Guidelines": "### Commit Message Guidelines<br />A good commit message should describe what changed and why.<br />- The first line should:<br />  - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)<br />  - be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names<br />  - be prefixed with the name of the changed and start with an imperative verb.<br />Check the output of `git log --oneline files/you/changed` to find out what subsystems your changes touch.<br />Examples:<br />- `net: add localAddress and localPort to Socket`<br />- `src: fix typos in async_wrap.h`<br />Keep the second line blank.<br />- Wrap all other lines at 72 columns (except for long URLs).<br />- If your patch fixes an open issue, you can add a reference to it at the end of the log. Use the `Fixes:` prefix and the full issue URL. For other references use `Refs:`. `Fixes:` and `Refs:` trailers get automatically added to your commit message when the Pull Request lands as long as they are included in the Pull Request's description. If the Pull Request lands in several commits, by default the trailers found in the description are added to each commits.<br />Examples:<br />- `Fixes: https://github.com/nodejs/node/issues/1337`<br />- `Refs: https://eslint.org/docs/rules/space-in-parens.html`<br />- `Refs: https://github.com/nodejs/node/pull/3615`<br />If your commit introduces a breaking change (`semver-major`), it should contain an explanation about the reason of the breaking change, which situation would trigger the breaking change, and what is the exact change.<br />Sample complete commit message:<br />```<br />subsystem: explain the commit in one line<br />The body of the commit message should be one or more paragraphs, explaining things in more detail. Please word-wrap to keep columns to 72 characters or less.<br />Fixes: https://github.com/nodejs/node/issues/1337<br />Refs: https://eslint.org/docs/rules/space-in-parens.html<br />```<br />If you are new to contributing to Node.js, please try to do your best at conforming to these guidelines, but do not worry if you get something wrong. One of the existing contributors will help get things situated and the contributor landing the pull request will ensure that everything follows the project guidelines.",
+        "Rebasing": "### Rebasing<br />Step 5: Rebase<br />As a best practice, once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.<br />```<br />git fetch upstream HEAD<br />git rebase FETCH_HEAD<br />```<br />This ensures that your working branch has the latest changes from `nodejs/node`.",
+        "Testing": "### Testing<br />Step 6: Test<br />Bug fixes and features should always come with tests. A [guide for writing tests in Node.js](writing-tests.md) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help. The `test` directory within the `nodejs/node` repository is complex and it is often not clear where a new test file should go. When in doubt, add new tests to the `test/parallel/` directory and the right location will be sorted out later. Before submitting your changes in a pull request, always run the full Node.js test suite. To run the tests (including code linting) on Unix / macOS:<br />```<br />./configure && make -j4 test<br />```<br />We can speed up the builds by using [Ninja](https://ninja-build.org/). For more information, see [Building Node.js with Ninja](building-node-with-ninja.md). And on Windows:<br />```<br />vcbuild test<br />```<br />For some configurations, running all tests might take a long time (an hour or more). To run a subset of the test suite, see the [running tests](../../BUILDING.md#running-tests) section of the Building guide.",
+        "Pushing Changes": "### Pushing Changes<br />Step 7: Push<br />Once you are sure your commits are ready to go, with passing tests and linting, begin the process of opening a pull request by pushing your working branch to your fork on GitHub.<br />```<br />git push origin my-branch<br />```",
+        "Opening a Pull Request": "### Opening a Pull Request<br />Step 8: Opening the pull request<br />From within GitHub, opening a new pull request will present you with a [pull request template](https://raw.githubusercontent.com/nodejs/node/HEAD/.github/PULL_REQUEST_TEMPLATE.md). Please try to do your best at filling out the details, but feel free to skip parts if you're not sure what to put. Once opened, pull requests are usually reviewed within a few days. To get feedback on your proposed change even though it is not ready to land, use the `Convert to draft` option in the GitHub UI. Do not use the `wip` label as it might not prevent the PR from landing before you are ready.",
+        "Discussing and Updating": "### Discussing and Updating<br />Step 9: Discuss and update<br />You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away, others may have more detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary. To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.<br />```<br />git add my/changed/files<br />git commit<br />git push origin my-branch<br />```<br />If a git conflict arises, it is necessary to synchronize your branch with other changes that have landed upstream by using `git rebase`:<br />```<br />git fetch upstream HEAD<br />git rebase FETCH_HEAD<br />git push --force-with-lease origin my-branch<br />```<br />Important: The `git push --force-with-lease` command is one of the few ways to delete history in `git`. It also complicates the review process, as it won't allow reviewers to get a quick glance on what changed. Before you use it, make sure you understand the risks. If in doubt, you can always ask for guidance in the pull request. There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide. Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://github.com/nodejs/node/blob/HEAD/glossary.md).",
+        "Landing a Pull Request": "### Landing a Pull Request<br />Step 10: Landing<br />In order to land, a pull request needs to be reviewed and approved by at least two Node.js Collaborators (one collaborator approval is enough if the pull request has been open for more than 7 days) and pass a CI test. After that, as long as there are no objections from other contributors, the pull request can be merged. If you find your pull request waiting longer than you expect, see the [collaborator guide](collaborator-guide.md). When a collaborator lands your pull request, they will post a comment to the pull request page mentioning the commit(s) it landed as. GitHub might show the pull request as `Closed` at this point, but don't worry. If you look at the branch you raised your pull request against, you should see a commit with your name on it. Congratulations and thanks for your contribution!",
+        "Reviewing Pull Requests": "### Reviewing Pull Requests<br />All Node.js contributors who choose to review and provide feedback on Pull Requests have a responsibility to both the project and the individual making the contribution. Reviews and feedback must be helpful, insightful, and geared towards improving the contribution as opposed to simply blocking it. Do not expect to be able to block a pull request from advancing simply because you say \"No\" without giving an explanation. Be open to having your mind changed. Be open to working with the contributor to make the pull request better. Reviews that are dismissive or disrespectful of the contributor or any other reviewers are strictly counter to the [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md). When reviewing a pull request, the primary goals are for the codebase to improve and for the person submitting the request to succeed. Even if a pull request does not land, the submitters should come away from the experience feeling like their effort was not wasted or unappreciated. Every pull request from a new contributor is an opportunity to grow the community.",
+        "Appendix: Subsystems": "### Appendix: Subsystems<br />- `lib/*.js` (`assert`, `buffer`, etc.)<br />- `build`<br />- `doc`<br />- `lib / src`<br />- `test`<br />- `tools`<br />You can find the full list of supported subsystems in the [nodejs/core-validate-commit](https://github.com/nodejs/core-validate-commit/blob/main/lib/rules/subsystem.js) repository. More than one subsystem may be valid for any particular issue or pull request."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Contributing to Node.js"
+                },
+                {
+                    "source": "Contributing to Node.js",
+                    "target": "Node.js Project Governance",
+                    "edge_label": "./GOVERNANCE.md"
+                },
+                {
+                    "source": "Node.js Project Governance",
+                    "target": "Triagers",
+                    "edge_label": "./GOVERNANCE.md"
+                },
+                {
+                    "source": "Triagers",
+                    "target": "Collaborators"
+                },
+                {
+                    "source": "Collaborators",
+                    "target": "Technical Steering Committee"
+                },
+                {
+                    "source": "Technical Steering Committee",
+                    "target": "TSC meetings"
+                },
+                {
+                    "source": "TSC meetings",
+                    "target": "Collaborator nominations"
+                },
+                {
+                    "source": "Collaborator nominations",
+                    "target": "The Authenticity of Contributors"
+                },
+                {
+                    "source": "The Authenticity of Contributors",
+                    "target": "Nominating a new Collaborator"
+                },
+                {
+                    "source": "Nominating a new Collaborator",
+                    "target": "How to review a collaborator nomination"
+                },
+                {
+                    "source": "How to review a collaborator nomination",
+                    "target": "Refrain from discussing or debating aspects of the nomination process"
+                },
+                {
+                    "source": "Refrain from discussing or debating aspects of the nomination process",
+                    "target": "How to oppose a collaborator nomination"
+                },
+                {
+                    "source": "How to oppose a collaborator nomination",
+                    "target": "Onboarding"
+                },
+                {
+                    "source": "Onboarding",
+                    "target": "Consensus seeking process"
+                }
+            ],
+            "sequence": "Contributing to Node.js"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Code of Conduct"
+                },
+                {
+                    "source": "Code of Conduct",
+                    "target": "Code of Conduct#1",
+                    "edge_label": "./doc/contributing/code-of-conduct.md"
+                },
+                {
+                    "source": "Code of Conduct#1",
+                    "target": "Bad Actors",
+                    "edge_label": "./doc/contributing/code-of-conduct.md"
+                }
+            ],
+            "sequence": "Code of Conduct"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Issues"
+                },
+                {
+                    "source": "Issues",
+                    "target": "Issues#1",
+                    "edge_label": "./doc/contributing/issues.md"
+                },
+                {
+                    "source": "Issues#1",
+                    "target": "General Help",
+                    "edge_label": "./doc/contributing/issues.md"
+                },
+                {
+                    "source": "General Help",
+                    "target": "Non-Technical Discussions"
+                },
+                {
+                    "source": "Non-Technical Discussions",
+                    "target": "Bug Report"
+                },
+                {
+                    "source": "Bug Report",
+                    "target": "Triaging"
+                }
+            ],
+            "sequence": "Issues"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Pull Requests"
+                },
+                {
+                    "source": "Pull Requests",
+                    "target": "Pull Requests#1",
+                    "edge_label": "./doc/contributing/pull-requests.md"
+                },
+                {
+                    "source": "Pull Requests#1",
+                    "target": "Setting Up Local Environment",
+                    "edge_label": "./doc/contributing/pull-requests.md"
+                },
+                {
+                    "source": "Setting Up Local Environment",
+                    "target": "Configure Git"
+                },
+                {
+                    "source": "Configure Git",
+                    "target": "Branching"
+                },
+                {
+                    "source": "Branching",
+                    "target": "Making Changes"
+                },
+                {
+                    "source": "Making Changes",
+                    "target": "Committing Changes"
+                },
+                {
+                    "source": "Committing Changes",
+                    "target": "Commit Message Guidelines"
+                },
+                {
+                    "source": "Commit Message Guidelines",
+                    "target": "Rebasing"
+                },
+                {
+                    "source": "Rebasing",
+                    "target": "Testing"
+                },
+                {
+                    "source": "Testing",
+                    "target": "Pushing Changes"
+                },
+                {
+                    "source": "Pushing Changes",
+                    "target": "Opening a Pull Request"
+                },
+                {
+                    "source": "Opening a Pull Request",
+                    "target": "Discussing and Updating"
+                },
+                {
+                    "source": "Discussing and Updating",
+                    "target": "Landing a Pull Request"
+                },
+                {
+                    "source": "Landing a Pull Request",
+                    "target": "Reviewing Pull Requests"
+                },
+                {
+                    "source": "Reviewing Pull Requests",
+                    "target": "Appendix: Subsystems"
+                }
+            ],
+            "sequence": "Pull Requests"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Developer's Certificate of Origin"
+                }
+            ],
+            "sequence": "Developer's Certificate of Origin"
+        }
+    ],
+    "links": {
+        "Contributing to Node.js": [
+            "./GOVERNANCE.md"
+        ],
+        "Code of Conduct": [
+            "https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md",
+            "./doc/contributing/code-of-conduct.md"
+        ],
+        "Issues": [
+            "./doc/contributing/issues.md#asking-for-general-help",
+            "./doc/contributing/issues.md#discussing-non-technical-topics",
+            "./doc/contributing/issues.md#submitting-a-bug-report",
+            "./doc/contributing/issues.md#triaging-a-bug-report"
+        ],
+        "Pull Requests": [
+            "./doc/contributing/pull-requests.md#dependencies",
+            "./doc/contributing/pull-requests.md#setting-up-your-local-environment",
+            "./doc/contributing/pull-requests.md#the-process-of-making-changes",
+            "./doc/contributing/pull-requests.md#reviewing-pull-requests",
+            "./doc/contributing/pull-requests.md#notes"
+        ],
+        "Developer's Certificate of Origin": []
+    }
+}

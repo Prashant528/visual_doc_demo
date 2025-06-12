@@ -20,24 +20,28 @@ Contents
 [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md)
 to which all contributors must adhere. See [details on our policy on Code of Conduct](./doc/contributing/code-of-conduct.md).
 
-- [Issues](./doc/contributing/issues.md)
-  - [Asking for General Help](./doc/contributing/issues.md#asking-for-general-help)
-  - [Discussing non-technical topics](./doc/contributing/issues.md#discussing-non-technical-topics)
-  - [Submitting a Bug Report](./doc/contributing/issues.md#submitting-a-bug-report)
-  - [Triaging a Bug Report](./doc/contributing/issues.md#triaging-a-bug-report)
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
 
-- [Pull Requests](./doc/contributing/pull-requests.md) Pull Requests are the way concrete changes are made to the code, documentation,
+[Issues](./doc/contributing/issues.md)
+- [Asking for General Help](./doc/contributing/issues.md#asking-for-general-help)
+- [Discussing non-technical topics](./doc/contributing/issues.md#discussing-non-technical-topics)
+- [Submitting a Bug Report](./doc/contributing/issues.md#submitting-a-bug-report)
+- [Triaging a Bug Report](./doc/contributing/issues.md#triaging-a-bug-report)
+
+--------<PREDICTED_SEGMENT_BOUNDARY>--------
+
+[Pull Requests](./doc/contributing/pull-requests.md)
+Pull Requests are the way concrete changes are made to the code, documentation,
 dependencies, and tools contained in the `nodejs/node` repository.
-  - [Dependencies](./doc/contributing/pull-requests.md#dependencies)
-  - [Setting up your local environment](./doc/contributing/pull-requests.md#setting-up-your-local-environment)
-  - [The Process of Making Changes](./doc/contributing/pull-requests.md#the-process-of-making-changes)
-  - [Reviewing Pull Requests](./doc/contributing/pull-requests.md#reviewing-pull-requests)
-  - [Notes](./doc/contributing/pull-requests.md#notes)
+- [Dependencies](./doc/contributing/pull-requests.md#dependencies)
+- [Setting up your local environment](./doc/contributing/pull-requests.md#setting-up-your-local-environment)
+- [The Process of Making Changes](./doc/contributing/pull-requests.md#the-process-of-making-changes)
+- [Reviewing Pull Requests](./doc/contributing/pull-requests.md#reviewing-pull-requests)
+- [Notes](./doc/contributing/pull-requests.md#notes)
 
 --------<PREDICTED_SEGMENT_BOUNDARY>--------
 
 Developer's Certificate of Origin 1.1
-
 ```
 By making a contribution to this project, I certify that:
 (a) The contribution was created in whole or in part by me and I
@@ -59,5 +63,3 @@ By making a contribution to this project, I certify that:
      maintained indefinitely and may be redistributed consistent with
      this project or the open source license(s) involved.
 ```
-
---------<PREDICTED_SEGMENT_BOUNDARY>--------
