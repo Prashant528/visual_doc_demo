@@ -1,15 +1,28 @@
-| abc | def |
-| --- | --- |
-| bar |
+VisDoc
+VisDoc is a tool to convert the onboarding documentation of OSS projects (contributing guides) to task trees.
 
-`
-$ youtube-dl -v <your command line>
-[debug] System config: []
-[debug] User config: []
-[debug] Command-line args: [u'-v', u'https://www.youtube.com/watch?v=BaW_jenozKcj']
-[debug] Encodings: locale cp1251, fs mbcs, out cp866, pref cp1251
-[debug] youtube-dl version 2015.12.06
-[debug] Git HEAD: 135392e
-[debug] Python version 2.6.6 - Windows-2003Server-5.2.3790-SP2
-[debug] exe versions: ffmpeg N-75573-g1d0487f, ffprobe N-75573-g1d0487f, rtmpdump 2.4
-[debug] Proxy map: {}
+This repository contains the backend of the VisDoc framework. To get the code for the frontend, please refer to this repository.
+
+Running VisDoc backend:
+This project was written using Python 3.9.6. Create a virtual environment inside the root folder:
+
+python3 -m venv visdoc_env
+source visdoc_env/bin/activate
+VisDoc uses OpenAI APIs to make API calls. Set your OpenAI API key as a environment variable:
+
+export OPENAI_API_KEY='YOUR_KEY'
+Or if you want to permanently add the key to environment variables, modify your ./zshrc or ./bashrc files and add the key.
+
+Use pip to install the requirements.
+
+pip install -r requirements.txt
+Finally, to run the Flask Server:
+
+python3 app.py
+Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+License
+MIT
