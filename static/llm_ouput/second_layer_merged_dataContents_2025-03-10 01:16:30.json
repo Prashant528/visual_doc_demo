@@ -1,0 +1,116 @@
+{
+    "content": {
+        "Contributing to Node.js": "### Contributing to Node.js<br />Contributions to Node.js include code, documentation, answering user questions, running the project's infrastructure, and advocating for all types of Node.js users.<br /><br />The Node.js project welcomes all contributions from anyone willing to work in good faith with other contributors and the community. No contribution is too small and all contributions are valued. The Node.js project has an open governance model. Individuals making significant and valuable contributions are made Collaborators and given commit-access to the project. See the [GOVERNANCE.md](./GOVERNANCE.md) document for more information about how this works.",
+        "Contents": "### Contents<br />- [Code of Conduct](./doc/contributing/code-of-conduct.md)<br />The Node.js project has a [Code of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md) to which all contributors must adhere. See [details on our policy on Code of Conduct](./doc/contributing/code-of-conduct.md).<br />- [Issues](./doc/contributing/issues.md)<br />- [Asking for General Help](./doc/contributing/issues.md#asking-for-general-help)<br />- [Discussing non-technical topics](./doc/contributing/issues.md#discussing-non-technical-topics)<br />- [Submitting a Bug Report](./doc/contributing/issues.md#submitting-a-bug-report)<br />- [Triaging a Bug Report](./doc/contributing/issues.md#triaging-a-bug-report)<br />- [Pull Requests](./doc/contributing/pull-requests.md)<br />Pull Requests are the way concrete changes are made to the code, documentation, dependencies, and tools contained in the `nodejs/node` repository.<br />- [Dependencies](./doc/contributing/pull-requests.md#dependencies)<br />- [Setting up your local environment](./doc/contributing/pull-requests.md#setting-up-your-local-environment)<br />- [The Process of Making Changes](./doc/contributing/pull-requests.md#the-process-of-making-changes)<br />- [Reviewing Pull Requests](./doc/contributing/pull-requests.md#reviewing-pull-requests)<br />- [Notes](./doc/contributing/pull-requests.md#notes)",
+        "Developer's Certificate of Origin": "### Developer's Certificate of Origin 1.1<br />```<br />By making a contribution to this project, I certify that:<br />(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or<br />(b) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate open source license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same open source license (unless I am permitted to submit under a different license), as indicated in the file; or<br />(c) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.<br />(d) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the open source license(s) involved.<br />```",
+        "Node.js Project Governance": "### Node.js Project Governance<br />Node.js project governance involves various roles and responsibilities to maintain and develop the project effectively.",
+        "Triagers": "### Triagers<br />Triagers assess newly-opened issues in the [nodejs/node](https://github.com/nodejs/node) and [nodejs/help](https://github.com/nodejs/help) repositories. The GitHub team for Node.js triagers is @nodejs/issue-triage. Triagers are given the \"Triage\" GitHub role and have:<br />- Ability to label issues and pull requests<br />- Ability to comment, close, and reopen issues and pull requests<br />See:<br />- [List of triagers](./README.md#triagers)<br />- [A guide for triagers](./doc/contributing/issues.md#triaging-a-bug-report)",
+        "Collaborators": "### Collaborators<br />Node.js core collaborators maintain the [nodejs/node](https://github.com/nodejs/node) GitHub repository. The GitHub team for Node.js core collaborators is @nodejs/collaborators. Collaborators have:<br />- Commit access to the [nodejs/node](https://github.com/nodejs/node) repository<br />- Access to the Node.js continuous integration (CI) jobs<br />Both collaborators and non-collaborators may propose changes to the Node.js source code. The mechanism to propose such a change is a GitHub pull request. Collaborators review and merge (land) pull requests. Two collaborators must approve a pull request before the pull request can land. (One collaborator approval is enough if the pull request has been open for more than 7 days.) Approving a pull request indicates that the collaborator accepts responsibility for the change. Approval must be from collaborators who are not authors of the change. If a collaborator opposes a proposed change, then the change cannot land. The exception is if the TSC votes to approve the change despite the opposition. Usually, involving the TSC is unnecessary. Often, discussions or further changes result in collaborators removing their opposition.<br />See:<br />- [List of collaborators](./README.md#current-project-team-members)<br />- [A guide for collaborators](./doc/contributing/collaborator-guide.md)<br />Collaborator activities include:<br />- Helping users and novice contributors<br />- Contributing code and documentation changes that improve the project<br />- Reviewing and commenting on issues and pull requests<br />- Participation in working groups<br />- Merging pull requests<br />The TSC can remove inactive collaborators or provide them with emeritus status. Emeriti may request that the TSC restore them to active status. A collaborator is automatically made emeritus (and removed from active collaborator status) if it has been more than 12 months since the collaborator has authored or approved a commit that has landed.",
+        "Technical Steering Committee": "### Technical Steering Committee<br />A subset of the collaborators forms the Technical Steering Committee (TSC). The TSC has final authority over this project, including:<br />- Technical direction<br />- Project governance and process (including this policy)<br />- Contribution policy<br />- GitHub repository hosting<br />- Conduct guidelines<br />- Maintaining the list of collaborators<br />The current list of TSC members is in [the project README](./README.md#current-project-team-members). The [TSC Charter](https://github.com/nodejs/TSC/blob/HEAD/TSC-Charter.md) governs the operations of the TSC. All changes to the Charter need approval by the OpenJS Foundation Cross-Project Council (CPC).",
+        "TSC meetings": "### TSC meetings<br />The TSC meets in a video conference call. Each year, the TSC elects a chair to run the meetings. The TSC streams its meetings for public viewing on YouTube. The TSC agenda includes issues that are at an impasse. The intention of the agenda is not to review or approve all patches. Collaborators review and approve patches on GitHub. Any community member can create a GitHub issue asking that the TSC review something. If consensus-seeking fails for an issue, a collaborator may apply the `tsc-agenda` label. That will add it to the TSC meeting agenda. Before each TSC meeting, the meeting chair will share the agenda with members of the TSC. TSC members can also add items to the agenda at the beginning of each meeting. The meeting chair and the TSC cannot veto or remove items. The TSC may invite people to take part in a non-voting capacity. During the meeting, the TSC chair ensures that someone takes minutes. After the meeting, the TSC chair ensures that someone opens a pull request with the minutes. The TSC seeks to resolve as many issues as possible outside meetings using [the TSC issue tracker](https://github.com/nodejs/TSC/issues). The process in the issue tracker is:<br />- A TSC member opens an issue explaining the proposal/issue and @-mentions @nodejs/tsc.<br />- The proposal passes if, after 72 hours, there are two or more TSC voting member approvals and no TSC voting member opposition.<br />- If there is an extended impasse, a TSC member may make a motion for a vote.",
+        "Collaborator nominations": "### Collaborator nominations<br />Who can nominate Collaborators? Existing Collaborators can nominate someone to become a Collaborator.<br />Ideal Nominees Nominees should have significant and valuable contributions across the Node.js organization. Contributions can be:<br />- Opening pull requests.<br />- Comments and reviews.<br />- Opening new issues.<br />- Participation in other projects, teams, and working groups of the Node.js organization.",
+        "Nominating a new Collaborator": "### Nominating a new Collaborator<br />To nominate a new Collaborator, open an issue in the [nodejs/node](https://github.com/nodejs/node) repository. Provide a summary of the nominee's contributions. For example:<br />- Commits in the [nodejs/node](https://github.com/nodejs/node) repository.<br />- Use the link `https://github.com/nodejs/node/commits?author=GITHUB_ID`<br />- Pull requests and issues opened in the [nodejs/node](https://github.com/nodejs/node) repository.<br />- Use the link `https://github.com/nodejs/node/issues?q=author:GITHUB_ID`<br />- Comments on pull requests and issues in the [nodejs/node](https://github.com/nodejs/node) repository<br />- Use the link `https://github.com/nodejs/node/issues?q=commenter:GITHUB_ID`<br />- Reviews on pull requests in the [nodejs/node](https://github.com/nodejs/node) repository<br />- Use the link `https://github.com/nodejs/node/pulls?q=reviewed-by:GITHUB_ID`<br />- Help provided to end-users and novice contributors<br />- Pull requests and issues opened throughout the Node.js organization<br />- Use the link  `https://github.com/search?q=author:GITHUB_ID+org:nodejs`<br />- Comments on pull requests and issues throughout the Node.js organization<br />- Use the link `https://github.com/search?q=commenter:GITHUB_ID+org:nodejs`<br />- Participation in other projects, teams, and working groups of the Node.js organization<br />- Other participation in the wider Node.js community<br />Mention @nodejs/collaborators in the issue to notify other collaborators about the nomination. The nomination passes if no collaborators oppose it after one week. In the case of an objection, the TSC is responsible for working with the individuals involved and finding a resolution. There are steps a nominator can take in advance to make a nomination as frictionless as possible. To request feedback from other collaborators in private, use the [collaborators discussion page](https://github.com/nodejs/collaborators/discussions/categories/collaborator-nominations) (which only collaborators may view). A nominator may also work with the nominee to improve their contribution profile. Collaborators might overlook someone with valuable contributions. In that case, the contributor may open an issue or contact a collaborator to request a nomination.",
+        "Onboarding": "### Onboarding<br />After the nomination passes, a TSC member onboards the new collaborator. See [the onboarding guide](./onboarding.md) for details of the onboarding process.",
+        "Consensus seeking process": "### Consensus seeking process<br />The TSC follows a [Consensus Seeking](https://en.wikipedia.org/wiki/Consensus-seeking_decision-making) decision-making model per the [TSC Charter](https://github.com/nodejs/TSC/blob/HEAD/TSC-Charter.md).",
+        "Issues": "### Issues<br />- **Asking for general help**<br />Because the level of activity in the `nodejs/node` repository is so high, questions or requests for general help using Node.js should be directed at the [Node.js help repository](https://github.com/nodejs/help/issues).<br />- **Discussing non-technical topics**<br />Discussion of non-technical topics (such as intellectual property and trademark) should be directed to the [Technical Steering Committee (TSC) repository](https://github.com/nodejs/TSC/issues).<br />- **Submitting a bug report**<br />When opening a new issue in the `nodejs/node` issue tracker, users will be presented with a choice of issue templates. If you believe that you have uncovered a bug in Node.js, please fill out the `Bug Report` template to the best of your ability. Do not worry if you cannot answer every detail; just fill in what you can. The two most important pieces of information we need in order to properly evaluate the report is a description of the behavior you are seeing and a simple test case we can use to recreate the problem on our own. If we cannot recreate the issue, it becomes impossible for us to fix. In order to rule out the possibility of bugs introduced by userland code, test cases should be limited, as much as possible, to using only Node.js APIs. If the bug occurs only when you're using a specific userland module, there is a very good chance that either (a) the module has a bug or (b) something in Node.js changed that broke the module. See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).<br />- **Triaging a bug report**<br />Once an issue has been opened, it is common for there to be discussion around it. Some contributors may have differing opinions about the issue, including whether the behavior being seen is a bug or a feature. This discussion is part of the process and should be kept focused, helpful, and professional. The objective of helping with triaging issues (in core and help repos) is to help reduce the issue backlog and keep the issue tracker healthy, while enabling newcomers another meaningful way to get engaged and contribute. Anyone with a reasonable understanding of Node.js programming and the project's GitHub organization plus a few contributions to the project (commenting on issues or PRs) can apply for and become a triager. Open a PR on the README.md of this project with: i) a request to be added as a triager, ii) the motivation for becoming a triager, and iii) agreement on reading, understanding, and adhering to the project's [Code Of Conduct](https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md). The triage role enables the ability to carry out the most common triage activities, such as applying labels and closing/reopening/assigning issues. For more information on the roles and permissions, see [\"Permission levels for repositories owned by an organization\"](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization). When triaging issues and PRs:<br />- Show patience and empathy, especially to first-time contributors.<br />- Show no patience towards spam or troll, close the issue without interacting with it and report the user to the moderation repository.<br />- If you're not able to reproduce an issue, leave a comment asking for more info and add the `needs more info` label.<br />- Ideally issues should be closed only when they have been fixed or answered (and merged for pull requests). Closing an issue (or PR) earlier can be seen as dismissive from the point of view of the reporter/author. Always try to communicate the reason for closing the issue/PR."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Contributing to Node.js"
+                },
+                {
+                    "source": "Contributing to Node.js",
+                    "target": "Node.js Project Governance",
+                    "edge_label": "./GOVERNANCE.md"
+                },
+                {
+                    "source": "Node.js Project Governance",
+                    "target": "Triagers",
+                    "edge_label": "./GOVERNANCE.md"
+                },
+                {
+                    "source": "Triagers",
+                    "target": "Collaborators"
+                },
+                {
+                    "source": "Collaborators",
+                    "target": "Technical Steering Committee"
+                },
+                {
+                    "source": "Technical Steering Committee",
+                    "target": "TSC meetings"
+                },
+                {
+                    "source": "TSC meetings",
+                    "target": "Collaborator nominations"
+                },
+                {
+                    "source": "Collaborator nominations",
+                    "target": "Nominating a new Collaborator"
+                },
+                {
+                    "source": "Nominating a new Collaborator",
+                    "target": "Onboarding"
+                },
+                {
+                    "source": "Onboarding",
+                    "target": "Consensus seeking process"
+                }
+            ],
+            "sequence": "Contributing to Node.js"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Contents"
+                },
+                {
+                    "source": "Contents",
+                    "target": "Issues",
+                    "edge_label": "./doc/contributing/issues.md"
+                },
+                {
+                    "source": "Issues",
+                    "target": "Issues",
+                    "edge_label": "./doc/contributing/issues.md"
+                }
+            ],
+            "sequence": "Contents"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to node",
+                    "target": "Developer's Certificate of Origin"
+                }
+            ],
+            "sequence": "Developer's Certificate of Origin"
+        }
+    ],
+    "links": {
+        "Contributing to Node.js": [
+            "./GOVERNANCE.md"
+        ],
+        "Contents": [
+            "./doc/contributing/code-of-conduct.md",
+            "https://github.com/nodejs/admin/blob/HEAD/CODE_OF_CONDUCT.md",
+            "./doc/contributing/code-of-conduct.md",
+            "./doc/contributing/issues.md",
+            "./doc/contributing/issues.md#asking-for-general-help",
+            "./doc/contributing/issues.md#discussing-non-technical-topics",
+            "./doc/contributing/issues.md#submitting-a-bug-report",
+            "./doc/contributing/issues.md#triaging-a-bug-report",
+            "./doc/contributing/pull-requests.md",
+            "./doc/contributing/pull-requests.md#dependencies",
+            "./doc/contributing/pull-requests.md#setting-up-your-local-environment",
+            "./doc/contributing/pull-requests.md#the-process-of-making-changes",
+            "./doc/contributing/pull-requests.md#reviewing-pull-requests",
+            "./doc/contributing/pull-requests.md#notes"
+        ],
+        "Developer's Certificate of Origin": []
+    }
+}

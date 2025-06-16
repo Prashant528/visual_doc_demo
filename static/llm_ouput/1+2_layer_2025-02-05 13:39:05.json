@@ -1,0 +1,226 @@
+{
+    "content": {
+        "Checking Out Code": "To check out code to work on, please refer to [the GitHub Workflow Guide](./github-workflow.md).<br />The full workflow for a pull request is documented here:<br />- [Kubernetes-specific github workflow](pull-requests.md#the-testing-and-merge-workflow).<br />That document is comprehensive and detailed, for purposes of a typical pull request we will cover the initial and simple use case here:",
+        "GitHub Workflow": "### GitHub Workflow<br />This document is an overview of the GitHub workflow used by the Kubernetes project. It includes tips and suggestions on keeping your local environment in sync with upstream and how to maintain good commit hygiene.<br />- Visit [https://github.com/kubernetes/kubernetes](https://github.com/kubernetes/kubernetes)<br />- Click `Fork` button (top right) to establish a cloud-based fork.<br />In your shell, define a local working directory as `working_dir`:<br />```<br />export working_dir=\"${HOME}/src/k8s.io\" # Change to your preferred location for source code<br />```<br />Set `user` to match your github profile name:<br />```<br />export user=<your github profile name><br />```<br />Both `$working_dir` and `$user` are mentioned in the figure above.<br />Create your clone:<br />```<br />mkdir -p $working_dir<br />cd $working_dir<br />git clone https://github.com/$user/kubernetes.git # or:<br />git clone git@github.com:$user/kubernetes.git<br />cd $working_dir/kubernetes<br />git remote add upstream https://github.com/kubernetes/kubernetes.git # or:<br />git remote add upstream git@github.com:kubernetes/kubernetes.git<br /># Never push to upstream master<br />git remote set-url --push upstream no_push<br /># Confirm that your remotes make sense:<br />git remote -v<br />```<br />Get your local master up to date. Note that depending on which repository you are working from, the default branch may be called \"main\" instead of \"master\".<br />```<br />cd $working_dir/kubernetes<br />git fetch upstream<br />git checkout master<br />git rebase upstream/master<br />```",
+        "Create a New Branch": "### Create a New Branch<br />Create your new branch.<br />```<br />git checkout -b myfeature<br />```<br />You may now edit files on the `myfeature` branch. Building Kubernetes This workflow is process-specific. For quick-start build instructions for [kubernetes/kubernetes](https://git.k8s.io/kubernetes), please [see here](/contributors/devel/development.md#building-kubernetes-on-a-local-osshell-environment).<br />You will need to periodically fetch changes from the `upstream` repository to keep your working branch in sync. Note that depending on which repository you are working from, the default branch may be called 'main' instead of 'master'.<br />Make sure your local repository is on your working branch and run the following commands to keep it in sync:<br />```<br />git fetch upstream<br />git rebase upstream/master<br />```<br />Please don't use `git pull` instead of the above `fetch` and `rebase`. Since `git pull` executes a merge, it creates merge commits. These make the commit history messy and violate the principle that commits ought to be individually understandable and useful (see below).<br />You might also consider changing your `.git/config` file via `git config branch. autoSetupRebase always` to change the behavior of `git pull`, or another non-merge option such as `git pull --rebase`.<br />You will probably want to regularly commit your changes. It is likely that you will go back and edit, build, and test multiple times. After a few cycles of this, you might [amend your previous commit](https://www.w3schools.com/git/git_amend.asp).<br />```<br />git commit<br />```",
+        "Push Changes and Create Pull Request": "### Push Changes and Create Pull Request<br />When your changes are ready for review, push your working branch to your fork on GitHub.<br />```<br />git push -f <your_remote_name> myfeature<br />```<br />- Visit your fork at `https://github.com/<user>/kubernetes`<br />- Click the Compare & Pull Request button next to your `myfeature` branch.<br />- Check out the pull request [process](/contributors/guide/pull-requests.md) for more details and advice.<br />If you have upstream write access, please refrain from using the GitHub UI for creating PRs, because GitHub will create the PR branch inside the main repository rather than inside your fork.<br />Once your pull request has been opened it will be assigned to one or more reviewers. Those reviewers will do a thorough code review, looking for correctness, bugs, opportunities for improvement, documentation and comments, and style.<br />Commit changes made in response to review comments to the same branch on your fork.<br />Very small PRs are easy to review. Very large PRs are very difficult to review.",
+        "Squash Commits": "### Squash Commits<br />After a review, prepare your PR for merging by squashing your commits. All commits left on your branch after a review should represent meaningful milestones or units of work. Use commits to add clarity to the development and review process.<br />Before merging a PR, squash the following kinds of commits:<br />- Fixes/review feedback<br />- Typos<br />- Merges and rebases<br />- Work in progress<br />Aim to have every commit in a PR compile and pass tests independently if you can, but it's not a requirement. In particular, `merge` commits must be removed, as they will not pass tests.<br />To squash your commits, perform an [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History):<br />- Check your git branch:<br />```<br />git status<br />```<br />The output should be similar to this:<br />```<br />On branch your-contribution<br />Your branch is up to date with 'origin/your-contribution'.<br />```<br />- Start an interactive rebase using a specific commit hash, or count backwards from your last commit using `HEAD~<n>`, where `<n>` represents the number of commits to include in the rebase.<br />```<br />git rebase -i HEAD~3<br />```<br />The output should be similar to this:<br />```<br />pick 2ebe926 Original commit<br />pick 31f33e9 Address feedback<br />pick b0315fe Second unit of work<br /># Rebase 7c34fc9..b0315ff onto 7c34fc9 (3 commands)<br />#<br /># Commands:<br /># p, pick <commit> = use commit<br /># r, reword <commit> = use commit, but edit the commit message<br /># e, edit <commit> = use commit, but stop for amending<br /># s, squash <commit> = use commit, but meld into previous commit<br /># f, fixup <commit> = like \"squash\", but discard this commit's log message<br />```",
+        "Rebase and Push": "### Rebase and Push<br />- Use a command line text editor to change the word `pick` to `squash` for the commits you want to squash, then save your changes and continue the rebase:<br />```<br />pick 2ebe926 Original commit<br />squash 31f33e9 Address feedback<br />pick b0315fe Second unit of work<br />```<br />The output after saving changes should look similar to this:<br />```<br />[detached HEAD 61fdded] Second unit of work<br />Date: Thu Mar 5 19:01:32 2020 +0100<br />2 files changed, 15 insertions(+), 1 deletion(-)<br />```<br />Successfully rebased and updated refs/heads/master.<br />- Force push your changes to your remote branch:<br />```<br />git push --force-with-lease<br />```<br />For mass automated fixups such as automated doc formatting, use one or more commits for the changes to tooling and a final commit to apply the fixup en masse. This makes reviews easier.<br />An alternative to this manual squashing process is to use the Prow and Tide based automation that is configured in GitHub: adding a comment to your PR with `/label tide/merge-method-squash` will trigger the automation so that GitHub squash your commits onto the target branch once the PR is approved.<br />Using this approach simplifies things for those less familiar with Git, but there are situations in where it's better to squash locally; reviewers will have this in mind and can ask for manual squashing to be done.<br />By squashing locally, you control the commit message(s) for your work, and can separate a large PR into logically separate changes.<br />For example: you have a pull request that is code complete and has 24 commits. You rebase this against the same merge base, simplifying the change to two commits. Each of those two commits represents a single logical change and each commit message summarizes what changes. Reviewers see that the set of changes are now understandable, and approve your PR.",
+        "Reverting a Commit": "### Reverting a Commit<br />In case you wish to revert a commit, use the following instructions. If you have upstream write access, please refrain from using the `Revert` button in the GitHub UI for creating the PR, because GitHub will create the PR branch inside the main repository rather than inside your fork.<br />- Create a branch and sync it with upstream. Note that depending on which repository you are working from, the default branch may be called 'main' instead of 'master'.<br />```<br /># create a branch<br />git checkout -b myrevert<br /># sync the branch with upstream<br />git fetch upstream<br />git rebase upstream/master<br />```<br />- If the commit you wish to revert is a merge commit, use this command:<br />```<br /># SHA is the hash of the merge commit you wish to revert<br />git revert -m 1 <SHA><br />```<br />If it is a single commit, use this command:<br />```<br /># SHA is the hash of the single commit you wish to revert<br />git revert <SHA><br />```<br />- This will create a new commit reverting the changes. Push this new commit to your remote.<br />```<br />git push <your_remote_name> myrevert<br />```<br />- Finally, using this branch.",
+        "Pull Request Process": "### Pull Request Process<br />Explains the process and best practices for submitting a pull request to the Kubernetes project and its associated sub-repositories.<br />It should serve as a reference for all contributors, and be useful especially to new or infrequent submitters.",
+        "Before You Submit a Pull Request": "### Before You Submit a Pull Request<br />This guide is for contributors who already have a pull request to submit. If you're looking for information on setting up your developer environment and creating code to contribute to Kubernetes, see the [development guide](/contributors/devel/development.md).<br />First-time contributors should head to the [Contributor Guide](/contributors/guide/README.md) to get started.<br />Make sure your pull request adheres to our best practices. These include following project conventions, making small pull requests, and commenting thoroughly.",
+        "Run Local Verifications": "### Run Local Verifications<br />You can run these local verifications before you submit your pull request to predict the pass or fail of continuous integration.<br />- Run and pass `make verify` (can take 30-40 minutes)<br />- Run and pass `make test`<br />- Run and pass `make test-integration`",
+        "Pull Request Submit Process": "### Pull Request Submit Process<br />Merging a pull request requires the following steps to be completed before the pull request will be merged automatically.<br />- [Open a pull request](https://help.github.com/articles/about-pull-requests/)<br />- For kubernetes/kubernetes repository only: Add [release notes](/contributors/guide/release-notes.md) if needed.<br />- Follow the EasyCLA steps to [sign the CLA](https://git.k8s.io/community/CLA.md) (prerequisite)<br />- Pass all e2e tests<br />- Get all necessary approvals from reviewers and code owners",
+        "Marking Unfinished Pull Requests": "### Marking Unfinished Pull Requests<br />If you want to solicit reviews before the implementation of your pull request is complete, you should hold your pull request to ensure that Tide does not pick it up and attempt to merge it.<br />There are two methods to achieve this:<br />- You may add the `/hold` or `/hold cancel` comment commands<br />- You may add or remove a `WIP` or `[WIP]` prefix to your pull request title",
+        "Pull Requests and the Release Cycle": "### Pull Requests and the Release Cycle<br />If a pull request has been reviewed but held or not approved, it might be due to the current phase in the [Release Cycle](/contributors/devel/sig-release/release.md).<br />Occasionally, a SIG may freeze their own code base when working towards a specific feature or goal that could impact other development.",
+        "Comment Commands Reference": "### Comment Commands Reference<br />[The commands doc](https://go.k8s.io/bot-commands) contains a reference for all comment commands.",
+        "Automation": "### Automation<br />The Kubernetes developer community uses a variety of automation to manage pull requests. This automation is described in detail [in the automation doc](/contributors/devel/automation.md).",
+        "How the e2e Tests Work": "### How the e2e Tests Work<br />The end-to-end tests will post the status results to the pull request. If an e2e test fails, `@k8s-ci-robot` will comment on the pull request with the test history and the comment-command to re-run that test.",
+        "Why was my pull request closed?": "### Why was my pull request closed?<br />Pull requests older than 90 days will be closed. Exceptions can be made for pull requests that have active review comments, or that are awaiting other dependent pull requests.",
+        "Why is my pull request not getting reviewed?": "### Why is my pull request not getting reviewed?<br />A few factors affect how long your pull request might wait for review. If it's the last few weeks of a milestone, we need to reduce churn and stabilize. Or, it could be related to best practices.",
+        "Best Practices for Faster Reviews": "### Best Practices for Faster Reviews<br />Familiarize yourself with project conventions<br />- [Development guide](/contributors/devel/development.md)<br />- [Coding conventions](../guide/coding-conventions.md)<br />- [API conventions](/contributors/devel/sig-architecture/api-conventions.md)<br />- [Kubectl conventions](/contributors/devel/sig-cli/kubectl-conventions.md)",
+        "Is the feature wanted?": "### Is the feature wanted?<br />File a Kubernetes Enhancement Proposal<br />Are you sure Feature-X is something the Kubernetes team wants or will accept? Is it implemented to fit with other changes in flight?",
+        "KISS, YAGNI, MVP, etc.": "### KISS, YAGNI, MVP, etc.<br />Sometimes we need to remind each other of core tenets of software design - Keep It Simple, You Aren't Gonna Need It, Minimum Viable Product, and so on.",
+        "Smaller Is Better: Small Commits, Small Pull Requests": "### Smaller Is Better: Small Commits, Small Pull Requests<br />Small commits and small pull requests get reviewed faster and are more likely to be correct than big ones.",
+        "Breaking up commits": "### Breaking up commits<br />Break up your pull request into multiple commits, at logical break points. Making a series of discrete commits is a powerful way to express the evolution of an idea or the different ideas that make up a single feature.",
+        "Breaking up Pull Requests": "### Breaking up Pull Requests<br />Or, going back to our prefactoring example, you could also fork a new branch, do the prefactoring there and send a pull request for that.",
+        "Open a Different Pull Request for Fixes and Generic Features": "### Open a Different Pull Request for Fixes and Generic Features<br />Put changes that are unrelated to your feature into a different pull request.",
+        "Don't Open Pull Requests That Span the Whole Repository": "### Don't Open Pull Requests That Span the Whole Repository<br />Often a new contributor will find some problem that exists in many places across the main `kubernetes/kubernetes` repository, and file a PR to fix it everywhere at once.",
+        "Comments Matter": "### Comments Matter<br />In your code, if someone might not understand why you did something (or you won't remember why later), comment it.",
+        "Test": "### Test<br />Nothing is more frustrating than starting a review, only to find that the tests are inadequate or absent.",
+        "Squashing": "### Squashing<br />Your reviewer has finally sent you feedback on Feature-X. Make the fixups, and don't squash yet.",
+        "Commit Message Guidelines": "### Commit Message Guidelines<br />PR comments are not represented in the commit history. Commits and their commit messages are the \"permanent record\" of the changes being done in your PR and their commit messages should accurately describe both what and why it is being done.",
+        "It's OK to Push Back": "### It's OK to Push Back<br />Sometimes reviewers make mistakes. It's OK to push back on changes your reviewer requested.",
+        "Common Sense and Courtesy": "### Common Sense and Courtesy<br />No document can take the place of common sense and good taste. Use your best judgment, while you put a bit of thought into how your work can be made easier to review.",
+        "Trivial Edits": "### Trivial Edits<br />Each incoming Pull Request needs to be reviewed, checked, and then merged. While automation helps with this, each contribution also has an engineering cost.",
+        "Fixing linter issues": "### Fixing linter issues<br />Kubernetes has a set of linter checks. Some of those must pass in the entire code base, some must pass in new or modified code, and some are merely hints to developers how to improve their code.",
+        "The Testing and Merge Workflow": "### The Testing and Merge Workflow<br />The Kubernetes merge workflow uses labels, applied by [commands](https://prow.k8s.io/command-help) via comments. These will trigger actions on your pull request.",
+        "More About `Ok-To-Test`": "### More About `Ok-To-Test`<br />The ok-to-test label is applied by org members to PRs from external contributors, it signals that the PR can be tested."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to k8_GH_workflow_clone",
+                    "target": "Checking Out Code"
+                },
+                {
+                    "source": "Checking Out Code",
+                    "target": "GitHub Workflow",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "GitHub Workflow",
+                    "target": "Create a New Branch",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Create a New Branch",
+                    "target": "Push Changes and Create Pull Request",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Push Changes and Create Pull Request",
+                    "target": "Squash Commits",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Squash Commits",
+                    "target": "Rebase and Push",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Rebase and Push",
+                    "target": "Reverting a Commit",
+                    "edge_label": "./github-workflow.md"
+                },
+                {
+                    "source": "Checking Out Code",
+                    "target": "Pull Request Process",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Pull Request Process",
+                    "target": "Before You Submit a Pull Request",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Before You Submit a Pull Request",
+                    "target": "Run Local Verifications",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Run Local Verifications",
+                    "target": "Pull Request Submit Process",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Pull Request Submit Process",
+                    "target": "Marking Unfinished Pull Requests",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Marking Unfinished Pull Requests",
+                    "target": "Pull Requests and the Release Cycle",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Pull Requests and the Release Cycle",
+                    "target": "Comment Commands Reference",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Comment Commands Reference",
+                    "target": "Automation",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Automation",
+                    "target": "How the e2e Tests Work",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "How the e2e Tests Work",
+                    "target": "Why was my pull request closed?",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Why was my pull request closed?",
+                    "target": "Why is my pull request not getting reviewed?",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Why is my pull request not getting reviewed?",
+                    "target": "Best Practices for Faster Reviews",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Best Practices for Faster Reviews",
+                    "target": "Is the feature wanted?",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Is the feature wanted?",
+                    "target": "KISS, YAGNI, MVP, etc.",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "KISS, YAGNI, MVP, etc.",
+                    "target": "Smaller Is Better: Small Commits, Small Pull Requests",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Smaller Is Better: Small Commits, Small Pull Requests",
+                    "target": "Breaking up commits",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Breaking up commits",
+                    "target": "Breaking up Pull Requests",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Breaking up Pull Requests",
+                    "target": "Open a Different Pull Request for Fixes and Generic Features",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Open a Different Pull Request for Fixes and Generic Features",
+                    "target": "Don't Open Pull Requests That Span the Whole Repository",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Don't Open Pull Requests That Span the Whole Repository",
+                    "target": "Comments Matter",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Comments Matter",
+                    "target": "Test",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Test",
+                    "target": "Squashing",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Squashing",
+                    "target": "Commit Message Guidelines",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Commit Message Guidelines",
+                    "target": "It's OK to Push Back",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "It's OK to Push Back",
+                    "target": "Common Sense and Courtesy",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Common Sense and Courtesy",
+                    "target": "Trivial Edits",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Trivial Edits",
+                    "target": "Fixing linter issues",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "Fixing linter issues",
+                    "target": "The Testing and Merge Workflow",
+                    "edge_label": "pull-requests.md"
+                },
+                {
+                    "source": "The Testing and Merge Workflow",
+                    "target": "More About `Ok-To-Test`",
+                    "edge_label": "pull-requests.md"
+                }
+            ],
+            "sequence": "Checking Out Code"
+        }
+    ]
+}

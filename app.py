@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui, add_links_to_json_from_content, save_llm_output
+from utils import download_file, segregate_segments_by_classes, modfify_json_for_ui, add_links_to_json_from_content, save_llm_output, modify_json_for_ui_without_classifier
 from scrape_website import save_to_md
 from graph_generator import get_final_graph
 from segmenter.segment import segment
@@ -19,7 +19,10 @@ CORS(app)
 
 # Initialize services
 github_service = GitHubService(Config.GITHUB_TOKEN)
-TURN_CLASSIFIER_ON = True
+TURN_CLASSIFIER_ON = False
+turn_second_layer_on = True
+save_llm_output_to_files = True
+
 
 @app.route('/')
 def index():
@@ -54,7 +57,7 @@ def fetch_and_analyze():
         #TODO: I need to add some mechanism to store the contents of each file and return them as a list here inside download_recursive function.
         files_and_contents = github_service.download_recursive(owner, repo, file_path)
 
-        print(files_and_contents)
+        # print(files_and_contents)
 
         segments_and_classes_in_all_files = []
         for file_and_content in files_and_contents:
@@ -66,30 +69,41 @@ def fetch_and_analyze():
             # graph = get_final_graph(file, content, owner, repo)
             # return graph
             predicted_segmentation, segments, segmented_file_path  = segment(sentence_feature_extractor, md_file_path, openai_service, file_name,  segmentation_method='langchain', sentence_method= 'stanza', save_to_file=True, repo=repo, filename=file_path)
-            print(segments)
+            # print(segments)
             if TURN_CLASSIFIER_ON:
+                #returns two lists. First list = segment, second list = the class for that segment.
                 segments, segment_classes = run_classifier_with_paragraphs(segments)
                 prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_CLASS_VER_2'
             else:
                 segment_classes = [f'Contributing to {repo}']
-                prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS'
+                prompt_for_llm = 'PROMPT_FOR_SEQUENCING_VER_MAKE_DISCRETE_TASKS_MERGE_AND_TRIM_WITH_SEG_WITHOUT_CLASS_VER_2'
             print(segment_classes)
             segments_and_classes_in_all_files.append((segments, segment_classes))
             print("No of segments found = ", len(segments))
 
-        #------------------ <UNCOMMENT THIS
-        # Returns a dictionary with class: list of segments
-        segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
-        #Call the LLM to find the sequence
-        segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments, prompt_for_llm)
-        # print(f"\nActual response from API:\n {segments_flow_and_contents}")
 
-        modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
+        if TURN_CLASSIFIER_ON:
+            #------------------ <UNCOMMENT THIS
+            # Returns a dictionary with {class: list of segments}
+            segregated_segments = segregate_segments_by_classes(segments_and_classes_in_all_files)
+            #Call the LLM to find the sequence, returns topics/contents and flow.
+            segments_flow_and_contents = openai_service.find_sequences_for_allsegments(segregated_segments, prompt_for_llm)
+            # print(f"\nActual response from API:\n {segments_flow_and_contents}")
+
+            modified_json_for_ui = modfify_json_for_ui(segments_flow_and_contents, repo)
+        else:
+            #Returns a JSON with {topic: content} for all of the segments.
+            topics_and_segments = openai_service.find_topics_and_flow_for_segments_without_classifier(segments_and_classes_in_all_files, prompt_for_llm)
+            #create flow out of the topics.
+            modified_json_for_ui = modify_json_for_ui_without_classifier(topics_and_segments, repo)
         # print(f"\nModified response from API:\n {modified_json_for_ui}")
 
-        turn_second_layer_on = True
+        if save_llm_output_to_files:
+            save_llm_output(modified_json_for_ui, 'modified_json_for_ui')
+
         if turn_second_layer_on:
             json_with_links = add_links_to_json_from_content(modified_json_for_ui)
+            save_llm_output(json_with_links, 'json_with_links')
             #------------------ UNCOMMENT THIS>
 
             #-------------Starting second layer
@@ -99,7 +113,7 @@ def fetch_and_analyze():
             result = {key: json_with_second_layer[key] for key in ["content", "flow"]}
 
             #--------------Saving the result
-            save_llm_output(result)
+            save_llm_output(result, '1+2_layer')
             
         else:
             result = modified_json_for_ui
@@ -109,6 +123,33 @@ def fetch_and_analyze():
 @app.route('/generate')
 def generate():
     return render_template('flutter_flutter.html')
+
+@app.route('/flutter_cached', methods=['GET'])
+def flutter_cached():
+    file_path = os.path.join('static', 'cached_results', 'flutter.json')
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({'error': 'File not found'}), 404
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON format'}), 500
+    
+
+@app.route('/transformers_cached', methods=['GET'])
+def node_cached():
+    file_path = os.path.join('static', 'cached_results', 'transformers.json')
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({'error': 'File not found'}), 404
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Invalid JSON format'}), 500
 
 if __name__ == '__main__':
     app.run(port=8080, debug=True, threaded=True)

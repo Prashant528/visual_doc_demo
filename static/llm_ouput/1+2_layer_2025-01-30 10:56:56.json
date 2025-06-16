@@ -1,0 +1,681 @@
+{
+    "content": {
+        "Getting Started with Contributing": "### Contributing to Flutter<br />tl;dr: join [Discord](./docs/contributing/Chat.md), be [courteous](CODE_OF_CONDUCT.md), follow the steps below to set up a development environment; if you stick around and contribute, you can [join the team](./docs/contributing/Contributor-access.md) and get commit access.",
+        "Contributing to DevTools": "### DevTools<br />Contributing code to Dart & Flutter DevTools may be a good place to start if you are looking to dip your toes into contributing with a relatively low-cost setup or if you are generally excited about improving the Dart & Flutter developer experience. Please see the DevTools [CONTRIBUTING.md](https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md) guide to get started.",
+        "Helping with Existing PRs": "### Helping with existing PRs<br />Once you've learned the process of contributing, if you aren't sure what to work on next you might be interested in helping other developers complete their contributions by picking up an incomplete patch from the list of [issues with partial patches](https://github.com/flutter/flutter/labels/has%20partial%20patch).",
+        "Releases": "### Releases<br />If you are interested in participating in our release process, which may involve writing release notes and blog posts, coordinating the actual generation of binaries, updating our release tooling, and other work of that nature, then reach out on the #hackers-releases channel of our [Discord](./docs/contributing/Chat.md) server.",
+        "Social Events": "### Social Events in the Contributor Community<br />Finally, one area where you could have a lot of impact is in contributing to social interactions among the Flutter contributor community itself. This could take the form of organizing weekly video chats on our Discord, or planning tech talks from contributors, for example. If this is an area that is of interest to you, please join our [Discord](./docs/contributing/Chat.md) and ping Hixie on the #hackers channel!",
+        "Quality Assurance": "### Quality Assurance<br />One of the most useful tasks, closely related to triage, is finding and filing bug reports. Testing beta releases, looking for regressions, creating test cases, adding to our test suites, and other work along these lines can really drive the quality of the product up. Creating tests that increase our test coverage, writing tests for issues others have filed, all these tasks are really valuable contributions to open source projects. If this interests you, you can jump in and submit bug reports without needing anyone's permission! The #quality-assurance channel on our [Discord server](./docs/contributing/Chat.md) is a good place to talk about what you're doing. We're especially eager for QA testing when we announce a beta release. See [quality assurance](./docs/releases/Quality-Assurance.md) for more details. If you want to contribute test cases, you can also submit PRs. See the next section for how to set up your development environment, or ask in #hackers-test on Discord. As a personal side note, this is exactly the kind of work that first got me into open source. I was a Quality Assurance volunteer on the Mozilla project, writing test cases for browsers, long before I wrote a line of code for any open source project. \u2014Hixie",
+        "Developing for Flutter": "### Developing for Flutter<br />If you prefer to write code, consider starting with the list of good first issues for [Flutter](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or for [Flutter DevTools](https://github.com/flutter/devtools/labels/good%20first%20issue). Reference the respective sections below for further instructions.<br /><br />**Framework and Engine**<br />To develop for Flutter, you will eventually need to become familiar with our processes and conventions. This section lists the documents that describe these methodologies. The following list is ordered: you are strongly recommended to go through these documents in the order presented.<br />- [Setting up your engine development environment](./engine/src/flutter/docs/contributing/Setting-up-the-Engine-development-environment.md), which describes the steps you need to configure your computer to work on Flutter's engine. If you only want to write code for the Flutter framework, you can skip this step. Flutter's engine mainly uses C++, Java, and Objective-C.<br />- [Setting up your framework development environment](./docs/contributing/Setting-up-the-Framework-development-environment.md), which describes the steps you need to configure your computer to work on Flutter's framework. Flutter's framework mainly uses Dart.<br />- [Tree hygiene](./docs/contributing/Tree-hygiene.md), which covers how to land a PR, how to do code review, how to handle breaking changes, how to handle regressions, and how to handle post-commit test failures.<br />- [Our style guide](./docs/contributing/Style-guide-for-Flutter-repo.md), which includes advice for designing APIs for Flutter, and how to format code in the framework.<br />- [Flutter design doc template](https://flutter.dev/go/template), which should be used when proposing a new technical design. This is a good practice to do before coding more intricate changes. See also our [guidance for writing design docs](./docs/contributing/Design-Documents.md).<br /><br />In addition to the documents, there is a video linked above on How to contribute to Flutter from the [Flutter](https://youtube.com/c/flutterdev) YouTube channel, there are many pages in [our docs](./docs/README.md), and an article [Contributing to Flutter: Getting Started](https://medium.com/@ayushbherwani/contributing-to-flutter-getting-started-a0db68cbcd5b) on Medium that may be of interest. For a curated list of pages see the sidebar on the wiki's home page. They are more or less listed in order of importance.",
+        "Welcome": "## Welcome<br />We invite you to join the Flutter team, which is made up of volunteers and sponsored folk alike! There are many ways to contribute, including writing code, filing issues on GitHub, helping people on our mailing lists, our chat channels, or on Stack Overflow, helping to triage, reproduce, or fix bugs that people have filed, adding to our documentation, doing outreach about Flutter, or helping out in any other way. We grant commit access (which includes full rights to the issue database, such as being able to edit labels) to people who have gained our trust and demonstrated a commitment to Flutter. For more details see the [Contributor access](./docs/contributing/Contributor-access.md) page in our docs. We communicate primarily over GitHub and [Discord](./docs/contributing/Chat.md). Before you get started, we encourage you to read these documents which describe some of our community norms:<br />- [Our code of conduct](CODE_OF_CONDUCT.md), which stipulates explicitly that everyone must be gracious, respectful, and professional. This also documents our conflict resolution policy and encourages people to ask questions.<br />- [Values](./docs/about/Values.md), which talks about what we care most about.",
+        "Helping out in the issue database": "## Helping out in the issue database<br />Triage is the process of going through bug reports and determining if they are valid, finding out how to reproduce them, catching duplicate reports, and generally making our issues list useful for our engineers. If you want to help us triage, you are very welcome to do so!<br />- Join the #hackers-triage [Discord channel](./docs/contributing/Chat.md).<br />- Read [our code of conduct](CODE_OF_CONDUCT.md), which stipulates explicitly that everyone must be gracious, respectful, and professional. If you're helping out with triage, you are representing the Flutter team, and so you want to make sure to make a good impression!<br />- Help out as described in our [triage guide](./docs/triage/README.md) You won't be able to add labels at first, so instead start by trying to do the other steps, e.g. trying to reproduce the problem and asking for people to provide enough details that you can reproduce the problem, pointing out duplicates, and so on. Chat on the #hackers-triage channel to let us know what you're up to!<br />- Familiarize yourself with our [issue hygiene](./docs/contributing/issue_hygiene/README.md) wiki page, which covers the meanings of some important GitHub labels and milestones.<br />- Once you've been doing this for a while, someone will invite you to the flutter-hackers team on GitHub and you'll be able to add labels too. See the [contributor access](./docs/contributing/Contributor-access.md) wiki page for details.",
+        "Outreach": "## Outreach<br />If your interests lie in the direction of developer relations and developer outreach, whether advocating for Flutter, answering questions in fora like [Stack Overflow](https://stackoverflow.com/questions/tagged/flutter?sort=Newest&filters=NoAnswers,NoAcceptedAnswer&edited=true) or [Reddit](https://www.reddit.com/r/flutterhelp/new/?f=flair_name%3A%22OPEN%22), or creating content for our [documentation](https://docs.flutter.dev/) or sites like [YouTube](https://www.youtube.com/results?search_query=flutter&sp=EgQIAxAB), the best starting point is to join the #hackers-devrel [Discord channel](./docs/contributing/Chat.md). From there, you can describe what you're interested in doing, and go ahead and do it! As others become familiar with your work, they may have feedback, be interested in collaborating, or want to coordinate their efforts with yours.",
+        "API documentation": "## API documentation<br />Another great area to contribute in is sample code and API documentation. If this is an area that interests you, join our [Discord](./docs/contributing/Chat.md) server and introduce yourself on the #hackers-devrel, #hackers-framework, or #hackers-engine channels, describing your area of interest. As our API docs are integrated into our source code, see the \"developing for Flutter\" section above for a guide on how to set up your developer environment. To contribute API documentation, an excellent command of the English language is particularly helpful, as is a careful attention to detail. We have a [whole section in our style guide](./docs/contributing/Style-guide-for-Flutter-repo.md#documentation-dartdocs-javadocs-etc) that you should read before you write API documentation. It includes notes on the \"Flutter Voice\", such as our word and grammar conventions. In general, a really productive way to improve documentation is to use Flutter and stop any time you have a question: find the answer, then document the answer where you first looked for it. We also keep [a list of areas that need better API documentation](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22d%3A+api+docs%22+sort%3Areactions-%2B1-desc). In many cases, we have written down what needs to be said in the relevant issue, we just haven't gotten around to doing it! We're especially eager to add sample code and diagrams to our API documentation. Diagrams are generated from Flutter code that draws to a canvas, and stored in a [special repository](https://github.com/flutter/assets-for-api-docs/#readme). It can be a lot of fun to create new diagrams for the API docs.",
+        "Code of Conduct": "**Code of Conduct**<br />The Flutter project expects Flutter's contributors to act professionally and respectfully. Flutter contributors are expected to maintain the safety and dignity of Flutter's social environments (such as GitHub and Discord).<br /><br />Specifically:<br />- Respect people, their identities, their culture, and their work.<br />- Be kind. Be courteous. Be welcoming.<br />- Listen. Consider and acknowledge people's points before responding.<br /><br />Should you experience anything that makes you feel unwelcome in Flutter's community, please contact [conduct@flutter.dev](mailto:conduct@flutter.dev) or, if you prefer, directly contact someone on the project, for instance [Hixie](mailto:ian@hixie.ch).<br /><br />The Flutter project will not tolerate harassment in Flutter's community, even outside of Flutter's public communication channels.",
+        "Conflict Resolution": "**Conflict Resolution**<br />When multiple contributors disagree on the direction for a particular patch or the general direction of the project, the conflict should be resolved by communication. The people who disagree should get together, try to understand each other's points of view, and work to find a design that addresses everyone's concerns. This is usually sufficient to resolve issues.<br /><br />If you cannot come to an agreement, ask for the advice of a more senior member of the project. Be wary of agreement by attrition, where one person argues a point repeatedly until other participants give up in the interests of moving on. This is not conflict resolution, as it does not address everyone's concerns. Be wary of agreement by compromise, where two good competing solutions are merged into one mediocre solution. A conflict is addressed when the participants agree that the final solution is better than all the conflicting proposals. Sometimes the solution is more work than either of the proposals. [Embrace the yak shave](./docs/contributing/Style-guide-for-Flutter-repo.md#lazy-programming).",
+        "Questions": "**Questions**<br />It's always ok to ask questions. Our systems are large, and nobody will be an expert in all the systems. Once you find the answer, document it in the first place you looked. That way, the next person will be brought up to speed even quicker.<br /><br />Source: [xkcd, May 2012](https://xkcd.com/1053/)",
+        "Discord Communication": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Commit Access": "For people who make the occasional contribution to Flutter (filing an issue, submitting the occasional PR, chatting on Discord), the default set of permissions is fine. However, if you are a frequent contributor, whether helping us in triage, or often fixing bugs, or regularly improving our documentation, or regularly helping others in our #help channel, or participating in high-level design discussions and prioritization, you may find your life is more pleasant with commit access (also known as \"contributor access\", \"being a member of the flutter-hackers group\", \"being a member of the Flutter team\"). We grant commit access (which includes full rights to the issue database, such as being able to edit labels, and grants access to our internal chat channels) to people who have gained our trust and demonstrated a commitment to Flutter. Specifically, if you meet one of the following criteria and you have a sponsor (someone who already has contributor access and agrees that you should be granted access), then please ask your sponsor to propose, on the #server-support [Chat](Chat.md) channel, that you be made a member of the team, and then reply to that message explaining which criteria below you are claiming to meet.<br />",
+        "Criteria for Access": "The possible criteria are:<br />- You have a long history of participating productively, e.g. in our [Chat](Chat.md) channels, helping with [Triage](../triage/README.md), helping other contributors track down problems, finding meaningful issues in submitted PRs, helping people in our #help channel, etc, all while demonstrating exemplary behavior that closely aligns with our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md).<br />- You have recently submitted several PRs that have landed successfully (received an LGTM, PR was merged, no regressions reported, PR was not reverted), without needing extensive tutoring in the process.<br />- You are employed by a company with a history of contributing to Flutter, for the purpose of yourself regularly contributing to Flutter.<br />- You represent a development team that creates applications, plugins, or packages using Flutter and have a close relationship with our developer relations team, including having a customer label, and have a great need to regularly update labels on issues (see [Issue hygiene, Customers](./issue_hygiene/README.md#customers)). (This is rare.)<br />Being granted access means that you will be added to the \"flutter-hackers\" group on GitHub and the \"team\" role on Discord. This privilege is granted with some expectation of responsibility: contributors are people who care about Flutter and want to help Flutter along our [roadmap](../roadmap/Roadmap.md). A contributor is not just someone who can make changes or comment on issues, but someone who has demonstrated their ability to collaborate with the team, get the most knowledgeable people to review code, contribute high-quality code, follow through to fix bugs (in code or tests), and provide meaningful insights on issues. We grant access optimistically based on a reasonably small volume of evidence of good faith. Correspondingly, we will remove access quickly if we find our trust has been violated. Contributors with commit access must still follow all our processes and policies, and must follow our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) rigorously. (Please read it, it's stricter than most.)<br />",
+        "Responsibilities and Code of Conduct": "If you have commit access or \"team\" access on the Discord server, you are responsible for enforcing our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md). Our code of conduct is much, much stricter than most. We do not wait until someone has been actively rude or insulting. Being disrespectful in any way is grounds for action. For example, passive-aggressive whining and general unconstructive negativity are all violations of the code of conduct. If someone is in a bad mood, we would rather they avoided contributing to Flutter on that day. When you see something that might be described as unwelcoming or is in some other way a violation of our code of conduct, promptly contact the offender and ask them to read the code of conduct and consider how they might more effectively espouse its philosophy. Most people react very positively to this. If they react negatively, or if they continue to make the environment unpleasant, they should be removed from the environment. On Discord, this would be kicking them from the channel. Repeat offenders should be banned. On GitHub, they can be blocked from our organisation (you may need to ask @Hixie or another admin of our GitHub org to do this). Please let the #server-support [Chat](Chat.md) channel know when you do anything like this, so that we can keep an eye on how common it is.<br />",
+        "Maintaining Documentation": "Part of being a contributor is making sure our documentation is up to date, including our internal (team-facing) documentation such as this wiki. If you spot something wrong, please fix it! As a contributor, you have access to the wiki.<br />",
+        "Privileges": "Being in the GitHub \"flutter-hackers\" group gives you the following:<br />- The ability to merge your own PRs once they are reviewed (see [Tree Hygiene](Tree-hygiene.md)).<br />- The ability to add labels, milestones, etc, on issues on GitHub (see [Issue Hygiene](./issue_hygiene/README.md)).<br />- PRs will run their tests slightly faster.<br />Being in the Discord \"team\" group gives you the following:<br />- The ability to talk without rate-limiting on the #hackers-* channels.<br />- The ability to kick people.<br />- The ability to manage the server emoji.<br />",
+        "Process": "The actual process (as followed by Flutter repo admins) is as follows:<br />- Verify that they qualify under all the terms described above. Make sure they have a sponsor who isn't you.<br />- Verify the identity of the person making the request. Ask them to confirm, on Discord, that they have read the style guide, issue or tree hygiene wiki page, code of conduct, and other documents relevant to them.<br />- Add them to our private spreadsheet (go/flutter-organization-members).<br />- Click the \"Add a member\" button on [the flutter-hackers team page](https://github.com/orgs/flutter/teams/flutter-hackers/members) on GitHub.<br />- Type their name in the text field, select them, then click the \"Invite\" button.<br />- Add them to the \"team\" group on Discord. Be sure to verify that you are promoting the right person; multiple people can have the same nickname on Discord!<br />For new Googlers joining the team: You need to ask someone in the team to add you to get added. It's not an automatic process after you join the flutter Google group.<br />Inactivity We occasionally check for account with commit access that have not been used for a while. It takes very little to count as \"active\" (e.g. commenting on an issue, even adding an emoji reaction to an issue). If your account has been inactive for over a year we will try to reach out (e.g. by e-mail or on Discord) before removing access. If your account access was removed but you wish to return to contributing to Flutter, you are most welcome to do so; just reach out on the Discord (see [Chat](Chat.md)) and ask someone to renominate you according to the process described above.<br />",
+        "Access Rights": "The [Flutter dashboard](https://flutter-dashboard.appspot.com/) shows what recently landed and what tests passed or failed with those commits. To see rerun tasks, you need to be added to an allowlist. Anyone with commit access is eligible to be added to that allowlist, but only certain team members have the permissions required to update the backend database where the permissions are stored. To get access, ask on #hackers-infra to be added to the allowlist.<br />Adding a contributor to Flutter Dashboard This is only for team members with access to the Flutter Dashboard Datastore.<br />- Open [flutter-dashboard datastore](https://console.cloud.google.com/datastore/entities;kind=AllowedAccount;ns=__$DEFAULT$__/query/kind?project=flutter-dashboard)<br />- Click `Create Entity`<br />- Click `Email: Empty` -> Edit property. Insert contributor Google account<br />- Click `Create`<br />Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs. Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)<br />Access to Flutter Gold If you need access to triage images in [Flutter Gold](https://flutter-gold.skia.org/), you need to be added as an authorized user. Users in the `@google.com` domain are already authorized to use Flutter Gold, but `@gmail.com` addresses can also be added to the allow list.<br />",
+        "Review Teams": "Some parts of the codebase have teams specified so that PRs get round-robin assigned for review. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). We currently have the following review teams:<br />- [android-reviewers](https://github.com/orgs/flutter/teams/android-reviewers): for folks working on the Android port of Flutter; use `#hackers-android` for discussions.<br />- [devtools-reviewers](https://github.com/orgs/flutter/teams/devtools-reviewers): for the [devtools](https://github.com/flutter/devtools) repo; use `#hackers-devexp` for discussions.<br />- [website-reviewers](https://github.com/orgs/flutter/teams/website-reviewers): for folks working on [www.flutter.dev](http://www.flutter.dev) and docs.flutter.dev; use `#hackers-devrel` for discussions.<br />To create a new team, contact @Hixie. You will also need to create a `CODEOWNERS` file to actually trigger the review assignment.<br />Pusher permissions Some branches are protected to avoid accidents. Only people in the specific branches can push to them. Anyone can ask to be added or removed from these groups, they exist only to reduce accidents, not for security. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). The following groups have been defined for these purposes: pushers-beta, pushers-fuchsia<br />",
+        "Joining the Community": "Contributing to DevTools tl;dr: join [Discord](https://github.com/flutter/flutter/blob/master/docs/contributing/Chat.md), be [courteous](https://github.com/flutter/flutter/blob/master/CODE_OF_CONDUCT.md), follow the steps below to set up a development environment; if you stick around and contribute, you can [join the team](https://github.com/flutter/flutter/blob/master/docs/contributing/Contributor-access.md) and get commit access. If you are here because you just want to test the bleeding-edge (unreleased) DevTools functionality, follow our [beta testing guidance](https://github.com/flutter/devtools/blob/master/BETA_TESTING.md). Welcome We gladly accept contributions via GitHub pull requests! We encourage you to read the [Welcome](https://github.com/flutter/flutter/blob/master/CONTRIBUTING.md#welcome) remarks in the Flutter framework's contributing guide, as all of that information applies to contributing to the `flutter/devtools` repo as well. We communicate primarily over GitHub and [Discord](https://github.com/flutter/flutter/blob/master/docs/contributing/Chat.md) on the [#hackers-devtools](https://discord.com/channels/608014603317936148/1106667330093723668) channel.<br />",
+        "Before Contributing Code": "Before contributing code:<br />- Complete the [Contributor License Agreement](https://cla.developers.google.com/clas). You can do this online, and it only takes a minute.<br />- Review the [DevTools style guide](STYLE.md), which uses a combination of Dart and Flutter best practices.<br />",
+        "Setting Up Development Environment": "Developing for DevTools Set up your DevTools environment Before setting up your DevTools environment, please make sure you have [cloned the Flutter SDK from GitHub](https://github.com/flutter/flutter/blob/main/docs/contributing/Setting-up-the-Framework-development-environment.md) and added the included `flutter` and `dart` executables to your `PATH` environment variable (see Flutter instructions for how to [update your PATH](https://flutter.dev/to/update-macos-path)). Typing `which flutter` and `which dart` (or `where.exe flutter` and `where.exe dart` for Windows) into your terminal should print the path to the binaries from the Flutter SDK you cloned from GitHub.<br />- [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the DevTools repo to your own Github account, and then clone it using SSH.<br />- If you haven't already, you may need to [generate a new SSH key](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) to connect to Github with SSH.<br />- Make sure to [configure Git to keep your fork in sync](https://docs.github.com/en/get-started/quickstart/fork-a-repo#configuring-git-to-sync-your-fork-with-the-upstream-repository) with the upstream DevTools repo.<br />- Ensure that you have access to the DevTools repo management tool executable, `dt`:<br />- Run `flutter pub get` on the `devtools/tool` directory<br />- Add the `devtools/tool/bin` folder to your `PATH` environment variable:<br />- MacOS Users - add the following to your `~/.zshrc` file (or `~/.bashrc`, `~/.bash_profile` if you use Bash), replacing `<DEVTOOLS_DIR>` with the absolute path to your DevTools repo:<br />``` export PATH=$PATH:<DEVTOOLS_DIR>/tool/bin ```<br />- Windows Users - Open \"Edit environment variables for your account\" from Control Panel<br />- Locate the `Path` variable and click Edit<br />- Click the New button and paste in `<DEVTOOLS_DIR>/tool/bin`, replacing `<DEVTOOLS_DIR>` with the absolute path to your DevTools repo.<br />Explore the commands and helpers that `dt` provides by running `dt -h`.<br />- Optional: enable and activate DCM (Dart Code Metrics)<br />- see the Set up your IDE We recommend using VS Code for your DevTools development environment because this gives you access to some advanced development and configuration features. When you open DevTools in VS Code, open the `devtools/packages` directory in your VS Code workspace. This will give you access to a set of launch configurations for running and debugging DevTools:<br />",
+        "Making Changes": "Workflow for making changes<br />- Change your local Flutter SDK to the latest flutter candidate branch:<br />``` dt update-flutter-sdk --update-on-path ```<br />Warning: this will delete any local changes in your Flutter SDK you checked out from git.<br />- Create a branch from your cloned DevTools repo:<br />``` git checkout -b myBranch ```<br />- Ensure your branch, dependencies, and generated code are up-to-date:<br />``` dt sync ```<br />- Implement your changes, and commit to your branch:<br />``` git commit -m \u201cdescription\u201d ```<br />If your improvement is user-facing, [document it](packages/devtools_app/release_notes/README.md) in the same PR.<br />- Push to your branch to GitHub:<br />``` git push origin myBranch ```<br />",
+        "Creating a Pull Request": "- Navigate to the [Pull Requests](https://github.com/flutter/devtools/pulls) tab in the main [DevTools repo](https://github.com/flutter/devtools). You should see a popup to create a pull request from the branch in your cloned repo to the DevTools `master` branch. Create a pull request.<br />",
+        "Keeping Fork in Sync": "Keeping your fork in-sync<br />- If at any time you need to re-sync your branch, run:<br />``` dt sync ```<br />This will pull the latest code from the upstream DevTools, upgrade dependencies, and perform code generation.<br />- If you want to upgrade dependencies and re-generate code (like mocks), but do not want to merge `upstream/master`, instead run<br />``` dt generate-code --upgrade ```<br />",
+        "Running and Debugging DevTools": "Running and debugging DevTools<br />There are a few different environments that you may need to run DevTools in. After running DevTools in one of the environments below, connect to a test application to debug DevTools runtime tooling (the majority of DevTools tools). See the section below.<br />Frontend only (most common)<br />Most of the time, you will not need to run DevTools with the DevTools server to test your changes. You can run DevTools in debug mode as either a Flutter web or Flutter desktop app. Note: though DevTools is shipped as a Flutter Web app, we recommend developing as a Flutter Desktop app whenever possible for a more efficient development workflow. Please see the section below for instructions.<br />- To run DevTools as a Flutter web app from VS Code, run with the devtools (packages) configuration and the \"Chrome\" device<br />- To run with experiments enabled, run from VS Code with the devtools + experiments (packages) configuration<br />- To run DevTools as a Flutter web app from the command line, run `flutter run -d chrome`<br />- To run with experiments enabled, add the flag `--dart-define=enable_experiments=true`<br />Frontend + DevTools server<br />To develop with a workflow that exercises the DevTools server <==> DevTools client connection, you will need to perform the following set up steps (first time only).<br />- Clone the [Dart SDK](https://github.com/dart-lang/sdk) from GitHub.<br />- The `LOCAL_DART_SDK` environment variable needs to point to this path: `export LOCAL_DART_SDK=/path/to/dart/sdk`<br />If you are also developing server side code (e.g. the `devtools_shared` package), you will need to add a dependency override to `sdk/pkg/dds/pubspec.yaml`.<br />``` dependency_overrides: devtools_shared: path: relative/path/to/devtools/packages/devtools_shared ```<br />Then you can run DevTools with the server by running the following from anywhere under the `devtools/` directory:<br />- To run the DevTools web app in release mode, served with the DevTools server (this emulates the production environment):<br />``` dt serve ```<br />- To run the DevTools web app in debug mode, with full debugging support, and with a connection to a live DevTools server:<br />``` dt run ```<br />Option 2 is useful for a quicker development cycle. The DevTools build time will be faster, and you will be able to connect the DevTools web app to an IDE or another DevTools instance for debugging purposes. To see the full list of arguments available for either command, please pass the `-h` flag.<br />",
+        "Testing DevTools": "Testing for DevTools<br />Please see [TESTING.md](TESTING.md) for guidance on running and writing tests.<br />",
+        "Connecting to a Test Application": "Appendix Connect DevTools to a test application<br />For working on most DevTools tools, a connection to a running Dart or Flutter app is required. Run any Dart or Flutter app of your choice to connect it to DevTools. Consider running [veggieseasons](https://github.com/flutter/samples/tree/main/veggieseasons) or another Flutter sample since those apps have plenty of interesting code to debug.<br />- Run your Dart or Flutter app. Note: some DevTools features may be unavailable depending on the test app platform (Flutter native, Flutter web, Dart CLI, etc.) or run mode (debug, profile) you choose.<br />- Copy the URI printed to the command line (you will use this URI to connect to DevTools).<br />``` \"A Dart VM Service on iPhone 14 Pro Max is available at: <copy-this-uri>\" ```<br />- Paste this URI into the connect dialog in DevTools and click \"Connect\".<br />",
+        "Running DevTools on Flutter Desktop": "Running DevTools on Flutter Desktop<br />For a faster development cycle with hot reload, you can run DevTools on Flutter desktop. Some DevTools features only work on the web, like the embedded Perfetto trace viewer, DevTools extensions, or WASM support, but the limitations on the desktop app are few.<br />To run DevTools with the desktop embedder, you can run `flutter run -d macos` from `devtools/packages/devtools_app`, or you can run DevTools from your IDE with the `macOS` device selected. If this fails, you may need to run `flutter create .` from `devtools/packages/devtools_app` to generate the updated files for your platform.<br />If you want to run DevTools on Flutter desktop for Windows or Linux, you will need to generate the files for this platform using the `flutter create .` command, and then run using `flutter run -d <windows or linux>`.<br />",
+        "Enabling and Activating DCM": "Enable and activate DCM (Dart Code Metrics)<br />Enabling and activating DCM is optional. When you open a PR, the CI bots will show you any DCM warnings introduced by your change which should be fixed before submitting.<br />- Contributors who work at Google: you can use the Google-purchased license key to activate DCM. See [go/dash-devexp-dcm-keys](http://goto.google.com/dash-devexp-dcm-keys).<br />- All other contributors: please follow instructions at [https://dcm.dev/pricing/](https://dcm.dev/pricing/). You can either use the free tier of DCM, or purchase a team license. Note that the free tier doesn't support all the rules of the paid tier, so you will also need to consult the output of the when you open your PR.<br />To enable DCM:<br />- Install the executable for your target platform. You can refer to [this guide](https://dcm.dev/docs/teams/getting-started/#installation).<br />- [Get the license key](http://goto.google.com/dash-devexp-dcm-keys) and activate DCM. To do so, run `dcm activate --license-key=YOUR_KEY` from the console.<br />- Install the extension for your IDE. If you use VS Code, you can get it from [the marketplace](https://marketplace.visualstudio.com/items?itemName=dcmdev.dcm-vscode-extension). If you use IntelliJ IDEA or Android Studio, you can find the plugin [here](https://plugins.jetbrains.com/plugin/20856-dcm).<br />- Reload the IDE. Note: DCM issues can be distinguished from the Dart analyzer issues by their name: DCM rule names contain dashes `-` instead of underscores `_`. Some of the issues can be fixed via CLI; to do so, run `dcm fix` for any directory. To apply `dcm fix` on a file save in the IDE, refer to [this guide](https://dcm.dev/docs/teams/ide-integrations/vscode/#extension-capabilities).<br />",
+        "Handling Third-Party Dependencies": "third_party dependencies<br />All content not authored by the Flutter team (which includes both sponsored and open-source contributors) must go in the `third_party` directory. As an expedient to make the `third_party` code works well with our build scripts, code in `third_party` should be given a stub `pubspec.yaml` file so that you can reference the resources from the packages directory from `packages/devtools_app/web/index.html`.<br />",
+        "Discord Communication#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Discord Communication#1#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Discord Communication#1#1#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1#1#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1#1#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1#1#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1#1#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1#1#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "DevTools Contribution Guide": "# DevTools Contribution Guide<br />## Home<br />This wiki is primarily aimed at engineers building or making contributions to DevTools. If you're looking to make a one-off contribution, please start with the [contributing guide](../CONTRIBUTING.md).",
+        "Getting Started": "## Getting Started<br />To get started with contributing to DevTools, you should first set up your development environment. Follow the instructions in the [setup guide](../SETUP.md) to install necessary tools and dependencies.",
+        "Code of Conduct#1": "## Code of Conduct<br />Please note that this project adheres to a [Code of Conduct](../CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.",
+        "Reporting Issues": "## Reporting Issues<br />If you encounter any issues or bugs, please report them using the [issue tracker](../issues). Make sure to provide as much detail as possible to help us resolve the issue quickly.",
+        "Pull Requests": "## Pull Requests<br />When you're ready to submit your changes, please open a pull request. Ensure your code follows the project's style guidelines and includes appropriate tests.",
+        "Community and Support": "## Community and Support<br />Join our [community forum](../community) to discuss ideas, ask questions, and get support from other contributors and maintainers.",
+        "Additional Resources": "## Additional Resources<br />For more information, check out the [project documentation](../docs) and [API reference](../api). These resources provide detailed information about the project's architecture and functionality.",
+        "Commit Access#1": "For people who make the occasional contribution to Flutter (filing an issue, submitting the occasional PR, chatting on Discord), the default set of permissions is fine. However, if you are a frequent contributor, whether helping us in triage, or often fixing bugs, or regularly improving our documentation, or regularly helping others in our #help channel, or participating in high-level design discussions and prioritization, you may find your life is more pleasant with commit access (also known as \"contributor access\", \"being a member of the flutter-hackers group\", \"being a member of the Flutter team\"). We grant commit access (which includes full rights to the issue database, such as being able to edit labels, and grants access to our internal chat channels) to people who have gained our trust and demonstrated a commitment to Flutter. Specifically, if you meet one of the following criteria and you have a sponsor (someone who already has contributor access and agrees that you should be granted access), then please ask your sponsor to propose, on the #server-support [Chat](Chat.md) channel, that you be made a member of the team, and then reply to that message explaining which criteria below you are claiming to meet.<br />",
+        "Criteria for Access#1": "The possible criteria are:<br />- You have a long history of participating productively, e.g. in our [Chat](Chat.md) channels, helping with [Triage](../triage/README.md), helping other contributors track down problems, finding meaningful issues in submitted PRs, helping people in our #help channel, etc, all while demonstrating exemplary behavior that closely aligns with our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md).<br />- You have recently submitted several PRs that have landed successfully (received an LGTM, PR was merged, no regressions reported, PR was not reverted), without needing extensive tutoring in the process.<br />- You are employed by a company with a history of contributing to Flutter, for the purpose of yourself regularly contributing to Flutter.<br />- You represent a development team that creates applications, plugins, or packages using Flutter and have a close relationship with our developer relations team, including having a customer label, and have a great need to regularly update labels on issues (see [Issue hygiene, Customers](./issue_hygiene/README.md#customers)). (This is rare.)<br />Being granted access means that you will be added to the \"flutter-hackers\" group on GitHub and the \"team\" role on Discord. This privilege is granted with some expectation of responsibility: contributors are people who care about Flutter and want to help Flutter along our [roadmap](../roadmap/Roadmap.md). A contributor is not just someone who can make changes or comment on issues, but someone who has demonstrated their ability to collaborate with the team, get the most knowledgeable people to review code, contribute high-quality code, follow through to fix bugs (in code or tests), and provide meaningful insights on issues. We grant access optimistically based on a reasonably small volume of evidence of good faith. Correspondingly, we will remove access quickly if we find our trust has been violated. Contributors with commit access must still follow all our processes and policies, and must follow our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) rigorously. (Please read it, it's stricter than most.)<br />",
+        "Responsibilities and Code of Conduct#1": "If you have commit access or \"team\" access on the Discord server, you are responsible for enforcing our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md). Our code of conduct is much, much stricter than most. We do not wait until someone has been actively rude or insulting. Being disrespectful in any way is grounds for action. For example, passive-aggressive whining and general unconstructive negativity are all violations of the code of conduct. If someone is in a bad mood, we would rather they avoided contributing to Flutter on that day. When you see something that might be described as unwelcoming or is in some other way a violation of our code of conduct, promptly contact the offender and ask them to read the code of conduct and consider how they might more effectively espouse its philosophy. Most people react very positively to this. If they react negatively, or if they continue to make the environment unpleasant, they should be removed from the environment. On Discord, this would be kicking them from the channel. Repeat offenders should be banned. On GitHub, they can be blocked from our organisation (you may need to ask @Hixie or another admin of our GitHub org to do this). Please let the #server-support [Chat](Chat.md) channel know when you do anything like this, so that we can keep an eye on how common it is.<br />",
+        "Maintaining Documentation#1": "Part of being a contributor is making sure our documentation is up to date, including our internal (team-facing) documentation such as this wiki. If you spot something wrong, please fix it! As a contributor, you have access to the wiki.<br />",
+        "Privileges#1": "Being in the GitHub \"flutter-hackers\" group gives you the following:<br />- The ability to merge your own PRs once they are reviewed (see [Tree Hygiene](Tree-hygiene.md)).<br />- The ability to add labels, milestones, etc, on issues on GitHub (see [Issue Hygiene](./issue_hygiene/README.md)).<br />- PRs will run their tests slightly faster.<br />Being in the Discord \"team\" group gives you the following:<br />- The ability to talk without rate-limiting on the #hackers-* channels.<br />- The ability to kick people.<br />- The ability to manage the server emoji.<br />",
+        "Process#1": "The actual process (as followed by Flutter repo admins) is as follows:<br />- Verify that they qualify under all the terms described above. Make sure they have a sponsor who isn't you.<br />- Verify the identity of the person making the request. Ask them to confirm, on Discord, that they have read the style guide, issue or tree hygiene wiki page, code of conduct, and other documents relevant to them.<br />- Add them to our private spreadsheet (go/flutter-organization-members).<br />- Click the \"Add a member\" button on [the flutter-hackers team page](https://github.com/orgs/flutter/teams/flutter-hackers/members) on GitHub.<br />- Type their name in the text field, select them, then click the \"Invite\" button.<br />- Add them to the \"team\" group on Discord. Be sure to verify that you are promoting the right person; multiple people can have the same nickname on Discord!<br />For new Googlers joining the team: You need to ask someone in the team to add you to get added. It's not an automatic process after you join the flutter Google group.<br />Inactivity We occasionally check for account with commit access that have not been used for a while. It takes very little to count as \"active\" (e.g. commenting on an issue, even adding an emoji reaction to an issue). If your account has been inactive for over a year we will try to reach out (e.g. by e-mail or on Discord) before removing access. If your account access was removed but you wish to return to contributing to Flutter, you are most welcome to do so; just reach out on the Discord (see [Chat](Chat.md)) and ask someone to renominate you according to the process described above.<br />",
+        "Access Rights#1": "The [Flutter dashboard](https://flutter-dashboard.appspot.com/) shows what recently landed and what tests passed or failed with those commits. To see rerun tasks, you need to be added to an allowlist. Anyone with commit access is eligible to be added to that allowlist, but only certain team members have the permissions required to update the backend database where the permissions are stored. To get access, ask on #hackers-infra to be added to the allowlist.<br />Adding a contributor to Flutter Dashboard This is only for team members with access to the Flutter Dashboard Datastore.<br />- Open [flutter-dashboard datastore](https://console.cloud.google.com/datastore/entities;kind=AllowedAccount;ns=__$DEFAULT$__/query/kind?project=flutter-dashboard)<br />- Click `Create Entity`<br />- Click `Email: Empty` -> Edit property. Insert contributor Google account<br />- Click `Create`<br />Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs. Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)<br />Access to Flutter Gold If you need access to triage images in [Flutter Gold](https://flutter-gold.skia.org/), you need to be added as an authorized user. Users in the `@google.com` domain are already authorized to use Flutter Gold, but `@gmail.com` addresses can also be added to the allow list.<br />",
+        "Review Teams#1": "Some parts of the codebase have teams specified so that PRs get round-robin assigned for review. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). We currently have the following review teams:<br />- [android-reviewers](https://github.com/orgs/flutter/teams/android-reviewers): for folks working on the Android port of Flutter; use `#hackers-android` for discussions.<br />- [devtools-reviewers](https://github.com/orgs/flutter/teams/devtools-reviewers): for the [devtools](https://github.com/flutter/devtools) repo; use `#hackers-devexp` for discussions.<br />- [website-reviewers](https://github.com/orgs/flutter/teams/website-reviewers): for folks working on [www.flutter.dev](http://www.flutter.dev) and docs.flutter.dev; use `#hackers-devrel` for discussions.<br />To create a new team, contact @Hixie. You will also need to create a `CODEOWNERS` file to actually trigger the review assignment.<br />Pusher permissions Some branches are protected to avoid accidents. Only people in the specific branches can push to them. Anyone can ask to be added or removed from these groups, they exist only to reduce accidents, not for security. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). The following groups have been defined for these purposes: pushers-beta, pushers-fuchsia<br />",
+        "Discord Communication#1#1#1#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1#1#1#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1#1#1#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1#1#1#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1#1#1#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1#1#1#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Code of Conduct#2": "**Code of Conduct**<br />The Flutter project expects Flutter's contributors to act professionally and respectfully. Flutter contributors are expected to maintain the safety and dignity of Flutter's social environments (such as GitHub and Discord).<br /><br />Specifically:<br />- Respect people, their identities, their culture, and their work.<br />- Be kind. Be courteous. Be welcoming.<br />- Listen. Consider and acknowledge people's points before responding.<br /><br />Should you experience anything that makes you feel unwelcome in Flutter's community, please contact [conduct@flutter.dev](mailto:conduct@flutter.dev) or, if you prefer, directly contact someone on the project, for instance [Hixie](mailto:ian@hixie.ch).<br /><br />The Flutter project will not tolerate harassment in Flutter's community, even outside of Flutter's public communication channels.",
+        "Conflict Resolution#1": "**Conflict Resolution**<br />When multiple contributors disagree on the direction for a particular patch or the general direction of the project, the conflict should be resolved by communication. The people who disagree should get together, try to understand each other's points of view, and work to find a design that addresses everyone's concerns. This is usually sufficient to resolve issues.<br /><br />If you cannot come to an agreement, ask for the advice of a more senior member of the project. Be wary of agreement by attrition, where one person argues a point repeatedly until other participants give up in the interests of moving on. This is not conflict resolution, as it does not address everyone's concerns. Be wary of agreement by compromise, where two good competing solutions are merged into one mediocre solution. A conflict is addressed when the participants agree that the final solution is better than all the conflicting proposals. Sometimes the solution is more work than either of the proposals. [Embrace the yak shave](./docs/contributing/Style-guide-for-Flutter-repo.md#lazy-programming).",
+        "Questions#1": "**Questions**<br />It's always ok to ask questions. Our systems are large, and nobody will be an expert in all the systems. Once you find the answer, document it in the first place you looked. That way, the next person will be brought up to speed even quicker.<br /><br />Source: [xkcd, May 2012](https://xkcd.com/1053/)",
+        "Discord Communication#1#1#1#1#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1#1#1#1#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1#1#1#1#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1#1#1#1#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1#1#1#1#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1#1#1#1#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Commit Access#1#1": "For people who make the occasional contribution to Flutter (filing an issue, submitting the occasional PR, chatting on Discord), the default set of permissions is fine. However, if you are a frequent contributor, whether helping us in triage, or often fixing bugs, or regularly improving our documentation, or regularly helping others in our #help channel, or participating in high-level design discussions and prioritization, you may find your life is more pleasant with commit access (also known as \"contributor access\", \"being a member of the flutter-hackers group\", \"being a member of the Flutter team\"). We grant commit access (which includes full rights to the issue database, such as being able to edit labels, and grants access to our internal chat channels) to people who have gained our trust and demonstrated a commitment to Flutter. Specifically, if you meet one of the following criteria and you have a sponsor (someone who already has contributor access and agrees that you should be granted access), then please ask your sponsor to propose, on the #server-support [Chat](Chat.md) channel, that you be made a member of the team, and then reply to that message explaining which criteria below you are claiming to meet.<br />",
+        "Criteria for Access#1#1": "The possible criteria are:<br />- You have a long history of participating productively, e.g. in our [Chat](Chat.md) channels, helping with [Triage](../triage/README.md), helping other contributors track down problems, finding meaningful issues in submitted PRs, helping people in our #help channel, etc, all while demonstrating exemplary behavior that closely aligns with our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md).<br />- You have recently submitted several PRs that have landed successfully (received an LGTM, PR was merged, no regressions reported, PR was not reverted), without needing extensive tutoring in the process.<br />- You are employed by a company with a history of contributing to Flutter, for the purpose of yourself regularly contributing to Flutter.<br />- You represent a development team that creates applications, plugins, or packages using Flutter and have a close relationship with our developer relations team, including having a customer label, and have a great need to regularly update labels on issues (see [Issue hygiene, Customers](./issue_hygiene/README.md#customers)). (This is rare.)<br />Being granted access means that you will be added to the \"flutter-hackers\" group on GitHub and the \"team\" role on Discord. This privilege is granted with some expectation of responsibility: contributors are people who care about Flutter and want to help Flutter along our [roadmap](../roadmap/Roadmap.md). A contributor is not just someone who can make changes or comment on issues, but someone who has demonstrated their ability to collaborate with the team, get the most knowledgeable people to review code, contribute high-quality code, follow through to fix bugs (in code or tests), and provide meaningful insights on issues. We grant access optimistically based on a reasonably small volume of evidence of good faith. Correspondingly, we will remove access quickly if we find our trust has been violated. Contributors with commit access must still follow all our processes and policies, and must follow our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) rigorously. (Please read it, it's stricter than most.)<br />",
+        "Responsibilities and Code of Conduct#1#1": "If you have commit access or \"team\" access on the Discord server, you are responsible for enforcing our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md). Our code of conduct is much, much stricter than most. We do not wait until someone has been actively rude or insulting. Being disrespectful in any way is grounds for action. For example, passive-aggressive whining and general unconstructive negativity are all violations of the code of conduct. If someone is in a bad mood, we would rather they avoided contributing to Flutter on that day. When you see something that might be described as unwelcoming or is in some other way a violation of our code of conduct, promptly contact the offender and ask them to read the code of conduct and consider how they might more effectively espouse its philosophy. Most people react very positively to this. If they react negatively, or if they continue to make the environment unpleasant, they should be removed from the environment. On Discord, this would be kicking them from the channel. Repeat offenders should be banned. On GitHub, they can be blocked from our organisation (you may need to ask @Hixie or another admin of our GitHub org to do this). Please let the #server-support [Chat](Chat.md) channel know when you do anything like this, so that we can keep an eye on how common it is.<br />",
+        "Maintaining Documentation#1#1": "Part of being a contributor is making sure our documentation is up to date, including our internal (team-facing) documentation such as this wiki. If you spot something wrong, please fix it! As a contributor, you have access to the wiki.<br />",
+        "Privileges#1#1": "Being in the GitHub \"flutter-hackers\" group gives you the following:<br />- The ability to merge your own PRs once they are reviewed (see [Tree Hygiene](Tree-hygiene.md)).<br />- The ability to add labels, milestones, etc, on issues on GitHub (see [Issue Hygiene](./issue_hygiene/README.md)).<br />- PRs will run their tests slightly faster.<br />Being in the Discord \"team\" group gives you the following:<br />- The ability to talk without rate-limiting on the #hackers-* channels.<br />- The ability to kick people.<br />- The ability to manage the server emoji.<br />",
+        "Process#1#1": "The actual process (as followed by Flutter repo admins) is as follows:<br />- Verify that they qualify under all the terms described above. Make sure they have a sponsor who isn't you.<br />- Verify the identity of the person making the request. Ask them to confirm, on Discord, that they have read the style guide, issue or tree hygiene wiki page, code of conduct, and other documents relevant to them.<br />- Add them to our private spreadsheet (go/flutter-organization-members).<br />- Click the \"Add a member\" button on [the flutter-hackers team page](https://github.com/orgs/flutter/teams/flutter-hackers/members) on GitHub.<br />- Type their name in the text field, select them, then click the \"Invite\" button.<br />- Add them to the \"team\" group on Discord. Be sure to verify that you are promoting the right person; multiple people can have the same nickname on Discord!<br />For new Googlers joining the team: You need to ask someone in the team to add you to get added. It's not an automatic process after you join the flutter Google group.<br />Inactivity We occasionally check for account with commit access that have not been used for a while. It takes very little to count as \"active\" (e.g. commenting on an issue, even adding an emoji reaction to an issue). If your account has been inactive for over a year we will try to reach out (e.g. by e-mail or on Discord) before removing access. If your account access was removed but you wish to return to contributing to Flutter, you are most welcome to do so; just reach out on the Discord (see [Chat](Chat.md)) and ask someone to renominate you according to the process described above.<br />",
+        "Access Rights#1#1": "The [Flutter dashboard](https://flutter-dashboard.appspot.com/) shows what recently landed and what tests passed or failed with those commits. To see rerun tasks, you need to be added to an allowlist. Anyone with commit access is eligible to be added to that allowlist, but only certain team members have the permissions required to update the backend database where the permissions are stored. To get access, ask on #hackers-infra to be added to the allowlist.<br />Adding a contributor to Flutter Dashboard This is only for team members with access to the Flutter Dashboard Datastore.<br />- Open [flutter-dashboard datastore](https://console.cloud.google.com/datastore/entities;kind=AllowedAccount;ns=__$DEFAULT$__/query/kind?project=flutter-dashboard)<br />- Click `Create Entity`<br />- Click `Email: Empty` -> Edit property. Insert contributor Google account<br />- Click `Create`<br />Access to LUCI recipes and configuration repositories If you need access to the LUCI recipes, you need to be added to the relevant ACLs. Ask in #hackers-infra to be added to the LUCI ACLs. Process A Googler has to be the one to grant permission. Documentation on how to use the relevant tools is available at: [https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl](https://goto.google.com/gob-ctl#add-or-remove-users-in-host-acl)<br />Access to Flutter Gold If you need access to triage images in [Flutter Gold](https://flutter-gold.skia.org/), you need to be added as an authorized user. Users in the `@google.com` domain are already authorized to use Flutter Gold, but `@gmail.com` addresses can also be added to the allow list.<br />",
+        "Review Teams#1#1": "Some parts of the codebase have teams specified so that PRs get round-robin assigned for review. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). We currently have the following review teams:<br />- [android-reviewers](https://github.com/orgs/flutter/teams/android-reviewers): for folks working on the Android port of Flutter; use `#hackers-android` for discussions.<br />- [devtools-reviewers](https://github.com/orgs/flutter/teams/devtools-reviewers): for the [devtools](https://github.com/flutter/devtools) repo; use `#hackers-devexp` for discussions.<br />- [website-reviewers](https://github.com/orgs/flutter/teams/website-reviewers): for folks working on [www.flutter.dev](http://www.flutter.dev) and docs.flutter.dev; use `#hackers-devrel` for discussions.<br />To create a new team, contact @Hixie. You will also need to create a `CODEOWNERS` file to actually trigger the review assignment.<br />Pusher permissions Some branches are protected to avoid accidents. Only people in the specific branches can push to them. Anyone can ask to be added or removed from these groups, they exist only to reduce accidents, not for security. To join one of these teams, request members be added/deleted, or change any settings, ping @Hixie on Discord. Members must be a member of the Flutter Hackers group (as documented at the top of this page). The following groups have been defined for these purposes: pushers-beta, pushers-fuchsia<br />",
+        "Code of Conduct#2#1": "**Code of Conduct**<br />The Flutter project expects Flutter's contributors to act professionally and respectfully. Flutter contributors are expected to maintain the safety and dignity of Flutter's social environments (such as GitHub and Discord).<br /><br />Specifically:<br />- Respect people, their identities, their culture, and their work.<br />- Be kind. Be courteous. Be welcoming.<br />- Listen. Consider and acknowledge people's points before responding.<br /><br />Should you experience anything that makes you feel unwelcome in Flutter's community, please contact [conduct@flutter.dev](mailto:conduct@flutter.dev) or, if you prefer, directly contact someone on the project, for instance [Hixie](mailto:ian@hixie.ch).<br /><br />The Flutter project will not tolerate harassment in Flutter's community, even outside of Flutter's public communication channels.",
+        "Conflict Resolution#1#1": "**Conflict Resolution**<br />When multiple contributors disagree on the direction for a particular patch or the general direction of the project, the conflict should be resolved by communication. The people who disagree should get together, try to understand each other's points of view, and work to find a design that addresses everyone's concerns. This is usually sufficient to resolve issues.<br /><br />If you cannot come to an agreement, ask for the advice of a more senior member of the project. Be wary of agreement by attrition, where one person argues a point repeatedly until other participants give up in the interests of moving on. This is not conflict resolution, as it does not address everyone's concerns. Be wary of agreement by compromise, where two good competing solutions are merged into one mediocre solution. A conflict is addressed when the participants agree that the final solution is better than all the conflicting proposals. Sometimes the solution is more work than either of the proposals. [Embrace the yak shave](./docs/contributing/Style-guide-for-Flutter-repo.md#lazy-programming).",
+        "Questions#1#1": "**Questions**<br />It's always ok to ask questions. Our systems are large, and nobody will be an expert in all the systems. Once you find the answer, document it in the first place you looked. That way, the next person will be brought up to speed even quicker.<br /><br />Source: [xkcd, May 2012](https://xkcd.com/1053/)",
+        "Discord Communication#1#1#1#1#1#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1#1#1#1#1#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1#1#1#1#1#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1#1#1#1#1#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1#1#1#1#1#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1#1#1#1#1#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />",
+        "Discord Communication#1#1#1#1#1#1#1": "The Flutter team uses a [Discord server](https://discord.com/channels/608014603317936148). [This is the invite link for Flutter's Discord server](https://discord.gg/ht477J5PyH). Please do not share either link directly, instead share links to this page. The server is open to the public, though some channels are intended only for people who are actively contributing. See the #welcome channel for instructions on posting to the server (you won't be able to see the channels until you acknowledge the rules there). We recommend you use the same display name on Discord and GitHub. (Our Flutter Discord server is unrelated to the [r/FlutterDev Discord server](https://www.reddit.com/r/FlutterDev/), which is where the r/FlutterDev community shares their apps, discusses Flutter, and so on. When in doubt, remember: our server has Dash as an icon!)<br />",
+        "Channel Overview#1#1#1#1#1#1#1": "We have different channels for different purposes (this list is not exhaustive):<br />**#welcome**: Welcome message. Only admins can post. Anyone can read.<br />**#announcements**: Flutter announcements (e.g. breaking changes). Only team members can post (but not frequently). Anyone can read.<br />**#server-support**: Forum for asking for your role to be changed, for code of conduct violations to be raised, and for other administrative issues. Anyone.<br />**#general**: Chat about anything related to Flutter. Anyone.<br />**#help**: People asking for our help. Anyone.<br />**#package-authors**: For people who develop Flutter packages. People writing packages for [pub.dev](https://pub.dev/).<br />**#dart**: Questions about the Dart language. Anyone.<br />**#tree-status**: Announcements about whether the trees are open or closed. Anyone, but discussion should happen elsewhere.<br />**#hackers**: Chat about anything related to Flutter. Flutter contributors. Anyone can watch.<br />**#hackers-*:** Chat specifically about foo, where foo is something to do with Flutter development, for example \"engine\", \"framework\", \"desktop\", \"devtools\", etc. Flutter contributors. Anyone can watch.<br />**#hackers-dart**: Questions about the Dart language. Flutter contributors. Anyone can watch.<br />**#hackers-new**: New people to the team and people who want to help them. Flutter contributors. Anyone can watch.<br />**#hackers-triage**: For use while triaging bugs. Flutter contributors. Anyone can watch.<br />**#hidden-chat**: Chat about anything related to Flutter. Flutter contributors only. Not public.<br />**general (voice)**: Talk (audio) about anything related to Flutter. Anyone.<br />**team (voice)**: Talk (audio) that is only open to team members. Flutter contributors. The #hidden-chat and #team channels are not publicly-readable, you have to be a member of the \"team member\" role to see them.<br />",
+        "Creating New Channels#1#1#1#1#1#1#1": "If you need a new channel, first just use #general or #hackers, or a thread in one of those channels; if the conversation lasts more than a day, ask for a channel in #server-support. If you find your team's channel is hard to follow due to having too many topics discussed at once, ask for a new channel, or use threads. If you would like a channel for subcommunities, e.g. #women or #china, that should be fine. (Subcommunities that are already overrepresented in the main channels, e.g. #english-speakers, are less likely to be good candidates for dedicated channels.) For practical reasons, we do not use Discord for chat groups limited to specific customers. For example, if your company wants a private discussion channel with the Flutter team, we would not use Discord. Each channel describes its topic in the channel description. Please read the channel description before posting in a channel, to make sure you're using the appropriate one.<br />",
+        "Community Policies#1#1#1#1#1#1#1": "Our [code of conduct](https://github.com/flutter/flutter/blob/main/CODE_OF_CONDUCT.md) applies to the Discord server, as it does to any communications involving Flutter. The #hackers-* channels are visible to anyone, but please only post in those channels if you are actively contributing. If you want help with your app, ask in #help instead. If you want to learn how to contribute, have a look at our [contributing guide](https://github.com/flutter/flutter/blob/main/CONTRIBUTING.md). See the [contributor access](Contributor-access.md) wiki page for details on becoming a member of the \"team\" role. Please don't direct-message people unless they are comfortable with it (ask publicly first). You can disable direct messages on this server by changing your Privacy settings for the server, or on a global basis by changing your Privacy & Safety user settings.<br />",
+        "Discord Features#1#1#1#1#1#1#1": "Discord has both actual threads (temporary new channels) and a threadingish feature called [Replies](https://support.discord.com/hc/en-us/articles/360057382374-Replies-FAQ) that lets you tie messages to earlier messages and notify the original commenter. You can [change your status](https://support.discord.com/hc/en-us/articles/360035407531-Custom-Status) (online, away, custom messages) by clicking on your avatar in Discord.<br />",
+        "Design Documents#1#1#1#1#1#1#1": "This page used to discuss how to create design docs, but that content is now on its own page: [Design documents](Design-Documents.md).<br />"
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Getting Started with Contributing"
+                },
+                {
+                    "source": "Getting Started with Contributing",
+                    "target": "Contributing to DevTools"
+                },
+                {
+                    "source": "Contributing to DevTools",
+                    "target": "Helping with Existing PRs"
+                },
+                {
+                    "source": "Getting Started with Contributing",
+                    "target": "Code of Conduct",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Code of Conduct",
+                    "target": "Conflict Resolution",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Conflict Resolution",
+                    "target": "Questions",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Getting Started with Contributing",
+                    "target": "Discord Communication",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication",
+                    "target": "Channel Overview",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview",
+                    "target": "Creating New Channels",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels",
+                    "target": "Community Policies",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies",
+                    "target": "Discord Features",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features",
+                    "target": "Design Documents",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Getting Started with Contributing",
+                    "target": "Commit Access",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Commit Access",
+                    "target": "Criteria for Access",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Criteria for Access",
+                    "target": "Responsibilities and Code of Conduct",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Responsibilities and Code of Conduct",
+                    "target": "Maintaining Documentation",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Maintaining Documentation",
+                    "target": "Privileges",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Privileges",
+                    "target": "Process",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Process",
+                    "target": "Access Rights",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Access Rights",
+                    "target": "Review Teams",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Contributing to DevTools",
+                    "target": "Joining the Community",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Joining the Community",
+                    "target": "Before Contributing Code",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Before Contributing Code",
+                    "target": "Setting Up Development Environment",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Setting Up Development Environment",
+                    "target": "Making Changes",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Making Changes",
+                    "target": "Creating a Pull Request",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Creating a Pull Request",
+                    "target": "Keeping Fork in Sync",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Keeping Fork in Sync",
+                    "target": "Running and Debugging DevTools",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Running and Debugging DevTools",
+                    "target": "Testing DevTools",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Testing DevTools",
+                    "target": "Connecting to a Test Application",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Connecting to a Test Application",
+                    "target": "Running DevTools on Flutter Desktop",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Running DevTools on Flutter Desktop",
+                    "target": "Enabling and Activating DCM",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                },
+                {
+                    "source": "Enabling and Activating DCM",
+                    "target": "Handling Third-Party Dependencies",
+                    "edge_label": "https://github.com/flutter/devtools/blob/master/CONTRIBUTING.md"
+                }
+            ],
+            "sequence": "CF \u2013 Contribution flow"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Releases"
+                },
+                {
+                    "source": "Releases",
+                    "target": "Social Events"
+                },
+                {
+                    "source": "Releases",
+                    "target": "Discord Communication#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1",
+                    "target": "Channel Overview#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1",
+                    "target": "Creating New Channels#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1",
+                    "target": "Community Policies#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1",
+                    "target": "Discord Features#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1",
+                    "target": "Design Documents#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Social Events",
+                    "target": "Discord Communication#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1#1",
+                    "target": "Channel Overview#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1#1",
+                    "target": "Creating New Channels#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1#1",
+                    "target": "Community Policies#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1#1",
+                    "target": "Discord Features#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1#1",
+                    "target": "Design Documents#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                }
+            ],
+            "sequence": "TC \u2013 Talk to the community"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Quality Assurance"
+                },
+                {
+                    "source": "Quality Assurance",
+                    "target": "Developing for Flutter"
+                },
+                {
+                    "source": "Quality Assurance",
+                    "target": "Discord Communication#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1#1#1",
+                    "target": "Channel Overview#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1#1#1",
+                    "target": "Creating New Channels#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1#1#1",
+                    "target": "Community Policies#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1#1#1",
+                    "target": "Discord Features#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1#1#1",
+                    "target": "Design Documents#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Developing for Flutter",
+                    "target": "DevTools Contribution Guide",
+                    "edge_label": "./docs/README.md"
+                },
+                {
+                    "source": "DevTools Contribution Guide",
+                    "target": "Getting Started",
+                    "edge_label": "./docs/README.md"
+                },
+                {
+                    "source": "Getting Started",
+                    "target": "Code of Conduct#1",
+                    "edge_label": "./docs/README.md"
+                },
+                {
+                    "source": "Code of Conduct#1",
+                    "target": "Reporting Issues",
+                    "edge_label": "./docs/README.md"
+                },
+                {
+                    "source": "Reporting Issues",
+                    "target": "Pull Requests",
+                    "edge_label": "./docs/README.md"
+                },
+                {
+                    "source": "Pull Requests",
+                    "target": "Community and Support",
+                    "edge_label": "./docs/README.md"
+                },
+                {
+                    "source": "Community and Support",
+                    "target": "Additional Resources",
+                    "edge_label": "./docs/README.md"
+                }
+            ],
+            "sequence": "SC \u2013 Submit the changes"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to flutter",
+                    "target": "Welcome"
+                },
+                {
+                    "source": "Welcome",
+                    "target": "Helping out in the issue database"
+                },
+                {
+                    "source": "Helping out in the issue database",
+                    "target": "Outreach"
+                },
+                {
+                    "source": "Outreach",
+                    "target": "API documentation"
+                },
+                {
+                    "source": "Welcome",
+                    "target": "Commit Access#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Commit Access#1",
+                    "target": "Criteria for Access#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Criteria for Access#1",
+                    "target": "Responsibilities and Code of Conduct#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Responsibilities and Code of Conduct#1",
+                    "target": "Maintaining Documentation#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Maintaining Documentation#1",
+                    "target": "Privileges#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Privileges#1",
+                    "target": "Process#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Process#1",
+                    "target": "Access Rights#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Access Rights#1",
+                    "target": "Review Teams#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Welcome",
+                    "target": "Discord Communication#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1#1#1#1",
+                    "target": "Channel Overview#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1#1#1#1",
+                    "target": "Creating New Channels#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1#1#1#1",
+                    "target": "Community Policies#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1#1#1#1",
+                    "target": "Discord Features#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1#1#1#1",
+                    "target": "Design Documents#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Welcome",
+                    "target": "Code of Conduct#2",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Code of Conduct#2",
+                    "target": "Conflict Resolution#1",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Conflict Resolution#1",
+                    "target": "Questions#1",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Helping out in the issue database",
+                    "target": "Discord Communication#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1#1#1#1#1",
+                    "target": "Channel Overview#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1#1#1#1#1",
+                    "target": "Creating New Channels#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1#1#1#1#1",
+                    "target": "Community Policies#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1#1#1#1#1",
+                    "target": "Discord Features#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1#1#1#1#1",
+                    "target": "Design Documents#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Helping out in the issue database",
+                    "target": "Commit Access#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Commit Access#1#1",
+                    "target": "Criteria for Access#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Criteria for Access#1#1",
+                    "target": "Responsibilities and Code of Conduct#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Responsibilities and Code of Conduct#1#1",
+                    "target": "Maintaining Documentation#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Maintaining Documentation#1#1",
+                    "target": "Privileges#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Privileges#1#1",
+                    "target": "Process#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Process#1#1",
+                    "target": "Access Rights#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Access Rights#1#1",
+                    "target": "Review Teams#1#1",
+                    "edge_label": "./docs/contributing/Contributor-access.md"
+                },
+                {
+                    "source": "Helping out in the issue database",
+                    "target": "Code of Conduct#2#1",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Code of Conduct#2#1",
+                    "target": "Conflict Resolution#1#1",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Conflict Resolution#1#1",
+                    "target": "Questions#1#1",
+                    "edge_label": "CODE_OF_CONDUCT.md"
+                },
+                {
+                    "source": "Outreach",
+                    "target": "Discord Communication#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1#1#1#1#1#1",
+                    "target": "Channel Overview#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1#1#1#1#1#1",
+                    "target": "Creating New Channels#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1#1#1#1#1#1",
+                    "target": "Community Policies#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1#1#1#1#1#1",
+                    "target": "Discord Features#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1#1#1#1#1#1",
+                    "target": "Design Documents#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "API documentation",
+                    "target": "Discord Communication#1#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Communication#1#1#1#1#1#1#1",
+                    "target": "Channel Overview#1#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Channel Overview#1#1#1#1#1#1#1",
+                    "target": "Creating New Channels#1#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Creating New Channels#1#1#1#1#1#1#1",
+                    "target": "Community Policies#1#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Community Policies#1#1#1#1#1#1#1",
+                    "target": "Discord Features#1#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                },
+                {
+                    "source": "Discord Features#1#1#1#1#1#1#1",
+                    "target": "Design Documents#1#1#1#1#1#1#1",
+                    "edge_label": "./docs/contributing/Chat.md"
+                }
+            ],
+            "sequence": "No categories identified."
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "content": {
+        "How to Contribute": "Thank you for considering contributing to Hypothetical Repo! Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview or you can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).<br /><br />- **Report Bugs**: Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.<br />- **Submit Enhancements**: Have a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project. Also, don't forget to look at the [templates](https://github.com/huggingface/transformers/tree/main/templates) for a feature request.<br />- **Pull Requests**: Review the guidelines for submitting your changes. Ensure your code is well-documented and adheres to our style guidelines.",
+        "Setup Guide": "To set up the project locally:<br />- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "How to Contribute"
+                }
+            ],
+            "sequence": "How to Contribute"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Setup Guide"
+                }
+            ],
+            "sequence": "Setup Guide"
+        }
+    ],
+    "links": {
+        "How to Contribute": [
+            "./README.md",
+            "https://github.com/Prashant528/ideal_documented_repo/tree/main/docs",
+            "https://github.com/huggingface/transformers/tree/main/templates"
+        ],
+        "Setup Guide": [
+            "./INSTALLATION_GUIDE.md"
+        ]
+    }
+}

@@ -4,6 +4,7 @@ import regex as re
 from datetime import datetime
 import json
 import os
+import tiktoken
 
 def download_file(owner, repo, file_path):
     # GitHub repository information. Example:
@@ -83,6 +84,33 @@ def modfify_json_for_ui(old_json, repo_name):
     return new_json
 
 
+def modify_json_for_ui_without_classifier(old_json, repo_name):
+    new_json = {"content": {}, "flow": []}
+
+    # Dictionary to keep track of occurrences of each step
+    step_counter = defaultdict(int)
+    step_rename_map = {}  # Maps old step names to new step names
+    step_rename_map['Parent Node'] = f'Contributing to {repo_name}'
+
+    updated_content = {}
+    for  topic, content in old_json.items():
+        step_counter[topic] += 1
+        new_step_name = f"{topic} #{step_counter[topic]}" if step_counter[topic] > 1 else topic
+        step_rename_map[topic] = new_step_name  # Update the map
+        updated_content[new_step_name] = content
+
+    # Add updated content to new_json
+    new_json["content"] = updated_content
+    # print(updated_content)
+    # Process flow edges
+    for topic, content in updated_content.items():
+        source = step_rename_map['Parent Node']
+        target = topic
+        # Add flow with updated edges and sequence name
+        new_json["flow"].append({"edges": [{"source": source, "target": target}], "sequence": target})
+    # print(new_json)
+    return new_json
+
 def add_links_to_json_from_content(data):
     #Extract links from each content topic
     links_dict = {}
@@ -104,14 +132,26 @@ def extract_links_from_markdown(markdown_text):
     return pattern.findall(markdown_text)
 
 
-def save_llm_output(json_output):
+def save_llm_output(json_output, file_prefix):
         now = datetime.now()
         current_directory = os.getcwd()
         # Format the date and time as a string
         formatted = now.strftime("%Y-%m-%d %H:%M:%S")
-        filename =  current_directory + '/static/llm_ouput/output2_' + formatted +'.json'
+        filename =  current_directory + '/static/llm_ouput/' + file_prefix + '_' + formatted +'.json'
         with open(filename, "w") as file:
             json.dump(json_output, file, indent=4)
+
+def exceeds_token_size(text, max_tokens):
+    '''
+    checks if the given text exceeds the given max_tokens number.
+    '''
+    encoding = tiktoken.encoding_for_model("gpt-4o")
+    tokens = encoding.encode(text)
+    if len(tokens) > max_tokens:
+        return True
+    else:
+        return False
+
 
 if __name__ == '__main__':
     print(download_file('flutter', 'flutter', 'CONTRIBUTING.md'))

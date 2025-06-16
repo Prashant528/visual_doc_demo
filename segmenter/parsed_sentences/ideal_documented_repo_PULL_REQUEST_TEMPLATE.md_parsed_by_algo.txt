@@ -1,3 +1,5 @@
+Pull Request Checklist
+--------
 -
 --------
 The title is descriptive and provides context about the changes.
@@ -14,5 +16,9 @@ Include any context or background that will help reviewers understand your contr
 Related Issues
 Link any relevant issues or feature requests here.
 --------
+For example:
+--------
 - Resolves #123
+--------
+- Related to #456
 --------

@@ -1,0 +1,14 @@
+{
+    "content": {
+        "Introduction": "How to Contribute Thank you for considering contributing to Hypothetical Repo!"
+    },
+    "flow": [
+        {
+            "edges": {
+                "source": "Contributing to ideal_documented_repo",
+                "target": "Introduction"
+            },
+            "sequence": "Introduction"
+        }
+    ]
+}

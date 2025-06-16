@@ -1,0 +1,60 @@
+{
+    "content": {
+        "Introduction": "### How to Contribute<br />Thank you for considering contributing to Hypothetical Repo!<br />Contributions help us grow and improve, and we appreciate your interest. Please go through [Readme](./README.md) to get the project overview.",
+        "Bug Reporting": "### Report Bugs<br />Found a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.",
+        "Feature Proposals": "### Submit Enhancements<br />Have a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project.",
+        "Code Contributions": "### Pull Requests<br />Review the guidelines for submitting your changes. Ensure your code is well-documented and adheres to our style guidelines.",
+        "Documentation Changes": "### Doc changes<br />You can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).",
+        "Setup Guide": "### Setup Guide<br />To set up the project locally:<br />- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Introduction"
+                },
+                {
+                    "source": "Introduction",
+                    "target": "Bug Reporting"
+                },
+                {
+                    "source": "Bug Reporting",
+                    "target": "Feature Proposals"
+                },
+                {
+                    "source": "Feature Proposals",
+                    "target": "Code Contributions"
+                },
+                {
+                    "source": "Code Contributions",
+                    "target": "Documentation Changes"
+                }
+            ],
+            "sequence": "No categories identified."
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Setup Guide"
+                }
+            ],
+            "sequence": "SC \u2013 Submit the changes"
+        }
+    ],
+    "links": {
+        "Introduction": [
+            "./README.md"
+        ],
+        "Bug Reporting": [],
+        "Feature Proposals": [],
+        "Code Contributions": [],
+        "Documentation Changes": [
+            "https://github.com/Prashant528/ideal_documented_repo/tree/main/docs"
+        ],
+        "Setup Guide": [
+            "./INSTALLATION_GUIDE.md"
+        ]
+    }
+}

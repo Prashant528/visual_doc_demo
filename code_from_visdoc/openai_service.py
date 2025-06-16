@@ -97,8 +97,8 @@ class OpenAIService:
         flow_and_contents ={}
         for segment_class, all_segments in segregated_segments.items():
             print(f"{segment_class}: {len(all_segments)}")
-            segment_prompt = self.get_prompt_for_segmentclass(segment_class, prompt_for_llm)
-            full_prompt_with_segments = self.add_segments_to_prompt(segment_prompt, all_segments)
+            segment_prompt = copy.deepcopy(self.get_prompt_for_segmentclass(segment_class, prompt_for_llm))
+            full_prompt_with_segments = copy.deepcopy(self.add_segments_to_prompt(segment_prompt, all_segments))
             # print(full_prompt_with_segments)
             # with open('segments_before_llm.txt', "a") as file:
             #     for segment in all_segments:
@@ -115,6 +115,35 @@ class OpenAIService:
         with open(filename, "w") as file:
             json.dump(flow_and_contents, file, indent=4)
         return flow_and_contents
+    
+
+    def find_topics_and_flow_for_segments_without_classifier(self, segments, prompt_for_llm):
+        '''
+            Returns a JSON with {topic: content} for all of the segments.
+        '''
+        print(f"Started finding topics for segments without classifier. ")
+        #Segments has segments for multiple files but I need it for just the first file.
+        actual_segments = segments[0][0]
+        print(f"No of segments = : {len(actual_segments)}")
+
+        #Finding topics for all segments at once. 
+        topic_finding_prompt = copy.deepcopy(self.fetch_prompt(prompt_for_llm))
+        full_prompt_with_segments = copy.deepcopy(self.add_segments_to_prompt(topic_finding_prompt, actual_segments))
+        # print(full_prompt_with_segments)
+        # with open('segments_before_llm.txt', "a") as file:
+        #     for segment in all_segments:
+        #         file.write(segment)
+        #         file.write("\n----------------------\n")
+        llm_result = parse_openai_single_json(self.get_llm_response_json(full_prompt_with_segments))
+        print(f"Completed finding topics...")
+        now = datetime.now()
+        current_directory = os.getcwd()
+        # Format the date and time as a string
+        formatted = now.strftime("%Y-%m-%d %H:%M:%S")
+        filename =  current_directory + '/static/llm_ouput/1st_layer_without_class' + formatted +'.json'
+        with open(filename, "w") as file:
+            json.dump(llm_result, file, indent=4)
+        return llm_result
     
     def add_document_to_prompt(self, prompt_for_cleaning, document):
         with open(document, "r") as file:

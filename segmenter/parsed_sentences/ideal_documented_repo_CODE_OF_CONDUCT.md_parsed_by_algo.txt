@@ -4,6 +4,8 @@ We are committed to maintaining a respectful and inclusive community.
 --------
 By participating, you agree to uphold the principles outlined here to ensure a positive experience for everyone.
 --------
+Expected Behavior
+--------
 -
 --------
 Be respectful to all participants and their contributions.

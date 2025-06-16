@@ -1,0 +1,56 @@
+{
+    "content": {
+        "Setup Guide": "### Setup Guide<br />To set up the project locally:<br />- Follow the [Installation Guide](./INSTALLATION_GUIDE.md) to install dependencies and set up your environment.<br />- Make your changes and test locally to ensure they work as intended.<br />- Submit your pull request with a detailed description of your changes.",
+        "Introduction": "# How to Contribute\nThank you for considering contributing to Hypothetical Repo!<br />Contributions help us grow and improve, and we appreciate your interest.<br />Please go through [Readme](./README.md) to get the project overview.",
+        "Reporting Bugs": "## Report Bugs\nFound a bug? Create an issue with details such as steps to reproduce, expected behavior, and any relevant screenshots or logs.",
+        "Submitting Enhancements": "## Submit Enhancements\nHave a feature idea? Propose it in an issue. Be sure to explain the problem it solves and how it improves the project.",
+        "Pull Requests": "## Pull Requests\nReview the [Pull Request Template](./PULL_REQUEST_TEMPLATE.md) for submitting your changes.<br />Ensure your code is well-documented and adheres to our style guidelines.",
+        "Documentation Changes": "## Doc changes\nYou can make doc changes here [Docs](https://github.com/Prashant528/ideal_documented_repo/tree/main/docs).",
+        "Community Guidelines": "### Community Guidelines<br />Please adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) to maintain a welcoming community. This ensures a respectful and collaborative environment for everyone. You can also go through [Readme](./README.md) to get the project overview and how to communicate."
+    },
+    "flow": [
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Setup Guide"
+                }
+            ],
+            "sequence": "SC \u2013 Submit the changes"
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Introduction"
+                },
+                {
+                    "source": "Introduction",
+                    "target": "Reporting Bugs"
+                },
+                {
+                    "source": "Reporting Bugs",
+                    "target": "Submitting Enhancements"
+                },
+                {
+                    "source": "Submitting Enhancements",
+                    "target": "Pull Requests"
+                },
+                {
+                    "source": "Pull Requests",
+                    "target": "Documentation Changes"
+                }
+            ],
+            "sequence": "No categories identified."
+        },
+        {
+            "edges": [
+                {
+                    "source": "Contributing to ideal_documented_repo",
+                    "target": "Community Guidelines"
+                }
+            ],
+            "sequence": "TC \u2013 Talk to the community"
+        }
+    ]
+}
